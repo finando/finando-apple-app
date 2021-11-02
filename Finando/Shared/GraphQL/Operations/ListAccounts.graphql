@@ -1,0 +1,30 @@
+fragment BalanceFragment on Balance {
+  date
+  currency
+  cleared
+  uncleared
+  running
+}
+
+fragment AccountFragment on Account {
+  ... on BudgetAccount {
+    id
+    name
+    balance(to: $balanceToDate) {
+      ...BalanceFragment
+    }
+  }
+  ... on TrackingAccount {
+    id
+    name
+    balance(to: $balanceToDate) {
+      ...BalanceFragment
+    }
+  }
+}
+
+query ListAccounts($balanceToDate: DateTime!) {
+  accounts: listAccounts {
+    ...AccountFragment
+  }
+}
