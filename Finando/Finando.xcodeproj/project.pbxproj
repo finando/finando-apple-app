@@ -1,0 +1,969 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A52C26F327258A7200C35AB7 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C26F227258A7200C35AB7 /* Tests_iOS.swift */; };
+		A52C26F527258A7200C35AB7 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C26F427258A7200C35AB7 /* Tests_iOSLaunchTests.swift */; };
+		A52C26FF27258A7200C35AB7 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C26FE27258A7200C35AB7 /* Tests_macOS.swift */; };
+		A52C270127258A7200C35AB7 /* Tests_macOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C270027258A7200C35AB7 /* Tests_macOSLaunchTests.swift */; };
+		A52C270227258A7200C35AB7 /* FinandoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C26DA27258A7100C35AB7 /* FinandoApp.swift */; };
+		A52C270327258A7200C35AB7 /* FinandoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C26DA27258A7100C35AB7 /* FinandoApp.swift */; };
+		A52C270427258A7200C35AB7 /* AccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C26DB27258A7100C35AB7 /* AccountsView.swift */; };
+		A52C270527258A7200C35AB7 /* AccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C26DB27258A7100C35AB7 /* AccountsView.swift */; };
+		A52C270627258A7200C35AB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A52C26DC27258A7200C35AB7 /* Assets.xcassets */; };
+		A52C270727258A7200C35AB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A52C26DC27258A7200C35AB7 /* Assets.xcassets */; };
+		A57DB503272C8D0E0055827F /* BudgetAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB502272C8D0E0055827F /* BudgetAccount.swift */; };
+		A57DB504272C8D0E0055827F /* BudgetAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB502272C8D0E0055827F /* BudgetAccount.swift */; };
+		A57DB506272C8DD60055827F /* AccountsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB505272C8DD60055827F /* AccountsViewModel.swift */; };
+		A57DB507272C8DD60055827F /* AccountsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB505272C8DD60055827F /* AccountsViewModel.swift */; };
+		A57DB509272C9F1F0055827F /* TrackingAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB508272C9F1F0055827F /* TrackingAccount.swift */; };
+		A57DB50A272C9F1F0055827F /* TrackingAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB508272C9F1F0055827F /* TrackingAccount.swift */; };
+		A57DB510272CA3080055827F /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB50F272CA3080055827F /* Account.swift */; };
+		A57DB511272CA3080055827F /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB50F272CA3080055827F /* Account.swift */; };
+		A57DB513272CB5650055827F /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB512272CB5650055827F /* AccountView.swift */; };
+		A57DB514272CB5650055827F /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB512272CB5650055827F /* AccountView.swift */; };
+		A57DB516272D7A9C0055827F /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB515272D7A9C0055827F /* Balance.swift */; };
+		A57DB517272D7A9C0055827F /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB515272D7A9C0055827F /* Balance.swift */; };
+		A57DB519272D7D120055827F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB518272D7D120055827F /* API.swift */; };
+		A57DB51A272D7D120055827F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB518272D7D120055827F /* API.swift */; };
+		A57DB51C272D81C00055827F /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB51B272D81C00055827F /* AccountViewModel.swift */; };
+		A57DB51D272D81C00055827F /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB51B272D81C00055827F /* AccountViewModel.swift */; };
+		A57DB51F272D82AC0055827F /* GetAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A57DB51E272D82AC0055827F /* GetAccount.graphql */; };
+		A57DB520272D82AC0055827F /* GetAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A57DB51E272D82AC0055827F /* GetAccount.graphql */; };
+		A57DB523272DC54F0055827F /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB522272DC54F0055827F /* DateUtils.swift */; };
+		A57DB524272DC54F0055827F /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB522272DC54F0055827F /* DateUtils.swift */; };
+		A57DB526272F40A10055827F /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB525272F40A00055827F /* RootView.swift */; };
+		A57DB527272F40A10055827F /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB525272F40A00055827F /* RootView.swift */; };
+		A57DB529272F40ED0055827F /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB528272F40ED0055827F /* HeaderView.swift */; };
+		A57DB52A272F40ED0055827F /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB528272F40ED0055827F /* HeaderView.swift */; };
+		A57DB52C272F4A290055827F /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB52B272F4A290055827F /* SideMenuView.swift */; };
+		A57DB52D272F4A290055827F /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB52B272F4A290055827F /* SideMenuView.swift */; };
+		A57DB52F272F5CEF0055827F /* SideMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB52E272F5CEF0055827F /* SideMenuItem.swift */; };
+		A57DB530272F5CEF0055827F /* SideMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB52E272F5CEF0055827F /* SideMenuItem.swift */; };
+		A580FB222725A11900DAD317 /* ListAccounts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A580FB212725A11900DAD317 /* ListAccounts.graphql */; };
+		A580FB232725A11900DAD317 /* ListAccounts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A580FB212725A11900DAD317 /* ListAccounts.graphql */; };
+		A580FB252725A31A00DAD317 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = A580FB242725A31A00DAD317 /* schema.json */; };
+		A580FB262725A31A00DAD317 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = A580FB242725A31A00DAD317 /* schema.json */; };
+		A580FB312725A52400DAD317 /* ApolloClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580FB302725A52400DAD317 /* ApolloClient.swift */; };
+		A580FB322725A52400DAD317 /* ApolloClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580FB302725A52400DAD317 /* ApolloClient.swift */; };
+		A580FB722725AD5D00DAD317 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = A580FB712725AD5D00DAD317 /* Apollo */; };
+		A580FB742725AD7B00DAD317 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = A580FB732725AD7B00DAD317 /* Apollo */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A52C26EF27258A7200C35AB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A52C26D527258A7000C35AB7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A52C26E027258A7200C35AB7;
+			remoteInfo = "Finando (iOS)";
+		};
+		A52C26FB27258A7200C35AB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A52C26D527258A7000C35AB7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A52C26E627258A7200C35AB7;
+			remoteInfo = "Finando (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A52C26DA27258A7100C35AB7 /* FinandoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinandoApp.swift; sourceTree = "<group>"; };
+		A52C26DB27258A7100C35AB7 /* AccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsView.swift; sourceTree = "<group>"; tabWidth = 4; wrapsLines = 0; };
+		A52C26DC27258A7200C35AB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A52C26E127258A7200C35AB7 /* Finando.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finando.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A52C26E727258A7200C35AB7 /* Finando.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finando.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A52C26E927258A7200C35AB7 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		A52C26EE27258A7200C35AB7 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A52C26F227258A7200C35AB7 /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
+		A52C26F427258A7200C35AB7 /* Tests_iOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOSLaunchTests.swift; sourceTree = "<group>"; };
+		A52C26FA27258A7200C35AB7 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A52C26FE27258A7200C35AB7 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
+		A52C270027258A7200C35AB7 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		A57DB502272C8D0E0055827F /* BudgetAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetAccount.swift; sourceTree = "<group>"; };
+		A57DB505272C8DD60055827F /* AccountsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewModel.swift; sourceTree = "<group>"; };
+		A57DB508272C9F1F0055827F /* TrackingAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingAccount.swift; sourceTree = "<group>"; };
+		A57DB50F272CA3080055827F /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		A57DB512272CB5650055827F /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		A57DB515272D7A9C0055827F /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
+		A57DB518272D7D120055827F /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		A57DB51B272D81C00055827F /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		A57DB51E272D82AC0055827F /* GetAccount.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetAccount.graphql; sourceTree = "<group>"; };
+		A57DB522272DC54F0055827F /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		A57DB525272F40A00055827F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		A57DB528272F40ED0055827F /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		A57DB52B272F4A290055827F /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		A57DB52E272F5CEF0055827F /* SideMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuItem.swift; sourceTree = "<group>"; };
+		A580FB212725A11900DAD317 /* ListAccounts.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = ListAccounts.graphql; sourceTree = "<group>"; };
+		A580FB242725A31A00DAD317 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
+		A580FB302725A52400DAD317 /* ApolloClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloClient.swift; sourceTree = "<group>"; };
+		A580FB752725BDC200DAD317 /* Finando--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Finando--macOS--Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A52C26DE27258A7200C35AB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A580FB742725AD7B00DAD317 /* Apollo in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52C26E427258A7200C35AB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A580FB722725AD5D00DAD317 /* Apollo in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52C26EB27258A7200C35AB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52C26F727258A7200C35AB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A52C26D427258A7000C35AB7 = {
+			isa = PBXGroup;
+			children = (
+				A580FB752725BDC200DAD317 /* Finando--macOS--Info.plist */,
+				A52C26D927258A7100C35AB7 /* Shared */,
+				A52C26E827258A7200C35AB7 /* macOS */,
+				A52C26F127258A7200C35AB7 /* Tests iOS */,
+				A52C26FD27258A7200C35AB7 /* Tests macOS */,
+				A52C26E227258A7200C35AB7 /* Products */,
+				A580FB702725AD5D00DAD317 /* Frameworks */,
+			);
+			indentWidth = 4;
+			sourceTree = "<group>";
+			tabWidth = 4;
+			wrapsLines = 1;
+		};
+		A52C26D927258A7100C35AB7 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				A57DB521272DC53D0055827F /* Utils */,
+				A580FB762725DD2D00DAD317 /* ViewModels */,
+				A580FB1A27259E0300DAD317 /* GraphQL */,
+				A52C271727258CCB00C35AB7 /* Models */,
+				A52C271627258CA600C35AB7 /* Views */,
+				A52C26DA27258A7100C35AB7 /* FinandoApp.swift */,
+				A52C26DC27258A7200C35AB7 /* Assets.xcassets */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		A52C26E227258A7200C35AB7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A52C26E127258A7200C35AB7 /* Finando.app */,
+				A52C26E727258A7200C35AB7 /* Finando.app */,
+				A52C26EE27258A7200C35AB7 /* Tests iOS.xctest */,
+				A52C26FA27258A7200C35AB7 /* Tests macOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A52C26E827258A7200C35AB7 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				A52C26E927258A7200C35AB7 /* macOS.entitlements */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		A52C26F127258A7200C35AB7 /* Tests iOS */ = {
+			isa = PBXGroup;
+			children = (
+				A52C26F227258A7200C35AB7 /* Tests_iOS.swift */,
+				A52C26F427258A7200C35AB7 /* Tests_iOSLaunchTests.swift */,
+			);
+			path = "Tests iOS";
+			sourceTree = "<group>";
+		};
+		A52C26FD27258A7200C35AB7 /* Tests macOS */ = {
+			isa = PBXGroup;
+			children = (
+				A52C26FE27258A7200C35AB7 /* Tests_macOS.swift */,
+				A52C270027258A7200C35AB7 /* Tests_macOSLaunchTests.swift */,
+			);
+			path = "Tests macOS";
+			sourceTree = "<group>";
+		};
+		A52C271627258CA600C35AB7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A52C26DB27258A7100C35AB7 /* AccountsView.swift */,
+				A57DB512272CB5650055827F /* AccountView.swift */,
+				A57DB525272F40A00055827F /* RootView.swift */,
+				A57DB528272F40ED0055827F /* HeaderView.swift */,
+				A57DB52B272F4A290055827F /* SideMenuView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A52C271727258CCB00C35AB7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A57DB502272C8D0E0055827F /* BudgetAccount.swift */,
+				A57DB508272C9F1F0055827F /* TrackingAccount.swift */,
+				A57DB50F272CA3080055827F /* Account.swift */,
+				A57DB515272D7A9C0055827F /* Balance.swift */,
+				A57DB52E272F5CEF0055827F /* SideMenuItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A57DB521272DC53D0055827F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A57DB522272DC54F0055827F /* DateUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A580FB1A27259E0300DAD317 /* GraphQL */ = {
+			isa = PBXGroup;
+			children = (
+				A57DB518272D7D120055827F /* API.swift */,
+				A580FB242725A31A00DAD317 /* schema.json */,
+				A580FB1D27259F7000DAD317 /* Operations */,
+				A580FB302725A52400DAD317 /* ApolloClient.swift */,
+			);
+			path = GraphQL;
+			sourceTree = "<group>";
+		};
+		A580FB1D27259F7000DAD317 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				A580FB212725A11900DAD317 /* ListAccounts.graphql */,
+				A57DB51E272D82AC0055827F /* GetAccount.graphql */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		A580FB702725AD5D00DAD317 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A580FB762725DD2D00DAD317 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A57DB505272C8DD60055827F /* AccountsViewModel.swift */,
+				A57DB51B272D81C00055827F /* AccountViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A52C26E027258A7200C35AB7 /* Finando (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A52C270A27258A7200C35AB7 /* Build configuration list for PBXNativeTarget "Finando (iOS)" */;
+			buildPhases = (
+				A580FB1B27259EAB00DAD317 /* Generate Apollo GraphQL API */,
+				A52C26DD27258A7200C35AB7 /* Sources */,
+				A52C26DE27258A7200C35AB7 /* Frameworks */,
+				A52C26DF27258A7200C35AB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Finando (iOS)";
+			packageProductDependencies = (
+				A580FB732725AD7B00DAD317 /* Apollo */,
+			);
+			productName = "Finando (iOS)";
+			productReference = A52C26E127258A7200C35AB7 /* Finando.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A52C26E627258A7200C35AB7 /* Finando (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A52C270D27258A7200C35AB7 /* Build configuration list for PBXNativeTarget "Finando (macOS)" */;
+			buildPhases = (
+				A580FB1C27259F3200DAD317 /* Generate Apollo GraphQL API */,
+				A52C26E327258A7200C35AB7 /* Sources */,
+				A52C26E427258A7200C35AB7 /* Frameworks */,
+				A52C26E527258A7200C35AB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Finando (macOS)";
+			packageProductDependencies = (
+				A580FB712725AD5D00DAD317 /* Apollo */,
+			);
+			productName = "Finando (macOS)";
+			productReference = A52C26E727258A7200C35AB7 /* Finando.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A52C26ED27258A7200C35AB7 /* Tests iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A52C271027258A7200C35AB7 /* Build configuration list for PBXNativeTarget "Tests iOS" */;
+			buildPhases = (
+				A52C26EA27258A7200C35AB7 /* Sources */,
+				A52C26EB27258A7200C35AB7 /* Frameworks */,
+				A52C26EC27258A7200C35AB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A52C26F027258A7200C35AB7 /* PBXTargetDependency */,
+			);
+			name = "Tests iOS";
+			productName = "Tests iOS";
+			productReference = A52C26EE27258A7200C35AB7 /* Tests iOS.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		A52C26F927258A7200C35AB7 /* Tests macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A52C271327258A7200C35AB7 /* Build configuration list for PBXNativeTarget "Tests macOS" */;
+			buildPhases = (
+				A52C26F627258A7200C35AB7 /* Sources */,
+				A52C26F727258A7200C35AB7 /* Frameworks */,
+				A52C26F827258A7200C35AB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A52C26FC27258A7200C35AB7 /* PBXTargetDependency */,
+			);
+			name = "Tests macOS";
+			productName = "Tests macOS";
+			productReference = A52C26FA27258A7200C35AB7 /* Tests macOS.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A52C26D527258A7000C35AB7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					A52C26E027258A7200C35AB7 = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					A52C26E627258A7200C35AB7 = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					A52C26ED27258A7200C35AB7 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = A52C26E027258A7200C35AB7;
+					};
+					A52C26F927258A7200C35AB7 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = A52C26E627258A7200C35AB7;
+					};
+				};
+			};
+			buildConfigurationList = A52C26D827258A7000C35AB7 /* Build configuration list for PBXProject "Finando" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A52C26D427258A7000C35AB7;
+			packageReferences = (
+				A580FB452725AAEF00DAD317 /* XCRemoteSwiftPackageReference "apollo-ios" */,
+			);
+			productRefGroup = A52C26E227258A7200C35AB7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A52C26E027258A7200C35AB7 /* Finando (iOS) */,
+				A52C26E627258A7200C35AB7 /* Finando (macOS) */,
+				A52C26ED27258A7200C35AB7 /* Tests iOS */,
+				A52C26F927258A7200C35AB7 /* Tests macOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A52C26DF27258A7200C35AB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A57DB51F272D82AC0055827F /* GetAccount.graphql in Resources */,
+				A52C270627258A7200C35AB7 /* Assets.xcassets in Resources */,
+				A580FB252725A31A00DAD317 /* schema.json in Resources */,
+				A580FB222725A11900DAD317 /* ListAccounts.graphql in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52C26E527258A7200C35AB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A57DB520272D82AC0055827F /* GetAccount.graphql in Resources */,
+				A52C270727258A7200C35AB7 /* Assets.xcassets in Resources */,
+				A580FB262725A31A00DAD317 /* schema.json in Resources */,
+				A580FB232725A11900DAD317 /* ListAccounts.graphql in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52C26EC27258A7200C35AB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52C26F827258A7200C35AB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A580FB1B27259EAB00DAD317 /* Generate Apollo GraphQL API */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Finando/Shared/GraphQL/**/*.graphql",
+			);
+			name = "Generate Apollo GraphQL API";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/Finando/Shared/GraphQL/API.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Don't run this during index builds\nif [ $ACTION = \"indexbuild\" ]; then exit 0; fi\n\n# Go to the build root and search up the chain to find the Derived Data Path where the source packages are checked out.\nDERIVED_DATA_CANDIDATE=\"${BUILD_ROOT}\"\n\nwhile ! [ -d \"${DERIVED_DATA_CANDIDATE}/SourcePackages\" ]; do\n  if [ \"${DERIVED_DATA_CANDIDATE}\" = / ]; then\n    echo >&2 \"error: Unable to locate SourcePackages directory from BUILD_ROOT: '${BUILD_ROOT}'\"\n    exit 1\n  fi\n\n  DERIVED_DATA_CANDIDATE=\"$(dirname \"${DERIVED_DATA_CANDIDATE}\")\"\ndone\n\n# Grab a reference to the directory where scripts are checked out\nSCRIPT_PATH=\"${DERIVED_DATA_CANDIDATE}/SourcePackages/checkouts/apollo-ios/scripts\"\n\nif [ -z \"${SCRIPT_PATH}\" ]; then\n    echo >&2 \"error: Couldn't find the CLI script in your checked out SPM packages; make sure to add the framework to your project.\"\n    exit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"Shared/GraphQL/schema.json\" Shared/GraphQL/API.swift\n";
+		};
+		A580FB1C27259F3200DAD317 /* Generate Apollo GraphQL API */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Finando/Shared/GraphQL/**/*.graphql",
+			);
+			name = "Generate Apollo GraphQL API";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/Finando/Shared/GraphQL/API.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Don't run this during index builds\nif [ $ACTION = \"indexbuild\" ]; then exit 0; fi\n\n# Go to the build root and search up the chain to find the Derived Data Path where the source packages are checked out.\nDERIVED_DATA_CANDIDATE=\"${BUILD_ROOT}\"\n\nwhile ! [ -d \"${DERIVED_DATA_CANDIDATE}/SourcePackages\" ]; do\n  if [ \"${DERIVED_DATA_CANDIDATE}\" = / ]; then\n    echo >&2 \"error: Unable to locate SourcePackages directory from BUILD_ROOT: '${BUILD_ROOT}'\"\n    exit 1\n  fi\n\n  DERIVED_DATA_CANDIDATE=\"$(dirname \"${DERIVED_DATA_CANDIDATE}\")\"\ndone\n\n# Grab a reference to the directory where scripts are checked out\nSCRIPT_PATH=\"${DERIVED_DATA_CANDIDATE}/SourcePackages/checkouts/apollo-ios/scripts\"\n\nif [ -z \"${SCRIPT_PATH}\" ]; then\n    echo >&2 \"error: Couldn't find the CLI script in your checked out SPM packages; make sure to add the framework to your project.\"\n    exit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"Shared/GraphQL/schema.json\" Shared/GraphQL/API.swift\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A52C26DD27258A7200C35AB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A57DB509272C9F1F0055827F /* TrackingAccount.swift in Sources */,
+				A57DB523272DC54F0055827F /* DateUtils.swift in Sources */,
+				A57DB503272C8D0E0055827F /* BudgetAccount.swift in Sources */,
+				A52C270227258A7200C35AB7 /* FinandoApp.swift in Sources */,
+				A52C270427258A7200C35AB7 /* AccountsView.swift in Sources */,
+				A57DB519272D7D120055827F /* API.swift in Sources */,
+				A57DB52F272F5CEF0055827F /* SideMenuItem.swift in Sources */,
+				A57DB51C272D81C00055827F /* AccountViewModel.swift in Sources */,
+				A57DB510272CA3080055827F /* Account.swift in Sources */,
+				A57DB516272D7A9C0055827F /* Balance.swift in Sources */,
+				A57DB526272F40A10055827F /* RootView.swift in Sources */,
+				A57DB513272CB5650055827F /* AccountView.swift in Sources */,
+				A57DB506272C8DD60055827F /* AccountsViewModel.swift in Sources */,
+				A57DB52C272F4A290055827F /* SideMenuView.swift in Sources */,
+				A580FB312725A52400DAD317 /* ApolloClient.swift in Sources */,
+				A57DB529272F40ED0055827F /* HeaderView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52C26E327258A7200C35AB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A57DB50A272C9F1F0055827F /* TrackingAccount.swift in Sources */,
+				A57DB524272DC54F0055827F /* DateUtils.swift in Sources */,
+				A57DB504272C8D0E0055827F /* BudgetAccount.swift in Sources */,
+				A52C270327258A7200C35AB7 /* FinandoApp.swift in Sources */,
+				A52C270527258A7200C35AB7 /* AccountsView.swift in Sources */,
+				A57DB51A272D7D120055827F /* API.swift in Sources */,
+				A57DB530272F5CEF0055827F /* SideMenuItem.swift in Sources */,
+				A57DB51D272D81C00055827F /* AccountViewModel.swift in Sources */,
+				A57DB511272CA3080055827F /* Account.swift in Sources */,
+				A57DB517272D7A9C0055827F /* Balance.swift in Sources */,
+				A57DB527272F40A10055827F /* RootView.swift in Sources */,
+				A57DB514272CB5650055827F /* AccountView.swift in Sources */,
+				A57DB507272C8DD60055827F /* AccountsViewModel.swift in Sources */,
+				A57DB52D272F4A290055827F /* SideMenuView.swift in Sources */,
+				A580FB322725A52400DAD317 /* ApolloClient.swift in Sources */,
+				A57DB52A272F40ED0055827F /* HeaderView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52C26EA27258A7200C35AB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A52C26F527258A7200C35AB7 /* Tests_iOSLaunchTests.swift in Sources */,
+				A52C26F327258A7200C35AB7 /* Tests_iOS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52C26F627258A7200C35AB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A52C270127258A7200C35AB7 /* Tests_macOSLaunchTests.swift in Sources */,
+				A52C26FF27258A7200C35AB7 /* Tests_macOS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A52C26F027258A7200C35AB7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A52C26E027258A7200C35AB7 /* Finando (iOS) */;
+			targetProxy = A52C26EF27258A7200C35AB7 /* PBXContainerItemProxy */;
+		};
+		A52C26FC27258A7200C35AB7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A52C26E627258A7200C35AB7 /* Finando (macOS) */;
+			targetProxy = A52C26FB27258A7200C35AB7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A52C270827258A7200C35AB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A52C270927258A7200C35AB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		A52C270B27258A7200C35AB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.finando.Finando;
+				PRODUCT_NAME = Finando;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A52C270C27258A7200C35AB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.finando.Finando;
+				PRODUCT_NAME = Finando;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A52C270E27258A7200C35AB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Finando--macOS--Info.plist";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.finando.Finando;
+				PRODUCT_NAME = Finando;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A52C270F27258A7200C35AB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Finando--macOS--Info.plist";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.finando.Finando;
+				PRODUCT_NAME = Finando;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A52C271127258A7200C35AB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.finando.Tests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Finando (iOS)";
+			};
+			name = Debug;
+		};
+		A52C271227258A7200C35AB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.finando.Tests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Finando (iOS)";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A52C271427258A7200C35AB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.finando.Tests-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Finando (macOS)";
+			};
+			name = Debug;
+		};
+		A52C271527258A7200C35AB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.finando.Tests-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Finando (macOS)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A52C26D827258A7000C35AB7 /* Build configuration list for PBXProject "Finando" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A52C270827258A7200C35AB7 /* Debug */,
+				A52C270927258A7200C35AB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A52C270A27258A7200C35AB7 /* Build configuration list for PBXNativeTarget "Finando (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A52C270B27258A7200C35AB7 /* Debug */,
+				A52C270C27258A7200C35AB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A52C270D27258A7200C35AB7 /* Build configuration list for PBXNativeTarget "Finando (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A52C270E27258A7200C35AB7 /* Debug */,
+				A52C270F27258A7200C35AB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A52C271027258A7200C35AB7 /* Build configuration list for PBXNativeTarget "Tests iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A52C271127258A7200C35AB7 /* Debug */,
+				A52C271227258A7200C35AB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A52C271327258A7200C35AB7 /* Build configuration list for PBXNativeTarget "Tests macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A52C271427258A7200C35AB7 /* Debug */,
+				A52C271527258A7200C35AB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A580FB452725AAEF00DAD317 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
+			requirement = {
+				kind = exactVersion;
+				version = 0.49.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A580FB712725AD5D00DAD317 /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A580FB452725AAEF00DAD317 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = Apollo;
+		};
+		A580FB732725AD7B00DAD317 /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A580FB452725AAEF00DAD317 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = Apollo;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = A52C26D527258A7000C35AB7 /* Project object */;
+}
