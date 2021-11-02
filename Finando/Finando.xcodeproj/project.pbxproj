@@ -45,6 +45,8 @@
 		A57DB52D272F4A290055827F /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB52B272F4A290055827F /* SideMenuView.swift */; };
 		A57DB52F272F5CEF0055827F /* SideMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB52E272F5CEF0055827F /* SideMenuItem.swift */; };
 		A57DB530272F5CEF0055827F /* SideMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB52E272F5CEF0055827F /* SideMenuItem.swift */; };
+		A57DB5322731F06F0055827F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB5312731F06F0055827F /* Theme.swift */; };
+		A57DB5332731F06F0055827F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB5312731F06F0055827F /* Theme.swift */; };
 		A580FB222725A11900DAD317 /* ListAccounts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A580FB212725A11900DAD317 /* ListAccounts.graphql */; };
 		A580FB232725A11900DAD317 /* ListAccounts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A580FB212725A11900DAD317 /* ListAccounts.graphql */; };
 		A580FB252725A31A00DAD317 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = A580FB242725A31A00DAD317 /* schema.json */; };
@@ -99,6 +101,7 @@
 		A57DB528272F40ED0055827F /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		A57DB52B272F4A290055827F /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		A57DB52E272F5CEF0055827F /* SideMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuItem.swift; sourceTree = "<group>"; };
+		A57DB5312731F06F0055827F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A580FB212725A11900DAD317 /* ListAccounts.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = ListAccounts.graphql; sourceTree = "<group>"; };
 		A580FB242725A31A00DAD317 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		A580FB302725A52400DAD317 /* ApolloClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloClient.swift; sourceTree = "<group>"; };
@@ -226,6 +229,7 @@
 				A57DB50F272CA3080055827F /* Account.swift */,
 				A57DB515272D7A9C0055827F /* Balance.swift */,
 				A57DB52E272F5CEF0055827F /* SideMenuItem.swift */,
+				A57DB5312731F06F0055827F /* Theme.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -501,6 +505,7 @@
 				A57DB52F272F5CEF0055827F /* SideMenuItem.swift in Sources */,
 				A57DB51C272D81C00055827F /* AccountViewModel.swift in Sources */,
 				A57DB510272CA3080055827F /* Account.swift in Sources */,
+				A57DB5322731F06F0055827F /* Theme.swift in Sources */,
 				A57DB516272D7A9C0055827F /* Balance.swift in Sources */,
 				A57DB526272F40A10055827F /* RootView.swift in Sources */,
 				A57DB513272CB5650055827F /* AccountView.swift in Sources */,
@@ -524,6 +529,7 @@
 				A57DB530272F5CEF0055827F /* SideMenuItem.swift in Sources */,
 				A57DB51D272D81C00055827F /* AccountViewModel.swift in Sources */,
 				A57DB511272CA3080055827F /* Account.swift in Sources */,
+				A57DB5332731F06F0055827F /* Theme.swift in Sources */,
 				A57DB517272D7A9C0055827F /* Balance.swift in Sources */,
 				A57DB527272F40A10055827F /* RootView.swift in Sources */,
 				A57DB514272CB5650055827F /* AccountView.swift in Sources */,

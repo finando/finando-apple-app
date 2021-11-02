@@ -12,6 +12,7 @@ struct RootView: View {
                 Spacer()
             }
         }
+        .background(Theme.color.neutral.n10.color)
         .ignoresSafeArea()
         .onAppear { NSWindow.allowsAutomaticWindowTabbing = false }
     }
