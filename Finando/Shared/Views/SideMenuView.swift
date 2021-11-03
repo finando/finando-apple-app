@@ -27,16 +27,9 @@ struct SideMenuView: View {
                 .padding(.vertical, 6)
                 
                 Spacer()
-                
-                ZStack {
-                    Rectangle()
-                        .fill(Color.purple)
-                        .frame(height: 64)
-                        .frame(maxWidth: .infinity)
-                    
-                    Text("USER AVATAR")
-                }
-                .padding(.bottom, 20)
+
+                Avatar(user: User(firstName: "Bobby", lastName: "Ray"))
+                    .padding(.bottom, 20)
             }
             .frame(width: 230)
             .frame(maxHeight: .infinity)
