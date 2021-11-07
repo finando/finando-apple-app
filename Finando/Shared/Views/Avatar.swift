@@ -1,3 +1,4 @@
+import Foundation
 import SwiftUI
 
 struct Avatar: View {
@@ -45,13 +46,10 @@ struct Avatar: View {
             .background(Theme.color.neutral.n0.color)
             .cornerRadius(8)
             .shadow(color: isHoveringOverAvatar ? Color.black.opacity(0.15) : Color.clear, radius: 3, x: 0, y: 0)
+            .onHover(perform: { isHoveringOverAvatar = $0 }, cursor: NSCursor.pointingHand)
             
             Spacer()
         }
-        .onHover(
-            perform: { value in isHoveringOverAvatar = value },
-            cursor: NSCursor.pointingHand
-        )
     }
 }
 

@@ -61,6 +61,8 @@
 		A580FB322725A52400DAD317 /* ApolloClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580FB302725A52400DAD317 /* ApolloClient.swift */; };
 		A580FB722725AD5D00DAD317 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = A580FB712725AD5D00DAD317 /* Apollo */; };
 		A580FB742725AD7B00DAD317 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = A580FB732725AD7B00DAD317 /* Apollo */; };
+		A5DEE268273877130019E1D8 /* HoverViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEE267273877130019E1D8 /* HoverViewModifier.swift */; };
+		A5DEE269273877130019E1D8 /* HoverViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEE267273877130019E1D8 /* HoverViewModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +117,7 @@
 		A580FB242725A31A00DAD317 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		A580FB302725A52400DAD317 /* ApolloClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloClient.swift; sourceTree = "<group>"; };
 		A580FB752725BDC200DAD317 /* Finando--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Finando--macOS--Info.plist"; sourceTree = "<group>"; };
+		A5DEE267273877130019E1D8 /* HoverViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverViewModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +173,7 @@
 		A52C26D927258A7100C35AB7 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				A5DEE266273876F40019E1D8 /* ViewModifiers */,
 				A57DB521272DC53D0055827F /* Utils */,
 				A580FB762725DD2D00DAD317 /* ViewModels */,
 				A580FB1A27259E0300DAD317 /* GraphQL */,
@@ -288,6 +292,14 @@
 				A57DB51B272D81C00055827F /* AccountViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A5DEE266273876F40019E1D8 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				A5DEE267273877130019E1D8 /* HoverViewModifier.swift */,
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -518,6 +530,7 @@
 				A57DB51C272D81C00055827F /* AccountViewModel.swift in Sources */,
 				A57DB53B2732196C0055827F /* User.swift in Sources */,
 				A57DB510272CA3080055827F /* Account.swift in Sources */,
+				A5DEE268273877130019E1D8 /* HoverViewModifier.swift in Sources */,
 				A57DB538273218FA0055827F /* ViewUtils.swift in Sources */,
 				A57DB5322731F06F0055827F /* Theme.swift in Sources */,
 				A57DB516272D7A9C0055827F /* Balance.swift in Sources */,
@@ -545,6 +558,7 @@
 				A57DB51D272D81C00055827F /* AccountViewModel.swift in Sources */,
 				A57DB53C2732196C0055827F /* User.swift in Sources */,
 				A57DB511272CA3080055827F /* Account.swift in Sources */,
+				A5DEE269273877130019E1D8 /* HoverViewModifier.swift in Sources */,
 				A57DB539273218FA0055827F /* ViewUtils.swift in Sources */,
 				A57DB5332731F06F0055827F /* Theme.swift in Sources */,
 				A57DB517272D7A9C0055827F /* Balance.swift in Sources */,
