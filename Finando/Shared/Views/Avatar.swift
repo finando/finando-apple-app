@@ -2,14 +2,10 @@ import Foundation
 import SwiftUI
 
 struct Avatar: View {
-    private let user: User
-    
+    let user: User
+
     @State private var isHoveringOverAvatar = false
-    
-    init(user: User) {
-        self.user = user
-    }
-    
+
     var body: some View {
         HStack(spacing: 0) {
             HStack(spacing: 0) {
