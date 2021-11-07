@@ -12,34 +12,33 @@ struct Avatar: View {
     
     var body: some View {
         HStack(spacing: 0) {
-            ZStack {
-                HStack(spacing: 0) {
-                    ZStack(alignment: .center) {
-                        Circle()
-                            .fill(Color.blue)
-                            .frame(width: 48, height: 48)
-                        
-                        Text(user.initials)
-                            .font(.system(size: 20))
-                            .foregroundColor(Color.white)
-                    }
-                    .padding(.trailing, 16)
+            HStack(spacing: 0) {
+                ZStack(alignment: .center) {
+                    Circle()
+                        .fill(Color.blue)
+                        .frame(width: 48, height: 48)
+                        .focusable()
                     
-                    VStack(alignment: .leading, spacing: 0) {
-                        Text(user.firstName)
-                            .foregroundColor(.black)
-                            .font(.system(size: 18))
-                            .bold()
-                            .lineLimit(1)
-                        
-                        Text("Finance enthusiast")
-                            .foregroundColor(.blue)
-                            .font(.system(size: 12))
-                            .lineLimit(1)
-                    }
-                    
-                    Spacer()
+                    Text(user.initials)
+                        .font(.system(size: 20))
+                        .foregroundColor(Color.white)
                 }
+                .padding(.trailing, 16)
+
+                VStack(alignment: .leading, spacing: 0) {
+                    Text(user.firstName)
+                        .foregroundColor(.black)
+                        .font(.system(size: 18))
+                        .bold()
+                        .lineLimit(1)
+                    
+                    Text("Finance enthusiast")
+                        .foregroundColor(.blue)
+                        .font(.system(size: 12))
+                        .lineLimit(1)
+                }
+
+                Spacer()
             }
             .padding(8)
             .frame(maxWidth: .infinity)
