@@ -9,14 +9,14 @@ struct SideMenuView: View {
                         .fill(Color.green)
                         .frame(height: 64)
                         .frame(maxWidth: .infinity)
-                    
+
                     Text("LOGO")
                 }
                 .padding(.top, 64)
-                
+
                 VStack(spacing: 0) {
-                    ForEach(SideMenuItem.allCases, id: \.self) { sideMenuItem in
-                        Text(sideMenuItem.rawValue)
+                    ForEach(ApplicationRoute.allCases, id: \.self) { route in
+			 Text(route.rawValue)
                             .padding(.vertical, 12)
                             .padding(.horizontal, 16)
                             .frame(maxWidth: .infinity)
@@ -25,7 +25,7 @@ struct SideMenuView: View {
                     .padding(.vertical, 6)
                 }
                 .padding(.vertical, 6)
-                
+
                 Spacer()
 
                 Avatar(user: User(firstName: "Bobby", lastName: "Ray"))
@@ -35,7 +35,7 @@ struct SideMenuView: View {
             .frame(maxHeight: .infinity)
             .padding(.horizontal, 16)
             .background(Theme.color.neutral.n0.color)
-            
+
             Divider()
                 .frame(width: 2)
                 .background(Theme.color.neutral.n20.color.opacity(0.5))

@@ -43,8 +43,8 @@
 		A57DB52A272F40ED0055827F /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB528272F40ED0055827F /* HeaderView.swift */; };
 		A57DB52C272F4A290055827F /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB52B272F4A290055827F /* SideMenuView.swift */; };
 		A57DB52D272F4A290055827F /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB52B272F4A290055827F /* SideMenuView.swift */; };
-		A57DB52F272F5CEF0055827F /* SideMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB52E272F5CEF0055827F /* SideMenuItem.swift */; };
-		A57DB530272F5CEF0055827F /* SideMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB52E272F5CEF0055827F /* SideMenuItem.swift */; };
+		A57DB52F272F5CEF0055827F /* ApplicationRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB52E272F5CEF0055827F /* ApplicationRoute.swift */; };
+		A57DB530272F5CEF0055827F /* ApplicationRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB52E272F5CEF0055827F /* ApplicationRoute.swift */; };
 		A57DB5322731F06F0055827F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB5312731F06F0055827F /* Theme.swift */; };
 		A57DB5332731F06F0055827F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB5312731F06F0055827F /* Theme.swift */; };
 		A57DB535273208120055827F /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB534273208120055827F /* Avatar.swift */; };
@@ -108,7 +108,7 @@
 		A57DB525272F40A00055827F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		A57DB528272F40ED0055827F /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		A57DB52B272F4A290055827F /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
-		A57DB52E272F5CEF0055827F /* SideMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuItem.swift; sourceTree = "<group>"; };
+		A57DB52E272F5CEF0055827F /* ApplicationRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationRoute.swift; sourceTree = "<group>"; };
 		A57DB5312731F06F0055827F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A57DB534273208120055827F /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		A57DB537273218FA0055827F /* ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
@@ -242,7 +242,7 @@
 				A57DB508272C9F1F0055827F /* TrackingAccount.swift */,
 				A57DB50F272CA3080055827F /* Account.swift */,
 				A57DB515272D7A9C0055827F /* Balance.swift */,
-				A57DB52E272F5CEF0055827F /* SideMenuItem.swift */,
+				A57DB52E272F5CEF0055827F /* ApplicationRoute.swift */,
 				A57DB5312731F06F0055827F /* Theme.swift */,
 				A57DB53A2732196C0055827F /* User.swift */,
 			);
@@ -526,7 +526,7 @@
 				A52C270227258A7200C35AB7 /* FinandoApp.swift in Sources */,
 				A52C270427258A7200C35AB7 /* AccountsView.swift in Sources */,
 				A57DB519272D7D120055827F /* API.swift in Sources */,
-				A57DB52F272F5CEF0055827F /* SideMenuItem.swift in Sources */,
+				A57DB52F272F5CEF0055827F /* ApplicationRoute.swift in Sources */,
 				A57DB51C272D81C00055827F /* AccountViewModel.swift in Sources */,
 				A57DB53B2732196C0055827F /* User.swift in Sources */,
 				A57DB510272CA3080055827F /* Account.swift in Sources */,
@@ -554,7 +554,7 @@
 				A52C270327258A7200C35AB7 /* FinandoApp.swift in Sources */,
 				A52C270527258A7200C35AB7 /* AccountsView.swift in Sources */,
 				A57DB51A272D7D120055827F /* API.swift in Sources */,
-				A57DB530272F5CEF0055827F /* SideMenuItem.swift in Sources */,
+				A57DB530272F5CEF0055827F /* ApplicationRoute.swift in Sources */,
 				A57DB51D272D81C00055827F /* AccountViewModel.swift in Sources */,
 				A57DB53C2732196C0055827F /* User.swift in Sources */,
 				A57DB511272CA3080055827F /* Account.swift in Sources */,
