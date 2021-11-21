@@ -18,6 +18,15 @@
           "revision": "0a9893ec030501a3956bee572d6b4fdd3ae158a1",
           "version": "0.12.2"
         }
+      },
+      {
+        "package": "SwiftUIRouter",
+        "repositoryURL": "https://github.com/frzi/SwiftUIRouter.git",
+        "state": {
+          "branch": null,
+          "revision": "edd672831daec958c8f150fa77c28cea1c497bfb",
+          "version": "1.2.1"
+        }
       }
     ]
   },

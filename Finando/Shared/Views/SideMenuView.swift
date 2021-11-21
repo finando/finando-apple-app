@@ -1,6 +1,9 @@
 import SwiftUI
+import SwiftUIRouter
 
 struct SideMenuView: View {
+    @EnvironmentObject var navigator: Navigator
+
     var body: some View {
         HStack(spacing: 0) {
             VStack(spacing: 0) {
@@ -16,11 +19,12 @@ struct SideMenuView: View {
 
                 VStack(spacing: 0) {
                     ForEach(ApplicationRoute.allCases, id: \.self) { route in
-			 Text(route.rawValue)
+                        Button(route.rawValue, action: { navigator.navigate(route.path, replace: true) })
                             .padding(.vertical, 12)
                             .padding(.horizontal, 16)
                             .frame(maxWidth: .infinity)
                             .background(Color.black)
+                            .buttonStyle(PlainButtonStyle())
                     }
                     .padding(.vertical, 6)
                 }

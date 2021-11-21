@@ -1,10 +1,13 @@
 import SwiftUI
+import SwiftUIRouter
 
 @main
 struct FinandoApp: App {
     var body: some Scene {
         WindowGroup {
-            RootView()
+            Router {
+                RootView()
+            }
         }
         .commands {
             CommandGroup(replacing: .newItem, addition: { })

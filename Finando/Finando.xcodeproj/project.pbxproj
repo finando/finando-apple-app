@@ -63,6 +63,8 @@
 		A580FB742725AD7B00DAD317 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = A580FB732725AD7B00DAD317 /* Apollo */; };
 		A5DEE268273877130019E1D8 /* HoverViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEE267273877130019E1D8 /* HoverViewModifier.swift */; };
 		A5DEE269273877130019E1D8 /* HoverViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEE267273877130019E1D8 /* HoverViewModifier.swift */; };
+		A5DEE26C27415B5F0019E1D8 /* SwiftUIRouter in Frameworks */ = {isa = PBXBuildFile; productRef = A5DEE26B27415B5F0019E1D8 /* SwiftUIRouter */; };
+		A5DEE26E27415C0B0019E1D8 /* SwiftUIRouter in Frameworks */ = {isa = PBXBuildFile; productRef = A5DEE26D27415C0B0019E1D8 /* SwiftUIRouter */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +128,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A580FB742725AD7B00DAD317 /* Apollo in Frameworks */,
+				A5DEE26C27415B5F0019E1D8 /* SwiftUIRouter in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A580FB722725AD5D00DAD317 /* Apollo in Frameworks */,
+				A5DEE26E27415C0B0019E1D8 /* SwiftUIRouter in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +325,7 @@
 			name = "Finando (iOS)";
 			packageProductDependencies = (
 				A580FB732725AD7B00DAD317 /* Apollo */,
+				A5DEE26B27415B5F0019E1D8 /* SwiftUIRouter */,
 			);
 			productName = "Finando (iOS)";
 			productReference = A52C26E127258A7200C35AB7 /* Finando.app */;
@@ -342,6 +347,7 @@
 			name = "Finando (macOS)";
 			packageProductDependencies = (
 				A580FB712725AD5D00DAD317 /* Apollo */,
+				A5DEE26D27415C0B0019E1D8 /* SwiftUIRouter */,
 			);
 			productName = "Finando (macOS)";
 			productReference = A52C26E727258A7200C35AB7 /* Finando.app */;
@@ -420,6 +426,7 @@
 			mainGroup = A52C26D427258A7000C35AB7;
 			packageReferences = (
 				A580FB452725AAEF00DAD317 /* XCRemoteSwiftPackageReference "apollo-ios" */,
+				A5DEE26A27415B5F0019E1D8 /* XCRemoteSwiftPackageReference "SwiftUIRouter" */,
 			);
 			productRefGroup = A52C26E227258A7200C35AB7 /* Products */;
 			projectDirPath = "";
@@ -988,6 +995,14 @@
 				version = 0.49.1;
 			};
 		};
+		A5DEE26A27415B5F0019E1D8 /* XCRemoteSwiftPackageReference "SwiftUIRouter" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/frzi/SwiftUIRouter.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.2.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1000,6 +1015,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A580FB452725AAEF00DAD317 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = Apollo;
+		};
+		A5DEE26B27415B5F0019E1D8 /* SwiftUIRouter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5DEE26A27415B5F0019E1D8 /* XCRemoteSwiftPackageReference "SwiftUIRouter" */;
+			productName = SwiftUIRouter;
+		};
+		A5DEE26D27415C0B0019E1D8 /* SwiftUIRouter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5DEE26A27415B5F0019E1D8 /* XCRemoteSwiftPackageReference "SwiftUIRouter" */;
+			productName = SwiftUIRouter;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
