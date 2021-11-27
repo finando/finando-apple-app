@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-struct Avatar: View {
+struct AvatarView: View {
     let user: User
 
     @State private var isHoveringOverAvatar = false
@@ -43,8 +43,8 @@ struct Avatar: View {
     }
 }
 
-struct Avatar_Previews: PreviewProvider {
+struct AvatarView_Previews: PreviewProvider {
     static var previews: some View {
-        Avatar(user: User(firstName: "Bobby", lastName: "Ray"))
+        AvatarView(user: User(firstName: "Bobby", lastName: "Ray"))
     }
 }

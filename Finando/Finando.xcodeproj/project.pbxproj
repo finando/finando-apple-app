@@ -47,8 +47,8 @@
 		A57DB530272F5CEF0055827F /* ApplicationRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB52E272F5CEF0055827F /* ApplicationRoute.swift */; };
 		A57DB5322731F06F0055827F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB5312731F06F0055827F /* Theme.swift */; };
 		A57DB5332731F06F0055827F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB5312731F06F0055827F /* Theme.swift */; };
-		A57DB535273208120055827F /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB534273208120055827F /* Avatar.swift */; };
-		A57DB536273208120055827F /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB534273208120055827F /* Avatar.swift */; };
+		A57DB535273208120055827F /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB534273208120055827F /* AvatarView.swift */; };
+		A57DB536273208120055827F /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB534273208120055827F /* AvatarView.swift */; };
 		A57DB538273218FA0055827F /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB537273218FA0055827F /* ViewUtils.swift */; };
 		A57DB539273218FA0055827F /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB537273218FA0055827F /* ViewUtils.swift */; };
 		A57DB53B2732196C0055827F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB53A2732196C0055827F /* User.swift */; };
@@ -114,7 +114,7 @@
 		A57DB52B272F4A290055827F /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		A57DB52E272F5CEF0055827F /* ApplicationRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationRoute.swift; sourceTree = "<group>"; };
 		A57DB5312731F06F0055827F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		A57DB534273208120055827F /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
+		A57DB534273208120055827F /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		A57DB537273218FA0055827F /* ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
 		A57DB53A2732196C0055827F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A580FB212725A11900DAD317 /* ListAccounts.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = ListAccounts.graphql; sourceTree = "<group>"; };
@@ -237,7 +237,7 @@
 				A57DB525272F40A00055827F /* RootView.swift */,
 				A57DB528272F40ED0055827F /* HeaderView.swift */,
 				A57DB52B272F4A290055827F /* SideMenuView.swift */,
-				A57DB534273208120055827F /* Avatar.swift */,
+				A57DB534273208120055827F /* AvatarView.swift */,
 				A5DEE26F2750C8750019E1D8 /* AccountListItemView.swift */,
 			);
 			path = Views;
@@ -547,7 +547,7 @@
 				A57DB5322731F06F0055827F /* Theme.swift in Sources */,
 				A57DB516272D7A9C0055827F /* Balance.swift in Sources */,
 				A57DB526272F40A10055827F /* RootView.swift in Sources */,
-				A57DB535273208120055827F /* Avatar.swift in Sources */,
+				A57DB535273208120055827F /* AvatarView.swift in Sources */,
 				A57DB513272CB5650055827F /* AccountView.swift in Sources */,
 				A57DB506272C8DD60055827F /* AccountsViewModel.swift in Sources */,
 				A57DB52C272F4A290055827F /* SideMenuView.swift in Sources */,
@@ -576,7 +576,7 @@
 				A57DB5332731F06F0055827F /* Theme.swift in Sources */,
 				A57DB517272D7A9C0055827F /* Balance.swift in Sources */,
 				A57DB527272F40A10055827F /* RootView.swift in Sources */,
-				A57DB536273208120055827F /* Avatar.swift in Sources */,
+				A57DB536273208120055827F /* AvatarView.swift in Sources */,
 				A57DB514272CB5650055827F /* AccountView.swift in Sources */,
 				A57DB507272C8DD60055827F /* AccountsViewModel.swift in Sources */,
 				A57DB52D272F4A290055827F /* SideMenuView.swift in Sources */,

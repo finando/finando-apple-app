@@ -32,7 +32,7 @@ struct SideMenuView: View {
 
                 Spacer()
 
-                Avatar(user: User(firstName: "Bobby", lastName: "Ray"))
+                AvatarView(user: User(firstName: "Bobby", lastName: "Ray"))
                     .padding(.bottom, 20)
             }
             .frame(width: 230)
