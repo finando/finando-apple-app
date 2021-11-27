@@ -6,12 +6,32 @@ struct Balance {
     let uncleared: Int
     let running: Int
     let currency: String
+
+    init(date: Date, cleared: Int, uncleared: Int, running: Int, currency: String) {
+        self.date = date
+        self.cleared = cleared
+        self.uncleared = uncleared
+        self.running = running
+        self.currency = currency
+    }
     
-    init(balance: BalanceFragment) {
-        self.date = ISO8601DateFormatter().date(from: balance.date)
-        self.cleared = balance.cleared
-        self.uncleared = balance.uncleared
-        self.running = balance.running
-        self.currency = balance.currency
+    init(currency: String) {
+        self.init(
+            date: Date(),
+            cleared: 0,
+            uncleared: 0,
+            running: 0,
+            currency: currency
+        )
+    }
+
+    init(fragment: BalanceFragment) {
+        self.init(
+            date: ISO8601DateFormatter().date(from: fragment.date) ?? Date(),
+            cleared: fragment.cleared,
+            uncleared: fragment.uncleared,
+            running: fragment.running,
+            currency: fragment.currency
+        )
     }
 }

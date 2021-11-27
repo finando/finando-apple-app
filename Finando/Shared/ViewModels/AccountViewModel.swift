@@ -28,11 +28,11 @@ class AccountViewModel: ObservableObject {
 
     private func parse(data: GetAccountQuery.Data.Account?) -> Account? {
         if let budgetAccount = data?.fragments.accountFragment.asBudgetAccount {
-            return Account.BudgetAccount(BudgetAccount(account: budgetAccount))
+            return Account.BudgetAccount(BudgetAccount(fragment: budgetAccount))
         }
         
         if let trackingAccount = data?.fragments.accountFragment.asTrackingAccount {
-            return Account.TrackingAccount(TrackingAccount(account: trackingAccount))
+            return Account.TrackingAccount(TrackingAccount(fragment: trackingAccount))
         }
         
         return nil

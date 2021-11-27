@@ -2,7 +2,7 @@ import SwiftUI
 
 struct AccountsView: View {
     @StateObject var accountsViewModel = AccountsViewModel()
-    
+
     var body: some View {
 //        HStack {
 //            VStack {

@@ -29,11 +29,11 @@ class AccountsViewModel: ObservableObject {
     private func parse(data: [ListAccountsQuery.Data.Account]?) -> [Account] {
         return data?.compactMap({ account in
             if let budgetAccount = account.fragments.accountFragment.asBudgetAccount {
-                return Account.BudgetAccount(BudgetAccount(account: budgetAccount))
+                return Account.BudgetAccount(BudgetAccount(fragment: budgetAccount))
             }
             
             if let trackingAccount = account.fragments.accountFragment.asTrackingAccount {
-                return Account.TrackingAccount(TrackingAccount(account: trackingAccount))
+                return Account.TrackingAccount(TrackingAccount(fragment: trackingAccount))
             }
             
             return nil
