@@ -30,4 +30,22 @@ extension Account: Identifiable {
             return trackingAccount.balance
         }
     }
+
+    var isBudgetAccount: Bool {
+        switch self {
+        case .BudgetAccount:
+            return true
+        default:
+            return false
+        }
+    }
+
+    var isTrackingAccount: Bool {
+        switch self {
+        case .TrackingAccount:
+            return true
+        default:
+            return false
+        }
+    }
 }
