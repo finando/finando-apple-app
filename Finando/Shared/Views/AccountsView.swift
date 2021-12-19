@@ -15,7 +15,7 @@ struct AccountsView: View {
                     LazyVStack(alignment: .leading, spacing: 0) {
                         AccountListItemView(account: account)
                             .padding(.vertical, 8)
-                            .onTapGesture { navigator.navigate(ApplicationRoute.overview.path, replace: false) }
+                            .onTapGesture { navigator.navigate(ApplicationRoute.account(account.id).path, replace: false) }
                     }
                 }
             }
@@ -27,6 +27,7 @@ struct AccountsView: View {
         Breadcrumbs {
             Breadcrumb {
                 Text("Overview")
+                    .onTapGesture { navigator.navigate(ApplicationRoute.overview.path, replace: false) }
             }
             Breadcrumb(active: true) {
                 Text("Accounts")
