@@ -20,6 +20,10 @@ struct RootView: View {
                         AccountsView()
                             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: Alignment(horizontal: .leading, vertical: .top))
                     }
+                    Route(path: ApplicationRoute.account(":accountId").path) { info in
+                        AccountView(accountId: info.parameters["accountId"]!)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: Alignment(horizontal: .leading, vertical: .top))
+                    }
                     Route(path: ApplicationRoute.budget.path) {
                         Text("budget")
                             .foregroundColor(Color.black)
