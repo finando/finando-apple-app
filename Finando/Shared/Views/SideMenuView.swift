@@ -19,7 +19,7 @@ struct SideMenuView: View {
 
                 VStack(spacing: 0) {
                     ForEach(ApplicationRoute.allCases, id: \.self) { route in
-                        Button(route.rawValue, action: { navigator.navigate(route.path, replace: true) })
+                        Button(route.translation, action: { navigator.navigate(route.path, replace: true) })
                             .padding(.vertical, 12)
                             .padding(.horizontal, 16)
                             .frame(maxWidth: .infinity)
