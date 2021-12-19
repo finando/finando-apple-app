@@ -2,9 +2,9 @@ import SwiftUI
 
 struct AccountListItemView: View {
     let account: Account
-    
+
     @State private var isHoveringAccoutListItem = false
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text("ACCOUNT: \(account.id) | \(account.name) | \(account.balance.cleared) | \(account.balance.uncleared) | \(account.balance.running)")
