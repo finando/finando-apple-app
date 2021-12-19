@@ -1,18 +1,38 @@
 import SwiftUI
+import SwiftUIRouter
 
 struct AccountsView: View {
+    @EnvironmentObject var navigator: Navigator
+
     @StateObject var accountsViewModel = AccountsViewModel()
 
     var body: some View {
-        VStack(spacing: 0) {
-            ForEach(accountsViewModel.accounts, id: \.id) { account in
-                LazyVStack(alignment: .leading, spacing: 0) {
-                    AccountListItemView(account: account)
-                        .padding(.vertical, 8)
+        VStack(alignment: .leading, spacing: 0) {
+            breadcrumbs
+
+            VStack(spacing: 0) {
+                ForEach(accountsViewModel.accounts, id: \.id) { account in
+                    LazyVStack(alignment: .leading, spacing: 0) {
+                        AccountListItemView(account: account)
+                            .padding(.vertical, 8)
+                            .onTapGesture { navigator.navigate(ApplicationRoute.overview.path, replace: false) }
+                    }
                 }
             }
         }
-        .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+        .padding(16)
+    }
+
+    private var breadcrumbs: some View {
+        Breadcrumbs {
+            Breadcrumb {
+                Text("Overview")
+            }
+            Breadcrumb(active: true) {
+                Text("Accounts")
+            }
+        }
+        .padding(.bottom, 8)
     }
 }
 
