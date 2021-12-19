@@ -2,10 +2,23 @@ import Foundation
 import Combine
 
 class AccountViewModel: ObservableObject {
+    @Published var accountId: String?
     @Published private(set) var account: Account?
     
-    init(accountId: String) {
-        getAccount(accountId: accountId)
+    private var cancellables = Set<AnyCancellable>()
+
+    init() {
+        $accountId
+            .sink { [weak self] accountId in
+                if let accountId = accountId {
+                    self?.getAccount(accountId: accountId)
+                }
+            }
+            .store(in: &cancellables)
+    }
+
+    public func setAccountId(_ accountId: String) {
+        self.accountId = accountId
     }
 
     private func getAccount(accountId: String) {
