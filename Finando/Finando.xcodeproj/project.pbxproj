@@ -61,6 +61,12 @@
 		A580FB322725A52400DAD317 /* ApolloClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580FB302725A52400DAD317 /* ApolloClient.swift */; };
 		A580FB722725AD5D00DAD317 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = A580FB712725AD5D00DAD317 /* Apollo */; };
 		A580FB742725AD7B00DAD317 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = A580FB732725AD7B00DAD317 /* Apollo */; };
+		A59350832752E81D00657D20 /* Breadcrumbs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350822752E81D00657D20 /* Breadcrumbs.swift */; };
+		A59350842752E81D00657D20 /* Breadcrumbs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350822752E81D00657D20 /* Breadcrumbs.swift */; };
+		A59350862752EBD900657D20 /* Breadcrumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350852752EBD900657D20 /* Breadcrumb.swift */; };
+		A59350872752EBD900657D20 /* Breadcrumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350852752EBD900657D20 /* Breadcrumb.swift */; };
+		A5935089276F9C1F00657D20 /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5935088276F9C1F00657D20 /* ArrayUtils.swift */; };
+		A593508A276F9C1F00657D20 /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5935088276F9C1F00657D20 /* ArrayUtils.swift */; };
 		A5DEE268273877130019E1D8 /* HoverViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEE267273877130019E1D8 /* HoverViewModifier.swift */; };
 		A5DEE269273877130019E1D8 /* HoverViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEE267273877130019E1D8 /* HoverViewModifier.swift */; };
 		A5DEE26C27415B5F0019E1D8 /* SwiftUIRouter in Frameworks */ = {isa = PBXBuildFile; productRef = A5DEE26B27415B5F0019E1D8 /* SwiftUIRouter */; };
@@ -121,6 +127,9 @@
 		A580FB242725A31A00DAD317 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		A580FB302725A52400DAD317 /* ApolloClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloClient.swift; sourceTree = "<group>"; };
 		A580FB752725BDC200DAD317 /* Finando--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Finando--macOS--Info.plist"; sourceTree = "<group>"; };
+		A59350822752E81D00657D20 /* Breadcrumbs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breadcrumbs.swift; sourceTree = "<group>"; };
+		A59350852752EBD900657D20 /* Breadcrumb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breadcrumb.swift; sourceTree = "<group>"; };
+		A5935088276F9C1F00657D20 /* ArrayUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayUtils.swift; sourceTree = "<group>"; };
 		A5DEE267273877130019E1D8 /* HoverViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverViewModifier.swift; sourceTree = "<group>"; };
 		A5DEE26F2750C8750019E1D8 /* AccountListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,6 +189,7 @@
 		A52C26D927258A7100C35AB7 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				A59350802752E7A800657D20 /* Components */,
 				A5DEE266273876F40019E1D8 /* ViewModifiers */,
 				A57DB521272DC53D0055827F /* Utils */,
 				A580FB762725DD2D00DAD317 /* ViewModels */,
@@ -262,6 +272,7 @@
 			children = (
 				A57DB522272DC54F0055827F /* DateUtils.swift */,
 				A57DB537273218FA0055827F /* ViewUtils.swift */,
+				A5935088276F9C1F00657D20 /* ArrayUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -300,6 +311,23 @@
 				A57DB51B272D81C00055827F /* AccountViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A59350802752E7A800657D20 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A59350812752E7BD00657D20 /* Breadcrumbs */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		A59350812752E7BD00657D20 /* Breadcrumbs */ = {
+			isa = PBXGroup;
+			children = (
+				A59350822752E81D00657D20 /* Breadcrumbs.swift */,
+				A59350852752EBD900657D20 /* Breadcrumb.swift */,
+			);
+			path = Breadcrumbs;
 			sourceTree = "<group>";
 		};
 		A5DEE266273876F40019E1D8 /* ViewModifiers */ = {
@@ -533,10 +561,12 @@
 			files = (
 				A57DB509272C9F1F0055827F /* TrackingAccount.swift in Sources */,
 				A57DB523272DC54F0055827F /* DateUtils.swift in Sources */,
+				A59350862752EBD900657D20 /* Breadcrumb.swift in Sources */,
 				A57DB503272C8D0E0055827F /* BudgetAccount.swift in Sources */,
 				A52C270227258A7200C35AB7 /* FinandoApp.swift in Sources */,
 				A52C270427258A7200C35AB7 /* AccountsView.swift in Sources */,
 				A57DB519272D7D120055827F /* API.swift in Sources */,
+				A59350832752E81D00657D20 /* Breadcrumbs.swift in Sources */,
 				A57DB52F272F5CEF0055827F /* ApplicationRoute.swift in Sources */,
 				A5DEE2702750C8750019E1D8 /* AccountListItemView.swift in Sources */,
 				A57DB51C272D81C00055827F /* AccountViewModel.swift in Sources */,
@@ -547,6 +577,7 @@
 				A57DB5322731F06F0055827F /* Theme.swift in Sources */,
 				A57DB516272D7A9C0055827F /* Balance.swift in Sources */,
 				A57DB526272F40A10055827F /* RootView.swift in Sources */,
+				A5935089276F9C1F00657D20 /* ArrayUtils.swift in Sources */,
 				A57DB535273208120055827F /* AvatarView.swift in Sources */,
 				A57DB513272CB5650055827F /* AccountView.swift in Sources */,
 				A57DB506272C8DD60055827F /* AccountsViewModel.swift in Sources */,
@@ -562,10 +593,12 @@
 			files = (
 				A57DB50A272C9F1F0055827F /* TrackingAccount.swift in Sources */,
 				A57DB524272DC54F0055827F /* DateUtils.swift in Sources */,
+				A59350872752EBD900657D20 /* Breadcrumb.swift in Sources */,
 				A57DB504272C8D0E0055827F /* BudgetAccount.swift in Sources */,
 				A52C270327258A7200C35AB7 /* FinandoApp.swift in Sources */,
 				A52C270527258A7200C35AB7 /* AccountsView.swift in Sources */,
 				A57DB51A272D7D120055827F /* API.swift in Sources */,
+				A59350842752E81D00657D20 /* Breadcrumbs.swift in Sources */,
 				A57DB530272F5CEF0055827F /* ApplicationRoute.swift in Sources */,
 				A5DEE2712750C8750019E1D8 /* AccountListItemView.swift in Sources */,
 				A57DB51D272D81C00055827F /* AccountViewModel.swift in Sources */,
@@ -576,6 +609,7 @@
 				A57DB5332731F06F0055827F /* Theme.swift in Sources */,
 				A57DB517272D7A9C0055827F /* Balance.swift in Sources */,
 				A57DB527272F40A10055827F /* RootView.swift in Sources */,
+				A593508A276F9C1F00657D20 /* ArrayUtils.swift in Sources */,
 				A57DB536273208120055827F /* AvatarView.swift in Sources */,
 				A57DB514272CB5650055827F /* AccountView.swift in Sources */,
 				A57DB507272C8DD60055827F /* AccountsViewModel.swift in Sources */,
