@@ -1,7 +1,7 @@
 import Foundation
 
 struct Balance {
-    let date: Date?
+    let date: Date
     let cleared: Int
     let uncleared: Int
     let running: Int
