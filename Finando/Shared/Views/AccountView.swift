@@ -59,7 +59,7 @@ struct AccountView: View {
                             .font(.system(size: 18, weight: .bold))
                             .foregroundColor(Theme.color.neutral.n40.color)
 
-                        Text("\((accountViewModel.account?.balance.cleared ?? 0) / 100) \(accountViewModel.account?.balance.currency ?? "")")
+                        Text("\(accountViewModel.account?.balance.clearedFormatted ?? "")")
                             .font(.system(size: 16, weight: .bold))
                     }
                         .frame(maxHeight: .infinity)
@@ -74,7 +74,7 @@ struct AccountView: View {
                             .font(.system(size: 18, weight: .bold))
                             .foregroundColor(Theme.color.neutral.n40.color)
 
-                        Text("\((accountViewModel.account?.balance.uncleared ?? 0) / 100) \(accountViewModel.account?.balance.currency ?? "")")
+                        Text("\(accountViewModel.account?.balance.unclearedFormatted ?? "")")
                             .font(.system(size: 16, weight: .bold))
                     }
                         .frame(maxHeight: .infinity)
@@ -89,7 +89,7 @@ struct AccountView: View {
                             .font(.system(size: 18, weight: .bold))
                             .foregroundColor(Theme.color.neutral.n40.color)
 
-                        Text("\((accountViewModel.account?.balance.running ?? 0) / 100) \(accountViewModel.account?.balance.currency ?? "")")
+                        Text("\(accountViewModel.account?.balance.runningFormatted ?? "")")
                             .font(.system(size: 16, weight: .bold))
                     }
                         .frame(maxHeight: .infinity)

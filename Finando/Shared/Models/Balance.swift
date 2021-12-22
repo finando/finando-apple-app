@@ -36,32 +36,14 @@ struct Balance {
     }
 
     var unclearedFormatted: String {
-        formatToCurrencyValue(value: Double(uncleared) / 100, currency: currency)
+        CurrencyUtils.formatAsCurrency(value: Double(uncleared) / 100, currency: currency)
     }
 
     var clearedFormatted: String {
-        formatToCurrencyValue(value: Double(cleared) / 100, currency: currency)
+        CurrencyUtils.formatAsCurrency(value: Double(cleared) / 100, currency: currency)
     }
 
     var runningFormatted: String {
-        formatToCurrencyValue(value: Double(running) / 100, currency: currency)
-    }
-
-    private func formatToCurrencyValue(value: Double, currency: String) -> String {
-        let numberFormatter = NumberFormatter()
-
-        numberFormatter.alwaysShowsDecimalSeparator = true
-        numberFormatter.usesGroupingSeparator = true
-        numberFormatter.groupingSeparator = " "
-        numberFormatter.groupingSize = 3
-        numberFormatter.decimalSeparator = "."
-        numberFormatter.currencyDecimalSeparator = "."
-        numberFormatter.numberStyle = .currency
-        numberFormatter.minimumFractionDigits = 2
-        numberFormatter.maximumFractionDigits = 2
-        numberFormatter.currencyCode = currency
-        numberFormatter.currencySymbol = currency
-
-        return numberFormatter.string(from: NSNumber(value: value)) ?? ""
+        CurrencyUtils.formatAsCurrency(value: Double(running) / 100, currency: currency)
     }
 }
