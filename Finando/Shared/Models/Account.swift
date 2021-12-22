@@ -14,6 +14,7 @@ extension Account: Identifiable {
             return trackingAccount.id
         }
     }
+
     var name: String {
         switch self {
         case .BudgetAccount(let budgetAccount):
@@ -22,12 +23,22 @@ extension Account: Identifiable {
             return trackingAccount.name
         }
     }
+
     var balance: Balance {
         switch self {
         case .BudgetAccount(let budgetAccount):
             return budgetAccount.balance
         case .TrackingAccount(let trackingAccount):
             return trackingAccount.balance
+        }
+    }
+
+    var balances: [Balance] {
+        switch self {
+        case .BudgetAccount(let budgetAccount):
+            return budgetAccount.balances
+        case .TrackingAccount(let trackingAccount):
+            return trackingAccount.balances
         }
     }
 

@@ -6,7 +6,7 @@ fragment BalanceFragment on Balance {
   running
 }
 
-fragment AccountFragment on Account {
+fragment ListAccountsAccountFragment on Account {
   ... on BudgetAccount {
     id
     name
@@ -25,6 +25,6 @@ fragment AccountFragment on Account {
 
 query ListAccounts($balanceToDate: DateTime!) {
   accounts: listAccounts {
-    ...AccountFragment
+    ...ListAccountsAccountFragment
   }
 }

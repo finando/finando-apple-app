@@ -6,11 +6,18 @@ fragment BalanceFragment on Balance {
   running
 }
 
-fragment AccountFragment on Account {
+fragment GetAccountAccountFragment on Account {
   ... on BudgetAccount {
     id
     name
     balance(to: $balanceToDate) {
+      ...BalanceFragment
+    }
+    balances(
+      from: $balancesFromDate
+      to: $balancesToDate
+      frequency: $frequency
+    ) {
       ...BalanceFragment
     }
   }
@@ -20,11 +27,24 @@ fragment AccountFragment on Account {
     balance(to: $balanceToDate) {
       ...BalanceFragment
     }
+    balances(
+      from: $balancesFromDate
+      to: $balancesToDate
+      frequency: $frequency
+    ) {
+      ...BalanceFragment
+    }
   }
 }
 
-query GetAccount($id: ID!, $balanceToDate: DateTime!) {
+query GetAccount(
+  $id: ID!
+  $balanceToDate: DateTime!
+  $balancesFromDate: DateTime!
+  $balancesToDate: DateTime!
+  $frequency: Frequency!
+) {
   account: getAccount(id: $id) {
-    ...AccountFragment
+    ...GetAccountAccountFragment
   }
 }

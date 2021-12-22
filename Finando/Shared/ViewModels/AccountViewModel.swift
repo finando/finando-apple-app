@@ -4,7 +4,7 @@ import Combine
 class AccountViewModel: ObservableObject {
     @Published var accountId: String?
     @Published private(set) var account: Account?
-    
+
     private var cancellables = Set<AnyCancellable>()
 
     init() {
@@ -40,11 +40,11 @@ class AccountViewModel: ObservableObject {
     }
 
     private func parse(data: GetAccountQuery.Data.Account?) -> Account? {
-        if let budgetAccount = data?.fragments.accountFragment.asBudgetAccount {
+        if let budgetAccount = data?.fragments.getAccountAccountFragment.asBudgetAccount {
             return Account.BudgetAccount(BudgetAccount(fragment: budgetAccount))
         }
-        
-        if let trackingAccount = data?.fragments.accountFragment.asTrackingAccount {
+
+        if let trackingAccount = data?.fragments.getAccountAccountFragment.asTrackingAccount {
             return Account.TrackingAccount(TrackingAccount(fragment: trackingAccount))
         }
         

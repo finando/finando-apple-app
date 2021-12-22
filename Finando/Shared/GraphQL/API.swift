@@ -4,14 +4,64 @@
 import Apollo
 import Foundation
 
+public enum Frequency: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  case annually
+  case daily
+  case monthly
+  case weekly
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "ANNUALLY": self = .annually
+      case "DAILY": self = .daily
+      case "MONTHLY": self = .monthly
+      case "WEEKLY": self = .weekly
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .annually: return "ANNUALLY"
+      case .daily: return "DAILY"
+      case .monthly: return "MONTHLY"
+      case .weekly: return "WEEKLY"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: Frequency, rhs: Frequency) -> Bool {
+    switch (lhs, rhs) {
+      case (.annually, .annually): return true
+      case (.daily, .daily): return true
+      case (.monthly, .monthly): return true
+      case (.weekly, .weekly): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+
+  public static var allCases: [Frequency] {
+    return [
+      .annually,
+      .daily,
+      .monthly,
+      .weekly,
+    ]
+  }
+}
+
 public final class GetAccountQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query GetAccount($id: ID!, $balanceToDate: DateTime!) {
+    query GetAccount($id: ID!, $balanceToDate: DateTime!, $balancesFromDate: DateTime!, $balancesToDate: DateTime!, $frequency: Frequency!) {
       account: getAccount(id: $id) {
         __typename
-        ...AccountFragment
+        ...GetAccountAccountFragment
       }
     }
     """
@@ -20,21 +70,27 @@ public final class GetAccountQuery: GraphQLQuery {
 
   public var queryDocument: String {
     var document: String = operationDefinition
-    document.append("\n" + AccountFragment.fragmentDefinition)
+    document.append("\n" + GetAccountAccountFragment.fragmentDefinition)
     document.append("\n" + BalanceFragment.fragmentDefinition)
     return document
   }
 
   public var id: GraphQLID
   public var balanceToDate: String
+  public var balancesFromDate: String
+  public var balancesToDate: String
+  public var frequency: Frequency
 
-  public init(id: GraphQLID, balanceToDate: String) {
+  public init(id: GraphQLID, balanceToDate: String, balancesFromDate: String, balancesToDate: String, frequency: Frequency) {
     self.id = id
     self.balanceToDate = balanceToDate
+    self.balancesFromDate = balancesFromDate
+    self.balancesToDate = balancesToDate
+    self.frequency = frequency
   }
 
   public var variables: GraphQLMap? {
-    return ["id": id, "balanceToDate": balanceToDate]
+    return ["id": id, "balanceToDate": balanceToDate, "balancesFromDate": balancesFromDate, "balancesToDate": balancesToDate, "frequency": frequency]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -71,7 +127,7 @@ public final class GetAccountQuery: GraphQLQuery {
       public static var selections: [GraphQLSelection] {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLFragmentSpread(AccountFragment.self),
+          GraphQLFragmentSpread(GetAccountAccountFragment.self),
         ]
       }
 
@@ -106,9 +162,9 @@ public final class GetAccountQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public var accountFragment: AccountFragment {
+        public var getAccountAccountFragment: GetAccountAccountFragment {
           get {
-            return AccountFragment(unsafeResultMap: resultMap)
+            return GetAccountAccountFragment(unsafeResultMap: resultMap)
           }
           set {
             resultMap += newValue.resultMap
@@ -126,7 +182,7 @@ public final class ListAccountsQuery: GraphQLQuery {
     query ListAccounts($balanceToDate: DateTime!) {
       accounts: listAccounts {
         __typename
-        ...AccountFragment
+        ...ListAccountsAccountFragment
       }
     }
     """
@@ -135,7 +191,7 @@ public final class ListAccountsQuery: GraphQLQuery {
 
   public var queryDocument: String {
     var document: String = operationDefinition
-    document.append("\n" + AccountFragment.fragmentDefinition)
+    document.append("\n" + ListAccountsAccountFragment.fragmentDefinition)
     document.append("\n" + BalanceFragment.fragmentDefinition)
     return document
   }
@@ -184,7 +240,7 @@ public final class ListAccountsQuery: GraphQLQuery {
       public static var selections: [GraphQLSelection] {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLFragmentSpread(AccountFragment.self),
+          GraphQLFragmentSpread(ListAccountsAccountFragment.self),
         ]
       }
 
@@ -219,9 +275,9 @@ public final class ListAccountsQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public var accountFragment: AccountFragment {
+        public var listAccountsAccountFragment: ListAccountsAccountFragment {
           get {
-            return AccountFragment(unsafeResultMap: resultMap)
+            return ListAccountsAccountFragment(unsafeResultMap: resultMap)
           }
           set {
             resultMap += newValue.resultMap
@@ -324,11 +380,353 @@ public struct BalanceFragment: GraphQLFragment {
   }
 }
 
-public struct AccountFragment: GraphQLFragment {
+public struct GetAccountAccountFragment: GraphQLFragment {
   /// The raw GraphQL definition of this fragment.
   public static let fragmentDefinition: String =
     """
-    fragment AccountFragment on Account {
+    fragment GetAccountAccountFragment on Account {
+      __typename
+      ... on BudgetAccount {
+        id
+        name
+        balance(to: $balanceToDate) {
+          __typename
+          ...BalanceFragment
+        }
+        balances(from: $balancesFromDate, to: $balancesToDate, frequency: $frequency) {
+          __typename
+          ...BalanceFragment
+        }
+      }
+      ... on TrackingAccount {
+        id
+        name
+        balance(to: $balanceToDate) {
+          __typename
+          ...BalanceFragment
+        }
+        balances(from: $balancesFromDate, to: $balancesToDate, frequency: $frequency) {
+          __typename
+          ...BalanceFragment
+        }
+      }
+    }
+    """
+
+  public static let possibleTypes: [String] = ["BudgetAccount", "TrackingAccount"]
+
+  public static var selections: [GraphQLSelection] {
+    return [
+      GraphQLTypeCase(
+        variants: ["BudgetAccount": AsBudgetAccount.selections, "TrackingAccount": AsTrackingAccount.selections],
+        default: [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        ]
+      )
+    ]
+  }
+
+  public private(set) var resultMap: ResultMap
+
+  public init(unsafeResultMap: ResultMap) {
+    self.resultMap = unsafeResultMap
+  }
+
+  public static func makeBudgetAccount(id: GraphQLID, name: String? = nil, balance: AsBudgetAccount.Balance, balances: [AsBudgetAccount.Balance]) -> GetAccountAccountFragment {
+    return GetAccountAccountFragment(unsafeResultMap: ["__typename": "BudgetAccount", "id": id, "name": name, "balance": balance.resultMap, "balances": balances.map { (value: AsBudgetAccount.Balance) -> ResultMap in value.resultMap }])
+  }
+
+  public static func makeTrackingAccount(id: GraphQLID, name: String? = nil, balance: AsTrackingAccount.Balance, balances: [AsTrackingAccount.Balance]) -> GetAccountAccountFragment {
+    return GetAccountAccountFragment(unsafeResultMap: ["__typename": "TrackingAccount", "id": id, "name": name, "balance": balance.resultMap, "balances": balances.map { (value: AsTrackingAccount.Balance) -> ResultMap in value.resultMap }])
+  }
+
+  public var __typename: String {
+    get {
+      return resultMap["__typename"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "__typename")
+    }
+  }
+
+  public var asBudgetAccount: AsBudgetAccount? {
+    get {
+      if !AsBudgetAccount.possibleTypes.contains(__typename) { return nil }
+      return AsBudgetAccount(unsafeResultMap: resultMap)
+    }
+    set {
+      guard let newValue = newValue else { return }
+      resultMap = newValue.resultMap
+    }
+  }
+
+  public struct AsBudgetAccount: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["BudgetAccount"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+        GraphQLField("name", type: .scalar(String.self)),
+        GraphQLField("balance", arguments: ["to": GraphQLVariable("balanceToDate")], type: .nonNull(.object(Balance.selections))),
+        GraphQLField("balances", arguments: ["from": GraphQLVariable("balancesFromDate"), "to": GraphQLVariable("balancesToDate"), "frequency": GraphQLVariable("frequency")], type: .nonNull(.list(.nonNull(.object(Balance.selections))))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(id: GraphQLID, name: String? = nil, balance: Balance, balances: [Balance]) {
+      self.init(unsafeResultMap: ["__typename": "BudgetAccount", "id": id, "name": name, "balance": balance.resultMap, "balances": balances.map { (value: Balance) -> ResultMap in value.resultMap }])
+    }
+
+    public var __typename: String {
+      get {
+        return resultMap["__typename"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "__typename")
+      }
+    }
+
+    public var id: GraphQLID {
+      get {
+        return resultMap["id"]! as! GraphQLID
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "id")
+      }
+    }
+
+    public var name: String? {
+      get {
+        return resultMap["name"] as? String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "name")
+      }
+    }
+
+    public var balance: Balance {
+      get {
+        return Balance(unsafeResultMap: resultMap["balance"]! as! ResultMap)
+      }
+      set {
+        resultMap.updateValue(newValue.resultMap, forKey: "balance")
+      }
+    }
+
+    public var balances: [Balance] {
+      get {
+        return (resultMap["balances"] as! [ResultMap]).map { (value: ResultMap) -> Balance in Balance(unsafeResultMap: value) }
+      }
+      set {
+        resultMap.updateValue(newValue.map { (value: Balance) -> ResultMap in value.resultMap }, forKey: "balances")
+      }
+    }
+
+    public struct Balance: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Balance"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLFragmentSpread(BalanceFragment.self),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(date: String, currency: String, cleared: Int, uncleared: Int, running: Int) {
+        self.init(unsafeResultMap: ["__typename": "Balance", "date": date, "currency": currency, "cleared": cleared, "uncleared": uncleared, "running": running])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var fragments: Fragments {
+        get {
+          return Fragments(unsafeResultMap: resultMap)
+        }
+        set {
+          resultMap += newValue.resultMap
+        }
+      }
+
+      public struct Fragments {
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var balanceFragment: BalanceFragment {
+          get {
+            return BalanceFragment(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+      }
+    }
+  }
+
+  public var asTrackingAccount: AsTrackingAccount? {
+    get {
+      if !AsTrackingAccount.possibleTypes.contains(__typename) { return nil }
+      return AsTrackingAccount(unsafeResultMap: resultMap)
+    }
+    set {
+      guard let newValue = newValue else { return }
+      resultMap = newValue.resultMap
+    }
+  }
+
+  public struct AsTrackingAccount: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["TrackingAccount"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+        GraphQLField("name", type: .scalar(String.self)),
+        GraphQLField("balance", arguments: ["to": GraphQLVariable("balanceToDate")], type: .nonNull(.object(Balance.selections))),
+        GraphQLField("balances", arguments: ["from": GraphQLVariable("balancesFromDate"), "to": GraphQLVariable("balancesToDate"), "frequency": GraphQLVariable("frequency")], type: .nonNull(.list(.nonNull(.object(Balance.selections))))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(id: GraphQLID, name: String? = nil, balance: Balance, balances: [Balance]) {
+      self.init(unsafeResultMap: ["__typename": "TrackingAccount", "id": id, "name": name, "balance": balance.resultMap, "balances": balances.map { (value: Balance) -> ResultMap in value.resultMap }])
+    }
+
+    public var __typename: String {
+      get {
+        return resultMap["__typename"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "__typename")
+      }
+    }
+
+    public var id: GraphQLID {
+      get {
+        return resultMap["id"]! as! GraphQLID
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "id")
+      }
+    }
+
+    public var name: String? {
+      get {
+        return resultMap["name"] as? String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "name")
+      }
+    }
+
+    public var balance: Balance {
+      get {
+        return Balance(unsafeResultMap: resultMap["balance"]! as! ResultMap)
+      }
+      set {
+        resultMap.updateValue(newValue.resultMap, forKey: "balance")
+      }
+    }
+
+    public var balances: [Balance] {
+      get {
+        return (resultMap["balances"] as! [ResultMap]).map { (value: ResultMap) -> Balance in Balance(unsafeResultMap: value) }
+      }
+      set {
+        resultMap.updateValue(newValue.map { (value: Balance) -> ResultMap in value.resultMap }, forKey: "balances")
+      }
+    }
+
+    public struct Balance: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Balance"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLFragmentSpread(BalanceFragment.self),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(date: String, currency: String, cleared: Int, uncleared: Int, running: Int) {
+        self.init(unsafeResultMap: ["__typename": "Balance", "date": date, "currency": currency, "cleared": cleared, "uncleared": uncleared, "running": running])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var fragments: Fragments {
+        get {
+          return Fragments(unsafeResultMap: resultMap)
+        }
+        set {
+          resultMap += newValue.resultMap
+        }
+      }
+
+      public struct Fragments {
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var balanceFragment: BalanceFragment {
+          get {
+            return BalanceFragment(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+      }
+    }
+  }
+}
+
+public struct ListAccountsAccountFragment: GraphQLFragment {
+  /// The raw GraphQL definition of this fragment.
+  public static let fragmentDefinition: String =
+    """
+    fragment ListAccountsAccountFragment on Account {
       __typename
       ... on BudgetAccount {
         id
@@ -368,12 +766,12 @@ public struct AccountFragment: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public static func makeBudgetAccount(id: GraphQLID, name: String? = nil, balance: AsBudgetAccount.Balance) -> AccountFragment {
-    return AccountFragment(unsafeResultMap: ["__typename": "BudgetAccount", "id": id, "name": name, "balance": balance.resultMap])
+  public static func makeBudgetAccount(id: GraphQLID, name: String? = nil, balance: AsBudgetAccount.Balance) -> ListAccountsAccountFragment {
+    return ListAccountsAccountFragment(unsafeResultMap: ["__typename": "BudgetAccount", "id": id, "name": name, "balance": balance.resultMap])
   }
 
-  public static func makeTrackingAccount(id: GraphQLID, name: String? = nil, balance: AsTrackingAccount.Balance) -> AccountFragment {
-    return AccountFragment(unsafeResultMap: ["__typename": "TrackingAccount", "id": id, "name": name, "balance": balance.resultMap])
+  public static func makeTrackingAccount(id: GraphQLID, name: String? = nil, balance: AsTrackingAccount.Balance) -> ListAccountsAccountFragment {
+    return ListAccountsAccountFragment(unsafeResultMap: ["__typename": "TrackingAccount", "id": id, "name": name, "balance": balance.resultMap])
   }
 
   public var __typename: String {

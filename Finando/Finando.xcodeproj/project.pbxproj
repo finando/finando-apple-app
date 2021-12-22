@@ -29,12 +29,8 @@
 		A57DB514272CB5650055827F /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB512272CB5650055827F /* AccountView.swift */; };
 		A57DB516272D7A9C0055827F /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB515272D7A9C0055827F /* Balance.swift */; };
 		A57DB517272D7A9C0055827F /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB515272D7A9C0055827F /* Balance.swift */; };
-		A57DB519272D7D120055827F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB518272D7D120055827F /* API.swift */; };
-		A57DB51A272D7D120055827F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB518272D7D120055827F /* API.swift */; };
 		A57DB51C272D81C00055827F /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB51B272D81C00055827F /* AccountViewModel.swift */; };
 		A57DB51D272D81C00055827F /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB51B272D81C00055827F /* AccountViewModel.swift */; };
-		A57DB51F272D82AC0055827F /* GetAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A57DB51E272D82AC0055827F /* GetAccount.graphql */; };
-		A57DB520272D82AC0055827F /* GetAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A57DB51E272D82AC0055827F /* GetAccount.graphql */; };
 		A57DB523272DC54F0055827F /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB522272DC54F0055827F /* DateUtils.swift */; };
 		A57DB524272DC54F0055827F /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB522272DC54F0055827F /* DateUtils.swift */; };
 		A57DB526272F40A10055827F /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB525272F40A00055827F /* RootView.swift */; };
@@ -53,8 +49,6 @@
 		A57DB539273218FA0055827F /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB537273218FA0055827F /* ViewUtils.swift */; };
 		A57DB53B2732196C0055827F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB53A2732196C0055827F /* User.swift */; };
 		A57DB53C2732196C0055827F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB53A2732196C0055827F /* User.swift */; };
-		A580FB222725A11900DAD317 /* ListAccounts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A580FB212725A11900DAD317 /* ListAccounts.graphql */; };
-		A580FB232725A11900DAD317 /* ListAccounts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A580FB212725A11900DAD317 /* ListAccounts.graphql */; };
 		A580FB252725A31A00DAD317 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = A580FB242725A31A00DAD317 /* schema.json */; };
 		A580FB262725A31A00DAD317 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = A580FB242725A31A00DAD317 /* schema.json */; };
 		A580FB312725A52400DAD317 /* ApolloClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580FB302725A52400DAD317 /* ApolloClient.swift */; };
@@ -67,6 +61,12 @@
 		A59350872752EBD900657D20 /* Breadcrumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350852752EBD900657D20 /* Breadcrumb.swift */; };
 		A5935089276F9C1F00657D20 /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5935088276F9C1F00657D20 /* ArrayUtils.swift */; };
 		A593508A276F9C1F00657D20 /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5935088276F9C1F00657D20 /* ArrayUtils.swift */; };
+		A59350D32773BE6400657D20 /* GetAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A59350D12773BE6400657D20 /* GetAccount.graphql */; };
+		A59350D42773BE6400657D20 /* GetAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A59350D12773BE6400657D20 /* GetAccount.graphql */; };
+		A59350D52773BE6400657D20 /* ListAccounts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A59350D22773BE6400657D20 /* ListAccounts.graphql */; };
+		A59350D62773BE6400657D20 /* ListAccounts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A59350D22773BE6400657D20 /* ListAccounts.graphql */; };
+		A59350D82773BF0D00657D20 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350D72773BF0D00657D20 /* API.swift */; };
+		A59350D92773BF0D00657D20 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350D72773BF0D00657D20 /* API.swift */; };
 		A5DEE268273877130019E1D8 /* HoverViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEE267273877130019E1D8 /* HoverViewModifier.swift */; };
 		A5DEE269273877130019E1D8 /* HoverViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEE267273877130019E1D8 /* HoverViewModifier.swift */; };
 		A5DEE26C27415B5F0019E1D8 /* SwiftUIRouter in Frameworks */ = {isa = PBXBuildFile; productRef = A5DEE26B27415B5F0019E1D8 /* SwiftUIRouter */; };
@@ -111,9 +111,7 @@
 		A57DB50F272CA3080055827F /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		A57DB512272CB5650055827F /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		A57DB515272D7A9C0055827F /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
-		A57DB518272D7D120055827F /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		A57DB51B272D81C00055827F /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
-		A57DB51E272D82AC0055827F /* GetAccount.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetAccount.graphql; sourceTree = "<group>"; };
 		A57DB522272DC54F0055827F /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		A57DB525272F40A00055827F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		A57DB528272F40ED0055827F /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -123,13 +121,15 @@
 		A57DB534273208120055827F /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		A57DB537273218FA0055827F /* ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
 		A57DB53A2732196C0055827F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		A580FB212725A11900DAD317 /* ListAccounts.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = ListAccounts.graphql; sourceTree = "<group>"; };
 		A580FB242725A31A00DAD317 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		A580FB302725A52400DAD317 /* ApolloClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloClient.swift; sourceTree = "<group>"; };
 		A580FB752725BDC200DAD317 /* Finando--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Finando--macOS--Info.plist"; sourceTree = "<group>"; };
 		A59350822752E81D00657D20 /* Breadcrumbs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breadcrumbs.swift; sourceTree = "<group>"; };
 		A59350852752EBD900657D20 /* Breadcrumb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breadcrumb.swift; sourceTree = "<group>"; };
 		A5935088276F9C1F00657D20 /* ArrayUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayUtils.swift; sourceTree = "<group>"; };
+		A59350D12773BE6400657D20 /* GetAccount.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GetAccount.graphql; sourceTree = "<group>"; };
+		A59350D22773BE6400657D20 /* ListAccounts.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ListAccounts.graphql; sourceTree = "<group>"; };
+		A59350D72773BF0D00657D20 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		A5DEE267273877130019E1D8 /* HoverViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverViewModifier.swift; sourceTree = "<group>"; };
 		A5DEE26F2750C8750019E1D8 /* AccountListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -280,7 +280,7 @@
 		A580FB1A27259E0300DAD317 /* GraphQL */ = {
 			isa = PBXGroup;
 			children = (
-				A57DB518272D7D120055827F /* API.swift */,
+				A59350D72773BF0D00657D20 /* API.swift */,
 				A580FB242725A31A00DAD317 /* schema.json */,
 				A580FB1D27259F7000DAD317 /* Operations */,
 				A580FB302725A52400DAD317 /* ApolloClient.swift */,
@@ -291,8 +291,8 @@
 		A580FB1D27259F7000DAD317 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
-				A580FB212725A11900DAD317 /* ListAccounts.graphql */,
-				A57DB51E272D82AC0055827F /* GetAccount.graphql */,
+				A59350D12773BE6400657D20 /* GetAccount.graphql */,
+				A59350D22773BE6400657D20 /* ListAccounts.graphql */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -477,10 +477,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A57DB51F272D82AC0055827F /* GetAccount.graphql in Resources */,
 				A52C270627258A7200C35AB7 /* Assets.xcassets in Resources */,
 				A580FB252725A31A00DAD317 /* schema.json in Resources */,
-				A580FB222725A11900DAD317 /* ListAccounts.graphql in Resources */,
+				A59350D32773BE6400657D20 /* GetAccount.graphql in Resources */,
+				A59350D52773BE6400657D20 /* ListAccounts.graphql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,10 +488,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A57DB520272D82AC0055827F /* GetAccount.graphql in Resources */,
 				A52C270727258A7200C35AB7 /* Assets.xcassets in Resources */,
 				A580FB262725A31A00DAD317 /* schema.json in Resources */,
-				A580FB232725A11900DAD317 /* ListAccounts.graphql in Resources */,
+				A59350D42773BE6400657D20 /* GetAccount.graphql in Resources */,
+				A59350D62773BE6400657D20 /* ListAccounts.graphql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,8 +565,8 @@
 				A57DB503272C8D0E0055827F /* BudgetAccount.swift in Sources */,
 				A52C270227258A7200C35AB7 /* FinandoApp.swift in Sources */,
 				A52C270427258A7200C35AB7 /* AccountsView.swift in Sources */,
-				A57DB519272D7D120055827F /* API.swift in Sources */,
 				A59350832752E81D00657D20 /* Breadcrumbs.swift in Sources */,
+				A59350D82773BF0D00657D20 /* API.swift in Sources */,
 				A57DB52F272F5CEF0055827F /* ApplicationRoute.swift in Sources */,
 				A5DEE2702750C8750019E1D8 /* AccountListItemView.swift in Sources */,
 				A57DB51C272D81C00055827F /* AccountViewModel.swift in Sources */,
@@ -597,8 +597,8 @@
 				A57DB504272C8D0E0055827F /* BudgetAccount.swift in Sources */,
 				A52C270327258A7200C35AB7 /* FinandoApp.swift in Sources */,
 				A52C270527258A7200C35AB7 /* AccountsView.swift in Sources */,
-				A57DB51A272D7D120055827F /* API.swift in Sources */,
 				A59350842752E81D00657D20 /* Breadcrumbs.swift in Sources */,
+				A59350D92773BF0D00657D20 /* API.swift in Sources */,
 				A57DB530272F5CEF0055827F /* ApplicationRoute.swift in Sources */,
 				A5DEE2712750C8750019E1D8 /* AccountListItemView.swift in Sources */,
 				A57DB51D272D81C00055827F /* AccountViewModel.swift in Sources */,

@@ -3,7 +3,7 @@ import SwiftUIRouter
 
 struct AccountView: View {
     let accountId: String;
-    
+
     @EnvironmentObject var navigator: Navigator
 
     @StateObject var accountViewModel = AccountViewModel()

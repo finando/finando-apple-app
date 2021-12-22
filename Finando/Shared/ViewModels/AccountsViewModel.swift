@@ -3,11 +3,11 @@ import Combine
 
 class AccountsViewModel: ObservableObject {
     @Published private(set) var accounts = [Account]()
-    
+
     init() {
         listAccounts()
     }
-    
+
     private func listAccounts() {
         Network
             .shared
@@ -21,21 +21,21 @@ class AccountsViewModel: ObservableObject {
                 }
             }
     }
-    
+
     private func constructListAccountsQuery() -> ListAccountsQuery {
         return ListAccountsQuery(balanceToDate: Date().toISO8601Format())
     }
-    
+
     private func parse(data: [ListAccountsQuery.Data.Account]?) -> [Account] {
         return data?.compactMap({ account in
-            if let budgetAccount = account.fragments.accountFragment.asBudgetAccount {
+            if let budgetAccount = account.fragments.listAccountsAccountFragment.asBudgetAccount {
                 return Account.BudgetAccount(BudgetAccount(fragment: budgetAccount))
             }
-            
-            if let trackingAccount = account.fragments.accountFragment.asTrackingAccount {
+
+            if let trackingAccount = account.fragments.listAccountsAccountFragment.asTrackingAccount {
                 return Account.TrackingAccount(TrackingAccount(fragment: trackingAccount))
             }
-            
+
             return nil
         }) ?? []
     }
