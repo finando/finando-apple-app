@@ -10,33 +10,33 @@ struct RootView: View {
                 HeaderView()
 
                 SwitchRoutes {
-                    Route(path: ApplicationRoute.overview.path) {
+                    Route(ApplicationRoute.overview.path) {
                         Text("overview")
                             .foregroundColor(Color.black)
                             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: Alignment(horizontal: .leading, vertical: .top))
                             .background(Color.red)
                     }
-                    Route(path: ApplicationRoute.accounts.path) {
+                    Route(ApplicationRoute.accounts.path) {
                         AccountsView()
                             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: Alignment(horizontal: .leading, vertical: .top))
                     }
-                    Route(path: ApplicationRoute.account(":accountId").path) { info in
+                    Route(ApplicationRoute.account(":accountId").path) { info in
                         AccountView(accountId: info.parameters["accountId"]!)
                             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: Alignment(horizontal: .leading, vertical: .top))
                     }
-                    Route(path: ApplicationRoute.budget.path) {
+                    Route(ApplicationRoute.budget.path) {
                         Text("budget")
                             .foregroundColor(Color.black)
                             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: Alignment(horizontal: .leading, vertical: .top))
                             .background(Color.blue)
                     }
-                    Route(path: ApplicationRoute.goals.path) {
+                    Route(ApplicationRoute.goals.path) {
                         Text("goals")
                             .foregroundColor(Color.black)
                             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: Alignment(horizontal: .leading, vertical: .top))
                             .background(Color.yellow)
                     }
-                    Route(path: ApplicationRoute.projections.path) {
+                    Route(ApplicationRoute.projections.path) {
                         Text("projections")
                             .foregroundColor(Color.black)
                             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: Alignment(horizontal: .leading, vertical: .top))
