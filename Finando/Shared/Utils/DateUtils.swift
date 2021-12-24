@@ -8,4 +8,12 @@ extension Date {
             return ISO8601DateFormatter().string(from: self)
         }
     }
+
+    func formatted(format: String) -> String {
+        let dateformat = DateFormatter()
+
+        dateformat.dateFormat = format
+
+        return dateformat.string(from: self)
+    }
 }
