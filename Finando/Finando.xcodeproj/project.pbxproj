@@ -63,6 +63,12 @@
 		A59350872752EBD900657D20 /* Breadcrumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350852752EBD900657D20 /* Breadcrumb.swift */; };
 		A5935089276F9C1F00657D20 /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5935088276F9C1F00657D20 /* ArrayUtils.swift */; };
 		A593508A276F9C1F00657D20 /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5935088276F9C1F00657D20 /* ArrayUtils.swift */; };
+		A593509E2770809600657D20 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = A593509D2770809600657D20 /* Algorithms */; };
+		A59350A0277080A600657D20 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = A593509F277080A600657D20 /* Algorithms */; };
+		A59350A32770846A00657D20 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = A59350A22770846A00657D20 /* Charts */; };
+		A59350A52770847200657D20 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = A59350A42770847200657D20 /* Charts */; };
+		A59350A72770870B00657D20 /* LineChartNSViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350A62770870B00657D20 /* LineChartNSViewRepresentable.swift */; };
+		A59350A82770870B00657D20 /* LineChartNSViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350A62770870B00657D20 /* LineChartNSViewRepresentable.swift */; };
 		A59350D32773BE6400657D20 /* GetAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A59350D12773BE6400657D20 /* GetAccount.graphql */; };
 		A59350D42773BE6400657D20 /* GetAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A59350D12773BE6400657D20 /* GetAccount.graphql */; };
 		A59350D52773BE6400657D20 /* ListAccounts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A59350D22773BE6400657D20 /* ListAccounts.graphql */; };
@@ -93,6 +99,29 @@
 			remoteInfo = "Finando (macOS)";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A5935098277079A300657D20 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A593509B27707F7400657D20 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A52C26DA27258A7100C35AB7 /* FinandoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinandoApp.swift; sourceTree = "<group>"; };
@@ -129,6 +158,7 @@
 		A59350822752E81D00657D20 /* Breadcrumbs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breadcrumbs.swift; sourceTree = "<group>"; };
 		A59350852752EBD900657D20 /* Breadcrumb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breadcrumb.swift; sourceTree = "<group>"; };
 		A5935088276F9C1F00657D20 /* ArrayUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayUtils.swift; sourceTree = "<group>"; };
+		A59350A62770870B00657D20 /* LineChartNSViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartNSViewRepresentable.swift; sourceTree = "<group>"; };
 		A59350D12773BE6400657D20 /* GetAccount.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GetAccount.graphql; sourceTree = "<group>"; };
 		A59350D22773BE6400657D20 /* ListAccounts.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ListAccounts.graphql; sourceTree = "<group>"; };
 		A59350D72773BF0D00657D20 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -144,6 +174,8 @@
 			files = (
 				A580FB742725AD7B00DAD317 /* Apollo in Frameworks */,
 				A58026CE27767A0E000373DE /* SwiftUIRouter in Frameworks */,
+				A593509E2770809600657D20 /* Algorithms in Frameworks */,
+				A59350A32770846A00657D20 /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +185,8 @@
 			files = (
 				A580FB722725AD5D00DAD317 /* Apollo in Frameworks */,
 				A58026D027767A16000373DE /* SwiftUIRouter in Frameworks */,
+				A59350A0277080A600657D20 /* Algorithms in Frameworks */,
+				A59350A52770847200657D20 /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +226,7 @@
 		A52C26D927258A7100C35AB7 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				A59350AC277087BF00657D20 /* ViewRepresentables */,
 				A59350802752E7A800657D20 /* Components */,
 				A5DEE266273876F40019E1D8 /* ViewModifiers */,
 				A57DB521272DC53D0055827F /* Utils */,
@@ -334,6 +369,14 @@
 			path = Breadcrumbs;
 			sourceTree = "<group>";
 		};
+		A59350AC277087BF00657D20 /* ViewRepresentables */ = {
+			isa = PBXGroup;
+			children = (
+				A59350A62770870B00657D20 /* LineChartNSViewRepresentable.swift */,
+			);
+			path = ViewRepresentables;
+			sourceTree = "<group>";
+		};
 		A5DEE266273876F40019E1D8 /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,6 +396,7 @@
 				A52C26DD27258A7200C35AB7 /* Sources */,
 				A52C26DE27258A7200C35AB7 /* Frameworks */,
 				A52C26DF27258A7200C35AB7 /* Resources */,
+				A5935098277079A300657D20 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -361,6 +405,8 @@
 			name = "Finando (iOS)";
 			packageProductDependencies = (
 				A580FB732725AD7B00DAD317 /* Apollo */,
+				A593509D2770809600657D20 /* Algorithms */,
+				A59350A22770846A00657D20 /* Charts */,
 				A58026CD27767A0E000373DE /* SwiftUIRouter */,
 			);
 			productName = "Finando (iOS)";
@@ -375,6 +421,7 @@
 				A52C26E327258A7200C35AB7 /* Sources */,
 				A52C26E427258A7200C35AB7 /* Frameworks */,
 				A52C26E527258A7200C35AB7 /* Resources */,
+				A593509B27707F7400657D20 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -383,6 +430,8 @@
 			name = "Finando (macOS)";
 			packageProductDependencies = (
 				A580FB712725AD5D00DAD317 /* Apollo */,
+				A593509F277080A600657D20 /* Algorithms */,
+				A59350A42770847200657D20 /* Charts */,
 				A58026CF27767A16000373DE /* SwiftUIRouter */,
 			);
 			productName = "Finando (macOS)";
@@ -462,6 +511,8 @@
 			mainGroup = A52C26D427258A7000C35AB7;
 			packageReferences = (
 				A580FB452725AAEF00DAD317 /* XCRemoteSwiftPackageReference "apollo-ios" */,
+				A593508E2770797300657D20 /* XCRemoteSwiftPackageReference "Charts" */,
+				A593509C2770809600657D20 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
 				A59350DE277676E700657D20 /* XCRemoteSwiftPackageReference "SwiftUIRouter" */,
 			);
 			productRefGroup = A52C26E227258A7200C35AB7 /* Products */;
@@ -566,6 +617,7 @@
 				A57DB509272C9F1F0055827F /* TrackingAccount.swift in Sources */,
 				A57DB523272DC54F0055827F /* DateUtils.swift in Sources */,
 				A59350862752EBD900657D20 /* Breadcrumb.swift in Sources */,
+				A59350A72770870B00657D20 /* LineChartNSViewRepresentable.swift in Sources */,
 				A57DB503272C8D0E0055827F /* BudgetAccount.swift in Sources */,
 				A52C270227258A7200C35AB7 /* FinandoApp.swift in Sources */,
 				A52C270427258A7200C35AB7 /* AccountsView.swift in Sources */,
@@ -599,6 +651,7 @@
 				A57DB50A272C9F1F0055827F /* TrackingAccount.swift in Sources */,
 				A57DB524272DC54F0055827F /* DateUtils.swift in Sources */,
 				A59350872752EBD900657D20 /* Breadcrumb.swift in Sources */,
+				A59350A82770870B00657D20 /* LineChartNSViewRepresentable.swift in Sources */,
 				A57DB504272C8D0E0055827F /* BudgetAccount.swift in Sources */,
 				A52C270327258A7200C35AB7 /* FinandoApp.swift in Sources */,
 				A52C270527258A7200C35AB7 /* AccountsView.swift in Sources */,
@@ -1098,9 +1151,25 @@
 			package = A580FB452725AAEF00DAD317 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = Apollo;
 		};
+		A593509D2770809600657D20 /* Algorithms */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = A593509C2770809600657D20 /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
 		};
+		A593509F277080A600657D20 /* Algorithms */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = A593509C2770809600657D20 /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
+		};
+		A59350A22770846A00657D20 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A593508E2770797300657D20 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
+		A59350A42770847200657D20 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A593508E2770797300657D20 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

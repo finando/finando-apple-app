@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftUIRouter
+import Charts
 
 struct AccountView: View {
     let accountId: String;
@@ -11,9 +12,7 @@ struct AccountView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             breadcrumbs
-                .padding(.horizontal, 16)
-                .padding(.top, 16)
-                .padding(.bottom, 5)
+                .padding(16)
 
             ScrollView(showsIndicators: false) {
                 HStack(spacing: 16) {
@@ -103,15 +102,15 @@ struct AccountView: View {
                 .padding(.horizontal, 16)
                 .padding(.top, 3)
 
-                Rectangle()
-                    .frame(maxWidth: .infinity, minHeight: 350, alignment: Alignment(horizontal: .leading, vertical: .top))
-                    .foregroundColor(.gray)
+                balanceChart
                     .padding(.horizontal, 16)
                     .padding(.top, 8)
 
                 Rectangle()
                     .frame(maxWidth: .infinity, minHeight: 1050, alignment: Alignment(horizontal: .leading, vertical: .top))
-                    .foregroundColor(.gray)
+                    .background(Theme.color.neutral.n0.color)
+                    .cornerRadius(8)
+                    .shadow(color: Theme.color.neutral.n20.color, radius: 3, x: 0, y: 0)
                     .padding(.horizontal, 16)
                     .padding(.top, 8)
                     .padding(.bottom, 16)
@@ -134,6 +133,29 @@ struct AccountView: View {
                 Text(accountViewModel.account?.name ?? "")
             }
         }
-        .padding(.bottom, 8)
+    }
+
+    private var balanceChart: some View {
+        let entries = convertBalancesToChartDataEntries(balances: accountViewModel.account?.balances ?? [])
+
+        return LineChartNSViewRepresentable(
+            entries: entries,
+            minY: 0.0,
+            maxY: 20000.0
+        )
+            .frame(maxWidth: .infinity, minHeight: 350, alignment: Alignment(horizontal: .leading, vertical: .top))
+            .padding(24)
+            .background(Theme.color.neutral.n0.color)
+            .cornerRadius(8)
+            .shadow(color: Theme.color.neutral.n20.color, radius: 3, x: 0, y: 0)
+    }
+
+    private func convertBalancesToChartDataEntries(balances: [Balance]) -> [ChartDataEntry] {
+        return balances.map { balance in
+            ChartDataEntry(
+                x: balance.date.timeIntervalSince1970 as Double,
+                y: Double(balance.running) / 100
+            )
+        }
     }
 }

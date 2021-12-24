@@ -36,7 +36,13 @@ class AccountViewModel: ObservableObject {
     }
 
     private func constructGetAccountQuery(accountId: String) -> GetAccountQuery {
-        return GetAccountQuery(id: accountId, balanceToDate: Date().toISO8601Format())
+        return GetAccountQuery(
+            id: accountId,
+            balanceToDate: Date().toISO8601Format(),
+            balancesFromDate: "2021-11-01T00:00:00.000Z",
+            balancesToDate: "2021-12-31T00:00:00.000Z",
+            frequency: .daily
+        )
     }
 
     private func parse(data: GetAccountQuery.Data.Account?) -> Account? {
