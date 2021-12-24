@@ -1,21 +1,29 @@
 import Foundation
 
 enum CurrencyUtils {
-    static func formatAsCurrency(value: Double, currency: String) -> String {
+    static func getCurrencyFormatter(decimalPlaces: Int = 2, currency: String? = nil) -> NumberFormatter {
         let numberFormatter = NumberFormatter()
 
         numberFormatter.alwaysShowsDecimalSeparator = true
         numberFormatter.usesGroupingSeparator = true
         numberFormatter.groupingSeparator = " "
         numberFormatter.groupingSize = 3
-        numberFormatter.decimalSeparator = "."
+        numberFormatter.decimalSeparator = decimalPlaces > 0 ? "." : ""
         numberFormatter.currencyDecimalSeparator = "."
-        numberFormatter.numberStyle = .currency
-        numberFormatter.minimumFractionDigits = 2
-        numberFormatter.maximumFractionDigits = 2
-        numberFormatter.currencyCode = currency
-        numberFormatter.currencySymbol = currency
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.minimumFractionDigits = decimalPlaces
+        numberFormatter.maximumFractionDigits = decimalPlaces
 
-        return numberFormatter.string(from: NSNumber(value: value)) ?? ""
+        if let currency = currency {
+            numberFormatter.numberStyle = .currency
+            numberFormatter.currencyCode = currency
+            numberFormatter.currencySymbol = currency
+        }
+
+        return numberFormatter
+    }
+
+    static func formatAsCurrency(value: Double, currency: String) -> String {
+        return getCurrencyFormatter(currency: currency).string(from: NSNumber(value: value)) ?? ""
     }
 }
