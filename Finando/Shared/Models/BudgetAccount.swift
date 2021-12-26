@@ -1,6 +1,6 @@
 import Foundation
 
-struct BudgetAccount: Identifiable {
+struct BudgetAccount: Identifiable, Equatable {
     let id: String
     let name: String
     let balance: Balance

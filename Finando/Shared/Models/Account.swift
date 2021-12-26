@@ -1,6 +1,6 @@
 import Foundation
 
-enum Account {
+enum Account: Equatable {
     case BudgetAccount(BudgetAccount)
     case TrackingAccount(TrackingAccount)
 }

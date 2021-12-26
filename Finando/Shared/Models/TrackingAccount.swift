@@ -1,6 +1,6 @@
 import Foundation
 
-struct TrackingAccount: Identifiable {
+struct TrackingAccount: Identifiable, Equatable {
     let id: String
     let name: String
     let balance: Balance
