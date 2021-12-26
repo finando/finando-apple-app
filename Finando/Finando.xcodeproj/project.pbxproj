@@ -51,6 +51,8 @@
 		A57DB53C2732196C0055827F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB53A2732196C0055827F /* User.swift */; };
 		A58026CE27767A0E000373DE /* SwiftUIRouter in Frameworks */ = {isa = PBXBuildFile; productRef = A58026CD27767A0E000373DE /* SwiftUIRouter */; };
 		A58026D027767A16000373DE /* SwiftUIRouter in Frameworks */ = {isa = PBXBuildFile; productRef = A58026CF27767A16000373DE /* SwiftUIRouter */; };
+		A58026D827789B69000373DE /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = A58026D727789B69000373DE /* ComposableArchitecture */; };
+		A58026DA27789B9D000373DE /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = A58026D927789B9D000373DE /* ComposableArchitecture */; };
 		A580FB252725A31A00DAD317 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = A580FB242725A31A00DAD317 /* schema.json */; };
 		A580FB262725A31A00DAD317 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = A580FB242725A31A00DAD317 /* schema.json */; };
 		A580FB312725A52400DAD317 /* ApolloClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580FB302725A52400DAD317 /* ApolloClient.swift */; };
@@ -172,6 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A58026D827789B69000373DE /* ComposableArchitecture in Frameworks */,
 				A580FB742725AD7B00DAD317 /* Apollo in Frameworks */,
 				A58026CE27767A0E000373DE /* SwiftUIRouter in Frameworks */,
 				A593509E2770809600657D20 /* Algorithms in Frameworks */,
@@ -183,6 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A58026DA27789B9D000373DE /* ComposableArchitecture in Frameworks */,
 				A580FB722725AD5D00DAD317 /* Apollo in Frameworks */,
 				A58026D027767A16000373DE /* SwiftUIRouter in Frameworks */,
 				A59350A0277080A600657D20 /* Algorithms in Frameworks */,
@@ -408,6 +412,7 @@
 				A593509D2770809600657D20 /* Algorithms */,
 				A59350A22770846A00657D20 /* Charts */,
 				A58026CD27767A0E000373DE /* SwiftUIRouter */,
+				A58026D727789B69000373DE /* ComposableArchitecture */,
 			);
 			productName = "Finando (iOS)";
 			productReference = A52C26E127258A7200C35AB7 /* Finando.app */;
@@ -433,6 +438,7 @@
 				A593509F277080A600657D20 /* Algorithms */,
 				A59350A42770847200657D20 /* Charts */,
 				A58026CF27767A16000373DE /* SwiftUIRouter */,
+				A58026D927789B9D000373DE /* ComposableArchitecture */,
 			);
 			productName = "Finando (macOS)";
 			productReference = A52C26E727258A7200C35AB7 /* Finando.app */;
@@ -514,6 +520,7 @@
 				A593508E2770797300657D20 /* XCRemoteSwiftPackageReference "Charts" */,
 				A593509C2770809600657D20 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
 				A59350DE277676E700657D20 /* XCRemoteSwiftPackageReference "SwiftUIRouter" */,
+				A58026D627789B69000373DE /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = A52C26E227258A7200C35AB7 /* Products */;
 			projectDirPath = "";
@@ -1096,6 +1103,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A58026D627789B69000373DE /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = exactVersion;
+				version = 0.31.0;
+			};
+		};
 		A580FB452725AAEF00DAD317 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
@@ -1140,6 +1155,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A59350DE277676E700657D20 /* XCRemoteSwiftPackageReference "SwiftUIRouter" */;
 			productName = SwiftUIRouter;
+		};
+		A58026D727789B69000373DE /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A58026D627789B69000373DE /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		A58026D927789B9D000373DE /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A58026D627789B69000373DE /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
 		};
 		A580FB712725AD5D00DAD317 /* Apollo */ = {
 			isa = XCSwiftPackageProductDependency;
