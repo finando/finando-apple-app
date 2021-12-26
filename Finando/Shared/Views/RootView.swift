@@ -1,7 +1,10 @@
 import SwiftUI
 import SwiftUIRouter
+import ComposableArchitecture
 
 struct RootView: View {
+    let store: Store<RootState, RootAction>
+
     var body: some View {
         HStack(spacing: 0) {
             SideMenuView()
@@ -53,6 +56,12 @@ struct RootView: View {
 
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
-        RootView()
+        RootView(
+            store: Store(
+                initialState: RootState(),
+                reducer: rootReducer,
+                environment: RootEnvironment()
+            )
+        )
     }
 }

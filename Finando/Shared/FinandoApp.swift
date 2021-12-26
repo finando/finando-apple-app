@@ -1,12 +1,19 @@
 import SwiftUI
 import SwiftUIRouter
+import ComposableArchitecture
 
 @main
 struct FinandoApp: App {
     var body: some Scene {
         WindowGroup {
             Router {
-                RootView()
+                RootView(
+                    store: Store(
+                        initialState: RootState(),
+                        reducer: rootReducer,
+                        environment: RootEnvironment()
+                    )
+                )
             }
         }
         .commands {
