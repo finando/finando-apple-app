@@ -1,26 +1,32 @@
 import SwiftUI
 import SwiftUIRouter
+import ComposableArchitecture
 
 struct AccountsView: View {
-    @EnvironmentObject var navigator: Navigator
+    let store: Store<AccountsState, AccountsAction>
 
-    @StateObject var accountsViewModel = AccountsViewModel()
+    @EnvironmentObject var navigator: Navigator
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             breadcrumbs
+                .padding(16)
 
-            VStack(spacing: 0) {
-                ForEach(accountsViewModel.accounts, id: \.id) { account in
-                    LazyVStack(alignment: .leading, spacing: 0) {
-                        AccountListItemView(account: account)
-                            .padding(.vertical, 8)
-                            .onTapGesture { navigator.navigate(ApplicationRoute.account(account.id).path, replace: false) }
+            WithViewStore(store) { viewStore in
+                VStack(spacing: 0) {
+                    ForEach(viewStore.accounts) { account in
+                        LazyVStack(alignment: .leading, spacing: 0) {
+                            AccountListItemView(account: account)
+                                .padding(.vertical, 8)
+                                .onTapGesture { navigator.navigate(ApplicationRoute.account(account.id).path, replace: false) }
+                        }
                     }
+
                 }
+                .padding(.horizontal, 16)
+                .onAppear { viewStore.send(.listAccountsRequested) }
             }
         }
-        .padding(16)
     }
 
     private var breadcrumbs: some View {
@@ -33,12 +39,5 @@ struct AccountsView: View {
                 Text("Accounts")
             }
         }
-        .padding(.bottom, 8)
-    }
-}
-
-struct AccountsView_Previews: PreviewProvider {
-    static var previews: some View {
-        AccountsView()
     }
 }

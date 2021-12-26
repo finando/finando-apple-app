@@ -11,7 +11,10 @@ struct FinandoApp: App {
                     store: Store(
                         initialState: RootState(),
                         reducer: rootReducer,
-                        environment: RootEnvironment()
+                        environment: RootEnvironment(
+                            mainQueue: .main,
+                            apolloClient: Network.shared.apollo
+                        )
                     )
                 )
             }

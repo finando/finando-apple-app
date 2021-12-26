@@ -1,5 +1,5 @@
 enum AccountsAction: Equatable {
     case listAccountsRequested
-    case listAccountsSucceeded
+    case listAccountsSucceeded(accounts: [Account])
     case listAccountsFailed
 }

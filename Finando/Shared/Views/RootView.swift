@@ -20,11 +20,16 @@ struct RootView: View {
                             .background(Color.red)
                     }
                     Route(ApplicationRoute.accounts.path) {
-                        AccountsView()
+                        AccountsView(
+                            store: store.scope(state: \.accounts, action: RootAction.accounts)
+                        )
                             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: Alignment(horizontal: .leading, vertical: .top))
                     }
                     Route(ApplicationRoute.account(":accountId").path) { info in
-                        AccountView(accountId: info.parameters["accountId"]!)
+                        AccountView(
+                            store: store.scope(state: \.account, action: RootAction.account),
+                            accountId: info.parameters["accountId"]!
+                        )
                             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: Alignment(horizontal: .leading, vertical: .top))
                     }
                     Route(ApplicationRoute.budget.path) {
@@ -60,7 +65,10 @@ struct RootView_Previews: PreviewProvider {
             store: Store(
                 initialState: RootState(),
                 reducer: rootReducer,
-                environment: RootEnvironment()
+                environment: RootEnvironment(
+                    mainQueue: .main,
+                    apolloClient: Network.shared.apollo
+                )
             )
         )
     }

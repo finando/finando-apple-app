@@ -1,125 +1,127 @@
 import SwiftUI
 import SwiftUIRouter
+import ComposableArchitecture
 import Charts
 
 struct AccountView: View {
+    let store: Store<AccountState, AccountAction>
     let accountId: String;
 
     @EnvironmentObject var navigator: Navigator
 
-    @StateObject var accountViewModel = AccountViewModel()
-
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            breadcrumbs
-                .padding(16)
+        WithViewStore(store) { viewStore in
+            VStack(alignment: .leading, spacing: 0) {
+                breadcrumbs(viewStore: viewStore)
+                    .padding(16)
 
-            ScrollView(showsIndicators: false) {
-                HStack(spacing: 16) {
-                    VStack(alignment: .center, spacing: 10) {
-                        Text("Account name")
-                            .font(.system(size: 18, weight: .bold))
-                            .foregroundColor(Theme.color.neutral.n40.color)
+                ScrollView(showsIndicators: false) {
+                    HStack(spacing: 16) {
+                        VStack(alignment: .center, spacing: 10) {
+                            Text("Account name")
+                                .font(.system(size: 18, weight: .bold))
+                                .foregroundColor(Theme.color.neutral.n40.color)
 
-                        Text("\(accountViewModel.account?.name ?? "")")
-                            .font(.system(size: 16, weight: .bold))
-                    }
-                        .frame(maxHeight: .infinity)
-                        .padding(.horizontal, 50)
-                        .background(Theme.color.neutral.n0.color)
-                        .cornerRadius(8)
-                        .shadow(color: Theme.color.neutral.n20.color, radius: 3, x: 0, y: 0)
-                        .foregroundColor(Theme.color.neutral.n60.color)
-
-                    VStack(alignment: .center, spacing: 10) {
-                        Text("Account type")
-                            .font(.system(size: 18, weight: .bold))
-                            .foregroundColor(Theme.color.neutral.n40.color)
-
-                        if accountViewModel.account?.isBudgetAccount == true {
-                            Text("Budget")
+                            Text("\(viewStore.account?.name ?? "")")
                                 .font(.system(size: 16, weight: .bold))
                         }
+                            .frame(maxHeight: .infinity)
+                            .padding(.horizontal, 50)
+                            .background(Theme.color.neutral.n0.color)
+                            .cornerRadius(8)
+                            .shadow(color: Theme.color.neutral.n20.color, radius: 3, x: 0, y: 0)
+                            .foregroundColor(Theme.color.neutral.n60.color)
 
-                        if accountViewModel.account?.isTrackingAccount == true {
-                            Text("Tracking")
+                        VStack(alignment: .center, spacing: 10) {
+                            Text("Account type")
+                                .font(.system(size: 18, weight: .bold))
+                                .foregroundColor(Theme.color.neutral.n40.color)
+
+                            if viewStore.account?.isBudgetAccount == true {
+                                Text("Budget")
+                                    .font(.system(size: 16, weight: .bold))
+                            }
+
+                            if viewStore.account?.isTrackingAccount == true {
+                                Text("Tracking")
+                                    .font(.system(size: 16, weight: .bold))
+                            }
+                        }
+                            .frame(maxHeight: .infinity)
+                            .padding(.horizontal, 50)
+                            .background(Theme.color.neutral.n0.color)
+                            .cornerRadius(8)
+                            .shadow(color: Theme.color.neutral.n20.color, radius: 3, x: 0, y: 0)
+                            .foregroundColor(Theme.color.neutral.n60.color)
+
+                        VStack(alignment: .center, spacing: 10) {
+                            Text("Cleared balance")
+                                .font(.system(size: 18, weight: .bold))
+                                .foregroundColor(Theme.color.neutral.n40.color)
+
+                            Text("\(viewStore.account?.balance.clearedFormatted ?? "")")
                                 .font(.system(size: 16, weight: .bold))
                         }
+                            .frame(maxHeight: .infinity)
+                            .padding(.horizontal, 50)
+                            .background(Theme.color.neutral.n0.color)
+                            .cornerRadius(8)
+                            .shadow(color: Theme.color.neutral.n20.color, radius: 3, x: 0, y: 0)
+                            .foregroundColor(Theme.color.neutral.n60.color)
+
+                        VStack(alignment: .center, spacing: 10) {
+                            Text("Uncleared balance")
+                                .font(.system(size: 18, weight: .bold))
+                                .foregroundColor(Theme.color.neutral.n40.color)
+
+                            Text("\(viewStore.account?.balance.unclearedFormatted ?? "")")
+                                .font(.system(size: 16, weight: .bold))
+                        }
+                            .frame(maxHeight: .infinity)
+                            .padding(.horizontal, 50)
+                            .background(Theme.color.neutral.n0.color)
+                            .cornerRadius(8)
+                            .shadow(color: Theme.color.neutral.n20.color, radius: 3, x: 0, y: 0)
+                            .foregroundColor(Theme.color.neutral.n60.color)
+
+                        VStack(alignment: .center, spacing: 10) {
+                            Text("Running balance")
+                                .font(.system(size: 18, weight: .bold))
+                                .foregroundColor(Theme.color.neutral.n40.color)
+
+                            Text("\(viewStore.account?.balance.runningFormatted ?? "")")
+                                .font(.system(size: 16, weight: .bold))
+                        }
+                            .frame(maxHeight: .infinity)
+                            .padding(.horizontal, 50)
+                            .background(Theme.color.neutral.n0.color)
+                            .cornerRadius(8)
+                            .shadow(color: Theme.color.neutral.n20.color, radius: 3, x: 0, y: 0)
+                            .foregroundColor(Theme.color.neutral.n60.color)
                     }
-                        .frame(maxHeight: .infinity)
-                        .padding(.horizontal, 50)
+                    .frame(maxWidth: .infinity, minHeight: 100, alignment: Alignment(horizontal: .leading, vertical: .top))
+                    .padding(.horizontal, 16)
+                    .padding(.top, 3)
+
+                    balanceChart(viewStore: viewStore)
+                        .padding(.horizontal, 16)
+                        .padding(.top, 8)
+
+                    Rectangle()
+                        .frame(maxWidth: .infinity, minHeight: 1050, alignment: Alignment(horizontal: .leading, vertical: .top))
                         .background(Theme.color.neutral.n0.color)
                         .cornerRadius(8)
                         .shadow(color: Theme.color.neutral.n20.color, radius: 3, x: 0, y: 0)
-                        .foregroundColor(Theme.color.neutral.n60.color)
-
-                    VStack(alignment: .center, spacing: 10) {
-                        Text("Cleared balance")
-                            .font(.system(size: 18, weight: .bold))
-                            .foregroundColor(Theme.color.neutral.n40.color)
-
-                        Text("\(accountViewModel.account?.balance.clearedFormatted ?? "")")
-                            .font(.system(size: 16, weight: .bold))
-                    }
-                        .frame(maxHeight: .infinity)
-                        .padding(.horizontal, 50)
-                        .background(Theme.color.neutral.n0.color)
-                        .cornerRadius(8)
-                        .shadow(color: Theme.color.neutral.n20.color, radius: 3, x: 0, y: 0)
-                        .foregroundColor(Theme.color.neutral.n60.color)
-
-                    VStack(alignment: .center, spacing: 10) {
-                        Text("Uncleared balance")
-                            .font(.system(size: 18, weight: .bold))
-                            .foregroundColor(Theme.color.neutral.n40.color)
-
-                        Text("\(accountViewModel.account?.balance.unclearedFormatted ?? "")")
-                            .font(.system(size: 16, weight: .bold))
-                    }
-                        .frame(maxHeight: .infinity)
-                        .padding(.horizontal, 50)
-                        .background(Theme.color.neutral.n0.color)
-                        .cornerRadius(8)
-                        .shadow(color: Theme.color.neutral.n20.color, radius: 3, x: 0, y: 0)
-                        .foregroundColor(Theme.color.neutral.n60.color)
-
-                    VStack(alignment: .center, spacing: 10) {
-                        Text("Running balance")
-                            .font(.system(size: 18, weight: .bold))
-                            .foregroundColor(Theme.color.neutral.n40.color)
-
-                        Text("\(accountViewModel.account?.balance.runningFormatted ?? "")")
-                            .font(.system(size: 16, weight: .bold))
-                    }
-                        .frame(maxHeight: .infinity)
-                        .padding(.horizontal, 50)
-                        .background(Theme.color.neutral.n0.color)
-                        .cornerRadius(8)
-                        .shadow(color: Theme.color.neutral.n20.color, radius: 3, x: 0, y: 0)
-                        .foregroundColor(Theme.color.neutral.n60.color)
+                        .padding(.horizontal, 16)
+                        .padding(.top, 8)
+                        .padding(.bottom, 16)
                 }
-                .frame(maxWidth: .infinity, minHeight: 100, alignment: Alignment(horizontal: .leading, vertical: .top))
-                .padding(.horizontal, 16)
-                .padding(.top, 3)
-
-                balanceChart
-                    .padding(.horizontal, 16)
-                    .padding(.top, 8)
-
-                Rectangle()
-                    .frame(maxWidth: .infinity, minHeight: 1050, alignment: Alignment(horizontal: .leading, vertical: .top))
-                    .background(Theme.color.neutral.n0.color)
-                    .cornerRadius(8)
-                    .shadow(color: Theme.color.neutral.n20.color, radius: 3, x: 0, y: 0)
-                    .padding(.horizontal, 16)
-                    .padding(.top, 8)
-                    .padding(.bottom, 16)
             }
+            .onAppear { viewStore.send(.getAccountRequested(id: accountId)) }
         }
-        .onAppear(perform: { accountViewModel.setAccountId(accountId) })
     }
 
-    private var breadcrumbs: some View {
+    private func breadcrumbs(viewStore: ViewStore<AccountState, AccountAction>) -> some View {
         Breadcrumbs {
             Breadcrumb {
                 Text("Overview")
@@ -130,13 +132,13 @@ struct AccountView: View {
                     .onTapGesture { navigator.navigate(ApplicationRoute.accounts.path, replace: false) }
             }
             Breadcrumb(active: true) {
-                Text(accountViewModel.account?.name ?? "")
+                Text(viewStore.account?.name ?? "")
             }
         }
     }
 
-    private var balanceChart: some View {
-        let entries = convertBalancesToChartDataEntries(balances: accountViewModel.account?.balances ?? [])
+    private func balanceChart(viewStore: ViewStore<AccountState, AccountAction>) -> some View {
+        let entries = convertBalancesToChartDataEntries(balances: viewStore.account?.balances ?? [])
 
         return LineChartNSViewRepresentable(
             entries: entries,

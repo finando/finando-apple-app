@@ -8,11 +8,21 @@ let rootReducer = Reducer<
     accountsReducer.pullback(
         state: \.accounts,
         action: /RootAction.accounts,
-        environment: { _ in .init() }
+        environment: {
+            .init(
+                mainQueue: $0.mainQueue,
+                accountService: AccountService(apolloClient: $0.apolloClient)
+            )
+        }
     ),
     accountReducer.pullback(
         state: \.account,
         action: /RootAction.account,
-        environment: { _ in .init() }
+        environment: {
+            .init(
+                mainQueue: $0.mainQueue,
+                accountService: AccountService(apolloClient: $0.apolloClient)
+            )
+        }
     )
 )

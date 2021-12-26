@@ -1,5 +1,5 @@
 enum AccountAction: Equatable {
-    case getAccountRequested
-    case getAccountSucceeded
+    case getAccountRequested(id: String)
+    case getAccountSucceeded(account: Account)
     case getAccountFailed
 }

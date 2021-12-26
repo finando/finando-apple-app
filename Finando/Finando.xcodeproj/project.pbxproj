@@ -19,8 +19,6 @@
 		A52C270727258A7200C35AB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A52C26DC27258A7200C35AB7 /* Assets.xcassets */; };
 		A57DB503272C8D0E0055827F /* BudgetAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB502272C8D0E0055827F /* BudgetAccount.swift */; };
 		A57DB504272C8D0E0055827F /* BudgetAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB502272C8D0E0055827F /* BudgetAccount.swift */; };
-		A57DB506272C8DD60055827F /* AccountsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB505272C8DD60055827F /* AccountsViewModel.swift */; };
-		A57DB507272C8DD60055827F /* AccountsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB505272C8DD60055827F /* AccountsViewModel.swift */; };
 		A57DB509272C9F1F0055827F /* TrackingAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB508272C9F1F0055827F /* TrackingAccount.swift */; };
 		A57DB50A272C9F1F0055827F /* TrackingAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB508272C9F1F0055827F /* TrackingAccount.swift */; };
 		A57DB510272CA3080055827F /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB50F272CA3080055827F /* Account.swift */; };
@@ -29,8 +27,6 @@
 		A57DB514272CB5650055827F /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB512272CB5650055827F /* AccountView.swift */; };
 		A57DB516272D7A9C0055827F /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB515272D7A9C0055827F /* Balance.swift */; };
 		A57DB517272D7A9C0055827F /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB515272D7A9C0055827F /* Balance.swift */; };
-		A57DB51C272D81C00055827F /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB51B272D81C00055827F /* AccountViewModel.swift */; };
-		A57DB51D272D81C00055827F /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB51B272D81C00055827F /* AccountViewModel.swift */; };
 		A57DB523272DC54F0055827F /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB522272DC54F0055827F /* DateUtils.swift */; };
 		A57DB524272DC54F0055827F /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB522272DC54F0055827F /* DateUtils.swift */; };
 		A57DB526272F40A10055827F /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB525272F40A00055827F /* RootView.swift */; };
@@ -77,6 +73,12 @@
 		A58027002778AF3B000373DE /* AccountsEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58026FE2778AF3B000373DE /* AccountsEnvironment.swift */; };
 		A58027022778AF54000373DE /* AccountsReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58027012778AF54000373DE /* AccountsReducer.swift */; };
 		A58027032778AF54000373DE /* AccountsReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58027012778AF54000373DE /* AccountsReducer.swift */; };
+		A58027062778BE56000373DE /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58027052778BE56000373DE /* AccountService.swift */; };
+		A58027072778BE56000373DE /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58027052778BE56000373DE /* AccountService.swift */; };
+		A58027092778FBB5000373DE /* GraphQLOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58027082778FBB5000373DE /* GraphQLOperations.swift */; };
+		A580270A2778FBB5000373DE /* GraphQLOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58027082778FBB5000373DE /* GraphQLOperations.swift */; };
+		A580270C2778FC64000373DE /* GraphqQLResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580270B2778FC64000373DE /* GraphqQLResponseParser.swift */; };
+		A580270D2778FC64000373DE /* GraphqQLResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580270B2778FC64000373DE /* GraphqQLResponseParser.swift */; };
 		A580FB252725A31A00DAD317 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = A580FB242725A31A00DAD317 /* schema.json */; };
 		A580FB262725A31A00DAD317 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = A580FB242725A31A00DAD317 /* schema.json */; };
 		A580FB312725A52400DAD317 /* ApolloClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580FB302725A52400DAD317 /* ApolloClient.swift */; };
@@ -163,12 +165,10 @@
 		A52C26FE27258A7200C35AB7 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		A52C270027258A7200C35AB7 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
 		A57DB502272C8D0E0055827F /* BudgetAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetAccount.swift; sourceTree = "<group>"; };
-		A57DB505272C8DD60055827F /* AccountsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewModel.swift; sourceTree = "<group>"; };
 		A57DB508272C9F1F0055827F /* TrackingAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingAccount.swift; sourceTree = "<group>"; };
 		A57DB50F272CA3080055827F /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		A57DB512272CB5650055827F /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		A57DB515272D7A9C0055827F /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
-		A57DB51B272D81C00055827F /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		A57DB522272DC54F0055827F /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		A57DB525272F40A00055827F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		A57DB528272F40ED0055827F /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -190,6 +190,9 @@
 		A58026FB2778AF06000373DE /* AccountsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsAction.swift; sourceTree = "<group>"; };
 		A58026FE2778AF3B000373DE /* AccountsEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsEnvironment.swift; sourceTree = "<group>"; };
 		A58027012778AF54000373DE /* AccountsReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsReducer.swift; sourceTree = "<group>"; };
+		A58027052778BE56000373DE /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
+		A58027082778FBB5000373DE /* GraphQLOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLOperations.swift; sourceTree = "<group>"; };
+		A580270B2778FC64000373DE /* GraphqQLResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphqQLResponseParser.swift; sourceTree = "<group>"; };
 		A580FB242725A31A00DAD317 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		A580FB302725A52400DAD317 /* ApolloClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloClient.swift; sourceTree = "<group>"; };
 		A580FB752725BDC200DAD317 /* Finando--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Finando--macOS--Info.plist"; sourceTree = "<group>"; };
@@ -266,12 +269,12 @@
 		A52C26D927258A7100C35AB7 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				A58027042778BE41000373DE /* Service */,
 				A58026DB2778A25E000373DE /* Store */,
 				A59350AC277087BF00657D20 /* ViewRepresentables */,
 				A59350802752E7A800657D20 /* Components */,
 				A5DEE266273876F40019E1D8 /* ViewModifiers */,
 				A57DB521272DC53D0055827F /* Utils */,
-				A580FB762725DD2D00DAD317 /* ViewModels */,
 				A580FB1A27259E0300DAD317 /* GraphQL */,
 				A52C271727258CCB00C35AB7 /* Models */,
 				A52C271627258CA600C35AB7 /* Views */,
@@ -400,6 +403,14 @@
 			path = AccountsStore;
 			sourceTree = "<group>";
 		};
+		A58027042778BE41000373DE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A58027052778BE56000373DE /* AccountService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		A580FB1A27259E0300DAD317 /* GraphQL */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,6 +418,8 @@
 				A580FB242725A31A00DAD317 /* schema.json */,
 				A580FB1D27259F7000DAD317 /* Operations */,
 				A580FB302725A52400DAD317 /* ApolloClient.swift */,
+				A58027082778FBB5000373DE /* GraphQLOperations.swift */,
+				A580270B2778FC64000373DE /* GraphqQLResponseParser.swift */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -425,15 +438,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A580FB762725DD2D00DAD317 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				A57DB505272C8DD60055827F /* AccountsViewModel.swift */,
-				A57DB51B272D81C00055827F /* AccountViewModel.swift */,
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		A59350802752E7A800657D20 /* Components */ = {
@@ -714,12 +718,12 @@
 				A59350832752E81D00657D20 /* Breadcrumbs.swift in Sources */,
 				A59350D82773BF0D00657D20 /* API.swift in Sources */,
 				A58026FC2778AF06000373DE /* AccountsAction.swift in Sources */,
+				A58027062778BE56000373DE /* AccountService.swift in Sources */,
 				A57DB52F272F5CEF0055827F /* ApplicationRoute.swift in Sources */,
 				A58026F52778A68F000373DE /* AccountReducer.swift in Sources */,
 				A58027022778AF54000373DE /* AccountsReducer.swift in Sources */,
 				A5DEE2702750C8750019E1D8 /* AccountListItemView.swift in Sources */,
 				A58026EF2778A60D000373DE /* AccountAction.swift in Sources */,
-				A57DB51C272D81C00055827F /* AccountViewModel.swift in Sources */,
 				A57DB53B2732196C0055827F /* User.swift in Sources */,
 				A57DB510272CA3080055827F /* Account.swift in Sources */,
 				A58026F22778A676000373DE /* AccountEnvironment.swift in Sources */,
@@ -733,13 +737,14 @@
 				A58026E12778A2DF000373DE /* RootAction.swift in Sources */,
 				A58026F92778AED6000373DE /* AccountsState.swift in Sources */,
 				A57DB513272CB5650055827F /* AccountView.swift in Sources */,
+				A580270C2778FC64000373DE /* GraphqQLResponseParser.swift in Sources */,
 				A58026DE2778A2A0000373DE /* RootState.swift in Sources */,
 				A58026E72778A3C7000373DE /* RootReducer.swift in Sources */,
 				A58026EC2778A5B4000373DE /* AccountState.swift in Sources */,
-				A57DB506272C8DD60055827F /* AccountsViewModel.swift in Sources */,
 				A57DB52C272F4A290055827F /* SideMenuView.swift in Sources */,
 				A580FB312725A52400DAD317 /* ApolloClient.swift in Sources */,
 				A57DB529272F40ED0055827F /* HeaderView.swift in Sources */,
+				A58027092778FBB5000373DE /* GraphQLOperations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -760,12 +765,12 @@
 				A59350842752E81D00657D20 /* Breadcrumbs.swift in Sources */,
 				A59350D92773BF0D00657D20 /* API.swift in Sources */,
 				A58026FD2778AF06000373DE /* AccountsAction.swift in Sources */,
+				A58027072778BE56000373DE /* AccountService.swift in Sources */,
 				A57DB530272F5CEF0055827F /* ApplicationRoute.swift in Sources */,
 				A58026F62778A68F000373DE /* AccountReducer.swift in Sources */,
 				A58027032778AF54000373DE /* AccountsReducer.swift in Sources */,
 				A5DEE2712750C8750019E1D8 /* AccountListItemView.swift in Sources */,
 				A58026F02778A60D000373DE /* AccountAction.swift in Sources */,
-				A57DB51D272D81C00055827F /* AccountViewModel.swift in Sources */,
 				A57DB53C2732196C0055827F /* User.swift in Sources */,
 				A57DB511272CA3080055827F /* Account.swift in Sources */,
 				A58026F32778A676000373DE /* AccountEnvironment.swift in Sources */,
@@ -779,13 +784,14 @@
 				A58026E22778A2DF000373DE /* RootAction.swift in Sources */,
 				A58026FA2778AED6000373DE /* AccountsState.swift in Sources */,
 				A57DB514272CB5650055827F /* AccountView.swift in Sources */,
+				A580270D2778FC64000373DE /* GraphqQLResponseParser.swift in Sources */,
 				A58026DF2778A2A0000373DE /* RootState.swift in Sources */,
 				A58026E82778A3C7000373DE /* RootReducer.swift in Sources */,
 				A58026ED2778A5B4000373DE /* AccountState.swift in Sources */,
-				A57DB507272C8DD60055827F /* AccountsViewModel.swift in Sources */,
 				A57DB52D272F4A290055827F /* SideMenuView.swift in Sources */,
 				A580FB322725A52400DAD317 /* ApolloClient.swift in Sources */,
 				A57DB52A272F40ED0055827F /* HeaderView.swift in Sources */,
+				A580270A2778FBB5000373DE /* GraphQLOperations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
