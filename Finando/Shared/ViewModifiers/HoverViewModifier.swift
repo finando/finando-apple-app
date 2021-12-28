@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct HoverViewModifier: ViewModifier {
+private struct HoverViewModifier: ViewModifier {
     private let action: (Bool) -> Void
     private let cursor: NSCursor?
     
@@ -18,11 +18,11 @@ struct HoverViewModifier: ViewModifier {
         let cursor: NSCursor?
         let frame: NSRect
         
-        func makeCoordinator() -> Coordinator {
+        fileprivate func makeCoordinator() -> Coordinator {
             return Coordinator(action: action, cursor: cursor)
         }
         
-        class Coordinator: NSResponder {
+        fileprivate class Coordinator: NSResponder {
             private final let action: (Bool) -> Void
             private final let cursor: NSCursor?
             
@@ -80,5 +80,11 @@ struct HoverViewModifier: ViewModifier {
         static func dismantleNSView(_ nsView: NSView, coordinator: Coordinator) {
             nsView.trackingAreas.forEach { nsView.removeTrackingArea($0) }
         }
+    }
+}
+
+extension View {
+    public func onHover(perform action: @escaping (Bool) -> Void, cursor: NSCursor? = nil) -> some View {
+        modifier(HoverViewModifier(action: action, cursor: cursor))
     }
 }

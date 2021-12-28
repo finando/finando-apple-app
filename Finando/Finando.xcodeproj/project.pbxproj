@@ -41,8 +41,6 @@
 		A57DB5332731F06F0055827F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB5312731F06F0055827F /* Theme.swift */; };
 		A57DB535273208120055827F /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB534273208120055827F /* AvatarView.swift */; };
 		A57DB536273208120055827F /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB534273208120055827F /* AvatarView.swift */; };
-		A57DB538273218FA0055827F /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB537273218FA0055827F /* ViewUtils.swift */; };
-		A57DB539273218FA0055827F /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB537273218FA0055827F /* ViewUtils.swift */; };
 		A57DB53B2732196C0055827F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB53A2732196C0055827F /* User.swift */; };
 		A57DB53C2732196C0055827F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB53A2732196C0055827F /* User.swift */; };
 		A58026CE27767A0E000373DE /* SwiftUIRouter in Frameworks */ = {isa = PBXBuildFile; productRef = A58026CD27767A0E000373DE /* SwiftUIRouter */; };
@@ -176,7 +174,6 @@
 		A57DB52E272F5CEF0055827F /* ApplicationRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationRoute.swift; sourceTree = "<group>"; };
 		A57DB5312731F06F0055827F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A57DB534273208120055827F /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
-		A57DB537273218FA0055827F /* ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
 		A57DB53A2732196C0055827F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A58026DD2778A2A0000373DE /* RootState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootState.swift; sourceTree = "<group>"; };
 		A58026E02778A2DF000373DE /* RootAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAction.swift; sourceTree = "<group>"; };
@@ -353,7 +350,6 @@
 			isa = PBXGroup;
 			children = (
 				A57DB522272DC54F0055827F /* DateUtils.swift */,
-				A57DB537273218FA0055827F /* ViewUtils.swift */,
 				A5935088276F9C1F00657D20 /* ArrayUtils.swift */,
 				A59350DA2773CE3E00657D20 /* CurrencyUtils.swift */,
 			);
@@ -728,7 +724,6 @@
 				A57DB510272CA3080055827F /* Account.swift in Sources */,
 				A58026F22778A676000373DE /* AccountEnvironment.swift in Sources */,
 				A5DEE268273877130019E1D8 /* HoverViewModifier.swift in Sources */,
-				A57DB538273218FA0055827F /* ViewUtils.swift in Sources */,
 				A57DB5322731F06F0055827F /* Theme.swift in Sources */,
 				A57DB516272D7A9C0055827F /* Balance.swift in Sources */,
 				A57DB526272F40A10055827F /* RootView.swift in Sources */,
@@ -775,7 +770,6 @@
 				A57DB511272CA3080055827F /* Account.swift in Sources */,
 				A58026F32778A676000373DE /* AccountEnvironment.swift in Sources */,
 				A5DEE269273877130019E1D8 /* HoverViewModifier.swift in Sources */,
-				A57DB539273218FA0055827F /* ViewUtils.swift in Sources */,
 				A57DB5332731F06F0055827F /* Theme.swift in Sources */,
 				A57DB517272D7A9C0055827F /* Balance.swift in Sources */,
 				A57DB527272F40A10055827F /* RootView.swift in Sources */,
