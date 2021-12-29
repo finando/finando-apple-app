@@ -4,6 +4,179 @@
 import Apollo
 import Foundation
 
+public struct CreateBudgetAccountInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  /// - Parameters:
+  ///   - initialBalance
+  ///   - name
+  ///   - type
+  public init(initialBalance: Swift.Optional<Int?> = nil, name: Swift.Optional<String?> = nil, type: BudgetAccountType) {
+    graphQLMap = ["initialBalance": initialBalance, "name": name, "type": type]
+  }
+
+  public var initialBalance: Swift.Optional<Int?> {
+    get {
+      return graphQLMap["initialBalance"] as? Swift.Optional<Int?> ?? Swift.Optional<Int?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "initialBalance")
+    }
+  }
+
+  public var name: Swift.Optional<String?> {
+    get {
+      return graphQLMap["name"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "name")
+    }
+  }
+
+  public var type: BudgetAccountType {
+    get {
+      return graphQLMap["type"] as! BudgetAccountType
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "type")
+    }
+  }
+}
+
+public enum BudgetAccountType: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  case cash
+  case checking
+  case creditCard
+  case lineOfCredit
+  case savings
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "CASH": self = .cash
+      case "CHECKING": self = .checking
+      case "CREDIT_CARD": self = .creditCard
+      case "LINE_OF_CREDIT": self = .lineOfCredit
+      case "SAVINGS": self = .savings
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .cash: return "CASH"
+      case .checking: return "CHECKING"
+      case .creditCard: return "CREDIT_CARD"
+      case .lineOfCredit: return "LINE_OF_CREDIT"
+      case .savings: return "SAVINGS"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: BudgetAccountType, rhs: BudgetAccountType) -> Bool {
+    switch (lhs, rhs) {
+      case (.cash, .cash): return true
+      case (.checking, .checking): return true
+      case (.creditCard, .creditCard): return true
+      case (.lineOfCredit, .lineOfCredit): return true
+      case (.savings, .savings): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+
+  public static var allCases: [BudgetAccountType] {
+    return [
+      .cash,
+      .checking,
+      .creditCard,
+      .lineOfCredit,
+      .savings,
+    ]
+  }
+}
+
+public struct CreateTrackingAccountInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  /// - Parameters:
+  ///   - initialBalance
+  ///   - name
+  ///   - type
+  public init(initialBalance: Swift.Optional<Int?> = nil, name: Swift.Optional<String?> = nil, type: TrackingAccountType) {
+    graphQLMap = ["initialBalance": initialBalance, "name": name, "type": type]
+  }
+
+  public var initialBalance: Swift.Optional<Int?> {
+    get {
+      return graphQLMap["initialBalance"] as? Swift.Optional<Int?> ?? Swift.Optional<Int?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "initialBalance")
+    }
+  }
+
+  public var name: Swift.Optional<String?> {
+    get {
+      return graphQLMap["name"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "name")
+    }
+  }
+
+  public var type: TrackingAccountType {
+    get {
+      return graphQLMap["type"] as! TrackingAccountType
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "type")
+    }
+  }
+}
+
+public enum TrackingAccountType: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  case asset
+  case liability
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "ASSET": self = .asset
+      case "LIABILITY": self = .liability
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .asset: return "ASSET"
+      case .liability: return "LIABILITY"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: TrackingAccountType, rhs: TrackingAccountType) -> Bool {
+    switch (lhs, rhs) {
+      case (.asset, .asset): return true
+      case (.liability, .liability): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+
+  public static var allCases: [TrackingAccountType] {
+    return [
+      .asset,
+      .liability,
+    ]
+  }
+}
+
 public enum Frequency: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
   case annually
@@ -51,6 +224,236 @@ public enum Frequency: RawRepresentable, Equatable, Hashable, CaseIterable, Apol
       .monthly,
       .weekly,
     ]
+  }
+}
+
+public final class CreateBudgetAccountMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation CreateBudgetAccount($data: CreateBudgetAccountInput!, $balanceToDate: DateTime!) {
+      account: createBudgetAccount(data: $data) {
+        __typename
+        ...BudgetAccountFragment
+      }
+    }
+    """
+
+  public let operationName: String = "CreateBudgetAccount"
+
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + BudgetAccountFragment.fragmentDefinition)
+    document.append("\n" + BalanceFragment.fragmentDefinition)
+    return document
+  }
+
+  public var data: CreateBudgetAccountInput
+  public var balanceToDate: String
+
+  public init(data: CreateBudgetAccountInput, balanceToDate: String) {
+    self.data = data
+    self.balanceToDate = balanceToDate
+  }
+
+  public var variables: GraphQLMap? {
+    return ["data": data, "balanceToDate": balanceToDate]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("createBudgetAccount", alias: "account", arguments: ["data": GraphQLVariable("data")], type: .nonNull(.object(Account.selections))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(account: Account) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "account": account.resultMap])
+    }
+
+    public var account: Account {
+      get {
+        return Account(unsafeResultMap: resultMap["account"]! as! ResultMap)
+      }
+      set {
+        resultMap.updateValue(newValue.resultMap, forKey: "account")
+      }
+    }
+
+    public struct Account: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["BudgetAccount"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLFragmentSpread(BudgetAccountFragment.self),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var fragments: Fragments {
+        get {
+          return Fragments(unsafeResultMap: resultMap)
+        }
+        set {
+          resultMap += newValue.resultMap
+        }
+      }
+
+      public struct Fragments {
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var budgetAccountFragment: BudgetAccountFragment {
+          get {
+            return BudgetAccountFragment(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+      }
+    }
+  }
+}
+
+public final class CreateTrackingAccountMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation CreateTrackingAccount($data: CreateTrackingAccountInput!, $balanceToDate: DateTime!) {
+      account: createTrackingAccount(data: $data) {
+        __typename
+        ...TrackingAccountFragment
+      }
+    }
+    """
+
+  public let operationName: String = "CreateTrackingAccount"
+
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + TrackingAccountFragment.fragmentDefinition)
+    document.append("\n" + BalanceFragment.fragmentDefinition)
+    return document
+  }
+
+  public var data: CreateTrackingAccountInput
+  public var balanceToDate: String
+
+  public init(data: CreateTrackingAccountInput, balanceToDate: String) {
+    self.data = data
+    self.balanceToDate = balanceToDate
+  }
+
+  public var variables: GraphQLMap? {
+    return ["data": data, "balanceToDate": balanceToDate]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("createTrackingAccount", alias: "account", arguments: ["data": GraphQLVariable("data")], type: .nonNull(.object(Account.selections))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(account: Account) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "account": account.resultMap])
+    }
+
+    public var account: Account {
+      get {
+        return Account(unsafeResultMap: resultMap["account"]! as! ResultMap)
+      }
+      set {
+        resultMap.updateValue(newValue.resultMap, forKey: "account")
+      }
+    }
+
+    public struct Account: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["TrackingAccount"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLFragmentSpread(TrackingAccountFragment.self),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var fragments: Fragments {
+        get {
+          return Fragments(unsafeResultMap: resultMap)
+        }
+        set {
+          resultMap += newValue.resultMap
+        }
+      }
+
+      public struct Fragments {
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var trackingAccountFragment: TrackingAccountFragment {
+          get {
+            return TrackingAccountFragment(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+      }
+    }
   }
 }
 
@@ -376,6 +779,264 @@ public struct BalanceFragment: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "running")
+    }
+  }
+}
+
+public struct BudgetAccountFragment: GraphQLFragment {
+  /// The raw GraphQL definition of this fragment.
+  public static let fragmentDefinition: String =
+    """
+    fragment BudgetAccountFragment on BudgetAccount {
+      __typename
+      id
+      name
+      balance(to: $balanceToDate) {
+        __typename
+        ...BalanceFragment
+      }
+    }
+    """
+
+  public static let possibleTypes: [String] = ["BudgetAccount"]
+
+  public static var selections: [GraphQLSelection] {
+    return [
+      GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+      GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+      GraphQLField("name", type: .scalar(String.self)),
+      GraphQLField("balance", arguments: ["to": GraphQLVariable("balanceToDate")], type: .nonNull(.object(Balance.selections))),
+    ]
+  }
+
+  public private(set) var resultMap: ResultMap
+
+  public init(unsafeResultMap: ResultMap) {
+    self.resultMap = unsafeResultMap
+  }
+
+  public init(id: GraphQLID, name: String? = nil, balance: Balance) {
+    self.init(unsafeResultMap: ["__typename": "BudgetAccount", "id": id, "name": name, "balance": balance.resultMap])
+  }
+
+  public var __typename: String {
+    get {
+      return resultMap["__typename"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "__typename")
+    }
+  }
+
+  public var id: GraphQLID {
+    get {
+      return resultMap["id"]! as! GraphQLID
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "id")
+    }
+  }
+
+  public var name: String? {
+    get {
+      return resultMap["name"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "name")
+    }
+  }
+
+  public var balance: Balance {
+    get {
+      return Balance(unsafeResultMap: resultMap["balance"]! as! ResultMap)
+    }
+    set {
+      resultMap.updateValue(newValue.resultMap, forKey: "balance")
+    }
+  }
+
+  public struct Balance: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Balance"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLFragmentSpread(BalanceFragment.self),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(date: String, currency: String, cleared: Int, uncleared: Int, running: Int) {
+      self.init(unsafeResultMap: ["__typename": "Balance", "date": date, "currency": currency, "cleared": cleared, "uncleared": uncleared, "running": running])
+    }
+
+    public var __typename: String {
+      get {
+        return resultMap["__typename"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "__typename")
+      }
+    }
+
+    public var fragments: Fragments {
+      get {
+        return Fragments(unsafeResultMap: resultMap)
+      }
+      set {
+        resultMap += newValue.resultMap
+      }
+    }
+
+    public struct Fragments {
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public var balanceFragment: BalanceFragment {
+        get {
+          return BalanceFragment(unsafeResultMap: resultMap)
+        }
+        set {
+          resultMap += newValue.resultMap
+        }
+      }
+    }
+  }
+}
+
+public struct TrackingAccountFragment: GraphQLFragment {
+  /// The raw GraphQL definition of this fragment.
+  public static let fragmentDefinition: String =
+    """
+    fragment TrackingAccountFragment on TrackingAccount {
+      __typename
+      id
+      name
+      balance(to: $balanceToDate) {
+        __typename
+        ...BalanceFragment
+      }
+    }
+    """
+
+  public static let possibleTypes: [String] = ["TrackingAccount"]
+
+  public static var selections: [GraphQLSelection] {
+    return [
+      GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+      GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+      GraphQLField("name", type: .scalar(String.self)),
+      GraphQLField("balance", arguments: ["to": GraphQLVariable("balanceToDate")], type: .nonNull(.object(Balance.selections))),
+    ]
+  }
+
+  public private(set) var resultMap: ResultMap
+
+  public init(unsafeResultMap: ResultMap) {
+    self.resultMap = unsafeResultMap
+  }
+
+  public init(id: GraphQLID, name: String? = nil, balance: Balance) {
+    self.init(unsafeResultMap: ["__typename": "TrackingAccount", "id": id, "name": name, "balance": balance.resultMap])
+  }
+
+  public var __typename: String {
+    get {
+      return resultMap["__typename"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "__typename")
+    }
+  }
+
+  public var id: GraphQLID {
+    get {
+      return resultMap["id"]! as! GraphQLID
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "id")
+    }
+  }
+
+  public var name: String? {
+    get {
+      return resultMap["name"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "name")
+    }
+  }
+
+  public var balance: Balance {
+    get {
+      return Balance(unsafeResultMap: resultMap["balance"]! as! ResultMap)
+    }
+    set {
+      resultMap.updateValue(newValue.resultMap, forKey: "balance")
+    }
+  }
+
+  public struct Balance: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Balance"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLFragmentSpread(BalanceFragment.self),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(date: String, currency: String, cleared: Int, uncleared: Int, running: Int) {
+      self.init(unsafeResultMap: ["__typename": "Balance", "date": date, "currency": currency, "cleared": cleared, "uncleared": uncleared, "running": running])
+    }
+
+    public var __typename: String {
+      get {
+        return resultMap["__typename"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "__typename")
+      }
+    }
+
+    public var fragments: Fragments {
+      get {
+        return Fragments(unsafeResultMap: resultMap)
+      }
+      set {
+        resultMap += newValue.resultMap
+      }
+    }
+
+    public struct Fragments {
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public var balanceFragment: BalanceFragment {
+        get {
+          return BalanceFragment(unsafeResultMap: resultMap)
+        }
+        set {
+          resultMap += newValue.resultMap
+        }
+      }
     }
   }
 }

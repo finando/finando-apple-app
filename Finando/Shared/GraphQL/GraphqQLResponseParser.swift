@@ -24,4 +24,20 @@ enum GraphQLResponseParser {
 
         return nil
     }
+
+    static func parse(data: CreateBudgetAccountMutation.Data.Account?) -> Account? {
+        if let budgetAccount = data?.fragments.budgetAccountFragment {
+            return Account.BudgetAccount(BudgetAccount(fragment: budgetAccount))
+        }
+
+        return nil
+    }
+
+    static func parse(data: CreateTrackingAccountMutation.Data.Account?) -> Account? {
+        if let trackingAccount = data?.fragments.trackingAccountFragment {
+            return Account.TrackingAccount(TrackingAccount(fragment: trackingAccount))
+        }
+
+        return nil
+    }
 }

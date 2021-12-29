@@ -29,4 +29,12 @@ struct TrackingAccount: Identifiable, Equatable {
             balance: Balance(fragment: fragment.balance.fragments.balanceFragment)
         )
     }
+
+    init(fragment: TrackingAccountFragment) {
+        self.init(
+            id: fragment.id,
+            name: fragment.name ?? "",
+            balance: Balance(fragment: fragment.balance.fragments.balanceFragment)
+        )
+    }
 }

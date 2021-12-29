@@ -1,0 +1,24 @@
+fragment BalanceFragment on Balance {
+  date
+  currency
+  cleared
+  uncleared
+  running
+}
+
+fragment TrackingAccountFragment on TrackingAccount {
+  id
+  name
+  balance(to: $balanceToDate) {
+    ...BalanceFragment
+  }
+}
+
+mutation CreateTrackingAccount(
+  $data: CreateTrackingAccountInput!
+  $balanceToDate: DateTime!
+) {
+  account: createTrackingAccount(data: $data) {
+    ...TrackingAccountFragment
+  }
+}

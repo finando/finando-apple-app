@@ -1,0 +1,24 @@
+fragment BalanceFragment on Balance {
+  date
+  currency
+  cleared
+  uncleared
+  running
+}
+
+fragment BudgetAccountFragment on BudgetAccount {
+  id
+  name
+  balance(to: $balanceToDate) {
+    ...BalanceFragment
+  }
+}
+
+mutation CreateBudgetAccount(
+  $data: CreateBudgetAccountInput!
+  $balanceToDate: DateTime!
+) {
+  account: createBudgetAccount(data: $data) {
+    ...BudgetAccountFragment
+  }
+}

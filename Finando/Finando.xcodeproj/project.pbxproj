@@ -103,6 +103,10 @@
 		A59350D92773BF0D00657D20 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350D72773BF0D00657D20 /* API.swift */; };
 		A59350DB2773CE3E00657D20 /* CurrencyUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350DA2773CE3E00657D20 /* CurrencyUtils.swift */; };
 		A59350DC2773CE3E00657D20 /* CurrencyUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350DA2773CE3E00657D20 /* CurrencyUtils.swift */; };
+		A5C8FADC277D114800393167 /* CreateBudgetAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A5C8FADB277D114800393167 /* CreateBudgetAccount.graphql */; };
+		A5C8FADD277D114800393167 /* CreateBudgetAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A5C8FADB277D114800393167 /* CreateBudgetAccount.graphql */; };
+		A5C8FADF277D119300393167 /* CreateTrackingAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A5C8FADE277D119300393167 /* CreateTrackingAccount.graphql */; };
+		A5C8FAE0277D119300393167 /* CreateTrackingAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A5C8FADE277D119300393167 /* CreateTrackingAccount.graphql */; };
 		A5DEE268273877130019E1D8 /* HoverViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEE267273877130019E1D8 /* HoverViewModifier.swift */; };
 		A5DEE269273877130019E1D8 /* HoverViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEE267273877130019E1D8 /* HoverViewModifier.swift */; };
 		A5DEE2702750C8750019E1D8 /* AccountListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEE26F2750C8750019E1D8 /* AccountListItemView.swift */; };
@@ -201,6 +205,8 @@
 		A59350D22773BE6400657D20 /* ListAccounts.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ListAccounts.graphql; sourceTree = "<group>"; };
 		A59350D72773BF0D00657D20 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		A59350DA2773CE3E00657D20 /* CurrencyUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyUtils.swift; sourceTree = "<group>"; };
+		A5C8FADB277D114800393167 /* CreateBudgetAccount.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CreateBudgetAccount.graphql; sourceTree = "<group>"; };
+		A5C8FADE277D119300393167 /* CreateTrackingAccount.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CreateTrackingAccount.graphql; sourceTree = "<group>"; };
 		A5DEE267273877130019E1D8 /* HoverViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverViewModifier.swift; sourceTree = "<group>"; };
 		A5DEE26F2750C8750019E1D8 /* AccountListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -425,6 +431,8 @@
 			children = (
 				A59350D12773BE6400657D20 /* GetAccount.graphql */,
 				A59350D22773BE6400657D20 /* ListAccounts.graphql */,
+				A5C8FADB277D114800393167 /* CreateBudgetAccount.graphql */,
+				A5C8FADE277D119300393167 /* CreateTrackingAccount.graphql */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -619,7 +627,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5C8FADC277D114800393167 /* CreateBudgetAccount.graphql in Resources */,
 				A52C270627258A7200C35AB7 /* Assets.xcassets in Resources */,
+				A5C8FADF277D119300393167 /* CreateTrackingAccount.graphql in Resources */,
 				A580FB252725A31A00DAD317 /* schema.json in Resources */,
 				A59350D32773BE6400657D20 /* GetAccount.graphql in Resources */,
 				A59350D52773BE6400657D20 /* ListAccounts.graphql in Resources */,
@@ -630,7 +640,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5C8FADD277D114800393167 /* CreateBudgetAccount.graphql in Resources */,
 				A52C270727258A7200C35AB7 /* Assets.xcassets in Resources */,
+				A5C8FAE0277D119300393167 /* CreateTrackingAccount.graphql in Resources */,
 				A580FB262725A31A00DAD317 /* schema.json in Resources */,
 				A59350D42773BE6400657D20 /* GetAccount.graphql in Resources */,
 				A59350D62773BE6400657D20 /* ListAccounts.graphql in Resources */,

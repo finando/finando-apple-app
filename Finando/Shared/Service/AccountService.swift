@@ -14,7 +14,7 @@ class AccountService {
         do {
             let result = try await withCheckedThrowingContinuation { (continuation: Continuation) in
                 apolloClient.fetch(
-                    query: GraphQLOperations.listAccounts(),
+                    query: GraphQLOperations.Query.listAccounts(),
                     resultHandler: continuation.resume(with:)
                 )
             }
@@ -33,7 +33,45 @@ class AccountService {
         do {
             let result = try await withCheckedThrowingContinuation { (continuation: Continuation) in
                 apolloClient.fetch(
-                    query: GraphQLOperations.getAccount(accountId: id),
+                    query: GraphQLOperations.Query.getAccount(accountId: id),
+                    resultHandler: continuation.resume(with:)
+                )
+            }
+
+            return GraphQLResponseParser.parse(data: result.data?.account)
+        } catch {
+            // TODO: handle errors
+        }
+
+        return nil
+    }
+
+    func createBudgetAccount(data: CreateBudgetAccountInput) async -> Account? {
+        typealias Continuation = CheckedContinuation<GraphQLResult<CreateBudgetAccountMutation.Data>, Error>
+
+        do {
+            let result = try await withCheckedThrowingContinuation { (continuation: Continuation) in
+                apolloClient.perform(
+                    mutation: GraphQLOperations.Mutation.createBudgetAccount(data: data),
+                    resultHandler: continuation.resume(with:)
+                )
+            }
+
+            return GraphQLResponseParser.parse(data: result.data?.account)
+        } catch {
+            // TODO: handle errors
+        }
+
+        return nil
+    }
+
+    func createTrackingAccount(data: CreateTrackingAccountInput) async -> Account? {
+        typealias Continuation = CheckedContinuation<GraphQLResult<CreateTrackingAccountMutation.Data>, Error>
+
+        do {
+            let result = try await withCheckedThrowingContinuation { (continuation: Continuation) in
+                apolloClient.perform(
+                    mutation: GraphQLOperations.Mutation.createTrackingAccount(data: data),
                     resultHandler: continuation.resume(with:)
                 )
             }
