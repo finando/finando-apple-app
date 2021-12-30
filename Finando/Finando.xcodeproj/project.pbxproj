@@ -103,6 +103,7 @@
 		A59350D92773BF0D00657D20 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350D72773BF0D00657D20 /* API.swift */; };
 		A59350DB2773CE3E00657D20 /* CurrencyUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350DA2773CE3E00657D20 /* CurrencyUtils.swift */; };
 		A59350DC2773CE3E00657D20 /* CurrencyUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350DA2773CE3E00657D20 /* CurrencyUtils.swift */; };
+		A5BB3E28277E0E14005F2A1E /* NewTransactionModalView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB3E27277E0E14005F2A1E /* NewTransactionModalView+iOS.swift */; };
 		A5C8FADC277D114800393167 /* CreateBudgetAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A5C8FADB277D114800393167 /* CreateBudgetAccount.graphql */; };
 		A5C8FADD277D114800393167 /* CreateBudgetAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A5C8FADB277D114800393167 /* CreateBudgetAccount.graphql */; };
 		A5C8FADF277D119300393167 /* CreateTrackingAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A5C8FADE277D119300393167 /* CreateTrackingAccount.graphql */; };
@@ -219,6 +220,7 @@
 		A59350D22773BE6400657D20 /* ListAccounts.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ListAccounts.graphql; sourceTree = "<group>"; };
 		A59350D72773BF0D00657D20 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		A59350DA2773CE3E00657D20 /* CurrencyUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyUtils.swift; sourceTree = "<group>"; };
+		A5BB3E27277E0E14005F2A1E /* NewTransactionModalView+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewTransactionModalView+iOS.swift"; sourceTree = "<group>"; };
 		A5C8FADB277D114800393167 /* CreateBudgetAccount.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CreateBudgetAccount.graphql; sourceTree = "<group>"; };
 		A5C8FADE277D119300393167 /* CreateTrackingAccount.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CreateTrackingAccount.graphql; sourceTree = "<group>"; };
 		A5C8FAE2277D2E0A00393167 /* DeleteBudgetAccount.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = DeleteBudgetAccount.graphql; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 				A5802735277CB764000373DE /* AccountView+iOS.swift */,
 				A5C8FAEE277DE4D900393167 /* NavigationLinkAccountItemView+iOS.swift */,
 				A5C8FAEC277DE3D300393167 /* NewAccountModalView+iOS.swift */,
+				A5BB3E27277E0E14005F2A1E /* NewTransactionModalView+iOS.swift */,
 				A5802731277CB1B2000373DE /* OverviewView+iOS.swift */,
 				A5802728277CA095000373DE /* RootView+iOS.swift */,
 			);
@@ -801,6 +804,7 @@
 				A5802726277C9BD8000373DE /* RootScene+iOS.swift in Sources */,
 				A59350D82773BF0D00657D20 /* API.swift in Sources */,
 				A58026FC2778AF06000373DE /* AccountsAction.swift in Sources */,
+				A5BB3E28277E0E14005F2A1E /* NewTransactionModalView+iOS.swift in Sources */,
 				A58027062778BE56000373DE /* AccountService.swift in Sources */,
 				A57DB52F272F5CEF0055827F /* ApplicationRoute.swift in Sources */,
 				A58026F52778A68F000373DE /* AccountReducer.swift in Sources */,
