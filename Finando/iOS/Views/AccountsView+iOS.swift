@@ -12,10 +12,11 @@ struct AccountsView: View {
         WithViewStore(store) { viewStore in
             NavigationView {
                 ScrollView {
-                    LazyVStack(alignment: .leading, spacing: 0) {
+                    LazyVStack(alignment: .leading, spacing: 8) {
                         ForEach(viewStore.accounts) { account in
                             NavigationLink(destination: AccountView(store: store, account: account)) {
                                 NavigationLinkAccountItemView(account: account)
+                                    .padding(.horizontal, 16)
                             }
                             .buttonStyle(FlatLinkStyle())
                         }
@@ -23,6 +24,7 @@ struct AccountsView: View {
                             print("DELETE ACCOUNT")
                         }
                     }
+                    .padding(.vertical, 16)
                     .highPriorityGesture(DragGesture(minimumDistance: 25, coordinateSpace: .local)
                                             .onEnded { value in
                         print("DRAG: \(value)")

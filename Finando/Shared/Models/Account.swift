@@ -59,4 +59,22 @@ extension Account: Identifiable {
             return false
         }
     }
+
+    var typeIcon: String {
+        switch self {
+        case .BudgetAccount:
+            return "chart.pie.fill"
+        case .TrackingAccount:
+            return "chart.bar.fill"
+        }
+    }
+
+    var typeTranslation: String {
+        switch self {
+        case .BudgetAccount:
+            return "Budget"
+        case .TrackingAccount:
+            return "Tracking"
+        }
+    }
 }
