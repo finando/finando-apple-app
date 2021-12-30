@@ -13,7 +13,6 @@
 		A52C270127258A7200C35AB7 /* Tests_macOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C270027258A7200C35AB7 /* Tests_macOSLaunchTests.swift */; };
 		A52C270227258A7200C35AB7 /* FinandoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C26DA27258A7100C35AB7 /* FinandoApp.swift */; };
 		A52C270327258A7200C35AB7 /* FinandoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C26DA27258A7100C35AB7 /* FinandoApp.swift */; };
-		A52C270427258A7200C35AB7 /* AccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C26DB27258A7100C35AB7 /* AccountsView.swift */; };
 		A52C270527258A7200C35AB7 /* AccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C26DB27258A7100C35AB7 /* AccountsView.swift */; };
 		A52C270627258A7200C35AB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A52C26DC27258A7200C35AB7 /* Assets.xcassets */; };
 		A52C270727258A7200C35AB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A52C26DC27258A7200C35AB7 /* Assets.xcassets */; };
@@ -23,23 +22,19 @@
 		A57DB50A272C9F1F0055827F /* TrackingAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB508272C9F1F0055827F /* TrackingAccount.swift */; };
 		A57DB510272CA3080055827F /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB50F272CA3080055827F /* Account.swift */; };
 		A57DB511272CA3080055827F /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB50F272CA3080055827F /* Account.swift */; };
-		A57DB513272CB5650055827F /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB512272CB5650055827F /* AccountView.swift */; };
 		A57DB514272CB5650055827F /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB512272CB5650055827F /* AccountView.swift */; };
 		A57DB516272D7A9C0055827F /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB515272D7A9C0055827F /* Balance.swift */; };
 		A57DB517272D7A9C0055827F /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB515272D7A9C0055827F /* Balance.swift */; };
 		A57DB523272DC54F0055827F /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB522272DC54F0055827F /* DateUtils.swift */; };
 		A57DB524272DC54F0055827F /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB522272DC54F0055827F /* DateUtils.swift */; };
-		A57DB526272F40A10055827F /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB525272F40A00055827F /* RootView.swift */; };
 		A57DB527272F40A10055827F /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB525272F40A00055827F /* RootView.swift */; };
 		A57DB529272F40ED0055827F /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB528272F40ED0055827F /* HeaderView.swift */; };
 		A57DB52A272F40ED0055827F /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB528272F40ED0055827F /* HeaderView.swift */; };
-		A57DB52C272F4A290055827F /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB52B272F4A290055827F /* SideMenuView.swift */; };
 		A57DB52D272F4A290055827F /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB52B272F4A290055827F /* SideMenuView.swift */; };
 		A57DB52F272F5CEF0055827F /* ApplicationRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB52E272F5CEF0055827F /* ApplicationRoute.swift */; };
 		A57DB530272F5CEF0055827F /* ApplicationRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB52E272F5CEF0055827F /* ApplicationRoute.swift */; };
 		A57DB5322731F06F0055827F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB5312731F06F0055827F /* Theme.swift */; };
 		A57DB5332731F06F0055827F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB5312731F06F0055827F /* Theme.swift */; };
-		A57DB535273208120055827F /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB534273208120055827F /* AvatarView.swift */; };
 		A57DB536273208120055827F /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB534273208120055827F /* AvatarView.swift */; };
 		A57DB53B2732196C0055827F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB53A2732196C0055827F /* User.swift */; };
 		A57DB53C2732196C0055827F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB53A2732196C0055827F /* User.swift */; };
@@ -83,9 +78,7 @@
 		A580FB322725A52400DAD317 /* ApolloClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580FB302725A52400DAD317 /* ApolloClient.swift */; };
 		A580FB722725AD5D00DAD317 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = A580FB712725AD5D00DAD317 /* Apollo */; };
 		A580FB742725AD7B00DAD317 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = A580FB732725AD7B00DAD317 /* Apollo */; };
-		A59350832752E81D00657D20 /* Breadcrumbs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350822752E81D00657D20 /* Breadcrumbs.swift */; };
 		A59350842752E81D00657D20 /* Breadcrumbs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350822752E81D00657D20 /* Breadcrumbs.swift */; };
-		A59350862752EBD900657D20 /* Breadcrumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350852752EBD900657D20 /* Breadcrumb.swift */; };
 		A59350872752EBD900657D20 /* Breadcrumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350852752EBD900657D20 /* Breadcrumb.swift */; };
 		A5935089276F9C1F00657D20 /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5935088276F9C1F00657D20 /* ArrayUtils.swift */; };
 		A593508A276F9C1F00657D20 /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5935088276F9C1F00657D20 /* ArrayUtils.swift */; };
@@ -93,7 +86,6 @@
 		A59350A0277080A600657D20 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = A593509F277080A600657D20 /* Algorithms */; };
 		A59350A32770846A00657D20 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = A59350A22770846A00657D20 /* Charts */; };
 		A59350A52770847200657D20 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = A59350A42770847200657D20 /* Charts */; };
-		A59350A72770870B00657D20 /* LineChartNSViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350A62770870B00657D20 /* LineChartNSViewRepresentable.swift */; };
 		A59350A82770870B00657D20 /* LineChartNSViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350A62770870B00657D20 /* LineChartNSViewRepresentable.swift */; };
 		A59350D32773BE6400657D20 /* GetAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A59350D12773BE6400657D20 /* GetAccount.graphql */; };
 		A59350D42773BE6400657D20 /* GetAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A59350D12773BE6400657D20 /* GetAccount.graphql */; };
@@ -111,9 +103,7 @@
 		A5C8FAE4277D2E0A00393167 /* DeleteBudgetAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A5C8FAE2277D2E0A00393167 /* DeleteBudgetAccount.graphql */; };
 		A5C8FAE6277D354B00393167 /* DeleteTrackingAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A5C8FAE5277D354B00393167 /* DeleteTrackingAccount.graphql */; };
 		A5C8FAE7277D354B00393167 /* DeleteTrackingAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A5C8FAE5277D354B00393167 /* DeleteTrackingAccount.graphql */; };
-		A5DEE268273877130019E1D8 /* HoverViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEE267273877130019E1D8 /* HoverViewModifier.swift */; };
 		A5DEE269273877130019E1D8 /* HoverViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEE267273877130019E1D8 /* HoverViewModifier.swift */; };
-		A5DEE2702750C8750019E1D8 /* AccountListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEE26F2750C8750019E1D8 /* AccountListItemView.swift */; };
 		A5DEE2712750C8750019E1D8 /* AccountListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEE26F2750C8750019E1D8 /* AccountListItemView.swift */; };
 /* End PBXBuildFile section */
 
@@ -263,12 +253,13 @@
 			isa = PBXGroup;
 			children = (
 				A580FB752725BDC200DAD317 /* Finando--macOS--Info.plist */,
-				A52C26D927258A7100C35AB7 /* Shared */,
+				A580FB702725AD5D00DAD317 /* Frameworks */,
+				A5802722277C990B000373DE /* iOS */,
 				A52C26E827258A7200C35AB7 /* macOS */,
+				A52C26E227258A7200C35AB7 /* Products */,
+				A52C26D927258A7100C35AB7 /* Shared */,
 				A52C26F127258A7200C35AB7 /* Tests iOS */,
 				A52C26FD27258A7200C35AB7 /* Tests macOS */,
-				A52C26E227258A7200C35AB7 /* Products */,
-				A580FB702725AD5D00DAD317 /* Frameworks */,
 			);
 			indentWidth = 4;
 			sourceTree = "<group>";
@@ -278,17 +269,17 @@
 		A52C26D927258A7100C35AB7 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				A58027042778BE41000373DE /* Service */,
-				A58026DB2778A25E000373DE /* Store */,
-				A59350AC277087BF00657D20 /* ViewRepresentables */,
+				A52C26DC27258A7200C35AB7 /* Assets.xcassets */,
 				A59350802752E7A800657D20 /* Components */,
-				A5DEE266273876F40019E1D8 /* ViewModifiers */,
-				A57DB521272DC53D0055827F /* Utils */,
+				A52C26DA27258A7100C35AB7 /* FinandoApp.swift */,
 				A580FB1A27259E0300DAD317 /* GraphQL */,
 				A52C271727258CCB00C35AB7 /* Models */,
+				A58027042778BE41000373DE /* Service */,
+				A58026DB2778A25E000373DE /* Store */,
+				A57DB521272DC53D0055827F /* Utils */,
+				A5DEE266273876F40019E1D8 /* ViewModifiers */,
+				A59350AC277087BF00657D20 /* ViewRepresentables */,
 				A52C271627258CA600C35AB7 /* Views */,
-				A52C26DA27258A7100C35AB7 /* FinandoApp.swift */,
-				A52C26DC27258A7200C35AB7 /* Assets.xcassets */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -727,40 +718,30 @@
 			files = (
 				A57DB509272C9F1F0055827F /* TrackingAccount.swift in Sources */,
 				A57DB523272DC54F0055827F /* DateUtils.swift in Sources */,
-				A59350862752EBD900657D20 /* Breadcrumb.swift in Sources */,
-				A59350A72770870B00657D20 /* LineChartNSViewRepresentable.swift in Sources */,
 				A57DB503272C8D0E0055827F /* BudgetAccount.swift in Sources */,
 				A58026E42778A346000373DE /* RootEnvironment.swift in Sources */,
 				A52C270227258A7200C35AB7 /* FinandoApp.swift in Sources */,
 				A58026FF2778AF3B000373DE /* AccountsEnvironment.swift in Sources */,
-				A52C270427258A7200C35AB7 /* AccountsView.swift in Sources */,
 				A59350DB2773CE3E00657D20 /* CurrencyUtils.swift in Sources */,
-				A59350832752E81D00657D20 /* Breadcrumbs.swift in Sources */,
 				A59350D82773BF0D00657D20 /* API.swift in Sources */,
 				A58026FC2778AF06000373DE /* AccountsAction.swift in Sources */,
 				A58027062778BE56000373DE /* AccountService.swift in Sources */,
 				A57DB52F272F5CEF0055827F /* ApplicationRoute.swift in Sources */,
 				A58026F52778A68F000373DE /* AccountReducer.swift in Sources */,
 				A58027022778AF54000373DE /* AccountsReducer.swift in Sources */,
-				A5DEE2702750C8750019E1D8 /* AccountListItemView.swift in Sources */,
 				A58026EF2778A60D000373DE /* AccountAction.swift in Sources */,
 				A57DB53B2732196C0055827F /* User.swift in Sources */,
 				A57DB510272CA3080055827F /* Account.swift in Sources */,
 				A58026F22778A676000373DE /* AccountEnvironment.swift in Sources */,
-				A5DEE268273877130019E1D8 /* HoverViewModifier.swift in Sources */,
 				A57DB5322731F06F0055827F /* Theme.swift in Sources */,
 				A57DB516272D7A9C0055827F /* Balance.swift in Sources */,
-				A57DB526272F40A10055827F /* RootView.swift in Sources */,
 				A5935089276F9C1F00657D20 /* ArrayUtils.swift in Sources */,
-				A57DB535273208120055827F /* AvatarView.swift in Sources */,
 				A58026E12778A2DF000373DE /* RootAction.swift in Sources */,
 				A58026F92778AED6000373DE /* AccountsState.swift in Sources */,
-				A57DB513272CB5650055827F /* AccountView.swift in Sources */,
 				A580270C2778FC64000373DE /* GraphqQLResponseParser.swift in Sources */,
 				A58026DE2778A2A0000373DE /* RootState.swift in Sources */,
 				A58026E72778A3C7000373DE /* RootReducer.swift in Sources */,
 				A58026EC2778A5B4000373DE /* AccountState.swift in Sources */,
-				A57DB52C272F4A290055827F /* SideMenuView.swift in Sources */,
 				A580FB312725A52400DAD317 /* ApolloClient.swift in Sources */,
 				A57DB529272F40ED0055827F /* HeaderView.swift in Sources */,
 				A58027092778FBB5000373DE /* GraphQLOperations.swift in Sources */,
