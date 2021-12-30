@@ -1,7 +1,13 @@
 import Foundation
 
 enum ApplicationRoute: Equatable, CaseIterable, Hashable {
-    static var allCases: [ApplicationRoute] = [.overview, .accounts, .budget, .goals, .projections]
+    static var allCases: [ApplicationRoute] = [
+        .overview,
+        .accounts,
+        .budget,
+        .goals,
+        .projections
+    ]
 
     case overview
     case accounts

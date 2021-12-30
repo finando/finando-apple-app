@@ -3,7 +3,7 @@ import SwiftUI
 struct Breadcrumb<Content: View>: View {
     private let content: Content
     private let active: Bool
-    
+
     @State private var isHoveringOverBreadcrumb = false
 
     public init(

@@ -27,12 +27,12 @@ struct LineChartNSViewRepresentable: NSViewRepresentable {
 //        nsView.leftAxis.labelTextColor = .black
 //        nsView.marker = MarkerView()
         nsView.drawMarkers = true
-        
+
 
         formatXAxis(xAxis: nsView.xAxis)
         formatLeftAxis(leftAxis: nsView.leftAxis)
         formatRightAxis(rightAxis: nsView.rightAxis)
-        
+
         formatDataSet(dataSet: dataSet)
 
         nsView.notifyDataSetChanged()
@@ -67,16 +67,16 @@ struct LineChartNSViewRepresentable: NSViewRepresentable {
 
         if let axisMaximum = maxY {
             leftAxis.axisMaximum = axisMaximum
-            
+
             let limitLine = ChartLimitLine(limit: axisMaximum)
-            
+
             limitLine.lineWidth = 3
             limitLine.lineDashLengths = [10]
             limitLine.lineColor = NSUIColor(Theme.color.red.r50.color)
 
             leftAxis.addLimitLine(limitLine)
         }
-        
+
         let currencyFormatter = CurrencyUtils.getCurrencyFormatter(decimalPlaces: 0)
         leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: currencyFormatter)
     }
