@@ -1,0 +1,9 @@
+fragment DeleteTrackingAccount_TrackingAccountFragment on TrackingAccount {
+  id
+}
+
+mutation DeleteTrackingAccount($id: ID!) {
+  account: deleteTrackingAccount(id: $id) {
+    ...DeleteTrackingAccount_TrackingAccountFragment
+  }
+}

@@ -26,7 +26,7 @@ enum GraphQLResponseParser {
     }
 
     static func parse(data: CreateBudgetAccountMutation.Data.Account?) -> Account? {
-        if let budgetAccount = data?.fragments.budgetAccountFragment {
+        if let budgetAccount = data?.fragments.createBudgetAccountBudgetAccountFragment {
             return Account.BudgetAccount(BudgetAccount(fragment: budgetAccount))
         }
 
@@ -34,7 +34,23 @@ enum GraphQLResponseParser {
     }
 
     static func parse(data: CreateTrackingAccountMutation.Data.Account?) -> Account? {
-        if let trackingAccount = data?.fragments.trackingAccountFragment {
+        if let trackingAccount = data?.fragments.createTrackingAccountTrackingAccountFragment {
+            return Account.TrackingAccount(TrackingAccount(fragment: trackingAccount))
+        }
+
+        return nil
+    }
+
+    static func parse(data: DeleteBudgetAccountMutation.Data.Account?) -> Account? {
+        if let budgetAccount = data?.fragments.deleteBudgetAccountBudgetAccountFragment {
+            return Account.BudgetAccount(BudgetAccount(fragment: budgetAccount))
+        }
+
+        return nil
+    }
+
+    static func parse(data: DeleteTrackingAccountMutation.Data.Account?) -> Account? {
+        if let trackingAccount = data?.fragments.deleteTrackingAccountTrackingAccountFragment {
             return Account.TrackingAccount(TrackingAccount(fragment: trackingAccount))
         }
 

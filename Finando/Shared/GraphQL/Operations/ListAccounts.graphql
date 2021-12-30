@@ -1,4 +1,4 @@
-fragment BalanceFragment on Balance {
+fragment ListAccounts_BalanceFragment on Balance {
   date
   currency
   cleared
@@ -6,25 +6,25 @@ fragment BalanceFragment on Balance {
   running
 }
 
-fragment ListAccountsAccountFragment on Account {
+fragment ListAccounts_AccountFragment on Account {
   ... on BudgetAccount {
     id
     name
     balance(to: $balanceToDate) {
-      ...BalanceFragment
+      ...ListAccounts_BalanceFragment
     }
   }
   ... on TrackingAccount {
     id
     name
     balance(to: $balanceToDate) {
-      ...BalanceFragment
+      ...ListAccounts_BalanceFragment
     }
   }
 }
 
 query ListAccounts($balanceToDate: DateTime!) {
   accounts: listAccounts {
-    ...ListAccountsAccountFragment
+    ...ListAccounts_AccountFragment
   }
 }

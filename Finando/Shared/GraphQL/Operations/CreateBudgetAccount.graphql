@@ -1,4 +1,4 @@
-fragment BalanceFragment on Balance {
+fragment CreateBudgetAccount_BalanceFragment on Balance {
   date
   currency
   cleared
@@ -6,11 +6,11 @@ fragment BalanceFragment on Balance {
   running
 }
 
-fragment BudgetAccountFragment on BudgetAccount {
+fragment CreateBudgetAccount_BudgetAccountFragment on BudgetAccount {
   id
   name
   balance(to: $balanceToDate) {
-    ...BalanceFragment
+    ...CreateBudgetAccount_BalanceFragment
   }
 }
 
@@ -19,6 +19,6 @@ mutation CreateBudgetAccount(
   $balanceToDate: DateTime!
 ) {
   account: createBudgetAccount(data: $data) {
-    ...BudgetAccountFragment
+    ...CreateBudgetAccount_BudgetAccountFragment
   }
 }

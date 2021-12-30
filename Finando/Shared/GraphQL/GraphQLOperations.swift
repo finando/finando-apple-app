@@ -31,5 +31,13 @@ enum GraphQLOperations {
                 balanceToDate: Date().toISO8601Format()
             )
         }
+
+        static func deleteBudgetAccount(id: String) -> DeleteBudgetAccountMutation {
+            DeleteBudgetAccountMutation(id: id)
+        }
+
+        static func deleteTrackingAccount(id: String) -> DeleteTrackingAccountMutation {
+            DeleteTrackingAccountMutation(id: id)
+        }
     }
 }

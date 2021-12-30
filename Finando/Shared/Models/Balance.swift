@@ -25,7 +25,37 @@ struct Balance: Equatable {
         )
     }
 
-    init(fragment: BalanceFragment) {
+    init(fragment: GetAccountBalanceFragment) {
+        self.init(
+            date: ISO8601DateFormatter().date(from: fragment.date) ?? Date(),
+            cleared: fragment.cleared,
+            uncleared: fragment.uncleared,
+            running: fragment.running,
+            currency: fragment.currency
+        )
+    }
+
+    init(fragment: ListAccountsBalanceFragment) {
+        self.init(
+            date: ISO8601DateFormatter().date(from: fragment.date) ?? Date(),
+            cleared: fragment.cleared,
+            uncleared: fragment.uncleared,
+            running: fragment.running,
+            currency: fragment.currency
+        )
+    }
+
+    init(fragment: CreateBudgetAccountBalanceFragment) {
+        self.init(
+            date: ISO8601DateFormatter().date(from: fragment.date) ?? Date(),
+            cleared: fragment.cleared,
+            uncleared: fragment.uncleared,
+            running: fragment.running,
+            currency: fragment.currency
+        )
+    }
+
+    init(fragment: CreateTrackingAccountBalanceFragment) {
         self.init(
             date: ISO8601DateFormatter().date(from: fragment.date) ?? Date(),
             cleared: fragment.cleared,

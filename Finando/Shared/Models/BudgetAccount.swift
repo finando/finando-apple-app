@@ -2,11 +2,11 @@ import Foundation
 
 struct BudgetAccount: Identifiable, Equatable {
     let id: String
-    let name: String
-    let balance: Balance
+    let name: String?
+    let balance: Balance?
     let balances: [Balance]
 
-    init(id: String, name: String, balance: Balance, balances: [Balance] = []) {
+    init(id: String, name: String? = nil, balance: Balance? = nil, balances: [Balance] = []) {
         self.id = id
         self.name = name
         self.balance = balance
@@ -17,8 +17,8 @@ struct BudgetAccount: Identifiable, Equatable {
         self.init(
             id: fragment.id,
             name: fragment.name ?? "",
-            balance: Balance(fragment: fragment.balance.fragments.balanceFragment),
-            balances: fragment.balances.map({ Balance(fragment: $0.fragments.balanceFragment) })
+            balance: Balance(fragment: fragment.balance.fragments.getAccountBalanceFragment),
+            balances: fragment.balances.map({ Balance(fragment: $0.fragments.getAccountBalanceFragment) })
         )
     }
 
@@ -26,15 +26,21 @@ struct BudgetAccount: Identifiable, Equatable {
         self.init(
             id: fragment.id,
             name: fragment.name ?? "",
-            balance: Balance(fragment: fragment.balance.fragments.balanceFragment)
+            balance: Balance(fragment: fragment.balance.fragments.listAccountsBalanceFragment)
         )
     }
 
-    init(fragment: BudgetAccountFragment) {
+    init(fragment: CreateBudgetAccountBudgetAccountFragment) {
         self.init(
             id: fragment.id,
             name: fragment.name ?? "",
-            balance: Balance(fragment: fragment.balance.fragments.balanceFragment)
+            balance: Balance(fragment: fragment.balance.fragments.createBudgetAccountBalanceFragment)
+        )
+    }
+
+    init(fragment: DeleteBudgetAccountBudgetAccountFragment) {
+        self.init(
+            id: fragment.id
         )
     }
 }

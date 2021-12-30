@@ -15,7 +15,7 @@ extension Account: Identifiable {
         }
     }
 
-    var name: String {
+    var name: String? {
         switch self {
         case .BudgetAccount(let budgetAccount):
             return budgetAccount.name
@@ -24,7 +24,7 @@ extension Account: Identifiable {
         }
     }
 
-    var balance: Balance {
+    var balance: Balance? {
         switch self {
         case .BudgetAccount(let budgetAccount):
             return budgetAccount.balance

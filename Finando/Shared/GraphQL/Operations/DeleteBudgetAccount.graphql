@@ -1,0 +1,9 @@
+fragment DeleteBudgetAccount_BudgetAccountFragment on BudgetAccount {
+  id
+}
+
+mutation DeleteBudgetAccount($id: ID!) {
+  account: deleteBudgetAccount(id: $id) {
+    ...DeleteBudgetAccount_BudgetAccountFragment
+  }
+}

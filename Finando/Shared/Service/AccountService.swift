@@ -83,4 +83,42 @@ class AccountService {
 
         return nil
     }
+
+    func deleteBudgetAccount(id: String) async -> Account? {
+        typealias Continuation = CheckedContinuation<GraphQLResult<DeleteBudgetAccountMutation.Data>, Error>
+
+        do {
+            let result = try await withCheckedThrowingContinuation { (continuation: Continuation) in
+                apolloClient.perform(
+                    mutation: GraphQLOperations.Mutation.deleteBudgetAccount(id: id),
+                    resultHandler: continuation.resume(with:)
+                )
+            }
+
+            return GraphQLResponseParser.parse(data: result.data?.account)
+        } catch {
+            // TODO: handle errors
+        }
+
+        return nil
+    }
+
+    func deleteTrackingAccount(id: String) async -> Account? {
+        typealias Continuation = CheckedContinuation<GraphQLResult<DeleteTrackingAccountMutation.Data>, Error>
+
+        do {
+            let result = try await withCheckedThrowingContinuation { (continuation: Continuation) in
+                apolloClient.perform(
+                    mutation: GraphQLOperations.Mutation.deleteTrackingAccount(id: id),
+                    resultHandler: continuation.resume(with:)
+                )
+            }
+
+            return GraphQLResponseParser.parse(data: result.data?.account)
+        } catch {
+            // TODO: handle errors
+        }
+
+        return nil
+    }
 }

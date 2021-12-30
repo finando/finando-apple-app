@@ -234,7 +234,7 @@ public final class CreateBudgetAccountMutation: GraphQLMutation {
     mutation CreateBudgetAccount($data: CreateBudgetAccountInput!, $balanceToDate: DateTime!) {
       account: createBudgetAccount(data: $data) {
         __typename
-        ...BudgetAccountFragment
+        ...CreateBudgetAccount_BudgetAccountFragment
       }
     }
     """
@@ -243,8 +243,8 @@ public final class CreateBudgetAccountMutation: GraphQLMutation {
 
   public var queryDocument: String {
     var document: String = operationDefinition
-    document.append("\n" + BudgetAccountFragment.fragmentDefinition)
-    document.append("\n" + BalanceFragment.fragmentDefinition)
+    document.append("\n" + CreateBudgetAccountBudgetAccountFragment.fragmentDefinition)
+    document.append("\n" + CreateBudgetAccountBalanceFragment.fragmentDefinition)
     return document
   }
 
@@ -294,7 +294,7 @@ public final class CreateBudgetAccountMutation: GraphQLMutation {
       public static var selections: [GraphQLSelection] {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLFragmentSpread(BudgetAccountFragment.self),
+          GraphQLFragmentSpread(CreateBudgetAccountBudgetAccountFragment.self),
         ]
       }
 
@@ -329,9 +329,9 @@ public final class CreateBudgetAccountMutation: GraphQLMutation {
           self.resultMap = unsafeResultMap
         }
 
-        public var budgetAccountFragment: BudgetAccountFragment {
+        public var createBudgetAccountBudgetAccountFragment: CreateBudgetAccountBudgetAccountFragment {
           get {
-            return BudgetAccountFragment(unsafeResultMap: resultMap)
+            return CreateBudgetAccountBudgetAccountFragment(unsafeResultMap: resultMap)
           }
           set {
             resultMap += newValue.resultMap
@@ -349,7 +349,7 @@ public final class CreateTrackingAccountMutation: GraphQLMutation {
     mutation CreateTrackingAccount($data: CreateTrackingAccountInput!, $balanceToDate: DateTime!) {
       account: createTrackingAccount(data: $data) {
         __typename
-        ...TrackingAccountFragment
+        ...CreateTrackingAccount_TrackingAccountFragment
       }
     }
     """
@@ -358,8 +358,8 @@ public final class CreateTrackingAccountMutation: GraphQLMutation {
 
   public var queryDocument: String {
     var document: String = operationDefinition
-    document.append("\n" + TrackingAccountFragment.fragmentDefinition)
-    document.append("\n" + BalanceFragment.fragmentDefinition)
+    document.append("\n" + CreateTrackingAccountTrackingAccountFragment.fragmentDefinition)
+    document.append("\n" + CreateTrackingAccountBalanceFragment.fragmentDefinition)
     return document
   }
 
@@ -409,7 +409,7 @@ public final class CreateTrackingAccountMutation: GraphQLMutation {
       public static var selections: [GraphQLSelection] {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLFragmentSpread(TrackingAccountFragment.self),
+          GraphQLFragmentSpread(CreateTrackingAccountTrackingAccountFragment.self),
         ]
       }
 
@@ -444,9 +444,241 @@ public final class CreateTrackingAccountMutation: GraphQLMutation {
           self.resultMap = unsafeResultMap
         }
 
-        public var trackingAccountFragment: TrackingAccountFragment {
+        public var createTrackingAccountTrackingAccountFragment: CreateTrackingAccountTrackingAccountFragment {
           get {
-            return TrackingAccountFragment(unsafeResultMap: resultMap)
+            return CreateTrackingAccountTrackingAccountFragment(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+      }
+    }
+  }
+}
+
+public final class DeleteBudgetAccountMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation DeleteBudgetAccount($id: ID!) {
+      account: deleteBudgetAccount(id: $id) {
+        __typename
+        ...DeleteBudgetAccount_BudgetAccountFragment
+      }
+    }
+    """
+
+  public let operationName: String = "DeleteBudgetAccount"
+
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + DeleteBudgetAccountBudgetAccountFragment.fragmentDefinition)
+    return document
+  }
+
+  public var id: GraphQLID
+
+  public init(id: GraphQLID) {
+    self.id = id
+  }
+
+  public var variables: GraphQLMap? {
+    return ["id": id]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("deleteBudgetAccount", alias: "account", arguments: ["id": GraphQLVariable("id")], type: .object(Account.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(account: Account? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "account": account.flatMap { (value: Account) -> ResultMap in value.resultMap }])
+    }
+
+    public var account: Account? {
+      get {
+        return (resultMap["account"] as? ResultMap).flatMap { Account(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "account")
+      }
+    }
+
+    public struct Account: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["BudgetAccount"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLFragmentSpread(DeleteBudgetAccountBudgetAccountFragment.self),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(id: GraphQLID) {
+        self.init(unsafeResultMap: ["__typename": "BudgetAccount", "id": id])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var fragments: Fragments {
+        get {
+          return Fragments(unsafeResultMap: resultMap)
+        }
+        set {
+          resultMap += newValue.resultMap
+        }
+      }
+
+      public struct Fragments {
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var deleteBudgetAccountBudgetAccountFragment: DeleteBudgetAccountBudgetAccountFragment {
+          get {
+            return DeleteBudgetAccountBudgetAccountFragment(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+      }
+    }
+  }
+}
+
+public final class DeleteTrackingAccountMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation DeleteTrackingAccount($id: ID!) {
+      account: deleteTrackingAccount(id: $id) {
+        __typename
+        ...DeleteTrackingAccount_TrackingAccountFragment
+      }
+    }
+    """
+
+  public let operationName: String = "DeleteTrackingAccount"
+
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + DeleteTrackingAccountTrackingAccountFragment.fragmentDefinition)
+    return document
+  }
+
+  public var id: GraphQLID
+
+  public init(id: GraphQLID) {
+    self.id = id
+  }
+
+  public var variables: GraphQLMap? {
+    return ["id": id]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("deleteTrackingAccount", alias: "account", arguments: ["id": GraphQLVariable("id")], type: .object(Account.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(account: Account? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "account": account.flatMap { (value: Account) -> ResultMap in value.resultMap }])
+    }
+
+    public var account: Account? {
+      get {
+        return (resultMap["account"] as? ResultMap).flatMap { Account(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "account")
+      }
+    }
+
+    public struct Account: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["TrackingAccount"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLFragmentSpread(DeleteTrackingAccountTrackingAccountFragment.self),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(id: GraphQLID) {
+        self.init(unsafeResultMap: ["__typename": "TrackingAccount", "id": id])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var fragments: Fragments {
+        get {
+          return Fragments(unsafeResultMap: resultMap)
+        }
+        set {
+          resultMap += newValue.resultMap
+        }
+      }
+
+      public struct Fragments {
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var deleteTrackingAccountTrackingAccountFragment: DeleteTrackingAccountTrackingAccountFragment {
+          get {
+            return DeleteTrackingAccountTrackingAccountFragment(unsafeResultMap: resultMap)
           }
           set {
             resultMap += newValue.resultMap
@@ -464,7 +696,7 @@ public final class GetAccountQuery: GraphQLQuery {
     query GetAccount($id: ID!, $balanceToDate: DateTime!, $balancesFromDate: DateTime!, $balancesToDate: DateTime!, $frequency: Frequency!) {
       account: getAccount(id: $id) {
         __typename
-        ...GetAccountAccountFragment
+        ...GetAccount_AccountFragment
       }
     }
     """
@@ -474,7 +706,7 @@ public final class GetAccountQuery: GraphQLQuery {
   public var queryDocument: String {
     var document: String = operationDefinition
     document.append("\n" + GetAccountAccountFragment.fragmentDefinition)
-    document.append("\n" + BalanceFragment.fragmentDefinition)
+    document.append("\n" + GetAccountBalanceFragment.fragmentDefinition)
     return document
   }
 
@@ -585,7 +817,7 @@ public final class ListAccountsQuery: GraphQLQuery {
     query ListAccounts($balanceToDate: DateTime!) {
       accounts: listAccounts {
         __typename
-        ...ListAccountsAccountFragment
+        ...ListAccounts_AccountFragment
       }
     }
     """
@@ -595,7 +827,7 @@ public final class ListAccountsQuery: GraphQLQuery {
   public var queryDocument: String {
     var document: String = operationDefinition
     document.append("\n" + ListAccountsAccountFragment.fragmentDefinition)
-    document.append("\n" + BalanceFragment.fragmentDefinition)
+    document.append("\n" + ListAccountsBalanceFragment.fragmentDefinition)
     return document
   }
 
@@ -691,11 +923,11 @@ public final class ListAccountsQuery: GraphQLQuery {
   }
 }
 
-public struct BalanceFragment: GraphQLFragment {
+public struct CreateBudgetAccountBalanceFragment: GraphQLFragment {
   /// The raw GraphQL definition of this fragment.
   public static let fragmentDefinition: String =
     """
-    fragment BalanceFragment on Balance {
+    fragment CreateBudgetAccount_BalanceFragment on Balance {
       __typename
       date
       currency
@@ -783,17 +1015,17 @@ public struct BalanceFragment: GraphQLFragment {
   }
 }
 
-public struct BudgetAccountFragment: GraphQLFragment {
+public struct CreateBudgetAccountBudgetAccountFragment: GraphQLFragment {
   /// The raw GraphQL definition of this fragment.
   public static let fragmentDefinition: String =
     """
-    fragment BudgetAccountFragment on BudgetAccount {
+    fragment CreateBudgetAccount_BudgetAccountFragment on BudgetAccount {
       __typename
       id
       name
       balance(to: $balanceToDate) {
         __typename
-        ...BalanceFragment
+        ...CreateBudgetAccount_BalanceFragment
       }
     }
     """
@@ -861,7 +1093,7 @@ public struct BudgetAccountFragment: GraphQLFragment {
     public static var selections: [GraphQLSelection] {
       return [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLFragmentSpread(BalanceFragment.self),
+        GraphQLFragmentSpread(CreateBudgetAccountBalanceFragment.self),
       ]
     }
 
@@ -900,9 +1132,9 @@ public struct BudgetAccountFragment: GraphQLFragment {
         self.resultMap = unsafeResultMap
       }
 
-      public var balanceFragment: BalanceFragment {
+      public var createBudgetAccountBalanceFragment: CreateBudgetAccountBalanceFragment {
         get {
-          return BalanceFragment(unsafeResultMap: resultMap)
+          return CreateBudgetAccountBalanceFragment(unsafeResultMap: resultMap)
         }
         set {
           resultMap += newValue.resultMap
@@ -912,17 +1144,109 @@ public struct BudgetAccountFragment: GraphQLFragment {
   }
 }
 
-public struct TrackingAccountFragment: GraphQLFragment {
+public struct CreateTrackingAccountBalanceFragment: GraphQLFragment {
   /// The raw GraphQL definition of this fragment.
   public static let fragmentDefinition: String =
     """
-    fragment TrackingAccountFragment on TrackingAccount {
+    fragment CreateTrackingAccount_BalanceFragment on Balance {
+      __typename
+      date
+      currency
+      cleared
+      uncleared
+      running
+    }
+    """
+
+  public static let possibleTypes: [String] = ["Balance"]
+
+  public static var selections: [GraphQLSelection] {
+    return [
+      GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+      GraphQLField("date", type: .nonNull(.scalar(String.self))),
+      GraphQLField("currency", type: .nonNull(.scalar(String.self))),
+      GraphQLField("cleared", type: .nonNull(.scalar(Int.self))),
+      GraphQLField("uncleared", type: .nonNull(.scalar(Int.self))),
+      GraphQLField("running", type: .nonNull(.scalar(Int.self))),
+    ]
+  }
+
+  public private(set) var resultMap: ResultMap
+
+  public init(unsafeResultMap: ResultMap) {
+    self.resultMap = unsafeResultMap
+  }
+
+  public init(date: String, currency: String, cleared: Int, uncleared: Int, running: Int) {
+    self.init(unsafeResultMap: ["__typename": "Balance", "date": date, "currency": currency, "cleared": cleared, "uncleared": uncleared, "running": running])
+  }
+
+  public var __typename: String {
+    get {
+      return resultMap["__typename"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "__typename")
+    }
+  }
+
+  public var date: String {
+    get {
+      return resultMap["date"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "date")
+    }
+  }
+
+  public var currency: String {
+    get {
+      return resultMap["currency"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "currency")
+    }
+  }
+
+  public var cleared: Int {
+    get {
+      return resultMap["cleared"]! as! Int
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "cleared")
+    }
+  }
+
+  public var uncleared: Int {
+    get {
+      return resultMap["uncleared"]! as! Int
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "uncleared")
+    }
+  }
+
+  public var running: Int {
+    get {
+      return resultMap["running"]! as! Int
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "running")
+    }
+  }
+}
+
+public struct CreateTrackingAccountTrackingAccountFragment: GraphQLFragment {
+  /// The raw GraphQL definition of this fragment.
+  public static let fragmentDefinition: String =
+    """
+    fragment CreateTrackingAccount_TrackingAccountFragment on TrackingAccount {
       __typename
       id
       name
       balance(to: $balanceToDate) {
         __typename
-        ...BalanceFragment
+        ...CreateTrackingAccount_BalanceFragment
       }
     }
     """
@@ -990,7 +1314,7 @@ public struct TrackingAccountFragment: GraphQLFragment {
     public static var selections: [GraphQLSelection] {
       return [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLFragmentSpread(BalanceFragment.self),
+        GraphQLFragmentSpread(CreateTrackingAccountBalanceFragment.self),
       ]
     }
 
@@ -1029,9 +1353,9 @@ public struct TrackingAccountFragment: GraphQLFragment {
         self.resultMap = unsafeResultMap
       }
 
-      public var balanceFragment: BalanceFragment {
+      public var createTrackingAccountBalanceFragment: CreateTrackingAccountBalanceFragment {
         get {
-          return BalanceFragment(unsafeResultMap: resultMap)
+          return CreateTrackingAccountBalanceFragment(unsafeResultMap: resultMap)
         }
         set {
           resultMap += newValue.resultMap
@@ -1041,22 +1365,210 @@ public struct TrackingAccountFragment: GraphQLFragment {
   }
 }
 
+public struct DeleteBudgetAccountBudgetAccountFragment: GraphQLFragment {
+  /// The raw GraphQL definition of this fragment.
+  public static let fragmentDefinition: String =
+    """
+    fragment DeleteBudgetAccount_BudgetAccountFragment on BudgetAccount {
+      __typename
+      id
+    }
+    """
+
+  public static let possibleTypes: [String] = ["BudgetAccount"]
+
+  public static var selections: [GraphQLSelection] {
+    return [
+      GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+      GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+    ]
+  }
+
+  public private(set) var resultMap: ResultMap
+
+  public init(unsafeResultMap: ResultMap) {
+    self.resultMap = unsafeResultMap
+  }
+
+  public init(id: GraphQLID) {
+    self.init(unsafeResultMap: ["__typename": "BudgetAccount", "id": id])
+  }
+
+  public var __typename: String {
+    get {
+      return resultMap["__typename"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "__typename")
+    }
+  }
+
+  public var id: GraphQLID {
+    get {
+      return resultMap["id"]! as! GraphQLID
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "id")
+    }
+  }
+}
+
+public struct DeleteTrackingAccountTrackingAccountFragment: GraphQLFragment {
+  /// The raw GraphQL definition of this fragment.
+  public static let fragmentDefinition: String =
+    """
+    fragment DeleteTrackingAccount_TrackingAccountFragment on TrackingAccount {
+      __typename
+      id
+    }
+    """
+
+  public static let possibleTypes: [String] = ["TrackingAccount"]
+
+  public static var selections: [GraphQLSelection] {
+    return [
+      GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+      GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+    ]
+  }
+
+  public private(set) var resultMap: ResultMap
+
+  public init(unsafeResultMap: ResultMap) {
+    self.resultMap = unsafeResultMap
+  }
+
+  public init(id: GraphQLID) {
+    self.init(unsafeResultMap: ["__typename": "TrackingAccount", "id": id])
+  }
+
+  public var __typename: String {
+    get {
+      return resultMap["__typename"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "__typename")
+    }
+  }
+
+  public var id: GraphQLID {
+    get {
+      return resultMap["id"]! as! GraphQLID
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "id")
+    }
+  }
+}
+
+public struct GetAccountBalanceFragment: GraphQLFragment {
+  /// The raw GraphQL definition of this fragment.
+  public static let fragmentDefinition: String =
+    """
+    fragment GetAccount_BalanceFragment on Balance {
+      __typename
+      date
+      currency
+      cleared
+      uncleared
+      running
+    }
+    """
+
+  public static let possibleTypes: [String] = ["Balance"]
+
+  public static var selections: [GraphQLSelection] {
+    return [
+      GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+      GraphQLField("date", type: .nonNull(.scalar(String.self))),
+      GraphQLField("currency", type: .nonNull(.scalar(String.self))),
+      GraphQLField("cleared", type: .nonNull(.scalar(Int.self))),
+      GraphQLField("uncleared", type: .nonNull(.scalar(Int.self))),
+      GraphQLField("running", type: .nonNull(.scalar(Int.self))),
+    ]
+  }
+
+  public private(set) var resultMap: ResultMap
+
+  public init(unsafeResultMap: ResultMap) {
+    self.resultMap = unsafeResultMap
+  }
+
+  public init(date: String, currency: String, cleared: Int, uncleared: Int, running: Int) {
+    self.init(unsafeResultMap: ["__typename": "Balance", "date": date, "currency": currency, "cleared": cleared, "uncleared": uncleared, "running": running])
+  }
+
+  public var __typename: String {
+    get {
+      return resultMap["__typename"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "__typename")
+    }
+  }
+
+  public var date: String {
+    get {
+      return resultMap["date"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "date")
+    }
+  }
+
+  public var currency: String {
+    get {
+      return resultMap["currency"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "currency")
+    }
+  }
+
+  public var cleared: Int {
+    get {
+      return resultMap["cleared"]! as! Int
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "cleared")
+    }
+  }
+
+  public var uncleared: Int {
+    get {
+      return resultMap["uncleared"]! as! Int
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "uncleared")
+    }
+  }
+
+  public var running: Int {
+    get {
+      return resultMap["running"]! as! Int
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "running")
+    }
+  }
+}
+
 public struct GetAccountAccountFragment: GraphQLFragment {
   /// The raw GraphQL definition of this fragment.
   public static let fragmentDefinition: String =
     """
-    fragment GetAccountAccountFragment on Account {
+    fragment GetAccount_AccountFragment on Account {
       __typename
       ... on BudgetAccount {
         id
         name
         balance(to: $balanceToDate) {
           __typename
-          ...BalanceFragment
+          ...GetAccount_BalanceFragment
         }
         balances(from: $balancesFromDate, to: $balancesToDate, frequency: $frequency) {
           __typename
-          ...BalanceFragment
+          ...GetAccount_BalanceFragment
         }
       }
       ... on TrackingAccount {
@@ -1064,11 +1576,11 @@ public struct GetAccountAccountFragment: GraphQLFragment {
         name
         balance(to: $balanceToDate) {
           __typename
-          ...BalanceFragment
+          ...GetAccount_BalanceFragment
         }
         balances(from: $balancesFromDate, to: $balancesToDate, frequency: $frequency) {
           __typename
-          ...BalanceFragment
+          ...GetAccount_BalanceFragment
         }
       }
     }
@@ -1195,7 +1707,7 @@ public struct GetAccountAccountFragment: GraphQLFragment {
       public static var selections: [GraphQLSelection] {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLFragmentSpread(BalanceFragment.self),
+          GraphQLFragmentSpread(GetAccountBalanceFragment.self),
         ]
       }
 
@@ -1234,9 +1746,9 @@ public struct GetAccountAccountFragment: GraphQLFragment {
           self.resultMap = unsafeResultMap
         }
 
-        public var balanceFragment: BalanceFragment {
+        public var getAccountBalanceFragment: GetAccountBalanceFragment {
           get {
-            return BalanceFragment(unsafeResultMap: resultMap)
+            return GetAccountBalanceFragment(unsafeResultMap: resultMap)
           }
           set {
             resultMap += newValue.resultMap
@@ -1331,7 +1843,7 @@ public struct GetAccountAccountFragment: GraphQLFragment {
       public static var selections: [GraphQLSelection] {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLFragmentSpread(BalanceFragment.self),
+          GraphQLFragmentSpread(GetAccountBalanceFragment.self),
         ]
       }
 
@@ -1370,9 +1882,9 @@ public struct GetAccountAccountFragment: GraphQLFragment {
           self.resultMap = unsafeResultMap
         }
 
-        public var balanceFragment: BalanceFragment {
+        public var getAccountBalanceFragment: GetAccountBalanceFragment {
           get {
-            return BalanceFragment(unsafeResultMap: resultMap)
+            return GetAccountBalanceFragment(unsafeResultMap: resultMap)
           }
           set {
             resultMap += newValue.resultMap
@@ -1383,18 +1895,110 @@ public struct GetAccountAccountFragment: GraphQLFragment {
   }
 }
 
+public struct ListAccountsBalanceFragment: GraphQLFragment {
+  /// The raw GraphQL definition of this fragment.
+  public static let fragmentDefinition: String =
+    """
+    fragment ListAccounts_BalanceFragment on Balance {
+      __typename
+      date
+      currency
+      cleared
+      uncleared
+      running
+    }
+    """
+
+  public static let possibleTypes: [String] = ["Balance"]
+
+  public static var selections: [GraphQLSelection] {
+    return [
+      GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+      GraphQLField("date", type: .nonNull(.scalar(String.self))),
+      GraphQLField("currency", type: .nonNull(.scalar(String.self))),
+      GraphQLField("cleared", type: .nonNull(.scalar(Int.self))),
+      GraphQLField("uncleared", type: .nonNull(.scalar(Int.self))),
+      GraphQLField("running", type: .nonNull(.scalar(Int.self))),
+    ]
+  }
+
+  public private(set) var resultMap: ResultMap
+
+  public init(unsafeResultMap: ResultMap) {
+    self.resultMap = unsafeResultMap
+  }
+
+  public init(date: String, currency: String, cleared: Int, uncleared: Int, running: Int) {
+    self.init(unsafeResultMap: ["__typename": "Balance", "date": date, "currency": currency, "cleared": cleared, "uncleared": uncleared, "running": running])
+  }
+
+  public var __typename: String {
+    get {
+      return resultMap["__typename"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "__typename")
+    }
+  }
+
+  public var date: String {
+    get {
+      return resultMap["date"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "date")
+    }
+  }
+
+  public var currency: String {
+    get {
+      return resultMap["currency"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "currency")
+    }
+  }
+
+  public var cleared: Int {
+    get {
+      return resultMap["cleared"]! as! Int
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "cleared")
+    }
+  }
+
+  public var uncleared: Int {
+    get {
+      return resultMap["uncleared"]! as! Int
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "uncleared")
+    }
+  }
+
+  public var running: Int {
+    get {
+      return resultMap["running"]! as! Int
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "running")
+    }
+  }
+}
+
 public struct ListAccountsAccountFragment: GraphQLFragment {
   /// The raw GraphQL definition of this fragment.
   public static let fragmentDefinition: String =
     """
-    fragment ListAccountsAccountFragment on Account {
+    fragment ListAccounts_AccountFragment on Account {
       __typename
       ... on BudgetAccount {
         id
         name
         balance(to: $balanceToDate) {
           __typename
-          ...BalanceFragment
+          ...ListAccounts_BalanceFragment
         }
       }
       ... on TrackingAccount {
@@ -1402,7 +2006,7 @@ public struct ListAccountsAccountFragment: GraphQLFragment {
         name
         balance(to: $balanceToDate) {
           __typename
-          ...BalanceFragment
+          ...ListAccounts_BalanceFragment
         }
       }
     }
@@ -1519,7 +2123,7 @@ public struct ListAccountsAccountFragment: GraphQLFragment {
       public static var selections: [GraphQLSelection] {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLFragmentSpread(BalanceFragment.self),
+          GraphQLFragmentSpread(ListAccountsBalanceFragment.self),
         ]
       }
 
@@ -1558,9 +2162,9 @@ public struct ListAccountsAccountFragment: GraphQLFragment {
           self.resultMap = unsafeResultMap
         }
 
-        public var balanceFragment: BalanceFragment {
+        public var listAccountsBalanceFragment: ListAccountsBalanceFragment {
           get {
-            return BalanceFragment(unsafeResultMap: resultMap)
+            return ListAccountsBalanceFragment(unsafeResultMap: resultMap)
           }
           set {
             resultMap += newValue.resultMap
@@ -1645,7 +2249,7 @@ public struct ListAccountsAccountFragment: GraphQLFragment {
       public static var selections: [GraphQLSelection] {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLFragmentSpread(BalanceFragment.self),
+          GraphQLFragmentSpread(ListAccountsBalanceFragment.self),
         ]
       }
 
@@ -1684,9 +2288,9 @@ public struct ListAccountsAccountFragment: GraphQLFragment {
           self.resultMap = unsafeResultMap
         }
 
-        public var balanceFragment: BalanceFragment {
+        public var listAccountsBalanceFragment: ListAccountsBalanceFragment {
           get {
-            return BalanceFragment(unsafeResultMap: resultMap)
+            return ListAccountsBalanceFragment(unsafeResultMap: resultMap)
           }
           set {
             resultMap += newValue.resultMap

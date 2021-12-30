@@ -1,4 +1,4 @@
-fragment BalanceFragment on Balance {
+fragment GetAccount_BalanceFragment on Balance {
   date
   currency
   cleared
@@ -6,33 +6,33 @@ fragment BalanceFragment on Balance {
   running
 }
 
-fragment GetAccountAccountFragment on Account {
+fragment GetAccount_AccountFragment on Account {
   ... on BudgetAccount {
     id
     name
     balance(to: $balanceToDate) {
-      ...BalanceFragment
+      ...GetAccount_BalanceFragment
     }
     balances(
       from: $balancesFromDate
       to: $balancesToDate
       frequency: $frequency
     ) {
-      ...BalanceFragment
+      ...GetAccount_BalanceFragment
     }
   }
   ... on TrackingAccount {
     id
     name
     balance(to: $balanceToDate) {
-      ...BalanceFragment
+      ...GetAccount_BalanceFragment
     }
     balances(
       from: $balancesFromDate
       to: $balancesToDate
       frequency: $frequency
     ) {
-      ...BalanceFragment
+      ...GetAccount_BalanceFragment
     }
   }
 }
@@ -45,6 +45,6 @@ query GetAccount(
   $frequency: Frequency!
 ) {
   account: getAccount(id: $id) {
-    ...GetAccountAccountFragment
+    ...GetAccount_AccountFragment
   }
 }
