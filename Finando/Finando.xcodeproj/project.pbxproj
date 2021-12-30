@@ -114,6 +114,7 @@
 		A5C8FAEA277DE34300393167 /* FlatButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C8FAE9277DE34300393167 /* FlatButtonStyle.swift */; };
 		A5C8FAEB277DE34300393167 /* FlatButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C8FAE9277DE34300393167 /* FlatButtonStyle.swift */; };
 		A5C8FAED277DE3D300393167 /* NewAccountModalView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C8FAEC277DE3D300393167 /* NewAccountModalView+iOS.swift */; };
+		A5C8FAEF277DE4D900393167 /* NavigationLinkAccountItemView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C8FAEE277DE4D900393167 /* NavigationLinkAccountItemView+iOS.swift */; };
 		A5DEE269273877130019E1D8 /* HoverViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEE267273877130019E1D8 /* HoverViewModifier.swift */; };
 		A5DEE2712750C8750019E1D8 /* AccountListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEE26F2750C8750019E1D8 /* AccountListItemView.swift */; };
 /* End PBXBuildFile section */
@@ -224,6 +225,7 @@
 		A5C8FAE5277D354B00393167 /* DeleteTrackingAccount.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = DeleteTrackingAccount.graphql; sourceTree = "<group>"; };
 		A5C8FAE9277DE34300393167 /* FlatButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatButtonStyle.swift; sourceTree = "<group>"; };
 		A5C8FAEC277DE3D300393167 /* NewAccountModalView+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewAccountModalView+iOS.swift"; sourceTree = "<group>"; };
+		A5C8FAEE277DE4D900393167 /* NavigationLinkAccountItemView+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationLinkAccountItemView+iOS.swift"; sourceTree = "<group>"; };
 		A5DEE267273877130019E1D8 /* HoverViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverViewModifier.swift; sourceTree = "<group>"; };
 		A5DEE26F2750C8750019E1D8 /* AccountListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -449,6 +451,7 @@
 			children = (
 				A5802733277CB35F000373DE /* AccountsView+iOS.swift */,
 				A5802735277CB764000373DE /* AccountView+iOS.swift */,
+				A5C8FAEE277DE4D900393167 /* NavigationLinkAccountItemView+iOS.swift */,
 				A5C8FAEC277DE3D300393167 /* NewAccountModalView+iOS.swift */,
 				A5802731277CB1B2000373DE /* OverviewView+iOS.swift */,
 				A5802728277CA095000373DE /* RootView+iOS.swift */,
@@ -789,6 +792,7 @@
 				A57DB509272C9F1F0055827F /* TrackingAccount.swift in Sources */,
 				A57DB523272DC54F0055827F /* DateUtils.swift in Sources */,
 				A5802734277CB35F000373DE /* AccountsView+iOS.swift in Sources */,
+				A5C8FAEF277DE4D900393167 /* NavigationLinkAccountItemView+iOS.swift in Sources */,
 				A57DB503272C8D0E0055827F /* BudgetAccount.swift in Sources */,
 				A58026E42778A346000373DE /* RootEnvironment.swift in Sources */,
 				A52C270227258A7200C35AB7 /* FinandoApp.swift in Sources */,
