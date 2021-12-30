@@ -7,6 +7,7 @@ enum CurrencyUtils {
         numberFormatter.alwaysShowsDecimalSeparator = true
         numberFormatter.usesGroupingSeparator = true
         numberFormatter.groupingSeparator = " "
+        numberFormatter.currencyGroupingSeparator = " "
         numberFormatter.groupingSize = 3
         numberFormatter.decimalSeparator = decimalPlaces > 0 ? "." : ""
         numberFormatter.currencyDecimalSeparator = "."
