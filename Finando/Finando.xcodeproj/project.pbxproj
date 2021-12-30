@@ -113,6 +113,7 @@
 		A5C8FAE7277D354B00393167 /* DeleteTrackingAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A5C8FAE5277D354B00393167 /* DeleteTrackingAccount.graphql */; };
 		A5C8FAEA277DE34300393167 /* FlatButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C8FAE9277DE34300393167 /* FlatButtonStyle.swift */; };
 		A5C8FAEB277DE34300393167 /* FlatButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C8FAE9277DE34300393167 /* FlatButtonStyle.swift */; };
+		A5C8FAED277DE3D300393167 /* NewAccountModalView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C8FAEC277DE3D300393167 /* NewAccountModalView+iOS.swift */; };
 		A5DEE269273877130019E1D8 /* HoverViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEE267273877130019E1D8 /* HoverViewModifier.swift */; };
 		A5DEE2712750C8750019E1D8 /* AccountListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEE26F2750C8750019E1D8 /* AccountListItemView.swift */; };
 /* End PBXBuildFile section */
@@ -222,6 +223,7 @@
 		A5C8FAE2277D2E0A00393167 /* DeleteBudgetAccount.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = DeleteBudgetAccount.graphql; sourceTree = "<group>"; };
 		A5C8FAE5277D354B00393167 /* DeleteTrackingAccount.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = DeleteTrackingAccount.graphql; sourceTree = "<group>"; };
 		A5C8FAE9277DE34300393167 /* FlatButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatButtonStyle.swift; sourceTree = "<group>"; };
+		A5C8FAEC277DE3D300393167 /* NewAccountModalView+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewAccountModalView+iOS.swift"; sourceTree = "<group>"; };
 		A5DEE267273877130019E1D8 /* HoverViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverViewModifier.swift; sourceTree = "<group>"; };
 		A5DEE26F2750C8750019E1D8 /* AccountListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -445,10 +447,11 @@
 		A5802727277CA07E000373DE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A5802728277CA095000373DE /* RootView+iOS.swift */,
-				A5802731277CB1B2000373DE /* OverviewView+iOS.swift */,
 				A5802733277CB35F000373DE /* AccountsView+iOS.swift */,
 				A5802735277CB764000373DE /* AccountView+iOS.swift */,
+				A5C8FAEC277DE3D300393167 /* NewAccountModalView+iOS.swift */,
+				A5802731277CB1B2000373DE /* OverviewView+iOS.swift */,
+				A5802728277CA095000373DE /* RootView+iOS.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -816,6 +819,7 @@
 				A58026E72778A3C7000373DE /* RootReducer.swift in Sources */,
 				A58026EC2778A5B4000373DE /* AccountState.swift in Sources */,
 				A5802732277CB1B2000373DE /* OverviewView+iOS.swift in Sources */,
+				A5C8FAED277DE3D300393167 /* NewAccountModalView+iOS.swift in Sources */,
 				A580FB312725A52400DAD317 /* ApolloClient.swift in Sources */,
 				A57DB529272F40ED0055827F /* HeaderView.swift in Sources */,
 				A58027092778FBB5000373DE /* GraphQLOperations.swift in Sources */,
