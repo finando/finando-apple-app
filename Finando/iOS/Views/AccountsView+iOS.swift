@@ -1,12 +1,6 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct FlatLinkStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-    }
-}
-
 struct AccountsView: View {
     let store: Store<AccountsState, AccountsAction>
 

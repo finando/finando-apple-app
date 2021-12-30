@@ -111,6 +111,8 @@
 		A5C8FAE4277D2E0A00393167 /* DeleteBudgetAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A5C8FAE2277D2E0A00393167 /* DeleteBudgetAccount.graphql */; };
 		A5C8FAE6277D354B00393167 /* DeleteTrackingAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A5C8FAE5277D354B00393167 /* DeleteTrackingAccount.graphql */; };
 		A5C8FAE7277D354B00393167 /* DeleteTrackingAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A5C8FAE5277D354B00393167 /* DeleteTrackingAccount.graphql */; };
+		A5C8FAEA277DE34300393167 /* FlatButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C8FAE9277DE34300393167 /* FlatButtonStyle.swift */; };
+		A5C8FAEB277DE34300393167 /* FlatButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C8FAE9277DE34300393167 /* FlatButtonStyle.swift */; };
 		A5DEE269273877130019E1D8 /* HoverViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEE267273877130019E1D8 /* HoverViewModifier.swift */; };
 		A5DEE2712750C8750019E1D8 /* AccountListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEE26F2750C8750019E1D8 /* AccountListItemView.swift */; };
 /* End PBXBuildFile section */
@@ -219,6 +221,7 @@
 		A5C8FADE277D119300393167 /* CreateTrackingAccount.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CreateTrackingAccount.graphql; sourceTree = "<group>"; };
 		A5C8FAE2277D2E0A00393167 /* DeleteBudgetAccount.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = DeleteBudgetAccount.graphql; sourceTree = "<group>"; };
 		A5C8FAE5277D354B00393167 /* DeleteTrackingAccount.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = DeleteTrackingAccount.graphql; sourceTree = "<group>"; };
+		A5C8FAE9277DE34300393167 /* FlatButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatButtonStyle.swift; sourceTree = "<group>"; };
 		A5DEE267273877130019E1D8 /* HoverViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverViewModifier.swift; sourceTree = "<group>"; };
 		A5DEE26F2750C8750019E1D8 /* AccountListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -292,6 +295,7 @@
 				A52C271727258CCB00C35AB7 /* Models */,
 				A58027042778BE41000373DE /* Service */,
 				A58026DB2778A25E000373DE /* Store */,
+				A5C8FAE8277DE30400393167 /* Styles */,
 				A57DB521272DC53D0055827F /* Utils */,
 				A5DEE266273876F40019E1D8 /* ViewModifiers */,
 				A59350AC277087BF00657D20 /* ViewRepresentables */,
@@ -521,6 +525,14 @@
 				A59350A62770870B00657D20 /* LineChartNSViewRepresentable.swift */,
 			);
 			path = ViewRepresentables;
+			sourceTree = "<group>";
+		};
+		A5C8FAE8277DE30400393167 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				A5C8FAE9277DE34300393167 /* FlatButtonStyle.swift */,
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 		A5DEE266273876F40019E1D8 /* ViewModifiers */ = {
@@ -787,6 +799,7 @@
 				A58026F52778A68F000373DE /* AccountReducer.swift in Sources */,
 				A58027022778AF54000373DE /* AccountsReducer.swift in Sources */,
 				A58026EF2778A60D000373DE /* AccountAction.swift in Sources */,
+				A5C8FAEA277DE34300393167 /* FlatButtonStyle.swift in Sources */,
 				A57DB53B2732196C0055827F /* User.swift in Sources */,
 				A57DB510272CA3080055827F /* Account.swift in Sources */,
 				A58026F22778A676000373DE /* AccountEnvironment.swift in Sources */,
@@ -823,6 +836,7 @@
 				A58027002778AF3B000373DE /* AccountsEnvironment.swift in Sources */,
 				A52C270527258A7200C35AB7 /* AccountsView.swift in Sources */,
 				A59350DC2773CE3E00657D20 /* CurrencyUtils.swift in Sources */,
+				A5C8FAEB277DE34300393167 /* FlatButtonStyle.swift in Sources */,
 				A59350842752E81D00657D20 /* Breadcrumbs.swift in Sources */,
 				A59350D92773BF0D00657D20 /* API.swift in Sources */,
 				A58026FD2778AF06000373DE /* AccountsAction.swift in Sources */,
