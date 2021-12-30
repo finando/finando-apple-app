@@ -72,6 +72,14 @@
 		A580270A2778FBB5000373DE /* GraphQLOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58027082778FBB5000373DE /* GraphQLOperations.swift */; };
 		A580270C2778FC64000373DE /* GraphqQLResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580270B2778FC64000373DE /* GraphqQLResponseParser.swift */; };
 		A580270D2778FC64000373DE /* GraphqQLResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580270B2778FC64000373DE /* GraphqQLResponseParser.swift */; };
+		A5802724277C9B1B000373DE /* RootScene+macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5802723277C9B1B000373DE /* RootScene+macOS.swift */; };
+		A5802726277C9BD8000373DE /* RootScene+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5802725277C9BD8000373DE /* RootScene+iOS.swift */; };
+		A5802729277CA095000373DE /* RootView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5802728277CA095000373DE /* RootView+iOS.swift */; };
+		A580272C277CA0B9000373DE /* RootView+macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580272B277CA0B9000373DE /* RootView+macOS.swift */; };
+		A580272F277CA650000373DE /* ApplicationTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580272E277CA650000373DE /* ApplicationTab.swift */; };
+		A5802732277CB1B2000373DE /* OverviewView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5802731277CB1B2000373DE /* OverviewView+iOS.swift */; };
+		A5802734277CB35F000373DE /* AccountsView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5802733277CB35F000373DE /* AccountsView+iOS.swift */; };
+		A5802736277CB764000373DE /* AccountView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5802735277CB764000373DE /* AccountView+iOS.swift */; };
 		A580FB252725A31A00DAD317 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = A580FB242725A31A00DAD317 /* schema.json */; };
 		A580FB262725A31A00DAD317 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = A580FB242725A31A00DAD317 /* schema.json */; };
 		A580FB312725A52400DAD317 /* ApolloClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580FB302725A52400DAD317 /* ApolloClient.swift */; };
@@ -188,6 +196,14 @@
 		A58027052778BE56000373DE /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
 		A58027082778FBB5000373DE /* GraphQLOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLOperations.swift; sourceTree = "<group>"; };
 		A580270B2778FC64000373DE /* GraphqQLResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphqQLResponseParser.swift; sourceTree = "<group>"; };
+		A5802723277C9B1B000373DE /* RootScene+macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootScene+macOS.swift"; sourceTree = "<group>"; };
+		A5802725277C9BD8000373DE /* RootScene+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootScene+iOS.swift"; sourceTree = "<group>"; };
+		A5802728277CA095000373DE /* RootView+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootView+iOS.swift"; sourceTree = "<group>"; };
+		A580272B277CA0B9000373DE /* RootView+macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootView+macOS.swift"; sourceTree = "<group>"; };
+		A580272E277CA650000373DE /* ApplicationTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationTab.swift; sourceTree = "<group>"; };
+		A5802731277CB1B2000373DE /* OverviewView+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OverviewView+iOS.swift"; sourceTree = "<group>"; };
+		A5802733277CB35F000373DE /* AccountsView+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountsView+iOS.swift"; sourceTree = "<group>"; };
+		A5802735277CB764000373DE /* AccountView+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountView+iOS.swift"; sourceTree = "<group>"; };
 		A580FB242725A31A00DAD317 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		A580FB302725A52400DAD317 /* ApolloClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloClient.swift; sourceTree = "<group>"; };
 		A580FB752725BDC200DAD317 /* Finando--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Finando--macOS--Info.plist"; sourceTree = "<group>"; };
@@ -299,6 +315,8 @@
 			isa = PBXGroup;
 			children = (
 				A52C26E927258A7200C35AB7 /* macOS.entitlements */,
+				A5802723277C9B1B000373DE /* RootScene+macOS.swift */,
+				A580272A277CA0A9000373DE /* Views */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -408,6 +426,43 @@
 				A58027052778BE56000373DE /* AccountService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		A5802722277C990B000373DE /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				A580272D277CA624000373DE /* Models */,
+				A5802725277C9BD8000373DE /* RootScene+iOS.swift */,
+				A5802727277CA07E000373DE /* Views */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		A5802727277CA07E000373DE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A5802728277CA095000373DE /* RootView+iOS.swift */,
+				A5802731277CB1B2000373DE /* OverviewView+iOS.swift */,
+				A5802733277CB35F000373DE /* AccountsView+iOS.swift */,
+				A5802735277CB764000373DE /* AccountView+iOS.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A580272A277CA0A9000373DE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A580272B277CA0B9000373DE /* RootView+macOS.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A580272D277CA624000373DE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A580272E277CA650000373DE /* ApplicationTab.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A580FB1A27259E0300DAD317 /* GraphQL */ = {
@@ -718,11 +773,13 @@
 			files = (
 				A57DB509272C9F1F0055827F /* TrackingAccount.swift in Sources */,
 				A57DB523272DC54F0055827F /* DateUtils.swift in Sources */,
+				A5802734277CB35F000373DE /* AccountsView+iOS.swift in Sources */,
 				A57DB503272C8D0E0055827F /* BudgetAccount.swift in Sources */,
 				A58026E42778A346000373DE /* RootEnvironment.swift in Sources */,
 				A52C270227258A7200C35AB7 /* FinandoApp.swift in Sources */,
 				A58026FF2778AF3B000373DE /* AccountsEnvironment.swift in Sources */,
 				A59350DB2773CE3E00657D20 /* CurrencyUtils.swift in Sources */,
+				A5802726277C9BD8000373DE /* RootScene+iOS.swift in Sources */,
 				A59350D82773BF0D00657D20 /* API.swift in Sources */,
 				A58026FC2778AF06000373DE /* AccountsAction.swift in Sources */,
 				A58027062778BE56000373DE /* AccountService.swift in Sources */,
@@ -733,15 +790,19 @@
 				A57DB53B2732196C0055827F /* User.swift in Sources */,
 				A57DB510272CA3080055827F /* Account.swift in Sources */,
 				A58026F22778A676000373DE /* AccountEnvironment.swift in Sources */,
+				A5802736277CB764000373DE /* AccountView+iOS.swift in Sources */,
 				A57DB5322731F06F0055827F /* Theme.swift in Sources */,
 				A57DB516272D7A9C0055827F /* Balance.swift in Sources */,
+				A580272F277CA650000373DE /* ApplicationTab.swift in Sources */,
 				A5935089276F9C1F00657D20 /* ArrayUtils.swift in Sources */,
 				A58026E12778A2DF000373DE /* RootAction.swift in Sources */,
+				A5802729277CA095000373DE /* RootView+iOS.swift in Sources */,
 				A58026F92778AED6000373DE /* AccountsState.swift in Sources */,
 				A580270C2778FC64000373DE /* GraphqQLResponseParser.swift in Sources */,
 				A58026DE2778A2A0000373DE /* RootState.swift in Sources */,
 				A58026E72778A3C7000373DE /* RootReducer.swift in Sources */,
 				A58026EC2778A5B4000373DE /* AccountState.swift in Sources */,
+				A5802732277CB1B2000373DE /* OverviewView+iOS.swift in Sources */,
 				A580FB312725A52400DAD317 /* ApolloClient.swift in Sources */,
 				A57DB529272F40ED0055827F /* HeaderView.swift in Sources */,
 				A58027092778FBB5000373DE /* GraphQLOperations.swift in Sources */,
@@ -765,6 +826,7 @@
 				A59350842752E81D00657D20 /* Breadcrumbs.swift in Sources */,
 				A59350D92773BF0D00657D20 /* API.swift in Sources */,
 				A58026FD2778AF06000373DE /* AccountsAction.swift in Sources */,
+				A5802724277C9B1B000373DE /* RootScene+macOS.swift in Sources */,
 				A58027072778BE56000373DE /* AccountService.swift in Sources */,
 				A57DB530272F5CEF0055827F /* ApplicationRoute.swift in Sources */,
 				A58026F62778A68F000373DE /* AccountReducer.swift in Sources */,
@@ -781,6 +843,7 @@
 				A593508A276F9C1F00657D20 /* ArrayUtils.swift in Sources */,
 				A57DB536273208120055827F /* AvatarView.swift in Sources */,
 				A58026E22778A2DF000373DE /* RootAction.swift in Sources */,
+				A580272C277CA0B9000373DE /* RootView+macOS.swift in Sources */,
 				A58026FA2778AED6000373DE /* AccountsState.swift in Sources */,
 				A57DB514272CB5650055827F /* AccountView.swift in Sources */,
 				A580270D2778FC64000373DE /* GraphqQLResponseParser.swift in Sources */,
