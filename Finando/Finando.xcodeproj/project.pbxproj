@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A51AB2252794D32F0020DAD5 /* ComponentLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A51AB2242794D32F0020DAD5 /* ComponentLibrary.framework */; };
+		A51AB2262794D32F0020DAD5 /* ComponentLibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A51AB2242794D32F0020DAD5 /* ComponentLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A52C26F327258A7200C35AB7 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C26F227258A7200C35AB7 /* Tests_iOS.swift */; };
 		A52C26F527258A7200C35AB7 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C26F427258A7200C35AB7 /* Tests_iOSLaunchTests.swift */; };
 		A52C26FF27258A7200C35AB7 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C26FE27258A7200C35AB7 /* Tests_macOS.swift */; };
@@ -138,12 +140,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A5935098277079A300657D20 /* Embed Frameworks */ = {
+		A51AB1E42794C97A0020DAD5 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				A51AB2262794D32F0020DAD5 /* ComponentLibrary.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,6 +164,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A51AB2242794D32F0020DAD5 /* ComponentLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ComponentLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A52C26DA27258A7100C35AB7 /* FinandoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinandoApp.swift; sourceTree = "<group>"; };
 		A52C26DB27258A7100C35AB7 /* AccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsView.swift; sourceTree = "<group>"; tabWidth = 4; wrapsLines = 0; };
 		A52C26DC27258A7200C35AB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -237,6 +241,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A51AB2252794D32F0020DAD5 /* ComponentLibrary.framework in Frameworks */,
 				A58026D827789B69000373DE /* ComposableArchitecture in Frameworks */,
 				A580FB742725AD7B00DAD317 /* Apollo in Frameworks */,
 				A58026CE27767A0E000373DE /* SwiftUIRouter in Frameworks */,
@@ -274,11 +279,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A51AB2232794D32F0020DAD5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A51AB2242794D32F0020DAD5 /* ComponentLibrary.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A52C26D427258A7000C35AB7 = {
 			isa = PBXGroup;
 			children = (
 				A580FB752725BDC200DAD317 /* Finando--macOS--Info.plist */,
-				A580FB702725AD5D00DAD317 /* Frameworks */,
+				A51AB2232794D32F0020DAD5 /* Frameworks */,
 				A5802722277C990B000373DE /* iOS */,
 				A52C26E827258A7200C35AB7 /* macOS */,
 				A52C26E227258A7200C35AB7 /* Products */,
@@ -504,13 +517,6 @@
 			path = Operations;
 			sourceTree = "<group>";
 		};
-		A580FB702725AD5D00DAD317 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		A59350802752E7A800657D20 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -563,7 +569,7 @@
 				A52C26DD27258A7200C35AB7 /* Sources */,
 				A52C26DE27258A7200C35AB7 /* Frameworks */,
 				A52C26DF27258A7200C35AB7 /* Resources */,
-				A5935098277079A300657D20 /* Embed Frameworks */,
+				A51AB1E42794C97A0020DAD5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
