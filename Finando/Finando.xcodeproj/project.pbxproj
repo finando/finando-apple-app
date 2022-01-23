@@ -290,6 +290,7 @@
 		A52C26D427258A7000C35AB7 = {
 			isa = PBXGroup;
 			children = (
+				A5BB3E2C277E64B8005F2A1E /* Finando--iOS--Info.plist */,
 				A580FB752725BDC200DAD317 /* Finando--macOS--Info.plist */,
 				A51AB2232794D32F0020DAD5 /* Frameworks */,
 				A5802722277C990B000373DE /* iOS */,
@@ -1054,6 +1055,7 @@
 				DEVELOPMENT_TEAM = 48464RSHHW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Finando--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1068,6 +1070,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.finando.Finando;
 				PRODUCT_NAME = Finando;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1086,6 +1089,7 @@
 				DEVELOPMENT_TEAM = 48464RSHHW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Finando--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1100,6 +1104,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.finando.Finando;
 				PRODUCT_NAME = Finando;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1130,6 +1135,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.finando.Finando;
 				PRODUCT_NAME = Finando;
 				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -1158,6 +1164,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.finando.Finando;
 				PRODUCT_NAME = Finando;
 				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
