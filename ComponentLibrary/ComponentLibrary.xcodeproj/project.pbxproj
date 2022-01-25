@@ -11,8 +11,8 @@
 		A51AB1CF2794C9440020DAD5 /* ComponentLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A51AB1C42794C9440020DAD5 /* ComponentLibrary.framework */; };
 		A51AB1D42794C9440020DAD5 /* ComponentLibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51AB1D32794C9440020DAD5 /* ComponentLibraryTests.swift */; };
 		A51AB1D52794C9440020DAD5 /* ComponentLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = A51AB1C72794C9440020DAD5 /* ComponentLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A51AB2182794D2580020DAD5 /* ContentKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51AB2172794D2580020DAD5 /* ContentKey.swift */; };
-		A51AB21A2794D2760020DAD5 /* TabItemPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51AB2192794D2760020DAD5 /* TabItemPreferenceKey.swift */; };
+		A51AB2182794D2580020DAD5 /* SelectedTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51AB2172794D2580020DAD5 /* SelectedTab.swift */; };
+		A51AB21A2794D2760020DAD5 /* TabsPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51AB2192794D2760020DAD5 /* TabsPreferenceKey.swift */; };
 		A51AB21C2794D2880020DAD5 /* TabItemViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51AB21B2794D2880020DAD5 /* TabItemViewExtension.swift */; };
 		A51AB21E2794D2960020DAD5 /* TabItemViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51AB21D2794D2960020DAD5 /* TabItemViewModifier.swift */; };
 		A51AB2202794D2AA0020DAD5 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51AB21F2794D2AA0020DAD5 /* TabBarView.swift */; };
@@ -36,8 +36,8 @@
 		A51AB1C82794C9440020DAD5 /* ComponentLibrary.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = ComponentLibrary.docc; sourceTree = "<group>"; };
 		A51AB1CE2794C9440020DAD5 /* ComponentLibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComponentLibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A51AB1D32794C9440020DAD5 /* ComponentLibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentLibraryTests.swift; sourceTree = "<group>"; };
-		A51AB2172794D2580020DAD5 /* ContentKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentKey.swift; sourceTree = "<group>"; };
-		A51AB2192794D2760020DAD5 /* TabItemPreferenceKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabItemPreferenceKey.swift; sourceTree = "<group>"; };
+		A51AB2172794D2580020DAD5 /* SelectedTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedTab.swift; sourceTree = "<group>"; };
+		A51AB2192794D2760020DAD5 /* TabsPreferenceKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabsPreferenceKey.swift; sourceTree = "<group>"; };
 		A51AB21B2794D2880020DAD5 /* TabItemViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabItemViewExtension.swift; sourceTree = "<group>"; };
 		A51AB21D2794D2960020DAD5 /* TabItemViewModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabItemViewModifier.swift; sourceTree = "<group>"; };
 		A51AB21F2794D2AA0020DAD5 /* TabBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
@@ -111,12 +111,12 @@
 		A51AB2002794CFF60020DAD5 /* TabView */ = {
 			isa = PBXGroup;
 			children = (
-				A51AB2172794D2580020DAD5 /* ContentKey.swift */,
+				A51AB2172794D2580020DAD5 /* SelectedTab.swift */,
 				A576E5D9279B5DF400D942AD /* Tab.swift */,
 				A51AB21F2794D2AA0020DAD5 /* TabBarView.swift */,
-				A51AB2192794D2760020DAD5 /* TabItemPreferenceKey.swift */,
 				A51AB21B2794D2880020DAD5 /* TabItemViewExtension.swift */,
 				A51AB21D2794D2960020DAD5 /* TabItemViewModifier.swift */,
+				A51AB2192794D2760020DAD5 /* TabsPreferenceKey.swift */,
 				A51AB2212794D2B70020DAD5 /* TabView.swift */,
 			);
 			path = TabView;
@@ -236,9 +236,9 @@
 				A51AB1C92794C9440020DAD5 /* ComponentLibrary.docc in Sources */,
 				A51AB21C2794D2880020DAD5 /* TabItemViewExtension.swift in Sources */,
 				A51AB21E2794D2960020DAD5 /* TabItemViewModifier.swift in Sources */,
-				A51AB21A2794D2760020DAD5 /* TabItemPreferenceKey.swift in Sources */,
+				A51AB21A2794D2760020DAD5 /* TabsPreferenceKey.swift in Sources */,
 				A576E5DA279B5DF400D942AD /* Tab.swift in Sources */,
-				A51AB2182794D2580020DAD5 /* ContentKey.swift in Sources */,
+				A51AB2182794D2580020DAD5 /* SelectedTab.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
