@@ -19,6 +19,7 @@ public struct TabView<Key: Hashable, Content: View>: View {
             ZStack {
                 content
             }
+            .frame(maxHeight: .infinity)
 
             TabBarView(tabs: tabs, selection: selection ?? .init($internalSelection))
         }
