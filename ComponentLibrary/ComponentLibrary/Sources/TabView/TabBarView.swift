@@ -9,12 +9,10 @@ struct TabBarView<Key: Hashable>: View {
     @Environment(\.colorScheme) private var colorScheme: ColorScheme
 
     var body: some View {
-        HStack(spacing: 0) {
-            Group {
-                ForEach(tabs, id: \.key) { tab in
-                    render(tab)
-                        .onTapGesture { updateSelection(tab.key as! Key) }
-                }
+        HStack(alignment: .bottom, spacing: 0) {
+            ForEach(tabs, id: \.key) { tab in
+                render(tab)
+                    .onTapGesture { updateSelection(tab.key as! Key) }
             }
         }
         .frame(maxHeight: .infinity, alignment: .bottom)
@@ -22,10 +20,8 @@ struct TabBarView<Key: Hashable>: View {
 
     private func render(_ tab: Tab) -> some View {
         tab.content(tab.key == selectedTab.key)
+            .fixedSize()
             .frame(maxWidth: .infinity)
-            .background {
-                tab.key == selectedTab.key ? Color.green.opacity(0.2) : Color.red.opacity(0.2)
-            }
     }
 
     private func updateSelection(_ key: Key) -> Void {
