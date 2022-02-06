@@ -1,4 +1,5 @@
 import SwiftUI
+import ComponentLibrary
 
 struct AccountListItemView: View {
     let account: Account
@@ -13,9 +14,9 @@ struct AccountListItemView: View {
         .frame(maxWidth: .infinity, alignment: Alignment(horizontal: .leading, vertical: .top))
         .padding(.vertical, 8)
         .padding(.horizontal, 16)
-        .background(Theme.color.neutral.n0.color)
-        .border(isHoveringAccoutListItem ? Theme.color.neutral.n40.color : Theme.color.neutral.n30.color)
-        .shadow(color: isHoveringAccoutListItem ? Theme.color.neutral.n20.color : Color.clear, radius: 3, x: 0, y: 0)
+        .background(Color.theme.neutral.n0)
+        .border(isHoveringAccoutListItem ? Color.theme.neutral.n40 : Color.theme.neutral.n30)
+        .shadow(color: isHoveringAccoutListItem ? Color.theme.neutral.n20 : Color.clear, radius: 3, x: 0, y: 0)
         .onHover(perform: { isHoveringAccoutListItem = $0 }, cursor: NSCursor.pointingHand)
     }
 }

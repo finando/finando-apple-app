@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftUIRouter
+import ComponentLibrary
 
 struct SideMenuView: View {
     @EnvironmentObject var navigator: Navigator
@@ -38,11 +39,11 @@ struct SideMenuView: View {
             .frame(width: 230)
             .frame(maxHeight: .infinity)
             .padding(.horizontal, 16)
-            .background(Theme.color.neutral.n0.color)
+            .background(Color.theme.neutral.n0)
 
             Divider()
                 .frame(width: 2)
-                .background(Theme.color.neutral.n20.color.opacity(0.5))
+                .background(Color.theme.neutral.n20.opacity(0.5))
                 .shadow(color: Color.black.opacity(0.1), radius: 2, x: 2, y: 0)
         }
     }

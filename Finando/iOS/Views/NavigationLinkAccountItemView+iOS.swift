@@ -1,4 +1,5 @@
 import SwiftUI
+import ComponentLibrary
 
 struct NavigationLinkAccountItemView: View {
     let account: Account
@@ -9,15 +10,15 @@ struct NavigationLinkAccountItemView: View {
         ZStack(alignment: .leading) {
             Rectangle()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .foregroundColor(colorScheme == ColorScheme.dark ? .black : Theme.color.neutral.n0.color)
+                .foregroundColor(colorScheme == ColorScheme.dark ? .black : Color.theme.neutral.n0)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
-                        .stroke(colorScheme == ColorScheme.dark ? Theme.color.neutral.n60.color.opacity(0.7) : Theme.color.neutral.n20.color.opacity(0.7), lineWidth: 2)
+                        .stroke(colorScheme == ColorScheme.dark ? Color.theme.neutral.n60.opacity(0.7) : Color.theme.neutral.n20.opacity(0.7), lineWidth: 2)
                         .foregroundColor(.clear)
                 )
                 .cornerRadius(10)
                 .shadow(
-                    color: colorScheme == ColorScheme.dark ? Theme.color.neutral.n60.color.opacity(0.3) : Theme.color.neutral.n20.color.opacity(0.4),
+                    color: colorScheme == ColorScheme.dark ? Color.theme.neutral.n60.opacity(0.3) : Color.theme.neutral.n20.opacity(0.4),
                     radius: 5,
                     x: 5,
                     y: 5
@@ -28,15 +29,15 @@ struct NavigationLinkAccountItemView: View {
                     .resizable()
                     .aspectRatio(1, contentMode: .fit)
                     .frame(maxWidth: 15)
-                .foregroundColor(Theme.color.blue.b50.color)
+                    .foregroundColor(Color.theme.blue.b50)
 
                 VStack(alignment: .leading, spacing: 0) {
                     Text(account.name ?? "")
-                        .foregroundColor(colorScheme == ColorScheme.dark ? Theme.color.neutral.n0.color : Theme.color.neutral.n60.color)
+                        .foregroundColor(colorScheme == ColorScheme.dark ? Color.theme.neutral.n0 : Color.theme.neutral.n60)
                         .font(.system(size: 12, weight: .bold))
 
                     Text(account.typeTranslation)
-                        .foregroundColor(colorScheme == ColorScheme.dark ? Theme.color.neutral.n30.color : Theme.color.neutral.n40.color)
+                        .foregroundColor(colorScheme == ColorScheme.dark ? Color.theme.neutral.n30 : Color.theme.neutral.n40)
                         .font(.system(size: 11, weight: .regular))
                 }
                 .padding(.horizontal, 5)
@@ -45,18 +46,18 @@ struct NavigationLinkAccountItemView: View {
 
                 VStack(alignment: .trailing, spacing: 0) {
                     Text(account.balance?.runningFormatted ?? "")
-                        .foregroundColor(colorScheme == ColorScheme.dark ? Theme.color.neutral.n0.color : Theme.color.neutral.n60.color)
+                        .foregroundColor(colorScheme == ColorScheme.dark ? Color.theme.neutral.n0 : Color.theme.neutral.n60)
                         .font(.system(size: 11, weight: .bold))
 
                     Text("Running balance")
-                        .foregroundColor(colorScheme == ColorScheme.dark ? Theme.color.neutral.n30.color : Theme.color.neutral.n40.color)
+                        .foregroundColor(colorScheme == ColorScheme.dark ? Color.theme.neutral.n30 : Color.theme.neutral.n40)
                         .font(.system(size: 11, weight: .regular))
                 }
 
                 Image(systemName: "chevron.right")
                     .resizable()
                     .aspectRatio(0.4, contentMode: .fit)
-                    .foregroundColor(colorScheme == ColorScheme.dark ? Theme.color.neutral.n20.color : Theme.color.neutral.n40.color)
+                    .foregroundColor(colorScheme == ColorScheme.dark ? Color.theme.neutral.n20 : Color.theme.neutral.n40)
                     .frame(maxWidth: 6)
                     .padding(.leading, 8)
             }

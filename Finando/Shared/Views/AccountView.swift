@@ -2,6 +2,7 @@ import SwiftUI
 import SwiftUIRouter
 import ComposableArchitecture
 import Charts
+import ComponentLibrary
 
 struct AccountView: View {
     let store: Store<AccountState, AccountAction>
@@ -20,22 +21,22 @@ struct AccountView: View {
                         VStack(alignment: .center, spacing: 10) {
                             Text("Account name")
                                 .font(.system(size: 18, weight: .bold))
-                                .foregroundColor(Theme.color.neutral.n40.color)
+                                .foregroundColor(Color.theme.neutral.n40)
 
                             Text("\(viewStore.account?.name ?? "")")
                                 .font(.system(size: 16, weight: .bold))
                         }
                             .frame(maxHeight: .infinity)
                             .padding(.horizontal, 50)
-                            .background(Theme.color.neutral.n0.color)
+                            .background(Color.theme.neutral.n0)
                             .cornerRadius(8)
-                            .shadow(color: Theme.color.neutral.n20.color, radius: 3, x: 0, y: 0)
-                            .foregroundColor(Theme.color.neutral.n60.color)
+                            .shadow(color: Color.theme.neutral.n20, radius: 3, x: 0, y: 0)
+                            .foregroundColor(Color.theme.neutral.n60)
 
                         VStack(alignment: .center, spacing: 10) {
                             Text("Account type")
                                 .font(.system(size: 18, weight: .bold))
-                                .foregroundColor(Theme.color.neutral.n40.color)
+                                .foregroundColor(Color.theme.neutral.n40)
 
                             if viewStore.account?.isBudgetAccount == true {
                                 Text("Budget")
@@ -49,55 +50,55 @@ struct AccountView: View {
                         }
                             .frame(maxHeight: .infinity)
                             .padding(.horizontal, 50)
-                            .background(Theme.color.neutral.n0.color)
+                            .background(Color.theme.neutral.n0)
                             .cornerRadius(8)
-                            .shadow(color: Theme.color.neutral.n20.color, radius: 3, x: 0, y: 0)
-                            .foregroundColor(Theme.color.neutral.n60.color)
+                            .shadow(color: Color.theme.neutral.n20, radius: 3, x: 0, y: 0)
+                            .foregroundColor(Color.theme.neutral.n60)
 
                         VStack(alignment: .center, spacing: 10) {
                             Text("Cleared balance")
                                 .font(.system(size: 18, weight: .bold))
-                                .foregroundColor(Theme.color.neutral.n40.color)
+                                .foregroundColor(Color.theme.neutral.n40)
 
                             Text("\(viewStore.account?.balance.clearedFormatted ?? "")")
                                 .font(.system(size: 16, weight: .bold))
                         }
                             .frame(maxHeight: .infinity)
                             .padding(.horizontal, 50)
-                            .background(Theme.color.neutral.n0.color)
+                            .background(Color.theme.neutral.n0)
                             .cornerRadius(8)
-                            .shadow(color: Theme.color.neutral.n20.color, radius: 3, x: 0, y: 0)
-                            .foregroundColor(Theme.color.neutral.n60.color)
+                            .shadow(color: Color.theme.neutral.n20, radius: 3, x: 0, y: 0)
+                            .foregroundColor(Color.theme.neutral.n60)
 
                         VStack(alignment: .center, spacing: 10) {
                             Text("Uncleared balance")
                                 .font(.system(size: 18, weight: .bold))
-                                .foregroundColor(Theme.color.neutral.n40.color)
+                                .foregroundColor(Color.theme.neutral.n40)
 
                             Text("\(viewStore.account?.balance.unclearedFormatted ?? "")")
                                 .font(.system(size: 16, weight: .bold))
                         }
                             .frame(maxHeight: .infinity)
                             .padding(.horizontal, 50)
-                            .background(Theme.color.neutral.n0.color)
+                            .background(Color.theme.neutral.n0)
                             .cornerRadius(8)
-                            .shadow(color: Theme.color.neutral.n20.color, radius: 3, x: 0, y: 0)
-                            .foregroundColor(Theme.color.neutral.n60.color)
+                            .shadow(color: Color.theme.neutral.n20, radius: 3, x: 0, y: 0)
+                            .foregroundColor(Color.theme.neutral.n60)
 
                         VStack(alignment: .center, spacing: 10) {
                             Text("Running balance")
                                 .font(.system(size: 18, weight: .bold))
-                                .foregroundColor(Theme.color.neutral.n40.color)
+                                .foregroundColor(Color.theme.neutral.n40)
 
                             Text("\(viewStore.account?.balance.runningFormatted ?? "")")
                                 .font(.system(size: 16, weight: .bold))
                         }
                             .frame(maxHeight: .infinity)
                             .padding(.horizontal, 50)
-                            .background(Theme.color.neutral.n0.color)
+                            .background(Color.theme.neutral.n0)
                             .cornerRadius(8)
-                            .shadow(color: Theme.color.neutral.n20.color, radius: 3, x: 0, y: 0)
-                            .foregroundColor(Theme.color.neutral.n60.color)
+                            .shadow(color: Color.theme.neutral.n20, radius: 3, x: 0, y: 0)
+                            .foregroundColor(Color.theme.neutral.n60)
                     }
                     .frame(maxWidth: .infinity, minHeight: 100, alignment: Alignment(horizontal: .leading, vertical: .top))
                     .padding(.horizontal, 16)
@@ -109,9 +110,9 @@ struct AccountView: View {
 
                     Rectangle()
                         .frame(maxWidth: .infinity, minHeight: 1050, alignment: Alignment(horizontal: .leading, vertical: .top))
-                        .background(Theme.color.neutral.n0.color)
+                        .background(Color.theme.neutral.n0)
                         .cornerRadius(8)
-                        .shadow(color: Theme.color.neutral.n20.color, radius: 3, x: 0, y: 0)
+                        .shadow(color: Color.theme.neutral.n20, radius: 3, x: 0, y: 0)
                         .padding(.horizontal, 16)
                         .padding(.top, 8)
                         .padding(.bottom, 16)
@@ -147,9 +148,9 @@ struct AccountView: View {
         )
             .frame(maxWidth: .infinity, minHeight: 350, alignment: Alignment(horizontal: .leading, vertical: .top))
             .padding(24)
-            .background(Theme.color.neutral.n0.color)
+            .background(Color.theme.neutral.n0)
             .cornerRadius(8)
-            .shadow(color: Theme.color.neutral.n20.color, radius: 3, x: 0, y: 0)
+            .shadow(color: Color.theme.neutral.n20, radius: 3, x: 0, y: 0)
     }
 
     private func convertBalancesToChartDataEntries(balances: [Balance]) -> [ChartDataEntry] {

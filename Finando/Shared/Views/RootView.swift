@@ -1,6 +1,7 @@
 import SwiftUI
 import SwiftUIRouter
 import ComposableArchitecture
+import ComponentLibrary
 
 struct RootView: View {
     let store: Store<RootState, RootAction>
@@ -53,7 +54,7 @@ struct RootView: View {
                 }
             }
         }
-        .background(Theme.color.neutral.n10.color)
+        .background(Color.theme.neutral.n10)
         .ignoresSafeArea()
         .onAppear { NSWindow.allowsAutomaticWindowTabbing = false }
     }

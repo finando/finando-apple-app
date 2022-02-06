@@ -1,4 +1,5 @@
 import SwiftUI
+import ComponentLibrary
 
 struct HeaderView: View {
     var body: some View {
@@ -16,11 +17,11 @@ struct HeaderView: View {
             }
             .padding(EdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16))
             .frame(maxWidth: .infinity, maxHeight: 64)
-            .background(Theme.color.neutral.n0.color)
+            .background(Color.theme.neutral.n0)
 
             Divider()
                 .frame(maxWidth: .infinity, maxHeight: 2)
-                .background(Theme.color.neutral.n20.color.opacity(0.5))
+                .background(Color.theme.neutral.n20.opacity(0.5))
                 .shadow(color: Color.black.opacity(0.1), radius: 2, x: 0, y: 2)
         }
     }

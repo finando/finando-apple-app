@@ -1,4 +1,5 @@
 import SwiftUI
+import ComponentLibrary
 
 struct Breadcrumbs: View {
     private let breadcrumbs: [AnyView]
@@ -6,7 +7,7 @@ struct Breadcrumbs: View {
 
     public init<A: View>(
         separator: AnyView = AnyView(defaultSeparator),
-        foregroundColor: Color = Theme.color.neutral.n60.color,
+        foregroundColor: Color = Color.theme.neutral.n60,
         @ViewBuilder content: @escaping () -> A
     ) {
         let views = [AnyView(content())]
@@ -16,7 +17,7 @@ struct Breadcrumbs: View {
 
     public init<A: View, B: View>(
         separator: AnyView = AnyView(defaultSeparator),
-        foregroundColor: Color = Theme.color.neutral.n60.color,
+        foregroundColor: Color = Color.theme.neutral.n60,
         @ViewBuilder content: @escaping () -> TupleView<(A, B)>
     ) {
         let (a, b) = content().value
@@ -27,7 +28,7 @@ struct Breadcrumbs: View {
 
     public init<A: View, B: View, C: View>(
         separator: AnyView = AnyView(defaultSeparator),
-        foregroundColor: Color = Theme.color.neutral.n60.color,
+        foregroundColor: Color = Color.theme.neutral.n60,
         @ViewBuilder content: @escaping () -> TupleView<(A, B, C)>
     ) {
         let (a, b, c) = content().value
@@ -54,7 +55,7 @@ struct Breadcrumbs_Previews: PreviewProvider {
     static var previews: some View {
         Breadcrumbs(
             separator: AnyView(Text("--")),
-            foregroundColor: Theme.color.neutral.n0.color
+            foregroundColor: Color.theme.neutral.n0
         ) {
             Breadcrumb {
                 Text("Breadcrumb 1")

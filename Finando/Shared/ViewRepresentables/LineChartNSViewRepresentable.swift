@@ -1,5 +1,6 @@
 import SwiftUI
 import Charts
+import ComponentLibrary
 
 struct LineChartNSViewRepresentable: NSViewRepresentable {
     let entries: [ChartDataEntry]
@@ -15,7 +16,7 @@ struct LineChartNSViewRepresentable: NSViewRepresentable {
 
         nsView.data = LineChartData(dataSet: dataSet)
         nsView.legend.enabled = false
-        nsView.backgroundColor = NSUIColor(Theme.color.neutral.n0.color)
+        nsView.backgroundColor = NSUIColor(Color.theme.neutral.n0)
         nsView.scaleXEnabled = false
         nsView.scaleYEnabled = false
         nsView.dragEnabled = false
@@ -39,7 +40,7 @@ struct LineChartNSViewRepresentable: NSViewRepresentable {
     }
 
     private func formatXAxis(xAxis: XAxis) -> Void {
-        xAxis.labelTextColor = NSUIColor(Theme.color.neutral.n60.color)
+        xAxis.labelTextColor = NSUIColor(Color.theme.neutral.n60)
         xAxis.labelPosition = .bottom
         xAxis.drawGridLinesEnabled = false
         xAxis.valueFormatter = DateAxisValueFormatter()
@@ -50,12 +51,12 @@ struct LineChartNSViewRepresentable: NSViewRepresentable {
     }
 
     private func formatLeftAxis(leftAxis: YAxis) -> Void {
-        leftAxis.labelTextColor = NSUIColor(Theme.color.neutral.n60.color)
+        leftAxis.labelTextColor = NSUIColor(Color.theme.neutral.n60)
 //        leftAxis.drawTopYLabelEntryEnabled = true
 //        leftAxis.inverted = true
         leftAxis.drawGridLinesEnabled = true
         leftAxis.gridLineDashLengths = [10]
-        leftAxis.gridColor = NSUIColor(Theme.color.neutral.n30.color)
+        leftAxis.gridColor = NSUIColor(Color.theme.neutral.n30)
         leftAxis.drawLimitLinesBehindDataEnabled = true
         leftAxis.labelCount = 10
 //        leftAxis.sp
@@ -72,7 +73,7 @@ struct LineChartNSViewRepresentable: NSViewRepresentable {
 
             limitLine.lineWidth = 3
             limitLine.lineDashLengths = [10]
-            limitLine.lineColor = NSUIColor(Theme.color.red.r50.color)
+            limitLine.lineColor = NSUIColor(Color.theme.red.r50)
 
             leftAxis.addLimitLine(limitLine)
         }
@@ -86,7 +87,7 @@ struct LineChartNSViewRepresentable: NSViewRepresentable {
     }
 
     private func formatDataSet(dataSet: LineChartDataSet) {
-        dataSet.colors = [NSUIColor(Theme.color.blue.b50.color)]
+        dataSet.colors = [NSUIColor(Color.theme.blue.b50)]
         dataSet.drawCirclesEnabled = false
 //        dataSet.drawCircleHoleEnabled = false
 //        dataSet.circleHoleColor = .green
@@ -95,7 +96,7 @@ struct LineChartNSViewRepresentable: NSViewRepresentable {
         dataSet.lineWidth = 3
         dataSet.mode = .stepped
         dataSet.drawFilledEnabled = true
-        dataSet.fillColor = NSUIColor(Theme.color.blue.b40.color)
+        dataSet.fillColor = NSUIColor(Color.theme.blue.b40)
         dataSet.fillAlpha = 0.2
 //        dataSet.drawIconsEnabled = true
         dataSet.drawValuesEnabled = false
