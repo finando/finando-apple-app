@@ -15,7 +15,30 @@ struct TabBarView<Key: Hashable>: View {
                     .onTapGesture { updateSelection(tab.key as! Key) }
             }
         }
-        .frame(maxHeight: .infinity, alignment: .bottom)
+        .padding(.vertical, 12)
+        .background { tabBarBackground }
+        .padding(.horizontal, 16)
+    }
+
+    @ViewBuilder
+    private var tabBarBackground: some View {
+        if colorScheme == .dark {
+            Color(white: 0.15)
+                .cornerRadius(10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.theme.neutral.n50, lineWidth: 1)
+                )
+                .shadow(color: .init(white: 0.1), radius: 5)
+        } else {
+            Color.white
+                .cornerRadius(10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.theme.neutral.n20.opacity(0.5), lineWidth: 1)
+                )
+                .shadow(color: .init(white: 0.9), radius: 5)
+        }
     }
 
     private func render(_ tab: Tab) -> some View {
