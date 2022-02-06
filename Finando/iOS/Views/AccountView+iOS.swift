@@ -60,24 +60,29 @@ struct NewTransactionModalView: View {
 
 struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
-        AccountView(
-            store: Store(
-                initialState: AccountsState(),
-                reducer: accountsReducer,
-                environment: AccountsEnvironment(
-                    mainQueue: .main,
-                    accountService: AccountService(apolloClient: Network.shared.apollo)
-                )
-            ),
-            account: Account.BudgetAccount(
-                .init(
-                    id: "account-id",
-                    name: "Account name",
-                    balance: Balance(
-                        currency: "NOK"
+        NavigationView {
+            LazyVStack {
+                AccountView(
+                    store: Store(
+                        initialState: AccountsState(),
+                        reducer: accountsReducer,
+                        environment: AccountsEnvironment(
+                            mainQueue: .main,
+                            accountService: AccountService(apolloClient: Network.shared.apollo)
+                        )
+                    ),
+                    account: Account.BudgetAccount(
+                        .init(
+                            id: "account-id",
+                            name: "Account name",
+                            balance: Balance(
+                                currency: "NOK"
+                            )
+                        )
                     )
                 )
-            )
-        )
+            }
+            .navigationBarHidden(false)
+        }
     }
 }
