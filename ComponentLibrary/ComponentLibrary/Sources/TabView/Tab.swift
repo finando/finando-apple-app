@@ -2,7 +2,7 @@ import SwiftUI
 
 struct Tab {
     let key: AnyHashable
-    let content: AnyView
+    let content: (_ selected: Bool) -> AnyView
 }
 
 extension Tab: Equatable {

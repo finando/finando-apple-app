@@ -19,7 +19,7 @@ struct TabBarView<Key: Hashable>: View {
     }
 
     private func render(_ tab: Tab) -> some View {
-        tab.content
+        tab.content(tab.key == selectedTab.key)
             .frame(maxWidth: .infinity)
             .background {
                 tab.key == selectedTab.key ? Color.green.opacity(0.2) : Color.red.opacity(0.2)
@@ -34,10 +34,10 @@ struct TabBarView<Key: Hashable>: View {
 
 struct TabBarView_Previews: PreviewProvider {
     static let tabs: [Tab] = [
-        Tab(key: 1, content: AnyView(Text(("Tab 1")))),
-        Tab(key: 2, content: AnyView(Text(("Tab 2")))),
-        Tab(key: 3, content: AnyView(Text(("Tab 3")))),
-        Tab(key: 4, content: AnyView(Text(("Tab 4"))))
+        Tab(key: 1, content: { selected in AnyView(Text("Tab 1").foregroundColor(selected ? .blue : .black )) }),
+        Tab(key: 2, content: { selected in AnyView(Text("Tab 2").foregroundColor(selected ? .blue : .black )) }),
+        Tab(key: 3, content: { selected in AnyView(Text("Tab 3").foregroundColor(selected ? .blue : .black )) }),
+        Tab(key: 4, content: { selected in AnyView(Text("Tab 4").foregroundColor(selected ? .blue : .black )) }),
     ]
     static let key: Int = 2
 
