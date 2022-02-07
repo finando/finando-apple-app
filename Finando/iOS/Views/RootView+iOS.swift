@@ -44,7 +44,7 @@ struct RootView: View {
 
     @ViewBuilder
     private func tabItem(selected: Bool, icon systemName: String, title: String) -> some View {
-        let baseTabItem = VStack {
+        let baseTabItem = VStack(spacing: 3) {
             Image(systemName: systemName)
             Text(title)
                 .font(.caption)
@@ -70,13 +70,20 @@ struct RootView: View {
                     Image(systemName: "plus.app")
                         .resizable()
                         .padding(6)
-                        .foregroundColor(colorScheme == .dark ? .theme.neutral.n30 : .black)
+                        .foregroundColor(colorScheme == .dark ? .theme.neutral.n30 : .theme.neutral.n60)
                         .frame(width: 50, height: 50)
                         .background {
-                            colorScheme == .dark ? Color(white: 0.15) : Color.white
+                            (colorScheme == .dark ? Color(white: 0.15) : Color.white)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 12)
+                                        .stroke(Color.theme.neutral.n20.opacity(0.5), lineWidth: 2)
+                                )
                         }
                         .clipShape(RoundedRectangle(cornerRadius: 12))
-                        .shadow(color: .init(white: 0.05), radius: 5)
+                        .shadow(
+                            color: colorScheme == .dark ? .init(white: 0.05) : .init(white: 0.8),
+                            radius: 5
+                        )
                 }
             }
             .buttonStyle(.plain)
