@@ -102,6 +102,8 @@
 		A59350D92773BF0D00657D20 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350D72773BF0D00657D20 /* API.swift */; };
 		A59350DB2773CE3E00657D20 /* CurrencyUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350DA2773CE3E00657D20 /* CurrencyUtils.swift */; };
 		A59350DC2773CE3E00657D20 /* CurrencyUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350DA2773CE3E00657D20 /* CurrencyUtils.swift */; };
+		A593602527B1BF420047093A /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A593602427B1BF420047093A /* TransactionType.swift */; };
+		A593602627B1BF420047093A /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A593602427B1BF420047093A /* TransactionType.swift */; };
 		A5BB3E28277E0E14005F2A1E /* NewTransactionModalView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB3E27277E0E14005F2A1E /* NewTransactionModalView+iOS.swift */; };
 		A5C8FADC277D114800393167 /* CreateBudgetAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A5C8FADB277D114800393167 /* CreateBudgetAccount.graphql */; };
 		A5C8FADD277D114800393167 /* CreateBudgetAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A5C8FADB277D114800393167 /* CreateBudgetAccount.graphql */; };
@@ -219,6 +221,7 @@
 		A59350D22773BE6400657D20 /* ListAccounts.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ListAccounts.graphql; sourceTree = "<group>"; };
 		A59350D72773BF0D00657D20 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		A59350DA2773CE3E00657D20 /* CurrencyUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyUtils.swift; sourceTree = "<group>"; };
+		A593602427B1BF420047093A /* TransactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
 		A5BB3E27277E0E14005F2A1E /* NewTransactionModalView+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewTransactionModalView+iOS.swift"; sourceTree = "<group>"; };
 		A5C8FADB277D114800393167 /* CreateBudgetAccount.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CreateBudgetAccount.graphql; sourceTree = "<group>"; };
 		A5C8FADE277D119300393167 /* CreateTrackingAccount.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CreateTrackingAccount.graphql; sourceTree = "<group>"; };
@@ -381,6 +384,7 @@
 				A57DB502272C8D0E0055827F /* BudgetAccount.swift */,
 				A57DB508272C9F1F0055827F /* TrackingAccount.swift */,
 				A57DB53A2732196C0055827F /* User.swift */,
+				A593602427B1BF420047093A /* TransactionType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -824,6 +828,7 @@
 				A58026DE2778A2A0000373DE /* RootState.swift in Sources */,
 				A58026E72778A3C7000373DE /* RootReducer.swift in Sources */,
 				A58026EC2778A5B4000373DE /* AccountState.swift in Sources */,
+				A593602527B1BF420047093A /* TransactionType.swift in Sources */,
 				A5802732277CB1B2000373DE /* OverviewView+iOS.swift in Sources */,
 				A5C8FAED277DE3D300393167 /* NewAccountModalView+iOS.swift in Sources */,
 				A580FB312725A52400DAD317 /* ApolloClient.swift in Sources */,
@@ -870,6 +875,7 @@
 				A58026FA2778AED6000373DE /* AccountsState.swift in Sources */,
 				A57DB514272CB5650055827F /* AccountView.swift in Sources */,
 				A580270D2778FC64000373DE /* GraphqQLResponseParser.swift in Sources */,
+				A593602627B1BF420047093A /* TransactionType.swift in Sources */,
 				A58026DF2778A2A0000373DE /* RootState.swift in Sources */,
 				A58026E82778A3C7000373DE /* RootReducer.swift in Sources */,
 				A58026ED2778A5B4000373DE /* AccountState.swift in Sources */,

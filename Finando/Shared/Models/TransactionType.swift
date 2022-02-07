@@ -1,8 +1,16 @@
-//
-//  TransactionType.swift
-//  Finando
-//
-//  Created by Alexander Zakharov on 07/02/2022.
-//
+enum TransactionType: CaseIterable {
+    case income
+    case expense
+    case transfer
 
-import Foundation
+    var translation: String {
+        switch self {
+        case .income:
+            return "Income"
+        case .expense:
+            return "Expense"
+        case .transfer:
+            return "Transfer"
+        }
+    }
+}
