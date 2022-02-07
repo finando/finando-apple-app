@@ -55,16 +55,48 @@ struct TabBarView<Key: Hashable>: View {
 
 struct TabBarView_Previews: PreviewProvider {
     static let lightModeTabs: [Tab] = [
-        Tab(key: 1, content: { selected in AnyView(Text("Tab 1").foregroundColor(selected ? .theme.blue.b50 : .theme.neutral.n60 )) }),
-        Tab(key: 2, content: { selected in AnyView(Text("Tab 2").foregroundColor(selected ? .theme.blue.b50 : .theme.neutral.n60 )) }),
-        Tab(key: 3, content: { selected in AnyView(Text("Tab 3").foregroundColor(selected ? .theme.blue.b50 : .theme.neutral.n60 )) }),
-        Tab(key: 4, content: { selected in AnyView(Text("Tab 4").foregroundColor(selected ? .theme.blue.b50 : .theme.neutral.n60 )) }),
+        Tab(
+            key: 1,
+            content: { selected in AnyView(Text("Tab 1").foregroundColor(selected ? .theme.blue.b50 : .theme.neutral.n60 )) },
+            colorScheme: .light
+        ),
+        Tab(
+            key: 2,
+            content: { selected in AnyView(Text("Tab 2").foregroundColor(selected ? .theme.blue.b50 : .theme.neutral.n60 )) },
+            colorScheme: .light
+        ),
+        Tab(
+            key: 3,
+            content: { selected in AnyView(Text("Tab 3").foregroundColor(selected ? .theme.blue.b50 : .theme.neutral.n60 )) },
+            colorScheme: .light
+        ),
+        Tab(
+            key: 4,
+            content: { selected in AnyView(Text("Tab 4").foregroundColor(selected ? .theme.blue.b50 : .theme.neutral.n60 )) },
+            colorScheme: .light
+        )
     ]
     static let darkModeTabs: [Tab] = [
-        Tab(key: 1, content: { selected in AnyView(Text("Tab 1").foregroundColor(selected ? .theme.blue.b50 : .theme.neutral.n0 )) }),
-        Tab(key: 2, content: { selected in AnyView(Text("Tab 2").foregroundColor(selected ? .theme.blue.b50 : .theme.neutral.n0 )) }),
-        Tab(key: 3, content: { selected in AnyView(Text("Tab 3").foregroundColor(selected ? .theme.blue.b50 : .theme.neutral.n0 )) }),
-        Tab(key: 4, content: { selected in AnyView(Text("Tab 4").foregroundColor(selected ? .theme.blue.b50 : .theme.neutral.n0 )) }),
+        Tab(
+            key: 1,
+            content: { selected in AnyView(Text("Tab 1").foregroundColor(selected ? .theme.blue.b50 : .theme.neutral.n0 )) },
+            colorScheme: .dark
+        ),
+        Tab(
+            key: 2,
+            content: { selected in AnyView(Text("Tab 2").foregroundColor(selected ? .theme.blue.b50 : .theme.neutral.n0 )) },
+            colorScheme: .dark
+        ),
+        Tab(
+            key: 3,
+            content: { selected in AnyView(Text("Tab 3").foregroundColor(selected ? .theme.blue.b50 : .theme.neutral.n0 )) },
+            colorScheme: .dark
+        ),
+        Tab(
+            key: 4,
+            content: { selected in AnyView(Text("Tab 4").foregroundColor(selected ? .theme.blue.b50 : .theme.neutral.n0 )) },
+            colorScheme: .dark
+        )
     ]
     static let key: Int = 2
 

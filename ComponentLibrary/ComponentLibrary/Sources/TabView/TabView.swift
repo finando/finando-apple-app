@@ -61,18 +61,21 @@ struct TabView_Previews: PreviewProvider {
     static var previews: some View {
         TabView(selection: .constant(key)) {
             Text("Tab 1")
-                .tabItem(1) {
+                .tabItem(1) { selected in
                     Text("tab 1")
+                        .foregroundColor(selected ? .blue : .black)
                 }
 
             Text("Tab 2")
-                .tabItem(2) {
+                .tabItem(2) { selected in
                     Text("tab 2")
+                        .foregroundColor(selected ? .blue : .black)
                 }
 
             Text("Tab 3")
-                .tabItem(3) {
+                .tabItem(3) { selected in
                     Text("tab 3")
+                        .foregroundColor(selected ? .blue : .black)
                 }
         }
     }
