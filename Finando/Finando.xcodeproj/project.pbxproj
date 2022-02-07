@@ -223,6 +223,7 @@
 		A59350DA2773CE3E00657D20 /* CurrencyUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyUtils.swift; sourceTree = "<group>"; };
 		A593602427B1BF420047093A /* TransactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
 		A5BB3E27277E0E14005F2A1E /* NewTransactionModalView+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewTransactionModalView+iOS.swift"; sourceTree = "<group>"; };
+		A5BB3E2C277E64B8005F2A1E /* Finando--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Finando--iOS--Info.plist"; sourceTree = "<group>"; };
 		A5C8FADB277D114800393167 /* CreateBudgetAccount.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CreateBudgetAccount.graphql; sourceTree = "<group>"; };
 		A5C8FADE277D119300393167 /* CreateTrackingAccount.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CreateTrackingAccount.graphql; sourceTree = "<group>"; };
 		A5C8FAE2277D2E0A00393167 /* DeleteBudgetAccount.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = DeleteBudgetAccount.graphql; sourceTree = "<group>"; };
