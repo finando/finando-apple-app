@@ -14,7 +14,9 @@ extension Account: Identifiable {
             return trackingAccount.id
         }
     }
+}
 
+extension Account {
     var name: String? {
         switch self {
         case .BudgetAccount(let budgetAccount):
