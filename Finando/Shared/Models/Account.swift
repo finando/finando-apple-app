@@ -40,7 +40,7 @@ extension Account {
         case .BudgetAccount(let budgetAccount):
             return budgetAccount.balances
         case .TrackingAccount(let trackingAccount):
-            return trackingAccount.balances
+            return trackingAccount.balances ?? []
         }
     }
 

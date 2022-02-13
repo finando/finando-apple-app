@@ -6,7 +6,11 @@ enum GraphQLResponseParser {
             }
 
             if let trackingAccount = account.fragments.listAccountsAccountFragment.asTrackingAccount {
-                return .TrackingAccount(TrackingAccount(fragment: trackingAccount))
+                return .TrackingAccount(TrackingAccount(
+                    id: trackingAccount.id,
+                    name: trackingAccount.name ?? "",
+                    balance: Balance(fragment: trackingAccount.balance.fragments.listAccountsBalanceFragment)
+                ))
             }
 
             return nil
@@ -19,7 +23,12 @@ enum GraphQLResponseParser {
         }
 
         if let trackingAccount = data?.fragments.getAccountAccountFragment.asTrackingAccount {
-            return .TrackingAccount(TrackingAccount(fragment: trackingAccount))
+            return .TrackingAccount(TrackingAccount(
+                id: trackingAccount.id,
+                name: trackingAccount.name ?? "",
+                balance: Balance(fragment: trackingAccount.balance.fragments.getAccountBalanceFragment),
+                balances: trackingAccount.balances.map({ Balance(fragment: $0.fragments.getAccountBalanceFragment) })
+            ))
         }
 
         return nil
@@ -35,7 +44,11 @@ enum GraphQLResponseParser {
 
     static func parse(data: CreateTrackingAccountMutation.Data.Account?) -> Account? {
         if let trackingAccount = data?.fragments.createTrackingAccountTrackingAccountFragment {
-            return .TrackingAccount(TrackingAccount(fragment: trackingAccount))
+            return .TrackingAccount(TrackingAccount(
+                id: trackingAccount.id,
+                name: trackingAccount.name ?? "",
+                balance: Balance(fragment: trackingAccount.balance.fragments.createTrackingAccountBalanceFragment)
+            ))
         }
 
         return nil
@@ -51,7 +64,7 @@ enum GraphQLResponseParser {
 
     static func parse(data: DeleteTrackingAccountMutation.Data.Account?) -> Account? {
         if let trackingAccount = data?.fragments.deleteTrackingAccountTrackingAccountFragment {
-            return .TrackingAccount(TrackingAccount(fragment: trackingAccount))
+            return .TrackingAccount(TrackingAccount(id: trackingAccount.id))
         }
 
         return nil
