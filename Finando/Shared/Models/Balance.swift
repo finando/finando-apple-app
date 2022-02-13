@@ -1,6 +1,6 @@
 import Foundation
 
-struct Balance: Equatable {
+struct Balance: Equatable, Hashable {
     let date: Date
     let cleared: Int
     let uncleared: Int
