@@ -38,7 +38,7 @@ extension Account {
     var balances: [Balance] {
         switch self {
         case .BudgetAccount(let budgetAccount):
-            return budgetAccount.balances
+            return budgetAccount.balances ?? []
         case .TrackingAccount(let trackingAccount):
             return trackingAccount.balances ?? []
         }
