@@ -1,19 +1,37 @@
+import Foundation
+
 enum GraphQLResponseParser {
     static func parse(data: [ListAccountsQuery.Data.Account]?) -> [Account] {
         return data?.compactMap({ account in
             if let budgetAccount = account.fragments.listAccountsAccountFragment.asBudgetAccount {
+                let balanceFragment = budgetAccount.balance.fragments.listAccountsBalanceFragment
+
                 return .BudgetAccount(BudgetAccount(
                     id: budgetAccount.id,
                     name: budgetAccount.name ?? "",
-                    balance: Balance(fragment: budgetAccount.balance.fragments.listAccountsBalanceFragment)
+                    balance: Balance(
+                        date: ISO8601DateFormatter().date(from: balanceFragment.date) ?? Date(),
+                        cleared: balanceFragment.cleared,
+                        uncleared: balanceFragment.uncleared,
+                        running: balanceFragment.running,
+                        currency: balanceFragment.currency
+                    )
                 ))
             }
 
             if let trackingAccount = account.fragments.listAccountsAccountFragment.asTrackingAccount {
+                let balanceFragment = trackingAccount.balance.fragments.listAccountsBalanceFragment
+
                 return .TrackingAccount(TrackingAccount(
                     id: trackingAccount.id,
                     name: trackingAccount.name ?? "",
-                    balance: Balance(fragment: trackingAccount.balance.fragments.listAccountsBalanceFragment)
+                    balance: Balance(
+                        date: ISO8601DateFormatter().date(from: balanceFragment.date) ?? Date(),
+                        cleared: balanceFragment.cleared,
+                        uncleared: balanceFragment.uncleared,
+                        running: balanceFragment.running,
+                        currency: balanceFragment.currency
+                    )
                 ))
             }
 
@@ -23,20 +41,56 @@ enum GraphQLResponseParser {
 
     static func parse(data: GetAccountQuery.Data.Account?) -> Account? {
         if let budgetAccount = data?.fragments.getAccountAccountFragment.asBudgetAccount {
+            let balanceFragment = budgetAccount.balance.fragments.getAccountBalanceFragment
+
             return .BudgetAccount(BudgetAccount(
                 id: budgetAccount.id,
                 name: budgetAccount.name ?? "",
-                balance: Balance(fragment: budgetAccount.balance.fragments.getAccountBalanceFragment),
-                balances: budgetAccount.balances.map({ Balance(fragment: $0.fragments.getAccountBalanceFragment) })
+                balance: Balance(
+                    date: ISO8601DateFormatter().date(from: balanceFragment.date) ?? Date(),
+                    cleared: balanceFragment.cleared,
+                    uncleared: balanceFragment.uncleared,
+                    running: balanceFragment.running,
+                    currency: balanceFragment.currency
+                ),
+                balances: budgetAccount.balances
+                    .map(\.fragments.getAccountBalanceFragment)
+                    .map({
+                        Balance(
+                            date: ISO8601DateFormatter().date(from: $0.date) ?? Date(),
+                            cleared: $0.cleared,
+                            uncleared: $0.uncleared,
+                            running: $0.running,
+                            currency: $0.currency
+                        )
+                    })
             ))
         }
 
         if let trackingAccount = data?.fragments.getAccountAccountFragment.asTrackingAccount {
+            let balanceFragment = trackingAccount.balance.fragments.getAccountBalanceFragment
+
             return .TrackingAccount(TrackingAccount(
                 id: trackingAccount.id,
                 name: trackingAccount.name ?? "",
-                balance: Balance(fragment: trackingAccount.balance.fragments.getAccountBalanceFragment),
-                balances: trackingAccount.balances.map({ Balance(fragment: $0.fragments.getAccountBalanceFragment) })
+                balance: Balance(
+                    date: ISO8601DateFormatter().date(from: balanceFragment.date) ?? Date(),
+                    cleared: balanceFragment.cleared,
+                    uncleared: balanceFragment.uncleared,
+                    running: balanceFragment.running,
+                    currency: balanceFragment.currency
+                ),
+                balances: trackingAccount.balances
+                    .map(\.fragments.getAccountBalanceFragment)
+                    .map({
+                        Balance(
+                            date: ISO8601DateFormatter().date(from: $0.date) ?? Date(),
+                            cleared: $0.cleared,
+                            uncleared: $0.uncleared,
+                            running: $0.running,
+                            currency: $0.currency
+                        )
+                    })
             ))
         }
 
@@ -45,10 +99,18 @@ enum GraphQLResponseParser {
 
     static func parse(data: CreateBudgetAccountMutation.Data.Account?) -> Account? {
         if let budgetAccount = data?.fragments.createBudgetAccountBudgetAccountFragment {
+            let balanceFragment = budgetAccount.balance.fragments.createBudgetAccountBalanceFragment
+
             return .BudgetAccount(BudgetAccount(
                 id: budgetAccount.id,
                 name: budgetAccount.name ?? "",
-                balance: Balance(fragment: budgetAccount.balance.fragments.createBudgetAccountBalanceFragment)
+                balance: Balance(
+                    date: ISO8601DateFormatter().date(from: balanceFragment.date) ?? Date(),
+                    cleared: balanceFragment.cleared,
+                    uncleared: balanceFragment.uncleared,
+                    running: balanceFragment.running,
+                    currency: balanceFragment.currency
+                )
             ))
         }
 
@@ -57,10 +119,18 @@ enum GraphQLResponseParser {
 
     static func parse(data: CreateTrackingAccountMutation.Data.Account?) -> Account? {
         if let trackingAccount = data?.fragments.createTrackingAccountTrackingAccountFragment {
+            let balanceFragment = trackingAccount.balance.fragments.createTrackingAccountBalanceFragment
+
             return .TrackingAccount(TrackingAccount(
                 id: trackingAccount.id,
                 name: trackingAccount.name ?? "",
-                balance: Balance(fragment: trackingAccount.balance.fragments.createTrackingAccountBalanceFragment)
+                balance: Balance(
+                    date: ISO8601DateFormatter().date(from: balanceFragment.date) ?? Date(),
+                    cleared: balanceFragment.cleared,
+                    uncleared: balanceFragment.uncleared,
+                    running: balanceFragment.running,
+                    currency: balanceFragment.currency
+                )
             ))
         }
 

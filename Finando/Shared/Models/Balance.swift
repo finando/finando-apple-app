@@ -7,62 +7,12 @@ struct Balance: Equatable, Hashable {
     let running: Int
     let currency: String
 
-    init(date: Date, cleared: Int, uncleared: Int, running: Int, currency: String) {
+    init(date: Date = Date(), cleared: Int = 0, uncleared: Int = 0, running: Int = 0, currency: String) {
         self.date = date
         self.cleared = cleared
         self.uncleared = uncleared
         self.running = running
         self.currency = currency
-    }
-    
-    init(currency: String) {
-        self.init(
-            date: Date(),
-            cleared: 0,
-            uncleared: 0,
-            running: 0,
-            currency: currency
-        )
-    }
-
-    init(fragment: GetAccountBalanceFragment) {
-        self.init(
-            date: ISO8601DateFormatter().date(from: fragment.date) ?? Date(),
-            cleared: fragment.cleared,
-            uncleared: fragment.uncleared,
-            running: fragment.running,
-            currency: fragment.currency
-        )
-    }
-
-    init(fragment: ListAccountsBalanceFragment) {
-        self.init(
-            date: ISO8601DateFormatter().date(from: fragment.date) ?? Date(),
-            cleared: fragment.cleared,
-            uncleared: fragment.uncleared,
-            running: fragment.running,
-            currency: fragment.currency
-        )
-    }
-
-    init(fragment: CreateBudgetAccountBalanceFragment) {
-        self.init(
-            date: ISO8601DateFormatter().date(from: fragment.date) ?? Date(),
-            cleared: fragment.cleared,
-            uncleared: fragment.uncleared,
-            running: fragment.running,
-            currency: fragment.currency
-        )
-    }
-
-    init(fragment: CreateTrackingAccountBalanceFragment) {
-        self.init(
-            date: ISO8601DateFormatter().date(from: fragment.date) ?? Date(),
-            cleared: fragment.cleared,
-            uncleared: fragment.uncleared,
-            running: fragment.running,
-            currency: fragment.currency
-        )
     }
 
     var unclearedFormatted: String {
