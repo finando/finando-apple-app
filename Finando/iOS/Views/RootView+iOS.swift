@@ -7,7 +7,7 @@ struct RootView: View {
 
     @Environment(\.colorScheme) private var colorScheme: ColorScheme
 
-    @State private var showMainActionSheet = false
+    @State private var showNewTransactionSheet = false
 
     var body: some View {
         TabView {
@@ -23,7 +23,7 @@ struct RootView: View {
                 .tabItem(2) { tabItem(selected: $0, icon: "banknote", title: "Accounts") }
 
             Spacer()
-                .sheet(isPresented: $showMainActionSheet) {
+                .sheet(isPresented: $showNewTransactionSheet) {
                     Text("SHEET!")
 
                     Button {
@@ -65,7 +65,7 @@ struct RootView: View {
             .opacity(0)
             .overlay {
                 Button {
-                    showMainActionSheet.toggle()
+                    showNewTransactionSheet.toggle()
                 } label: {
                     Image(systemName: "plus.app")
                         .resizable()
