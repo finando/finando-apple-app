@@ -14,7 +14,9 @@ struct Balance: Equatable, Hashable {
         self.running = running
         self.currency = currency
     }
+}
 
+extension Balance {
     var unclearedFormatted: String {
         CurrencyUtils.formatAsCurrency(value: Double(uncleared) / 100, currency: currency)
     }
