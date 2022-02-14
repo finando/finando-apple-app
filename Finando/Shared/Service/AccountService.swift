@@ -1,4 +1,3 @@
-import Foundation
 import Apollo
 
 class AccountService {
@@ -19,7 +18,7 @@ class AccountService {
                 )
             }
 
-            return GraphQLResponseParser.parse(data: result.data?.accounts)
+            return GraphQLResponseParser.parse(data: result.data?.accounts.map(\.fragments.listAccountsAccountFragment))
         } catch {
             // TODO: handle errors
         }
@@ -38,7 +37,7 @@ class AccountService {
                 )
             }
 
-            return GraphQLResponseParser.parse(data: result.data?.account)
+            return GraphQLResponseParser.parse(data: result.data?.account?.fragments.getAccountAccountFragment)
         } catch {
             // TODO: handle errors
         }
@@ -57,7 +56,7 @@ class AccountService {
                 )
             }
 
-            return GraphQLResponseParser.parse(data: result.data?.account)
+            return GraphQLResponseParser.parse(data: result.data?.account.fragments.createBudgetAccountBudgetAccountFragment)
         } catch {
             // TODO: handle errors
         }
@@ -76,7 +75,7 @@ class AccountService {
                 )
             }
 
-            return GraphQLResponseParser.parse(data: result.data?.account)
+            return GraphQLResponseParser.parse(data: result.data?.account.fragments.createTrackingAccountTrackingAccountFragment)
         } catch {
             // TODO: handle errors
         }
@@ -95,7 +94,7 @@ class AccountService {
                 )
             }
 
-            return GraphQLResponseParser.parse(data: result.data?.account)
+            return GraphQLResponseParser.parse(data: result.data?.account?.fragments.deleteBudgetAccountBudgetAccountFragment)
         } catch {
             // TODO: handle errors
         }
@@ -114,7 +113,7 @@ class AccountService {
                 )
             }
 
-            return GraphQLResponseParser.parse(data: result.data?.account)
+            return GraphQLResponseParser.parse(data: result.data?.account?.fragments.deleteTrackingAccountTrackingAccountFragment)
         } catch {
             // TODO: handle errors
         }

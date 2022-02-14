@@ -1,155 +1,136 @@
 import Foundation
 
-enum GraphQLResponseParser {
-    static func parse(data: [ListAccountsQuery.Data.Account]?) -> [Account] {
-        return data?.compactMap({ account in
-            if let budgetAccount = account.fragments.listAccountsAccountFragment.asBudgetAccount {
-                let balanceFragment = budgetAccount.balance.fragments.listAccountsBalanceFragment
+private protocol AccountFragment {}
 
-                return .BudgetAccount(BudgetAccount(
-                    id: budgetAccount.id,
-                    name: budgetAccount.name ?? "",
-                    balance: Balance(
-                        date: ISO8601DateFormatter().date(from: balanceFragment.date) ?? Date(),
-                        cleared: balanceFragment.cleared,
-                        uncleared: balanceFragment.uncleared,
-                        running: balanceFragment.running,
-                        currency: balanceFragment.currency
-                    )
-                ))
+private protocol Named {
+    var name: String? { get }
+}
+
+private protocol BalanceFragment {
+    var date: String { get }
+    var cleared: Int { get }
+    var uncleared: Int { get }
+    var running: Int { get }
+    var currency: String { get }
+}
+
+extension ListAccountsAccountFragment.AsBudgetAccount: AccountFragment, Identifiable, Named {}
+extension ListAccountsAccountFragment.AsTrackingAccount: AccountFragment, Identifiable, Named {}
+extension GetAccountAccountFragment.AsBudgetAccount: AccountFragment, Identifiable, Named {}
+extension GetAccountAccountFragment.AsTrackingAccount: AccountFragment, Identifiable, Named {}
+extension CreateBudgetAccountBudgetAccountFragment: AccountFragment, Identifiable, Named {}
+extension CreateTrackingAccountTrackingAccountFragment: AccountFragment, Identifiable, Named {}
+extension DeleteBudgetAccountBudgetAccountFragment: AccountFragment, Identifiable {}
+extension DeleteTrackingAccountTrackingAccountFragment: AccountFragment, Identifiable {}
+
+extension ListAccountsBalanceFragment: BalanceFragment {}
+extension GetAccountBalanceFragment: BalanceFragment {}
+extension CreateBudgetAccountBalanceFragment: BalanceFragment {}
+extension CreateTrackingAccountBalanceFragment: BalanceFragment {}
+
+enum GraphQLResponseParser {
+    static func parse(data: [ListAccountsAccountFragment]?) -> [Account] {
+        return data?.compactMap({ fragment in
+            if let budgetAccount = fragment.asBudgetAccount {
+                return createAccount(accountFragment: budgetAccount)
             }
 
-            if let trackingAccount = account.fragments.listAccountsAccountFragment.asTrackingAccount {
-                let balanceFragment = trackingAccount.balance.fragments.listAccountsBalanceFragment
-
-                return .TrackingAccount(TrackingAccount(
-                    id: trackingAccount.id,
-                    name: trackingAccount.name ?? "",
-                    balance: Balance(
-                        date: ISO8601DateFormatter().date(from: balanceFragment.date) ?? Date(),
-                        cleared: balanceFragment.cleared,
-                        uncleared: balanceFragment.uncleared,
-                        running: balanceFragment.running,
-                        currency: balanceFragment.currency
-                    )
-                ))
+            if let trackingAccount = fragment.asTrackingAccount {
+                return createAccount(accountFragment: trackingAccount)
             }
 
             return nil
         }) ?? []
     }
 
-    static func parse(data: GetAccountQuery.Data.Account?) -> Account? {
-        if let budgetAccount = data?.fragments.getAccountAccountFragment.asBudgetAccount {
-            let balanceFragment = budgetAccount.balance.fragments.getAccountBalanceFragment
+    static func parse(data: GetAccountAccountFragment?) -> Account? {
+        if let budgetAccount = data?.asBudgetAccount {
+            return createAccount(accountFragment: budgetAccount)
+        }
 
-            return .BudgetAccount(BudgetAccount(
-                id: budgetAccount.id,
-                name: budgetAccount.name ?? "",
-                balance: Balance(
-                    date: ISO8601DateFormatter().date(from: balanceFragment.date) ?? Date(),
-                    cleared: balanceFragment.cleared,
-                    uncleared: balanceFragment.uncleared,
-                    running: balanceFragment.running,
-                    currency: balanceFragment.currency
-                ),
-                balances: budgetAccount.balances
+        if let trackingAccount = data?.asTrackingAccount {
+            return createAccount(accountFragment: trackingAccount)
+        }
+
+        return nil
+    }
+
+    static func parse(data: CreateBudgetAccountBudgetAccountFragment?) -> Account? {
+        return createAccount(accountFragment: data)
+    }
+
+    static func parse(data: CreateTrackingAccountTrackingAccountFragment?) -> Account? {
+        return createAccount(accountFragment: data)
+    }
+
+    static func parse(data: DeleteBudgetAccountBudgetAccountFragment?) -> Account? {
+        return createAccount(accountFragment: data)
+    }
+
+    static func parse(data: DeleteTrackingAccountTrackingAccountFragment?) -> Account? {
+        return createAccount(accountFragment: data)
+    }
+
+    private static func createAccount(accountFragment: AccountFragment?) -> Account? {
+        switch accountFragment {
+        case let fragment as GetAccountAccountFragment.AsBudgetAccount:
+            return .BudgetAccount(.init(
+                id: fragment.id,
+                name: fragment.name ?? "",
+                balance: createBalance(fragment: fragment.balance.fragments.getAccountBalanceFragment),
+                balances: fragment.balances
                     .map(\.fragments.getAccountBalanceFragment)
-                    .map({
-                        Balance(
-                            date: ISO8601DateFormatter().date(from: $0.date) ?? Date(),
-                            cleared: $0.cleared,
-                            uncleared: $0.uncleared,
-                            running: $0.running,
-                            currency: $0.currency
-                        )
-                    })
+                    .map(createBalance(fragment:))
             ))
-        }
-
-        if let trackingAccount = data?.fragments.getAccountAccountFragment.asTrackingAccount {
-            let balanceFragment = trackingAccount.balance.fragments.getAccountBalanceFragment
-
-            return .TrackingAccount(TrackingAccount(
-                id: trackingAccount.id,
-                name: trackingAccount.name ?? "",
-                balance: Balance(
-                    date: ISO8601DateFormatter().date(from: balanceFragment.date) ?? Date(),
-                    cleared: balanceFragment.cleared,
-                    uncleared: balanceFragment.uncleared,
-                    running: balanceFragment.running,
-                    currency: balanceFragment.currency
-                ),
-                balances: trackingAccount.balances
+        case let fragment as GetAccountAccountFragment.AsTrackingAccount:
+            return .TrackingAccount(.init(
+                id: fragment.id,
+                name: fragment.name ?? "",
+                balance: createBalance(fragment: fragment.balance.fragments.getAccountBalanceFragment),
+                balances: fragment.balances
                     .map(\.fragments.getAccountBalanceFragment)
-                    .map({
-                        Balance(
-                            date: ISO8601DateFormatter().date(from: $0.date) ?? Date(),
-                            cleared: $0.cleared,
-                            uncleared: $0.uncleared,
-                            running: $0.running,
-                            currency: $0.currency
-                        )
-                    })
+                    .map(createBalance(fragment:))
             ))
-        }
-
-        return nil
-    }
-
-    static func parse(data: CreateBudgetAccountMutation.Data.Account?) -> Account? {
-        if let budgetAccount = data?.fragments.createBudgetAccountBudgetAccountFragment {
-            let balanceFragment = budgetAccount.balance.fragments.createBudgetAccountBalanceFragment
-
-            return .BudgetAccount(BudgetAccount(
-                id: budgetAccount.id,
-                name: budgetAccount.name ?? "",
-                balance: Balance(
-                    date: ISO8601DateFormatter().date(from: balanceFragment.date) ?? Date(),
-                    cleared: balanceFragment.cleared,
-                    uncleared: balanceFragment.uncleared,
-                    running: balanceFragment.running,
-                    currency: balanceFragment.currency
-                )
+        case let fragment as ListAccountsAccountFragment.AsBudgetAccount:
+            return .BudgetAccount(.init(
+                id: fragment.id,
+                name: fragment.name,
+                balance: createBalance(fragment: fragment.balance.fragments.listAccountsBalanceFragment)
             ))
-        }
-
-        return nil
-    }
-
-    static func parse(data: CreateTrackingAccountMutation.Data.Account?) -> Account? {
-        if let trackingAccount = data?.fragments.createTrackingAccountTrackingAccountFragment {
-            let balanceFragment = trackingAccount.balance.fragments.createTrackingAccountBalanceFragment
-
-            return .TrackingAccount(TrackingAccount(
-                id: trackingAccount.id,
-                name: trackingAccount.name ?? "",
-                balance: Balance(
-                    date: ISO8601DateFormatter().date(from: balanceFragment.date) ?? Date(),
-                    cleared: balanceFragment.cleared,
-                    uncleared: balanceFragment.uncleared,
-                    running: balanceFragment.running,
-                    currency: balanceFragment.currency
-                )
+        case let fragment as ListAccountsAccountFragment.AsTrackingAccount:
+            return .TrackingAccount(.init(
+                id: fragment.id,
+                name: fragment.name,
+                balance: createBalance(fragment: fragment.balance.fragments.listAccountsBalanceFragment)
             ))
+        case let fragment as CreateBudgetAccountBudgetAccountFragment:
+            return .BudgetAccount(.init(
+                id: fragment.id,
+                name: fragment.name,
+                balance: createBalance(fragment: fragment.balance.fragments.createBudgetAccountBalanceFragment)
+            ))
+        case let fragment as CreateTrackingAccountTrackingAccountFragment:
+            return .TrackingAccount(.init(
+                id: fragment.id,
+                name: fragment.name,
+                balance: createBalance(fragment: fragment.balance.fragments.createTrackingAccountBalanceFragment)
+            ))
+        case let fragment as DeleteBudgetAccountBudgetAccountFragment:
+            return .BudgetAccount(.init(id: fragment.id))
+        case let fragment as DeleteTrackingAccountTrackingAccountFragment:
+            return .TrackingAccount(.init(id: fragment.id))
+        default:
+            return nil
         }
-
-        return nil
     }
 
-    static func parse(data: DeleteBudgetAccountMutation.Data.Account?) -> Account? {
-        if let budgetAccount = data?.fragments.deleteBudgetAccountBudgetAccountFragment {
-            return .BudgetAccount(BudgetAccount(id: budgetAccount.id))
-        }
-
-        return nil
-    }
-
-    static func parse(data: DeleteTrackingAccountMutation.Data.Account?) -> Account? {
-        if let trackingAccount = data?.fragments.deleteTrackingAccountTrackingAccountFragment {
-            return .TrackingAccount(TrackingAccount(id: trackingAccount.id))
-        }
-
-        return nil
+    private static func createBalance(fragment: BalanceFragment) -> Balance {
+        Balance(
+            date: ISO8601DateFormatter().date(from: fragment.date) ?? Date(),
+            cleared: fragment.cleared,
+            uncleared: fragment.uncleared,
+            running: fragment.running,
+            currency: fragment.currency
+        )
     }
 }
