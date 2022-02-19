@@ -89,6 +89,7 @@
 		A58FD08C27C0F8AE00D67D2F /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FD08A27C0F8AD00D67D2F /* Protocols.swift */; };
 		A58FD08E27C0F8D000D67D2F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FD08D27C0F8D000D67D2F /* Extensions.swift */; };
 		A58FD08F27C0F8D000D67D2F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FD08D27C0F8D000D67D2F /* Extensions.swift */; };
+		A58FD09327C138E100D67D2F /* CurrencyInputFieldView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FD09227C138E100D67D2F /* CurrencyInputFieldView+iOS.swift */; };
 		A59350842752E81D00657D20 /* Breadcrumbs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350822752E81D00657D20 /* Breadcrumbs.swift */; };
 		A59350872752EBD900657D20 /* Breadcrumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350852752EBD900657D20 /* Breadcrumb.swift */; };
 		A5935089276F9C1F00657D20 /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5935088276F9C1F00657D20 /* ArrayUtils.swift */; };
@@ -219,6 +220,7 @@
 		A580FB752725BDC200DAD317 /* Finando--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Finando--macOS--Info.plist"; sourceTree = "<group>"; };
 		A58FD08A27C0F8AD00D67D2F /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		A58FD08D27C0F8D000D67D2F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A58FD09227C138E100D67D2F /* CurrencyInputFieldView+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrencyInputFieldView+iOS.swift"; sourceTree = "<group>"; };
 		A59350822752E81D00657D20 /* Breadcrumbs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breadcrumbs.swift; sourceTree = "<group>"; };
 		A59350852752EBD900657D20 /* Breadcrumb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breadcrumb.swift; sourceTree = "<group>"; };
 		A5935088276F9C1F00657D20 /* ArrayUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayUtils.swift; sourceTree = "<group>"; };
@@ -472,6 +474,7 @@
 			children = (
 				A5802733277CB35F000373DE /* AccountsView+iOS.swift */,
 				A5802735277CB764000373DE /* AccountView+iOS.swift */,
+				A58FD09227C138E100D67D2F /* CurrencyInputFieldView+iOS.swift */,
 				A5C8FAEE277DE4D900393167 /* NavigationLinkAccountItemView+iOS.swift */,
 				A5C8FAEC277DE3D300393167 /* NewAccountModalView+iOS.swift */,
 				A5BB3E27277E0E14005F2A1E /* NewTransactionModalView+iOS.swift */,
@@ -808,6 +811,7 @@
 				A57DB509272C9F1F0055827F /* TrackingAccount.swift in Sources */,
 				A57DB523272DC54F0055827F /* DateUtils.swift in Sources */,
 				A5802734277CB35F000373DE /* AccountsView+iOS.swift in Sources */,
+				A58FD09327C138E100D67D2F /* CurrencyInputFieldView+iOS.swift in Sources */,
 				A5C8FAEF277DE4D900393167 /* NavigationLinkAccountItemView+iOS.swift in Sources */,
 				A57DB503272C8D0E0055827F /* BudgetAccount.swift in Sources */,
 				A58026E42778A346000373DE /* RootEnvironment.swift in Sources */,
