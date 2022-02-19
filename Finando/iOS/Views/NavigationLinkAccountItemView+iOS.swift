@@ -100,6 +100,7 @@ struct NavigationLinkAccountItemView_Previews: PreviewProvider {
             }
             .padding()
             .preferredColorScheme(.light)
+            .previewDisplayName("Light mode")
 
             LazyVStack(spacing: 8) {
                 NavigationLinkAccountItemView(
@@ -132,6 +133,7 @@ struct NavigationLinkAccountItemView_Previews: PreviewProvider {
             }
             .padding()
             .preferredColorScheme(.dark)
+            .previewDisplayName("Dark mode")
         }
         .previewLayout(.sizeThatFits)
     }
