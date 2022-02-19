@@ -4,11 +4,11 @@ enum GraphQLResponseParser {
     static func parse(data: [ListAccountsAccountFragment]?) -> [Account] {
         return data?.compactMap({ fragment in
             if let budgetAccount = fragment.asBudgetAccount {
-                return createAccount(accountFragment: budgetAccount)
+                return parseAccount(fragment: budgetAccount)
             }
 
             if let trackingAccount = fragment.asTrackingAccount {
-                return createAccount(accountFragment: trackingAccount)
+                return parseAccount(fragment: trackingAccount)
             }
 
             return nil
@@ -17,22 +17,22 @@ enum GraphQLResponseParser {
 
     static func parse(data: GetAccountAccountFragment?) -> Account? {
         if let budgetAccount = data?.asBudgetAccount {
-            return createAccount(accountFragment: budgetAccount)
+            return parseAccount(fragment: budgetAccount)
         }
 
         if let trackingAccount = data?.asTrackingAccount {
-            return createAccount(accountFragment: trackingAccount)
+            return parseAccount(fragment: trackingAccount)
         }
 
         return nil
     }
 
     static func parse<T: AccountFragment>(data: T?) -> Account? {
-        return createAccount(accountFragment: data)
+        return parseAccount(fragment: data)
     }
 
-    private static func createAccount<T: AccountFragment>(accountFragment: T?) -> Account? {
-        switch accountFragment {
+    private static func parseAccount<T: AccountFragment>(fragment: T?) -> Account? {
+        switch fragment {
         case let fragment as GetAccountAccountFragment.AsBudgetAccount:
             return BudgetAccount(
                 id: fragment.id,
