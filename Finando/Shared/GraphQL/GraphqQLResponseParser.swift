@@ -37,43 +37,43 @@ enum GraphQLResponseParser {
             return BudgetAccount(
                 id: fragment.id,
                 name: fragment.name ?? "",
-                balance: createBalance(fragment: fragment.balance.fragments.getAccountBalanceFragment),
+                balance: parseBalance(fragment: fragment.balance.fragments.getAccountBalanceFragment),
                 balances: fragment.balances
                     .map(\.fragments.getAccountBalanceFragment)
-                    .map(createBalance(fragment:))
+                    .map(parseBalance(fragment:))
             )
         case let fragment as GetAccountAccountFragment.AsTrackingAccount:
             return TrackingAccount(
                 id: fragment.id,
                 name: fragment.name ?? "",
-                balance: createBalance(fragment: fragment.balance.fragments.getAccountBalanceFragment),
+                balance: parseBalance(fragment: fragment.balance.fragments.getAccountBalanceFragment),
                 balances: fragment.balances
                     .map(\.fragments.getAccountBalanceFragment)
-                    .map(createBalance(fragment:))
+                    .map(parseBalance(fragment:))
             )
         case let fragment as ListAccountsAccountFragment.AsBudgetAccount:
             return BudgetAccount(
                 id: fragment.id,
                 name: fragment.name,
-                balance: createBalance(fragment: fragment.balance.fragments.listAccountsBalanceFragment)
+                balance: parseBalance(fragment: fragment.balance.fragments.listAccountsBalanceFragment)
             )
         case let fragment as ListAccountsAccountFragment.AsTrackingAccount:
             return TrackingAccount(
                 id: fragment.id,
                 name: fragment.name,
-                balance: createBalance(fragment: fragment.balance.fragments.listAccountsBalanceFragment)
+                balance: parseBalance(fragment: fragment.balance.fragments.listAccountsBalanceFragment)
             )
         case let fragment as CreateBudgetAccountBudgetAccountFragment:
             return BudgetAccount(
                 id: fragment.id,
                 name: fragment.name,
-                balance: createBalance(fragment: fragment.balance.fragments.createBudgetAccountBalanceFragment)
+                balance: parseBalance(fragment: fragment.balance.fragments.createBudgetAccountBalanceFragment)
             )
         case let fragment as CreateTrackingAccountTrackingAccountFragment:
             return TrackingAccount(
                 id: fragment.id,
                 name: fragment.name,
-                balance: createBalance(fragment: fragment.balance.fragments.createTrackingAccountBalanceFragment)
+                balance: parseBalance(fragment: fragment.balance.fragments.createTrackingAccountBalanceFragment)
             )
         case let fragment as DeleteBudgetAccountBudgetAccountFragment:
             return BudgetAccount(id: fragment.id)
@@ -84,7 +84,7 @@ enum GraphQLResponseParser {
         }
     }
 
-    private static func createBalance(fragment: BalanceFragment) -> Balance {
+    private static func parseBalance(fragment: BalanceFragment) -> Balance {
         Balance(
             date: ISO8601DateFormatter().date(from: fragment.date) ?? Date(),
             cleared: fragment.cleared,
