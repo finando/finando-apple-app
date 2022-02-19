@@ -13,11 +13,11 @@ struct AccountView: View {
                 Text(account.name ?? "")
 
                 Button {
-                    if account.isBudgetAccount {
+                    if account is BudgetAccount {
                         viewStore.send(.deleteBudgetAccountRequested(id: account.id))
                     }
 
-                    if account.isTrackingAccount {
+                    if account is TrackingAccount {
                         viewStore.send(.deleteTrackingAccountRequested(id: account.id))
                     }
                 } label: {
@@ -60,13 +60,11 @@ struct AccountView_Previews: PreviewProvider {
                             accountService: AccountService(apolloClient: Network.shared.apollo)
                         )
                     ),
-                    account: Account.BudgetAccount(
-                        .init(
-                            id: "account-id",
-                            name: "Account name",
-                            balance: Balance(
-                                currency: "NOK"
-                            )
+                    account: BudgetAccount(
+                        id: "account-id",
+                        name: "Account name",
+                        balance: Balance(
+                            currency: "NOK"
                         )
                     )
                 )

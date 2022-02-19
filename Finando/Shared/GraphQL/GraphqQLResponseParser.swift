@@ -74,51 +74,51 @@ enum GraphQLResponseParser {
     private static func createAccount<T: AccountFragment>(accountFragment: T?) -> Account? {
         switch accountFragment {
         case let fragment as GetAccountAccountFragment.AsBudgetAccount:
-            return .BudgetAccount(.init(
+            return BudgetAccount(
                 id: fragment.id,
                 name: fragment.name ?? "",
                 balance: createBalance(fragment: fragment.balance.fragments.getAccountBalanceFragment),
                 balances: fragment.balances
                     .map(\.fragments.getAccountBalanceFragment)
                     .map(createBalance(fragment:))
-            ))
+            )
         case let fragment as GetAccountAccountFragment.AsTrackingAccount:
-            return .TrackingAccount(.init(
+            return TrackingAccount(
                 id: fragment.id,
                 name: fragment.name ?? "",
                 balance: createBalance(fragment: fragment.balance.fragments.getAccountBalanceFragment),
                 balances: fragment.balances
                     .map(\.fragments.getAccountBalanceFragment)
                     .map(createBalance(fragment:))
-            ))
+            )
         case let fragment as ListAccountsAccountFragment.AsBudgetAccount:
-            return .BudgetAccount(.init(
+            return BudgetAccount(
                 id: fragment.id,
                 name: fragment.name,
                 balance: createBalance(fragment: fragment.balance.fragments.listAccountsBalanceFragment)
-            ))
+            )
         case let fragment as ListAccountsAccountFragment.AsTrackingAccount:
-            return .TrackingAccount(.init(
+            return TrackingAccount(
                 id: fragment.id,
                 name: fragment.name,
                 balance: createBalance(fragment: fragment.balance.fragments.listAccountsBalanceFragment)
-            ))
+            )
         case let fragment as CreateBudgetAccountBudgetAccountFragment:
-            return .BudgetAccount(.init(
+            return BudgetAccount(
                 id: fragment.id,
                 name: fragment.name,
                 balance: createBalance(fragment: fragment.balance.fragments.createBudgetAccountBalanceFragment)
-            ))
+            )
         case let fragment as CreateTrackingAccountTrackingAccountFragment:
-            return .TrackingAccount(.init(
+            return TrackingAccount(
                 id: fragment.id,
                 name: fragment.name,
                 balance: createBalance(fragment: fragment.balance.fragments.createTrackingAccountBalanceFragment)
-            ))
+            )
         case let fragment as DeleteBudgetAccountBudgetAccountFragment:
-            return .BudgetAccount(.init(id: fragment.id))
+            return BudgetAccount(id: fragment.id)
         case let fragment as DeleteTrackingAccountTrackingAccountFragment:
-            return .TrackingAccount(.init(id: fragment.id))
+            return TrackingAccount(id: fragment.id)
         default:
             return nil
         }

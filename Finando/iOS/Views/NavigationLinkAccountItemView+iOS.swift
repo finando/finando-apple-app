@@ -71,33 +71,29 @@ struct NavigationLinkAccountItemView_Previews: PreviewProvider {
         Group {
             LazyVStack(spacing: 8) {
                 NavigationLinkAccountItemView(
-                    account: Account.BudgetAccount(
-                        .init(
-                            id: "account-id-1",
-                            name: "Account name",
-                            balance: Balance(
-                                date: Date(),
-                                cleared: 0,
-                                uncleared: 0,
-                                running: 123456,
-                                currency: "NOK"
-                            )
+                    account: BudgetAccount(
+                        id: "account-id-1",
+                        name: "Account name",
+                        balance: Balance(
+                            date: Date(),
+                            cleared: 0,
+                            uncleared: 0,
+                            running: 123456,
+                            currency: "NOK"
                         )
                     )
                 )
 
                 NavigationLinkAccountItemView(
-                    account: Account.TrackingAccount(
-                        .init(
-                            id: "account-id-2",
-                            name: "Very long account name",
-                            balance: Balance(
-                                date: Date(),
-                                cleared: 0,
-                                uncleared: 0,
-                                running: 123456789,
-                                currency: "NOK"
-                            )
+                    account: TrackingAccount(
+                        id: "account-id-2",
+                        name: "Very long account name",
+                        balance: Balance(
+                            date: Date(),
+                            cleared: 0,
+                            uncleared: 0,
+                            running: 123456789,
+                            currency: "NOK"
                         )
                     )
                 )
@@ -107,33 +103,29 @@ struct NavigationLinkAccountItemView_Previews: PreviewProvider {
 
             LazyVStack(spacing: 8) {
                 NavigationLinkAccountItemView(
-                    account: Account.BudgetAccount(
-                        .init(
-                            id: "account-id-1",
-                            name: "Account name",
-                            balance: Balance(
-                                date: Date(),
-                                cleared: 0,
-                                uncleared: 0,
-                                running: 123456,
-                                currency: "NOK"
-                            )
+                    account: BudgetAccount(
+                        id: "account-id-1",
+                        name: "Account name",
+                        balance: Balance(
+                            date: Date(),
+                            cleared: 0,
+                            uncleared: 0,
+                            running: 123456,
+                            currency: "NOK"
                         )
                     )
                 )
 
                 NavigationLinkAccountItemView(
-                    account: Account.TrackingAccount(
-                        .init(
-                            id: "account-id-2",
-                            name: "Very long account name",
-                            balance: Balance(
-                                date: Date(),
-                                cleared: 0,
-                                uncleared: 0,
-                                running: 123456789,
-                                currency: "NOK"
-                            )
+                    account: TrackingAccount(
+                        id: "account-id-2",
+                        name: "Very long account name",
+                        balance: Balance(
+                            date: Date(),
+                            cleared: 0,
+                            uncleared: 0,
+                            running: 123456789,
+                            currency: "NOK"
                         )
                     )
                 )
