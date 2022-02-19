@@ -1,6 +1,6 @@
 import Foundation
 
-private protocol AccountFragment {}
+private protocol AccountFragment: Identifiable {}
 
 private protocol Named {
     var name: String? { get }
@@ -14,14 +14,14 @@ private protocol BalanceFragment {
     var currency: String { get }
 }
 
-extension ListAccountsAccountFragment.AsBudgetAccount: AccountFragment, Identifiable, Named {}
-extension ListAccountsAccountFragment.AsTrackingAccount: AccountFragment, Identifiable, Named {}
-extension GetAccountAccountFragment.AsBudgetAccount: AccountFragment, Identifiable, Named {}
-extension GetAccountAccountFragment.AsTrackingAccount: AccountFragment, Identifiable, Named {}
-extension CreateBudgetAccountBudgetAccountFragment: AccountFragment, Identifiable, Named {}
-extension CreateTrackingAccountTrackingAccountFragment: AccountFragment, Identifiable, Named {}
-extension DeleteBudgetAccountBudgetAccountFragment: AccountFragment, Identifiable {}
-extension DeleteTrackingAccountTrackingAccountFragment: AccountFragment, Identifiable {}
+extension ListAccountsAccountFragment.AsBudgetAccount: AccountFragment, Named {}
+extension ListAccountsAccountFragment.AsTrackingAccount: AccountFragment, Named {}
+extension GetAccountAccountFragment.AsBudgetAccount: AccountFragment, Named {}
+extension GetAccountAccountFragment.AsTrackingAccount: AccountFragment, Named {}
+extension CreateBudgetAccountBudgetAccountFragment: AccountFragment, Named {}
+extension CreateTrackingAccountTrackingAccountFragment: AccountFragment, Named {}
+extension DeleteBudgetAccountBudgetAccountFragment: AccountFragment {}
+extension DeleteTrackingAccountTrackingAccountFragment: AccountFragment {}
 
 extension ListAccountsBalanceFragment: BalanceFragment {}
 extension GetAccountBalanceFragment: BalanceFragment {}
@@ -71,7 +71,7 @@ enum GraphQLResponseParser {
         return createAccount(accountFragment: data)
     }
 
-    private static func createAccount(accountFragment: AccountFragment?) -> Account? {
+    private static func createAccount<T: AccountFragment>(accountFragment: T?) -> Account? {
         switch accountFragment {
         case let fragment as GetAccountAccountFragment.AsBudgetAccount:
             return .BudgetAccount(.init(
