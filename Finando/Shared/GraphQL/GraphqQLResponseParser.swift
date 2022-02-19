@@ -1,33 +1,5 @@
 import Foundation
 
-private protocol AccountFragment: Identifiable {}
-
-private protocol Named {
-    var name: String? { get }
-}
-
-private protocol BalanceFragment {
-    var date: String { get }
-    var cleared: Int { get }
-    var uncleared: Int { get }
-    var running: Int { get }
-    var currency: String { get }
-}
-
-extension ListAccountsAccountFragment.AsBudgetAccount: AccountFragment, Named {}
-extension ListAccountsAccountFragment.AsTrackingAccount: AccountFragment, Named {}
-extension GetAccountAccountFragment.AsBudgetAccount: AccountFragment, Named {}
-extension GetAccountAccountFragment.AsTrackingAccount: AccountFragment, Named {}
-extension CreateBudgetAccountBudgetAccountFragment: AccountFragment, Named {}
-extension CreateTrackingAccountTrackingAccountFragment: AccountFragment, Named {}
-extension DeleteBudgetAccountBudgetAccountFragment: AccountFragment {}
-extension DeleteTrackingAccountTrackingAccountFragment: AccountFragment {}
-
-extension ListAccountsBalanceFragment: BalanceFragment {}
-extension GetAccountBalanceFragment: BalanceFragment {}
-extension CreateBudgetAccountBalanceFragment: BalanceFragment {}
-extension CreateTrackingAccountBalanceFragment: BalanceFragment {}
-
 enum GraphQLResponseParser {
     static func parse(data: [ListAccountsAccountFragment]?) -> [Account] {
         return data?.compactMap({ fragment in
@@ -55,19 +27,7 @@ enum GraphQLResponseParser {
         return nil
     }
 
-    static func parse(data: CreateBudgetAccountBudgetAccountFragment?) -> Account? {
-        return createAccount(accountFragment: data)
-    }
-
-    static func parse(data: CreateTrackingAccountTrackingAccountFragment?) -> Account? {
-        return createAccount(accountFragment: data)
-    }
-
-    static func parse(data: DeleteBudgetAccountBudgetAccountFragment?) -> Account? {
-        return createAccount(accountFragment: data)
-    }
-
-    static func parse(data: DeleteTrackingAccountTrackingAccountFragment?) -> Account? {
+    static func parse<T: AccountFragment>(data: T?) -> Account? {
         return createAccount(accountFragment: data)
     }
 

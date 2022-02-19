@@ -85,6 +85,10 @@
 		A580FB322725A52400DAD317 /* ApolloClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580FB302725A52400DAD317 /* ApolloClient.swift */; };
 		A580FB722725AD5D00DAD317 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = A580FB712725AD5D00DAD317 /* Apollo */; };
 		A580FB742725AD7B00DAD317 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = A580FB732725AD7B00DAD317 /* Apollo */; };
+		A58FD08B27C0F8AD00D67D2F /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FD08A27C0F8AD00D67D2F /* Protocols.swift */; };
+		A58FD08C27C0F8AE00D67D2F /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FD08A27C0F8AD00D67D2F /* Protocols.swift */; };
+		A58FD08E27C0F8D000D67D2F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FD08D27C0F8D000D67D2F /* Extensions.swift */; };
+		A58FD08F27C0F8D000D67D2F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FD08D27C0F8D000D67D2F /* Extensions.swift */; };
 		A59350842752E81D00657D20 /* Breadcrumbs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350822752E81D00657D20 /* Breadcrumbs.swift */; };
 		A59350872752EBD900657D20 /* Breadcrumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350852752EBD900657D20 /* Breadcrumb.swift */; };
 		A5935089276F9C1F00657D20 /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5935088276F9C1F00657D20 /* ArrayUtils.swift */; };
@@ -213,6 +217,8 @@
 		A580FB242725A31A00DAD317 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		A580FB302725A52400DAD317 /* ApolloClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloClient.swift; sourceTree = "<group>"; };
 		A580FB752725BDC200DAD317 /* Finando--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Finando--macOS--Info.plist"; sourceTree = "<group>"; };
+		A58FD08A27C0F8AD00D67D2F /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		A58FD08D27C0F8D000D67D2F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A59350822752E81D00657D20 /* Breadcrumbs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breadcrumbs.swift; sourceTree = "<group>"; };
 		A59350852752EBD900657D20 /* Breadcrumb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breadcrumb.swift; sourceTree = "<group>"; };
 		A5935088276F9C1F00657D20 /* ArrayUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayUtils.swift; sourceTree = "<group>"; };
@@ -494,11 +500,13 @@
 			isa = PBXGroup;
 			children = (
 				A59350D72773BF0D00657D20 /* API.swift */,
-				A580FB242725A31A00DAD317 /* schema.json */,
-				A580FB1D27259F7000DAD317 /* Operations */,
 				A580FB302725A52400DAD317 /* ApolloClient.swift */,
+				A58FD08D27C0F8D000D67D2F /* Extensions.swift */,
 				A58027082778FBB5000373DE /* GraphQLOperations.swift */,
 				A580270B2778FC64000373DE /* GraphqQLResponseParser.swift */,
+				A580FB1D27259F7000DAD317 /* Operations */,
+				A58FD08A27C0F8AD00D67D2F /* Protocols.swift */,
+				A580FB242725A31A00DAD317 /* schema.json */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -806,6 +814,7 @@
 				A52C270227258A7200C35AB7 /* FinandoApp.swift in Sources */,
 				A58026FF2778AF3B000373DE /* AccountsEnvironment.swift in Sources */,
 				A59350DB2773CE3E00657D20 /* CurrencyUtils.swift in Sources */,
+				A58FD08B27C0F8AD00D67D2F /* Protocols.swift in Sources */,
 				A5802726277C9BD8000373DE /* RootScene+iOS.swift in Sources */,
 				A59350D82773BF0D00657D20 /* API.swift in Sources */,
 				A58026FC2778AF06000373DE /* AccountsAction.swift in Sources */,
@@ -831,6 +840,7 @@
 				A58026EC2778A5B4000373DE /* AccountState.swift in Sources */,
 				A593602527B1BF420047093A /* TransactionType.swift in Sources */,
 				A5802732277CB1B2000373DE /* OverviewView+iOS.swift in Sources */,
+				A58FD08E27C0F8D000D67D2F /* Extensions.swift in Sources */,
 				A5C8FAED277DE3D300393167 /* NewAccountModalView+iOS.swift in Sources */,
 				A580FB312725A52400DAD317 /* ApolloClient.swift in Sources */,
 				A57DB529272F40ED0055827F /* HeaderView.swift in Sources */,
@@ -873,6 +883,8 @@
 				A57DB536273208120055827F /* AvatarView.swift in Sources */,
 				A58026E22778A2DF000373DE /* RootAction.swift in Sources */,
 				A580272C277CA0B9000373DE /* RootView+macOS.swift in Sources */,
+				A58FD08F27C0F8D000D67D2F /* Extensions.swift in Sources */,
+				A58FD08C27C0F8AE00D67D2F /* Protocols.swift in Sources */,
 				A58026FA2778AED6000373DE /* AccountsState.swift in Sources */,
 				A57DB514272CB5650055827F /* AccountView.swift in Sources */,
 				A580270D2778FC64000373DE /* GraphqQLResponseParser.swift in Sources */,
