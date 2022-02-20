@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct CurrencyInputFieldView: View {
+    let placeholder: String
+
     @Binding var value: Int
 
     @FocusState private var isFocused: Bool
@@ -8,7 +10,7 @@ struct CurrencyInputFieldView: View {
     private let currencyFormatter = CurrencyUtils.getCurrencyFormatter()
     
     var body: some View {
-        TextField("Amount", value: $value, formatter: currencyFormatter)
+        TextField(placeholder, value: $value, formatter: currencyFormatter)
             .focused($isFocused)
             .keyboardType(.decimalPad)
             .toolbar {
@@ -26,7 +28,7 @@ struct CurrencyInputFieldView_Previews: PreviewProvider {
         Group {
             Form {
                 Section {
-                    CurrencyInputFieldView(value: .constant(123))
+                    CurrencyInputFieldView(placeholder: "Amount", value: .constant(123))
                 } header: {
                     Text("Amount")
                 } footer: {
@@ -38,7 +40,7 @@ struct CurrencyInputFieldView_Previews: PreviewProvider {
 
             Form {
                 Section {
-                    CurrencyInputFieldView(value: .constant(123))
+                    CurrencyInputFieldView(placeholder: "Amount", value: .constant(123))
                 } header: {
                     Text("Amount")
                 } footer: {
