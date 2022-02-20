@@ -89,6 +89,7 @@
 		A58FD08C27C0F8AE00D67D2F /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FD08A27C0F8AD00D67D2F /* Protocols.swift */; };
 		A58FD08E27C0F8D000D67D2F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FD08D27C0F8D000D67D2F /* Extensions.swift */; };
 		A58FD08F27C0F8D000D67D2F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FD08D27C0F8D000D67D2F /* Extensions.swift */; };
+		A58FD09127C1345300D67D2F /* NewExpenseTransactionFormView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FD09027C1345300D67D2F /* NewExpenseTransactionFormView+iOS.swift */; };
 		A58FD09327C138E100D67D2F /* CurrencyInputFieldView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FD09227C138E100D67D2F /* CurrencyInputFieldView+iOS.swift */; };
 		A58FD09527C23BA900D67D2F /* TextInputFieldView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FD09427C23BA900D67D2F /* TextInputFieldView+iOS.swift */; };
 		A59350842752E81D00657D20 /* Breadcrumbs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350822752E81D00657D20 /* Breadcrumbs.swift */; };
@@ -221,6 +222,7 @@
 		A580FB752725BDC200DAD317 /* Finando--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Finando--macOS--Info.plist"; sourceTree = "<group>"; };
 		A58FD08A27C0F8AD00D67D2F /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		A58FD08D27C0F8D000D67D2F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A58FD09027C1345300D67D2F /* NewExpenseTransactionFormView+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewExpenseTransactionFormView+iOS.swift"; sourceTree = "<group>"; };
 		A58FD09227C138E100D67D2F /* CurrencyInputFieldView+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrencyInputFieldView+iOS.swift"; sourceTree = "<group>"; };
 		A58FD09427C23BA900D67D2F /* TextInputFieldView+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextInputFieldView+iOS.swift"; sourceTree = "<group>"; };
 		A59350822752E81D00657D20 /* Breadcrumbs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breadcrumbs.swift; sourceTree = "<group>"; };
@@ -479,6 +481,7 @@
 				A58FD09227C138E100D67D2F /* CurrencyInputFieldView+iOS.swift */,
 				A5C8FAEE277DE4D900393167 /* NavigationLinkAccountItemView+iOS.swift */,
 				A5C8FAEC277DE3D300393167 /* NewAccountModalView+iOS.swift */,
+				A58FD09027C1345300D67D2F /* NewExpenseTransactionFormView+iOS.swift */,
 				A5BB3E27277E0E14005F2A1E /* NewTransactionModalView+iOS.swift */,
 				A5802731277CB1B2000373DE /* OverviewView+iOS.swift */,
 				A5802728277CA095000373DE /* RootView+iOS.swift */,
@@ -853,6 +856,7 @@
 				A580FB312725A52400DAD317 /* ApolloClient.swift in Sources */,
 				A57DB529272F40ED0055827F /* HeaderView.swift in Sources */,
 				A58027092778FBB5000373DE /* GraphQLOperations.swift in Sources */,
+				A58FD09127C1345300D67D2F /* NewExpenseTransactionFormView+iOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
