@@ -3,18 +3,18 @@ import SwiftUI
 struct CurrencyInputFieldView: View {
     @Binding var value: Int
 
-    @FocusState private var isAmountFieldFocused: Bool
+    @FocusState private var isFocused: Bool
 
     private let currencyFormatter = CurrencyUtils.getCurrencyFormatter()
     
     var body: some View {
         TextField("Amount", value: $value, formatter: currencyFormatter)
-            .focused($isAmountFieldFocused)
+            .focused($isFocused)
             .keyboardType(.decimalPad)
             .toolbar {
                 ToolbarItem(placement: .keyboard) {
                     Button("Done") {
-                        isAmountFieldFocused = false
+                        isFocused = false
                     }
                 }
             }
