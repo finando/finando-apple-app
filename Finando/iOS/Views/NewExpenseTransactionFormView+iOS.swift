@@ -1,7 +1,8 @@
 import SwiftUI
+import IdentifiedCollections
 
 struct NewExpenseTransactionFormView: View {
-    let accounts: [Account]
+    let accounts: IdentifiedArrayOf<Account>
 
     @State private var amount: Int = 0
     @State private var expenseAccount: Account? = nil
