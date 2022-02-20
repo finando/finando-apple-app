@@ -21,11 +21,11 @@ struct NewTransactionModalView_Previews: PreviewProvider {
                     store: Store(
                         initialState: AccountsState(
                             accounts: [
-                                BudgetAccount(id: "receiving-account-id-1", name: "Receiving account 1"),
-                                BudgetAccount(id: "receiving-account-id-2", name: "Receiving account 2"),
-                                BudgetAccount(id: "receiving-account-id-3", name: "Receiving account 3"),
-                                BudgetAccount(id: "receiving-account-id-4", name: "Receiving account 4"),
-                                BudgetAccount(id: "receiving-account-id-5", name: "Receiving account 5")
+                                BudgetAccount(id: "demo-account-id-1", name: "Demo account 1"),
+                                BudgetAccount(id: "demo-account-id-2", name: "Demo account 2"),
+                                BudgetAccount(id: "demo-account-id-3", name: "Demo account 3"),
+                                BudgetAccount(id: "demo-account-id-4", name: "Demo account 4"),
+                                BudgetAccount(id: "demo-account-id-5", name: "Demo account 5")
                             ]
                         ),
                         reducer: accountsReducer,
@@ -44,11 +44,11 @@ struct NewTransactionModalView_Previews: PreviewProvider {
                     store: Store(
                         initialState: AccountsState(
                             accounts: [
-                                BudgetAccount(id: "receiving-account-id-1", name: "Receiving account 1"),
-                                BudgetAccount(id: "receiving-account-id-2", name: "Receiving account 2"),
-                                BudgetAccount(id: "receiving-account-id-3", name: "Receiving account 3"),
-                                BudgetAccount(id: "receiving-account-id-4", name: "Receiving account 4"),
-                                BudgetAccount(id: "receiving-account-id-5", name: "Receiving account 5")
+                                BudgetAccount(id: "demo-account-id-1", name: "Demo account 1"),
+                                BudgetAccount(id: "demo-account-id-2", name: "Demo account 2"),
+                                BudgetAccount(id: "demo-account-id-3", name: "Demo account 3"),
+                                BudgetAccount(id: "demo-account-id-4", name: "Demo account 4"),
+                                BudgetAccount(id: "demo-account-id-5", name: "Demo account 5")
                             ]
                         ),
                         reducer: accountsReducer,
