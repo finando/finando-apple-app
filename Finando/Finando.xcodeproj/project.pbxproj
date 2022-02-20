@@ -90,6 +90,7 @@
 		A58FD08E27C0F8D000D67D2F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FD08D27C0F8D000D67D2F /* Extensions.swift */; };
 		A58FD08F27C0F8D000D67D2F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FD08D27C0F8D000D67D2F /* Extensions.swift */; };
 		A58FD09327C138E100D67D2F /* CurrencyInputFieldView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FD09227C138E100D67D2F /* CurrencyInputFieldView+iOS.swift */; };
+		A58FD09527C23BA900D67D2F /* TextInputFieldView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FD09427C23BA900D67D2F /* TextInputFieldView+iOS.swift */; };
 		A59350842752E81D00657D20 /* Breadcrumbs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350822752E81D00657D20 /* Breadcrumbs.swift */; };
 		A59350872752EBD900657D20 /* Breadcrumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350852752EBD900657D20 /* Breadcrumb.swift */; };
 		A5935089276F9C1F00657D20 /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5935088276F9C1F00657D20 /* ArrayUtils.swift */; };
@@ -221,6 +222,7 @@
 		A58FD08A27C0F8AD00D67D2F /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		A58FD08D27C0F8D000D67D2F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A58FD09227C138E100D67D2F /* CurrencyInputFieldView+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrencyInputFieldView+iOS.swift"; sourceTree = "<group>"; };
+		A58FD09427C23BA900D67D2F /* TextInputFieldView+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextInputFieldView+iOS.swift"; sourceTree = "<group>"; };
 		A59350822752E81D00657D20 /* Breadcrumbs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breadcrumbs.swift; sourceTree = "<group>"; };
 		A59350852752EBD900657D20 /* Breadcrumb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breadcrumb.swift; sourceTree = "<group>"; };
 		A5935088276F9C1F00657D20 /* ArrayUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayUtils.swift; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 				A5BB3E27277E0E14005F2A1E /* NewTransactionModalView+iOS.swift */,
 				A5802731277CB1B2000373DE /* OverviewView+iOS.swift */,
 				A5802728277CA095000373DE /* RootView+iOS.swift */,
+				A58FD09427C23BA900D67D2F /* TextInputFieldView+iOS.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -821,6 +824,7 @@
 				A58FD08B27C0F8AD00D67D2F /* Protocols.swift in Sources */,
 				A5802726277C9BD8000373DE /* RootScene+iOS.swift in Sources */,
 				A59350D82773BF0D00657D20 /* API.swift in Sources */,
+				A58FD09527C23BA900D67D2F /* TextInputFieldView+iOS.swift in Sources */,
 				A58026FC2778AF06000373DE /* AccountsAction.swift in Sources */,
 				A5BB3E28277E0E14005F2A1E /* NewTransactionModalView+iOS.swift in Sources */,
 				A58027062778BE56000373DE /* AccountService.swift in Sources */,
