@@ -32,7 +32,7 @@ class AccountService {
         do {
             let result = try await withCheckedThrowingContinuation { (continuation: Continuation) in
                 apolloClient.fetch(
-                    query: GraphQLOperations.Query.getAccount(accountId: id),
+                    query: GraphQLOperations.Query.getAccount(id: id),
                     resultHandler: continuation.resume(with:)
                 )
             }
