@@ -93,6 +93,7 @@
 		A58FD09327C138E100D67D2F /* CurrencyInputFieldView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FD09227C138E100D67D2F /* CurrencyInputFieldView+iOS.swift */; };
 		A58FD09527C23BA900D67D2F /* TextInputFieldView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FD09427C23BA900D67D2F /* TextInputFieldView+iOS.swift */; };
 		A58FD09727C2491900D67D2F /* NewIncomeTransactionFormView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FD09627C2491900D67D2F /* NewIncomeTransactionFormView+iOS.swift */; };
+		A58FD09927C2493F00D67D2F /* NewTransferTransactionFormView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FD09827C2493F00D67D2F /* NewTransferTransactionFormView+iOS.swift */; };
 		A59350842752E81D00657D20 /* Breadcrumbs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350822752E81D00657D20 /* Breadcrumbs.swift */; };
 		A59350872752EBD900657D20 /* Breadcrumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350852752EBD900657D20 /* Breadcrumb.swift */; };
 		A5935089276F9C1F00657D20 /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5935088276F9C1F00657D20 /* ArrayUtils.swift */; };
@@ -227,6 +228,7 @@
 		A58FD09227C138E100D67D2F /* CurrencyInputFieldView+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrencyInputFieldView+iOS.swift"; sourceTree = "<group>"; };
 		A58FD09427C23BA900D67D2F /* TextInputFieldView+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextInputFieldView+iOS.swift"; sourceTree = "<group>"; };
 		A58FD09627C2491900D67D2F /* NewIncomeTransactionFormView+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewIncomeTransactionFormView+iOS.swift"; sourceTree = "<group>"; };
+		A58FD09827C2493F00D67D2F /* NewTransferTransactionFormView+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewTransferTransactionFormView+iOS.swift"; sourceTree = "<group>"; };
 		A59350822752E81D00657D20 /* Breadcrumbs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breadcrumbs.swift; sourceTree = "<group>"; };
 		A59350852752EBD900657D20 /* Breadcrumb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breadcrumb.swift; sourceTree = "<group>"; };
 		A5935088276F9C1F00657D20 /* ArrayUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayUtils.swift; sourceTree = "<group>"; };
@@ -486,6 +488,7 @@
 				A58FD09027C1345300D67D2F /* NewExpenseTransactionFormView+iOS.swift */,
 				A58FD09627C2491900D67D2F /* NewIncomeTransactionFormView+iOS.swift */,
 				A5BB3E27277E0E14005F2A1E /* NewTransactionModalView+iOS.swift */,
+				A58FD09827C2493F00D67D2F /* NewTransferTransactionFormView+iOS.swift */,
 				A5802731277CB1B2000373DE /* OverviewView+iOS.swift */,
 				A5802728277CA095000373DE /* RootView+iOS.swift */,
 				A58FD09427C23BA900D67D2F /* TextInputFieldView+iOS.swift */,
@@ -818,6 +821,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A57DB509272C9F1F0055827F /* TrackingAccount.swift in Sources */,
+				A58FD09927C2493F00D67D2F /* NewTransferTransactionFormView+iOS.swift in Sources */,
 				A57DB523272DC54F0055827F /* DateUtils.swift in Sources */,
 				A5802734277CB35F000373DE /* AccountsView+iOS.swift in Sources */,
 				A58FD09327C138E100D67D2F /* CurrencyInputFieldView+iOS.swift in Sources */,
