@@ -41,7 +41,7 @@ struct AccountView: View {
                     }
                 }
                 .sheet(isPresented: $showNewTransactionSheet) {
-                    NewTransactionModalView()
+                    NewTransactionModalView(store: store)
                 }
         }
     }

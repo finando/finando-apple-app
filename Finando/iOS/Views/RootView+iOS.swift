@@ -24,13 +24,9 @@ struct RootView: View {
 
             Spacer()
                 .sheet(isPresented: $showNewTransactionSheet) {
-                    Text("SHEET!")
-
-                    Button {
-                        showMainActionSheet.toggle()
-                    } label: {
-                        Text("CLOSE")
-                    }
+                    NewTransactionModalView(
+                        store: store.scope(state: \.accounts, action: RootAction.accounts)
+                    )
                 }
                 .tabItem(3) { tabButton }
 
