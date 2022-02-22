@@ -1,6 +1,6 @@
 import Foundation
 
-struct ScheduledTransaction: Equatable, Hashable {
+struct ScheduledTransaction: Identifiable, Equatable, Hashable {
     let id: String
     let entries: [Entry]
     let status: TransactionStatus
