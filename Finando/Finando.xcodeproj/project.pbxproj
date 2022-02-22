@@ -521,12 +521,12 @@
 		A580FB1D27259F7000DAD317 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
-				A59350D12773BE6400657D20 /* GetAccount.graphql */,
-				A59350D22773BE6400657D20 /* ListAccounts.graphql */,
 				A5C8FADB277D114800393167 /* CreateBudgetAccount.graphql */,
 				A5C8FADE277D119300393167 /* CreateTrackingAccount.graphql */,
 				A5C8FAE2277D2E0A00393167 /* DeleteBudgetAccount.graphql */,
 				A5C8FAE5277D354B00393167 /* DeleteTrackingAccount.graphql */,
+				A59350D12773BE6400657D20 /* GetAccount.graphql */,
+				A59350D22773BE6400657D20 /* ListAccounts.graphql */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
