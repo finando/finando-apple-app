@@ -470,7 +470,6 @@
 		A5802722277C990B000373DE /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				A580272D277CA624000373DE /* Models */,
 				A5802725277C9BD8000373DE /* RootScene+iOS.swift */,
 				A5802727277CA07E000373DE /* Views */,
 			);
@@ -502,13 +501,6 @@
 				A580272B277CA0B9000373DE /* RootView+macOS.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		A580272D277CA624000373DE /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		A580FB1A27259E0300DAD317 /* GraphQL */ = {
