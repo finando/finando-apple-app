@@ -1,6 +1,6 @@
 import Apollo
 
-class AccountService {
+final class AccountService {
     private let apolloClient: ApolloClient
 
     init(apolloClient: ApolloClient) {
