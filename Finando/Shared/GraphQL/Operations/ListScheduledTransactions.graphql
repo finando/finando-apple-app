@@ -1,0 +1,22 @@
+fragment ListScheduledTransactions_ScheduledTransactionFragment on ScheduledTransaction {
+  id
+  entries {
+    id
+    account
+    debit
+    credit
+    currency
+  }
+  status
+  frequency
+  description
+  tags
+  createdAt
+  updatedAt
+}
+
+query ListScheduledTransactions($accountId: ID!) {
+  scheduledTransactions: listScheduledTransactions(accountId: $accountId) {
+    ...ListScheduledTransactions_ScheduledTransactionFragment
+  }
+}

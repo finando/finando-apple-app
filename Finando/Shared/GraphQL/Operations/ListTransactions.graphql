@@ -1,0 +1,21 @@
+fragment ListTransactions_TransactionFragment on Transaction {
+  id
+  entries {
+    id
+    account
+    debit
+    credit
+    currency
+  }
+  status
+  description
+  tags
+  createdAt
+  updatedAt
+}
+
+query ListTransactions($accountId: ID!) {
+  transactions: listTransactions(accountId: $accountId) {
+    ...ListTransactions_TransactionFragment
+  }
+}
