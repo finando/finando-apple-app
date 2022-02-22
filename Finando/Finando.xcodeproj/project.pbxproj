@@ -130,6 +130,8 @@
 		A5DEE2712750C8750019E1D8 /* AccountListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEE26F2750C8750019E1D8 /* AccountListItemView.swift */; };
 		BAB53E3927C53BD700DC820E /* ListTransactions.graphql in Resources */ = {isa = PBXBuildFile; fileRef = BAB53E3827C53BD700DC820E /* ListTransactions.graphql */; };
 		BAB53E3A27C53BD700DC820E /* ListTransactions.graphql in Resources */ = {isa = PBXBuildFile; fileRef = BAB53E3827C53BD700DC820E /* ListTransactions.graphql */; };
+		BAB53E3C27C53EC600DC820E /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB53E3B27C53EC600DC820E /* TransactionService.swift */; };
+		BAB53E3D27C53EC600DC820E /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB53E3B27C53EC600DC820E /* TransactionService.swift */; };
 		BAB53E3F27C5410100DC820E /* ListScheduledTransactions.graphql in Resources */ = {isa = PBXBuildFile; fileRef = BAB53E3E27C5410100DC820E /* ListScheduledTransactions.graphql */; };
 		BAB53E4027C5410100DC820E /* ListScheduledTransactions.graphql in Resources */ = {isa = PBXBuildFile; fileRef = BAB53E3E27C5410100DC820E /* ListScheduledTransactions.graphql */; };
 		BAB53E4227C5430800DC820E /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB53E4127C5430800DC820E /* Transaction.swift */; };
@@ -260,6 +262,7 @@
 		A5DEE267273877130019E1D8 /* HoverViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverViewModifier.swift; sourceTree = "<group>"; };
 		A5DEE26F2750C8750019E1D8 /* AccountListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListItemView.swift; sourceTree = "<group>"; };
 		BAB53E3827C53BD700DC820E /* ListTransactions.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = ListTransactions.graphql; sourceTree = "<group>"; };
+		BAB53E3B27C53EC600DC820E /* TransactionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionService.swift; sourceTree = "<group>"; };
 		BAB53E3E27C5410100DC820E /* ListScheduledTransactions.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = ListScheduledTransactions.graphql; sourceTree = "<group>"; };
 		BAB53E4127C5430800DC820E /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		BAB53E4427C5434100DC820E /* ScheduledTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledTransaction.swift; sourceTree = "<group>"; };
@@ -481,6 +484,7 @@
 			isa = PBXGroup;
 			children = (
 				A58027052778BE56000373DE /* AccountService.swift */,
+				BAB53E3B27C53EC600DC820E /* TransactionService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -860,6 +864,7 @@
 				A58026F52778A68F000373DE /* AccountReducer.swift in Sources */,
 				A58027022778AF54000373DE /* AccountsReducer.swift in Sources */,
 				A58026EF2778A60D000373DE /* AccountAction.swift in Sources */,
+				BAB53E3C27C53EC600DC820E /* TransactionService.swift in Sources */,
 				A5C8FAEA277DE34300393167 /* FlatButtonStyle.swift in Sources */,
 				A57DB53B2732196C0055827F /* User.swift in Sources */,
 				A57DB510272CA3080055827F /* Account.swift in Sources */,
@@ -927,6 +932,7 @@
 				A580272C277CA0B9000373DE /* RootView+macOS.swift in Sources */,
 				A58FD08F27C0F8D000D67D2F /* Extensions.swift in Sources */,
 				A58FD08C27C0F8AE00D67D2F /* Protocols.swift in Sources */,
+				BAB53E3D27C53EC600DC820E /* TransactionService.swift in Sources */,
 				A58026FA2778AED6000373DE /* AccountsState.swift in Sources */,
 				A57DB514272CB5650055827F /* AccountView.swift in Sources */,
 				A580270D2778FC64000373DE /* GraphqQLResponseParser.swift in Sources */,

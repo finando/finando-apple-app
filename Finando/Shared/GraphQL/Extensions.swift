@@ -11,3 +11,10 @@ extension ListAccountsBalanceFragment: BalanceFragment {}
 extension GetAccountBalanceFragment: BalanceFragment {}
 extension CreateBudgetAccountBalanceFragment: BalanceFragment {}
 extension CreateTrackingAccountBalanceFragment: BalanceFragment {}
+
+extension ListTransactionsTransactionFragment: TransactionFragment {}
+
+extension ListScheduledTransactionsScheduledTransactionFragment: ScheduledTransactionFragment {}
+
+extension ListTransactionsTransactionFragment.Entry: EntryFragment {}
+extension ListScheduledTransactionsScheduledTransactionFragment.Entry: EntryFragment {}

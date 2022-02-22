@@ -15,6 +15,14 @@ enum GraphQLOperations {
                 frequency: .daily
             )
         }
+
+        static func listTransactions(accountId: String) -> ListTransactionsQuery {
+            ListTransactionsQuery(accountId: accountId)
+        }
+
+        static func listScheduledTransactions(accountId: String) -> ListScheduledTransactionsQuery {
+            ListScheduledTransactionsQuery(accountId: accountId)
+        }
     }
 
     enum Mutation {

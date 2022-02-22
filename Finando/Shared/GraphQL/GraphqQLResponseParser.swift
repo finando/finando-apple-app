@@ -31,6 +31,14 @@ enum GraphQLResponseParser {
         return parseAccount(fragment: data)
     }
 
+    static func parse<T: TransactionFragment>(data: [T]?) -> [Transaction] {
+        return data?.compactMap(parseTransaction(fragment:)) ?? []
+    }
+
+    static func parse<T: ScheduledTransactionFragment>(data: [T]?) -> [ScheduledTransaction] {
+        return data?.compactMap(parseScheduledTransaction(fragment:)) ?? []
+    }
+
     private static func parseAccount<T: AccountFragment>(fragment: T?) -> Account? {
         switch fragment {
         case let fragment as GetAccountAccountFragment.AsBudgetAccount:
@@ -90,6 +98,51 @@ enum GraphQLResponseParser {
             cleared: fragment.cleared,
             uncleared: fragment.uncleared,
             running: fragment.running,
+            currency: fragment.currency
+        )
+    }
+
+    private static func parseTransaction(fragment: TransactionFragment) -> Transaction? {
+        switch fragment {
+        case let fragment as ListTransactionsTransactionFragment:
+            return Transaction(
+                id: fragment.id,
+                entries: fragment.entries.map(parseEntry(fragment:)),
+                status: fragment.status,
+                description: fragment.description ?? "",
+                tags: fragment.tags,
+                createdAt: ISO8601DateFormatter().date(from: fragment.createdAt),
+                updatedAt: ISO8601DateFormatter().date(from: fragment.updatedAt)
+            )
+        default:
+            return nil
+        }
+    }
+
+    private static func parseScheduledTransaction(fragment: ScheduledTransactionFragment) -> ScheduledTransaction? {
+        switch fragment {
+        case let fragment as ListScheduledTransactionsScheduledTransactionFragment:
+            return ScheduledTransaction(
+                id: fragment.id,
+                entries: fragment.entries.map(parseEntry(fragment:)),
+                status: fragment.status,
+                frequency: fragment.frequency,
+                description: fragment.description ?? "",
+                tags: fragment.tags,
+                createdAt: ISO8601DateFormatter().date(from: fragment.createdAt),
+                updatedAt: ISO8601DateFormatter().date(from: fragment.updatedAt)
+            )
+        default:
+            return nil
+        }
+    }
+
+    private static func parseEntry(fragment: EntryFragment) -> Entry {
+        Entry(
+            id: fragment.id,
+            account: fragment.account,
+            debit: Int(fragment.debit) ?? 0,
+            credit: Int(fragment.credit) ?? 0,
             currency: fragment.currency
         )
     }
