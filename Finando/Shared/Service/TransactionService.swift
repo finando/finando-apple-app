@@ -7,7 +7,7 @@ final class TransactionService {
         self.apolloClient = apolloClient
     }
 
-    func listTransactions(accountId: String) async -> [Any] {
+    func listTransactions(accountId: String) async -> [Transaction] {
         typealias Continuation = CheckedContinuation<GraphQLResult<ListTransactionsQuery.Data>, Error>
 
         do {
@@ -26,7 +26,7 @@ final class TransactionService {
         return []
     }
 
-    func listScheduledTransactions(accountId: String) async -> [Any] {
+    func listScheduledTransactions(accountId: String) async -> [ScheduledTransaction] {
         typealias Continuation = CheckedContinuation<GraphQLResult<ListScheduledTransactionsQuery.Data>, Error>
 
         do {
