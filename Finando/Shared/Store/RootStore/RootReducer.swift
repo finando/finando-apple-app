@@ -24,5 +24,15 @@ let rootReducer = Reducer<
                 accountService: AccountService(apolloClient: $0.apolloClient)
             )
         }
+    ),
+    transactionsReducer.pullback(
+        state: \.transactions,
+        action: /RootAction.transactions,
+        environment: {
+            .init(
+                mainQueue: $0.mainQueue,
+                transactionsService: TransactionService(apolloClient: $0.apolloClient)
+            )
+        }
     )
 )
