@@ -15,50 +15,52 @@ struct AccountView: View {
                 ScrollView {
                     LazyVStack {
                         ForEach(transactionsViewStore.transactions) { transaction in
-                            Text(transaction.id)
+                            NavigationLinkTransactionItemView(transaction: transaction)
+                                .padding(.horizontal, 16)
                         }
                     }
-                        .navigationTitle(account.name ?? "")
-                        .navigationViewStyle(.columns)
-                        .toolbar {
-                            ToolbarItem(placement: .primaryAction) {
-                                Button {
-                                    showNewTransactionSheet = true
-                                } label: {
-                                    Label("New transaction", systemImage: "rectangle.stack.badge.plus")
-                                }
+                    .padding(.vertical, 16)
+                    .navigationTitle(account.name ?? "")
+                    .navigationViewStyle(.columns)
+                    .toolbar {
+                        ToolbarItem(placement: .primaryAction) {
+                            Button {
+                                showNewTransactionSheet = true
+                            } label: {
+                                Label("New transaction", systemImage: "rectangle.stack.badge.plus")
                             }
+                        }
 
-                            ToolbarItem(placement: .destructiveAction) {
+                        ToolbarItem(placement: .destructiveAction) {
+                            Button(role: .destructive) {
+                                showDeleteAccountConfirmationDialog = true
+                            } label: {
+                                Label("Delete account", systemImage: "trash")
+                                    .accentColor(Color.red)
+                            }
+                            .confirmationDialog("You are about to delete your account", isPresented: $showDeleteAccountConfirmationDialog, titleVisibility: .visible) {
                                 Button(role: .destructive) {
-                                    showDeleteAccountConfirmationDialog = true
-                                } label: {
-                                    Label("Delete account", systemImage: "trash")
-                                        .accentColor(Color.red)
-                                }
-                                .confirmationDialog("You are about to delete your account", isPresented: $showDeleteAccountConfirmationDialog, titleVisibility: .visible) {
-                                    Button(role: .destructive) {
-                                        if account is BudgetAccount {
-                                            accountsViewStore.send(.deleteBudgetAccountRequested(id: account.id))
-                                        }
-
-                                        if account is TrackingAccount {
-                                            accountsViewStore.send(.deleteTrackingAccountRequested(id: account.id))
-                                        }
-                                    } label: {
-                                        Text("Delete")
+                                    if account is BudgetAccount {
+                                        accountsViewStore.send(.deleteBudgetAccountRequested(id: account.id))
                                     }
-                                } message: {
-                                    Text("This action cannot be undone")
+
+                                    if account is TrackingAccount {
+                                        accountsViewStore.send(.deleteTrackingAccountRequested(id: account.id))
+                                    }
+                                } label: {
+                                    Text("Delete")
                                 }
+                            } message: {
+                                Text("This action cannot be undone")
                             }
                         }
-                        .sheet(isPresented: $showNewTransactionSheet) {
-                            NewTransactionModalView(store: accountsStore)
-                        }
-                        .onAppear {
-                            transactionsViewStore.send(.listTransactionsRequested(accountId: account.id))
-                            transactionsViewStore.send(.listScheduledTransactionsRequested(accountId: account.id))
+                    }
+                    .sheet(isPresented: $showNewTransactionSheet) {
+                        NewTransactionModalView(store: accountsStore)
+                    }
+                    .onAppear {
+                        transactionsViewStore.send(.listTransactionsRequested(accountId: account.id))
+                        transactionsViewStore.send(.listScheduledTransactionsRequested(accountId: account.id))
                     }
                 }
             }

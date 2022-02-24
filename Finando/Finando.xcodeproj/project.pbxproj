@@ -148,6 +148,8 @@
 		BAB53E5327C5549600DC820E /* TransactionsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB53E5127C5549600DC820E /* TransactionsAction.swift */; };
 		BAB53E5527C554C200DC820E /* TransactionsReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB53E5427C554C200DC820E /* TransactionsReducer.swift */; };
 		BAB53E5627C554C200DC820E /* TransactionsReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB53E5427C554C200DC820E /* TransactionsReducer.swift */; };
+		BAB53E5827C7E0CA00DC820E /* NavigationLinkTransactionItemView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB53E5727C7E0C900DC820E /* NavigationLinkTransactionItemView+iOS.swift */; };
+		BAB53E5927C7E0CA00DC820E /* NavigationLinkTransactionItemView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB53E5727C7E0C900DC820E /* NavigationLinkTransactionItemView+iOS.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -279,6 +281,7 @@
 		BAB53E4E27C553CC00DC820E /* TransactionsEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsEnvironment.swift; sourceTree = "<group>"; };
 		BAB53E5127C5549600DC820E /* TransactionsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsAction.swift; sourceTree = "<group>"; };
 		BAB53E5427C554C200DC820E /* TransactionsReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsReducer.swift; sourceTree = "<group>"; };
+		BAB53E5727C7E0C900DC820E /* NavigationLinkTransactionItemView+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationLinkTransactionItemView+iOS.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -518,6 +521,7 @@
 				A5802735277CB764000373DE /* AccountView+iOS.swift */,
 				A58FD09227C138E100D67D2F /* CurrencyInputFieldView+iOS.swift */,
 				A5C8FAEE277DE4D900393167 /* NavigationLinkAccountItemView+iOS.swift */,
+				BAB53E5727C7E0C900DC820E /* NavigationLinkTransactionItemView+iOS.swift */,
 				A5C8FAEC277DE3D300393167 /* NewAccountModalView+iOS.swift */,
 				A58FD09027C1345300D67D2F /* NewExpenseTransactionFormView+iOS.swift */,
 				A58FD09627C2491900D67D2F /* NewIncomeTransactionFormView+iOS.swift */,
@@ -901,6 +905,7 @@
 				A58026F92778AED6000373DE /* AccountsState.swift in Sources */,
 				A58FD09727C2491900D67D2F /* NewIncomeTransactionFormView+iOS.swift in Sources */,
 				A580270C2778FC64000373DE /* GraphqQLResponseParser.swift in Sources */,
+				BAB53E5827C7E0CA00DC820E /* NavigationLinkTransactionItemView+iOS.swift in Sources */,
 				A58026DE2778A2A0000373DE /* RootState.swift in Sources */,
 				BAB53E5227C5549600DC820E /* TransactionsAction.swift in Sources */,
 				A58026E72778A3C7000373DE /* RootReducer.swift in Sources */,
@@ -926,6 +931,7 @@
 			files = (
 				A57DB50A272C9F1F0055827F /* TrackingAccount.swift in Sources */,
 				A57DB524272DC54F0055827F /* DateUtils.swift in Sources */,
+				BAB53E5927C7E0CA00DC820E /* NavigationLinkTransactionItemView+iOS.swift in Sources */,
 				A59350872752EBD900657D20 /* Breadcrumb.swift in Sources */,
 				BAB53E5627C554C200DC820E /* TransactionsReducer.swift in Sources */,
 				A59350A82770870B00657D20 /* LineChartNSViewRepresentable.swift in Sources */,
