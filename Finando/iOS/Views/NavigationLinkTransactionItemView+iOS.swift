@@ -10,15 +10,15 @@ struct NavigationLinkTransactionItemView: View {
         ZStack(alignment: .leading) {
             Rectangle()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .foregroundColor(colorScheme == ColorScheme.dark ? .black : Color.theme.neutral.n0)
+                .foregroundColor(colorScheme == .dark ? .black : .theme.neutral.n0)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
-                        .stroke(colorScheme == ColorScheme.dark ? Color.theme.neutral.n60.opacity(0.7) : Color.theme.neutral.n20.opacity(0.7), lineWidth: 2)
+                        .stroke(colorScheme == .dark ? Color.theme.neutral.n60.opacity(0.7) : Color.theme.neutral.n20.opacity(0.7), lineWidth: 2)
                         .foregroundColor(.clear)
                 )
                 .cornerRadius(10)
                 .shadow(
-                    color: colorScheme == ColorScheme.dark ? Color.theme.neutral.n60.opacity(0.3) : Color.theme.neutral.n20.opacity(0.4),
+                    color: colorScheme == .dark ? .theme.neutral.n60.opacity(0.3) : .theme.neutral.n20.opacity(0.4),
                     radius: 5,
                     x: 5,
                     y: 5
@@ -33,11 +33,11 @@ struct NavigationLinkTransactionItemView: View {
 
                 VStack(alignment: .leading, spacing: 0) {
                     Text(transaction.description)
-                        .foregroundColor(colorScheme == ColorScheme.dark ? Color.theme.neutral.n0 : Color.theme.neutral.n60)
+                        .foregroundColor(colorScheme == .dark ? .theme.neutral.n0 : .theme.neutral.n60)
                         .font(.system(size: 12, weight: .bold))
 
                     Text(transactionType.translation)
-                        .foregroundColor(colorScheme == ColorScheme.dark ? Color.theme.neutral.n30 : Color.theme.neutral.n40)
+                        .foregroundColor(colorScheme == .dark ? .theme.neutral.n30 : .theme.neutral.n40)
                         .font(.system(size: 11, weight: .regular))
                 }
                 .padding(.horizontal, 5)
@@ -50,14 +50,14 @@ struct NavigationLinkTransactionItemView: View {
                         .font(.system(size: 11, weight: .bold))
 
                     Text(transaction.createdAt?.formatted(format: "dd-MM-yyyy") ?? "")
-                        .foregroundColor(colorScheme == ColorScheme.dark ? Color.theme.neutral.n30 : Color.theme.neutral.n40)
+                        .foregroundColor(colorScheme == .dark ? .theme.neutral.n30 : .theme.neutral.n40)
                         .font(.system(size: 11, weight: .regular))
                 }
 
                 Image(systemName: "chevron.right")
                     .resizable()
                     .aspectRatio(0.4, contentMode: .fit)
-                    .foregroundColor(colorScheme == ColorScheme.dark ? Color.theme.neutral.n20 : Color.theme.neutral.n40)
+                    .foregroundColor(colorScheme == .dark ? .theme.neutral.n20 : .theme.neutral.n40)
                     .frame(maxWidth: 6)
                     .padding(.leading, 8)
             }
