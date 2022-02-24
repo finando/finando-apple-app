@@ -28,3 +28,21 @@ struct Transaction: Identifiable, Equatable, Hashable {
     }
 }
 
+extension Transaction {
+    var type: TransactionType {
+        if tags.contains(Tag.income) {
+            return .income
+        }
+
+        if tags.contains(Tag.expense) {
+            return .expense
+        }
+
+        if tags.contains(Tag.transfer) {
+            return .transfer
+        }
+
+        fatalError("Unknown transaction type")
+    }
+}
+
