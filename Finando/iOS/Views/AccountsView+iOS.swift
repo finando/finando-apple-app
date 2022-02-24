@@ -2,70 +2,73 @@ import SwiftUI
 import ComposableArchitecture
 
 struct AccountsView: View {
-    let store: Store<AccountsState, AccountsAction>
+    let accountsStore: Store<AccountsState, AccountsAction>
+    let transactionsStore: Store<TransactionsState, TransactionsAction>
 
     @Environment(\.editMode) private var editMode
 
     @State private var showNewAccountSheet = false
     
     var body: some View {
-        WithViewStore(store) { viewStore in
-            NavigationView {
-                ScrollView {
-                    LazyVStack(alignment: .leading, spacing: 8) {
-                        ForEach(viewStore.accounts) { account in
-                            NavigationLink(destination: AccountView(store: store, account: account)) {
-                                NavigationLinkAccountItemView(account: account)
-                                    .padding(.horizontal, 16)
+        WithViewStore(accountsStore) { accountsViewStore in
+            WithViewStore(transactionsStore) { transactionsViewStore in
+                NavigationView {
+                    ScrollView {
+                        LazyVStack(alignment: .leading, spacing: 8) {
+                            ForEach(accountsViewStore.accounts) { account in
+                                NavigationLink(destination: AccountView(accountsStore: accountsStore, transactionsStore: transactionsStore, account: account)) {
+                                    NavigationLinkAccountItemView(account: account)
+                                        .padding(.horizontal, 16)
+                                }
+                                .buttonStyle(FlatLinkStyle())
                             }
-                            .buttonStyle(FlatLinkStyle())
-                        }
-                        .onDelete { index in
-                            print("DELETE ACCOUNT")
-                        }
-                    }
-                    .padding(.vertical, 16)
-                    .highPriorityGesture(DragGesture(minimumDistance: 25, coordinateSpace: .local)
-                                            .onEnded { value in
-                        print("DRAG: \(value)")
-//                        if abs(value.translation.height) < abs(value.translation.width) {
-//                            if abs(value.translation.width) > 50.0 {
-//                                if value.translation.width < 0 {
-//                                    self.swipeRightToLeft()
-//                                } else if value.translation.width > 0 {
-//                                    self.swipeLeftToRight()
-//                                }
-//                            }
-//                        }
-                    }
-                    )
-                }
-                .navigationTitle(editMode?.wrappedValue == .active ? "Edit accounts" : "Accounts")
-                .toolbar {
-                    ToolbarItem(placement: .primaryAction) {
-                        Menu {
-                            Button {
-                                showNewAccountSheet = true
-                            } label: {
-                                Label("New account", systemImage: "rectangle.stack.badge.plus")
+                            .onDelete { index in
+                                print("DELETE ACCOUNT")
                             }
+                        }
+                        .padding(.vertical, 16)
+                        .highPriorityGesture(DragGesture(minimumDistance: 25, coordinateSpace: .local)
+                                                .onEnded { value in
+                            print("DRAG: \(value)")
+    //                        if abs(value.translation.height) < abs(value.translation.width) {
+    //                            if abs(value.translation.width) > 50.0 {
+    //                                if value.translation.width < 0 {
+    //                                    self.swipeRightToLeft()
+    //                                } else if value.translation.width > 0 {
+    //                                    self.swipeLeftToRight()
+    //                                }
+    //                            }
+    //                        }
+                        }
+                        )
+                    }
+                    .navigationTitle(editMode?.wrappedValue == .active ? "Edit accounts" : "Accounts")
+                    .toolbar {
+                        ToolbarItem(placement: .primaryAction) {
+                            Menu {
+                                Button {
+                                    showNewAccountSheet = true
+                                } label: {
+                                    Label("New account", systemImage: "rectangle.stack.badge.plus")
+                                }
 
-                            Button {
-                                editMode?.wrappedValue = .active
+                                Button {
+                                    editMode?.wrappedValue = .active
+                                } label: {
+                                    Label("Edit", systemImage: "rectangle.stack.badge.plus")
+                                }
                             } label: {
-                                Label("Edit", systemImage: "rectangle.stack.badge.plus")
+                                Image(systemName: "plus.square")
                             }
-                        } label: {
-                            Image(systemName: "plus.square")
                         }
                     }
+                    .sheet(isPresented: $showNewAccountSheet) {
+                        NewAccountModalView(store: accountsStore)
+                    }
                 }
-                .sheet(isPresented: $showNewAccountSheet) {
-                    NewAccountModalView(store: store)
+                .onAppear {
+                    accountsViewStore.send(.listAccountsRequested)
                 }
-            }
-            .onAppear {
-                viewStore.send(.listAccountsRequested)
             }
         }
     }
@@ -74,12 +77,20 @@ struct AccountsView: View {
 struct AccountsView_Previews: PreviewProvider {
     static var previews: some View {
         AccountsView(
-            store: Store(
+            accountsStore: Store(
                 initialState: AccountsState(),
                 reducer: accountsReducer,
                 environment: AccountsEnvironment(
                     mainQueue: .main,
                     accountService: AccountService(apolloClient: Network.shared.apollo)
+                )
+            ),
+            transactionsStore: Store(
+                initialState: TransactionsState(),
+                reducer: transactionsReducer,
+                environment: TransactionsEnvironment(
+                    mainQueue: .main,
+                    transactionsService: TransactionService(apolloClient: Network.shared.apollo)
                 )
             )
         )

@@ -15,9 +15,13 @@ struct RootView: View {
                 .tabItem(1) { tabItem(selected: $0, icon: "square.grid.2x2", title: "Overview") }
 
             AccountsView(
-                store: store.scope(
+                accountsStore: store.scope(
                     state: \.accounts,
                     action: RootAction.accounts
+                ),
+                transactionsStore: store.scope(
+                    state: \.transactions,
+                    action: RootAction.transactions
                 )
             )
                 .tabItem(2) { tabItem(selected: $0, icon: "banknote", title: "Accounts") }
