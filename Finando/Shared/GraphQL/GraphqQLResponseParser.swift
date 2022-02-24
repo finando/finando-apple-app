@@ -111,8 +111,8 @@ enum GraphQLResponseParser {
                 status: fragment.status,
                 description: fragment.description ?? "",
                 tags: fragment.tags,
-                createdAt: ISO8601DateFormatter().date(from: fragment.createdAt),
-                updatedAt: ISO8601DateFormatter().date(from: fragment.updatedAt)
+                createdAt: parseDate(date: fragment.createdAt),
+                updatedAt: parseDate(date: fragment.updatedAt)
             )
         default:
             return nil
@@ -129,8 +129,8 @@ enum GraphQLResponseParser {
                 frequency: fragment.frequency,
                 description: fragment.description ?? "",
                 tags: fragment.tags,
-                createdAt: ISO8601DateFormatter().date(from: fragment.createdAt),
-                updatedAt: ISO8601DateFormatter().date(from: fragment.updatedAt)
+                createdAt: parseDate(date: fragment.createdAt),
+                updatedAt: parseDate(date: fragment.updatedAt)
             )
         default:
             return nil
@@ -145,5 +145,17 @@ enum GraphQLResponseParser {
             credit: Int(fragment.credit) ?? 0,
             currency: fragment.currency
         )
+    }
+
+    private static func parseDate(date: String) -> Date? {
+        let formatter = ISO8601DateFormatter()
+
+        formatter.formatOptions = [
+            .withFullDate,
+            .withFullTime,
+            .withFractionalSeconds
+        ]
+
+        return formatter.date(from: date)
     }
 }
