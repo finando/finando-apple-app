@@ -23,11 +23,11 @@ public extension Color {
         }
 
         public enum green {
-            public static let g30 = Color("Green_B30", bundle: Bundle(for: ThisBundle.self))
-            public static let g40 = Color("Green_B40", bundle: Bundle(for: ThisBundle.self))
-            public static let g50 = Color("Green_B50", bundle: Bundle(for: ThisBundle.self))
-            public static let g60 = Color("Green_B60", bundle: Bundle(for: ThisBundle.self))
-            public static let g70 = Color("Green_B70", bundle: Bundle(for: ThisBundle.self))
+            public static let g30 = Color("Green_G30", bundle: Bundle(for: ThisBundle.self))
+            public static let g40 = Color("Green_G40", bundle: Bundle(for: ThisBundle.self))
+            public static let g50 = Color("Green_G50", bundle: Bundle(for: ThisBundle.self))
+            public static let g60 = Color("Green_G60", bundle: Bundle(for: ThisBundle.self))
+            public static let g70 = Color("Green_G70", bundle: Bundle(for: ThisBundle.self))
         }
 
         public enum red {
