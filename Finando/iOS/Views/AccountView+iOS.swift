@@ -15,7 +15,7 @@ struct AccountView: View {
                 ScrollView {
                     LazyVStack {
                         ForEach(transactionsViewStore.transactions) { transaction in
-                            NavigationLinkTransactionItemView(transaction: transaction)
+                            NavigationLinkTransactionItemView(account: account, transaction: transaction)
                                 .padding(.horizontal, 16)
                         }
                     }

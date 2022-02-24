@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct NavigationLinkTransactionItemView: View {
+    let account: Account
     let transaction: Transaction
 
     @Environment(\.colorScheme) private var colorScheme: ColorScheme
@@ -24,18 +25,18 @@ struct NavigationLinkTransactionItemView: View {
                 )
 
             HStack(alignment: .center, spacing: 5) {
-                Image(systemName: transaction.type.icon)
+                Image(systemName: transactionType.icon)
                     .resizable()
                     .aspectRatio(1, contentMode: .fit)
                     .frame(maxWidth: 15)
-                    .foregroundColor(determineTransactionTypeIconColour(transaction.type))
+                    .foregroundColor(transactionTypeIconColour)
 
                 VStack(alignment: .leading, spacing: 0) {
                     Text(transaction.description)
                         .foregroundColor(colorScheme == ColorScheme.dark ? Color.theme.neutral.n0 : Color.theme.neutral.n60)
                         .font(.system(size: 12, weight: .bold))
 
-                    Text(transaction.type.translation)
+                    Text(transactionType.translation)
                         .foregroundColor(colorScheme == ColorScheme.dark ? Color.theme.neutral.n30 : Color.theme.neutral.n40)
                         .font(.system(size: 11, weight: .regular))
                 }
@@ -44,12 +45,11 @@ struct NavigationLinkTransactionItemView: View {
                 Spacer()
 
                 VStack(alignment: .trailing, spacing: 0) {
-//                    Text(account.balance?.runningFormatted ?? "")
-                    Text("Some")
-                        .foregroundColor(colorScheme == ColorScheme.dark ? Color.theme.neutral.n0 : Color.theme.neutral.n60)
+                    Text(formattedAmount)
+                        .foregroundColor(transactionAmountColour)
                         .font(.system(size: 11, weight: .bold))
 
-                    Text("Running balance")
+                    Text(transaction.createdAt?.formatted(format: "dd-MM-yyyy") ?? "")
                         .foregroundColor(colorScheme == ColorScheme.dark ? Color.theme.neutral.n30 : Color.theme.neutral.n40)
                         .font(.system(size: 11, weight: .regular))
                 }
@@ -65,8 +65,48 @@ struct NavigationLinkTransactionItemView: View {
         }
     }
 
-    private func determineTransactionTypeIconColour(_ type: TransactionType) -> Color {
-        switch type {
+    private var transactionType: TransactionType {
+        let entry = transaction.entries.first { $0.account == account.id }
+
+        if let debit = entry?.debit, debit > 0 {
+            return .income
+        }
+
+        if let credit = entry?.credit, credit > 0 {
+            return .expense
+        }
+
+        return .transfer
+    }
+
+    private var transactionTypeIconColour: Color {
+        switch transactionType {
+        case .income:
+            return .theme.green.g60
+        case .expense:
+            return .theme.red.r60
+        case .transfer:
+            return .theme.yellow.y70
+        }
+    }
+
+    private var formattedAmount: String {
+        let entry = transaction.entries.first { $0.account == account.id }
+        let currency = ""
+
+        if let debit = entry?.debit, debit > 0 {
+            return CurrencyUtils.formatAsCurrency(value: Double(debit) / 100, currency: currency)
+        }
+
+        if let credit = entry?.credit, credit > 0 {
+            return CurrencyUtils.formatAsCurrency(value: Double(-credit) / 100, currency: currency)
+        }
+
+        return CurrencyUtils.formatAsCurrency(value: 0, currency: currency)
+    }
+
+    private var transactionAmountColour: Color {
+        switch transactionType {
         case .income:
             return .theme.green.g60
         case .expense:
@@ -82,11 +122,26 @@ struct NavigationLinkTransactionItemView_Previews: PreviewProvider {
         Group {
             LazyVStack(spacing: 8) {
                 NavigationLinkTransactionItemView(
+                    account: BudgetAccount(
+                        id: "account-id-1",
+                        name: "Account name",
+                        balance: Balance(
+                            currency: "NOK"
+                        )
+                    ),
                     transaction: Transaction(
                         id: "transaction-id-1",
-                        entries: [],
+                        entries: [
+                            Entry(
+                                id: "entry-id-1",
+                                account: "account-id-1",
+                                debit: 12345,
+                                credit: 0,
+                                currency: "NOK"
+                            )
+                        ],
                         status: .uncleared,
-                        description: "Transaction description",
+                        description: "Income transaction",
                         tags: [.income],
                         createdAt: Date(),
                         updatedAt: Date()
@@ -94,11 +149,26 @@ struct NavigationLinkTransactionItemView_Previews: PreviewProvider {
                 )
 
                 NavigationLinkTransactionItemView(
+                    account: BudgetAccount(
+                        id: "account-id-1",
+                        name: "Account name",
+                        balance: Balance(
+                            currency: "NOK"
+                        )
+                    ),
                     transaction: Transaction(
                         id: "transaction-id-2",
-                        entries: [],
+                        entries: [
+                            Entry(
+                                id: "entry-id-1",
+                                account: "account-id-1",
+                                debit: 0,
+                                credit: 12345,
+                                currency: "NOK"
+                            )
+                        ],
                         status: .uncleared,
-                        description: "Transaction description",
+                        description: "Expense transaction",
                         tags: [.expense],
                         createdAt: Date(),
                         updatedAt: Date()
@@ -106,11 +176,18 @@ struct NavigationLinkTransactionItemView_Previews: PreviewProvider {
                 )
 
                 NavigationLinkTransactionItemView(
+                    account: BudgetAccount(
+                        id: "account-id-1",
+                        name: "Account name",
+                        balance: Balance(
+                            currency: "NOK"
+                        )
+                    ),
                     transaction: Transaction(
                         id: "transaction-id-3",
                         entries: [],
                         status: .uncleared,
-                        description: "Transaction description",
+                        description: "Transfer transaction",
                         tags: [.transfer],
                         createdAt: Date(),
                         updatedAt: Date()
@@ -123,11 +200,26 @@ struct NavigationLinkTransactionItemView_Previews: PreviewProvider {
 
             LazyVStack(spacing: 8) {
                 NavigationLinkTransactionItemView(
+                    account: BudgetAccount(
+                        id: "account-id-1",
+                        name: "Account name",
+                        balance: Balance(
+                            currency: "NOK"
+                        )
+                    ),
                     transaction: Transaction(
                         id: "transaction-id-1",
-                        entries: [],
+                        entries: [
+                            Entry(
+                                id: "entry-id-1",
+                                account: "account-id-1",
+                                debit: 12345,
+                                credit: 0,
+                                currency: "NOK"
+                            )
+                        ],
                         status: .uncleared,
-                        description: "Transaction description",
+                        description: "Income transaction",
                         tags: [.income],
                         createdAt: Date(),
                         updatedAt: Date()
@@ -135,11 +227,26 @@ struct NavigationLinkTransactionItemView_Previews: PreviewProvider {
                 )
 
                 NavigationLinkTransactionItemView(
+                    account: BudgetAccount(
+                        id: "account-id-1",
+                        name: "Account name",
+                        balance: Balance(
+                            currency: "NOK"
+                        )
+                    ),
                     transaction: Transaction(
                         id: "transaction-id-2",
-                        entries: [],
+                        entries: [
+                            Entry(
+                                id: "entry-id-1",
+                                account: "account-id-1",
+                                debit: 0,
+                                credit: 12345,
+                                currency: "NOK"
+                            )
+                        ],
                         status: .uncleared,
-                        description: "Transaction description",
+                        description: "Expense transaction",
                         tags: [.expense],
                         createdAt: Date(),
                         updatedAt: Date()
@@ -147,11 +254,18 @@ struct NavigationLinkTransactionItemView_Previews: PreviewProvider {
                 )
 
                 NavigationLinkTransactionItemView(
+                    account: BudgetAccount(
+                        id: "account-id-1",
+                        name: "Account name",
+                        balance: Balance(
+                            currency: "NOK"
+                        )
+                    ),
                     transaction: Transaction(
                         id: "transaction-id-3",
                         entries: [],
                         status: .uncleared,
-                        description: "Transaction description",
+                        description: "Transfer transaction",
                         tags: [.transfer],
                         createdAt: Date(),
                         updatedAt: Date()
