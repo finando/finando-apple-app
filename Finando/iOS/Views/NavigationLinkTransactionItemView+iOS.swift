@@ -53,13 +53,6 @@ struct NavigationLinkTransactionItemView: View {
                         .foregroundColor(colorScheme == .dark ? .theme.neutral.n30 : .theme.neutral.n40)
                         .font(.system(size: 11, weight: .regular))
                 }
-
-                Image(systemName: "chevron.right")
-                    .resizable()
-                    .aspectRatio(0.4, contentMode: .fit)
-                    .foregroundColor(colorScheme == .dark ? .theme.neutral.n20 : .theme.neutral.n40)
-                    .frame(maxWidth: 6)
-                    .padding(.leading, 8)
             }
             .padding(EdgeInsets(top: 12, leading: 12, bottom: 12, trailing: 12))
         }
