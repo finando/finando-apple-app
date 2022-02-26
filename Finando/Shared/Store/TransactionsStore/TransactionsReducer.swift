@@ -32,6 +32,7 @@ let transactionsReducer = Reducer<
         return .none
     case .listLatestTransactionsRequested(accountId: let accountId, pagination: let pagination):
         state.latestTransactions = []
+        state.hasMoreTransactions = false
         state.isLoadingMoreTransactions = true
 
         return Effect
