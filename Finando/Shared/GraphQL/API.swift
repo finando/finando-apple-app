@@ -227,6 +227,35 @@ public enum Frequency: RawRepresentable, Equatable, Hashable, CaseIterable, Apol
   }
 }
 
+public struct PaginationInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  /// - Parameters:
+  ///   - cursor
+  ///   - take
+  public init(cursor: Swift.Optional<String?> = nil, take: Swift.Optional<Int?> = nil) {
+    graphQLMap = ["cursor": cursor, "take": take]
+  }
+
+  public var cursor: Swift.Optional<String?> {
+    get {
+      return graphQLMap["cursor"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "cursor")
+    }
+  }
+
+  public var take: Swift.Optional<Int?> {
+    get {
+      return graphQLMap["take"] as? Swift.Optional<Int?> ?? Swift.Optional<Int?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "take")
+    }
+  }
+}
+
 public enum TransactionStatus: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
   case cleared
@@ -321,6 +350,7 @@ public enum Tag: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSO
   case expenseInsuranceHomeownerInsurance
   case expenseInsuranceLife
   case expenseInsuranceRenterInsurance
+  case expenseInsuranceTravel
   case expenseMiscellaneous
   case expenseMiscellaneousBankFee
   case expenseMiscellaneousCreditCardFee
@@ -426,6 +456,7 @@ public enum Tag: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSO
       case "EXPENSE_INSURANCE_HOMEOWNER_INSURANCE": self = .expenseInsuranceHomeownerInsurance
       case "EXPENSE_INSURANCE_LIFE": self = .expenseInsuranceLife
       case "EXPENSE_INSURANCE_RENTER_INSURANCE": self = .expenseInsuranceRenterInsurance
+      case "EXPENSE_INSURANCE_TRAVEL": self = .expenseInsuranceTravel
       case "EXPENSE_MISCELLANEOUS": self = .expenseMiscellaneous
       case "EXPENSE_MISCELLANEOUS_BANK_FEE": self = .expenseMiscellaneousBankFee
       case "EXPENSE_MISCELLANEOUS_CREDIT_CARD_FEE": self = .expenseMiscellaneousCreditCardFee
@@ -532,6 +563,7 @@ public enum Tag: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSO
       case .expenseInsuranceHomeownerInsurance: return "EXPENSE_INSURANCE_HOMEOWNER_INSURANCE"
       case .expenseInsuranceLife: return "EXPENSE_INSURANCE_LIFE"
       case .expenseInsuranceRenterInsurance: return "EXPENSE_INSURANCE_RENTER_INSURANCE"
+      case .expenseInsuranceTravel: return "EXPENSE_INSURANCE_TRAVEL"
       case .expenseMiscellaneous: return "EXPENSE_MISCELLANEOUS"
       case .expenseMiscellaneousBankFee: return "EXPENSE_MISCELLANEOUS_BANK_FEE"
       case .expenseMiscellaneousCreditCardFee: return "EXPENSE_MISCELLANEOUS_CREDIT_CARD_FEE"
@@ -638,6 +670,7 @@ public enum Tag: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSO
       case (.expenseInsuranceHomeownerInsurance, .expenseInsuranceHomeownerInsurance): return true
       case (.expenseInsuranceLife, .expenseInsuranceLife): return true
       case (.expenseInsuranceRenterInsurance, .expenseInsuranceRenterInsurance): return true
+      case (.expenseInsuranceTravel, .expenseInsuranceTravel): return true
       case (.expenseMiscellaneous, .expenseMiscellaneous): return true
       case (.expenseMiscellaneousBankFee, .expenseMiscellaneousBankFee): return true
       case (.expenseMiscellaneousCreditCardFee, .expenseMiscellaneousCreditCardFee): return true
@@ -745,6 +778,7 @@ public enum Tag: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSO
       .expenseInsuranceHomeownerInsurance,
       .expenseInsuranceLife,
       .expenseInsuranceRenterInsurance,
+      .expenseInsuranceTravel,
       .expenseMiscellaneous,
       .expenseMiscellaneousBankFee,
       .expenseMiscellaneousCreditCardFee,
@@ -1491,6 +1525,176 @@ public final class ListAccountsQuery: GraphQLQuery {
           }
           set {
             resultMap += newValue.resultMap
+          }
+        }
+      }
+    }
+  }
+}
+
+public final class ListLatestTransactionsQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query ListLatestTransactions($accountId: ID, $paginationInput: PaginationInput) {
+      transactions: listLatestTransactions(
+        accountId: $accountId
+        paginationInput: $paginationInput
+      ) {
+        __typename
+        data {
+          __typename
+          ...ListLatestTransactions_TransactionFragment
+        }
+        has_more
+      }
+    }
+    """
+
+  public let operationName: String = "ListLatestTransactions"
+
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + ListLatestTransactionsTransactionFragment.fragmentDefinition)
+    return document
+  }
+
+  public var accountId: GraphQLID?
+  public var paginationInput: PaginationInput?
+
+  public init(accountId: GraphQLID? = nil, paginationInput: PaginationInput? = nil) {
+    self.accountId = accountId
+    self.paginationInput = paginationInput
+  }
+
+  public var variables: GraphQLMap? {
+    return ["accountId": accountId, "paginationInput": paginationInput]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Query"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("listLatestTransactions", alias: "transactions", arguments: ["accountId": GraphQLVariable("accountId"), "paginationInput": GraphQLVariable("paginationInput")], type: .nonNull(.object(Transaction.selections))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(transactions: Transaction) {
+      self.init(unsafeResultMap: ["__typename": "Query", "transactions": transactions.resultMap])
+    }
+
+    public var transactions: Transaction {
+      get {
+        return Transaction(unsafeResultMap: resultMap["transactions"]! as! ResultMap)
+      }
+      set {
+        resultMap.updateValue(newValue.resultMap, forKey: "transactions")
+      }
+    }
+
+    public struct Transaction: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["TransactionsPagedResult"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("data", type: .nonNull(.list(.nonNull(.object(Datum.selections))))),
+          GraphQLField("has_more", type: .nonNull(.scalar(Bool.self))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(data: [Datum], hasMore: Bool) {
+        self.init(unsafeResultMap: ["__typename": "TransactionsPagedResult", "data": data.map { (value: Datum) -> ResultMap in value.resultMap }, "has_more": hasMore])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var data: [Datum] {
+        get {
+          return (resultMap["data"] as! [ResultMap]).map { (value: ResultMap) -> Datum in Datum(unsafeResultMap: value) }
+        }
+        set {
+          resultMap.updateValue(newValue.map { (value: Datum) -> ResultMap in value.resultMap }, forKey: "data")
+        }
+      }
+
+      public var hasMore: Bool {
+        get {
+          return resultMap["has_more"]! as! Bool
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "has_more")
+        }
+      }
+
+      public struct Datum: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Transaction"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLFragmentSpread(ListLatestTransactionsTransactionFragment.self),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var fragments: Fragments {
+          get {
+            return Fragments(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var listLatestTransactionsTransactionFragment: ListLatestTransactionsTransactionFragment {
+            get {
+              return ListLatestTransactionsTransactionFragment(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
           }
         }
       }
@@ -3095,6 +3299,206 @@ public struct ListAccountsAccountFragment: GraphQLFragment {
             resultMap += newValue.resultMap
           }
         }
+      }
+    }
+  }
+}
+
+public struct ListLatestTransactionsTransactionFragment: GraphQLFragment {
+  /// The raw GraphQL definition of this fragment.
+  public static let fragmentDefinition: String =
+    """
+    fragment ListLatestTransactions_TransactionFragment on Transaction {
+      __typename
+      id
+      entries {
+        __typename
+        id
+        account
+        debit
+        credit
+        currency
+      }
+      status
+      description
+      tags
+      createdAt
+      updatedAt
+    }
+    """
+
+  public static let possibleTypes: [String] = ["Transaction"]
+
+  public static var selections: [GraphQLSelection] {
+    return [
+      GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+      GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+      GraphQLField("entries", type: .nonNull(.list(.nonNull(.object(Entry.selections))))),
+      GraphQLField("status", type: .nonNull(.scalar(TransactionStatus.self))),
+      GraphQLField("description", type: .scalar(String.self)),
+      GraphQLField("tags", type: .nonNull(.list(.nonNull(.scalar(Tag.self))))),
+      GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
+      GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
+    ]
+  }
+
+  public private(set) var resultMap: ResultMap
+
+  public init(unsafeResultMap: ResultMap) {
+    self.resultMap = unsafeResultMap
+  }
+
+  public init(id: GraphQLID, entries: [Entry], status: TransactionStatus, description: String? = nil, tags: [Tag], createdAt: String, updatedAt: String) {
+    self.init(unsafeResultMap: ["__typename": "Transaction", "id": id, "entries": entries.map { (value: Entry) -> ResultMap in value.resultMap }, "status": status, "description": description, "tags": tags, "createdAt": createdAt, "updatedAt": updatedAt])
+  }
+
+  public var __typename: String {
+    get {
+      return resultMap["__typename"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "__typename")
+    }
+  }
+
+  public var id: GraphQLID {
+    get {
+      return resultMap["id"]! as! GraphQLID
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "id")
+    }
+  }
+
+  public var entries: [Entry] {
+    get {
+      return (resultMap["entries"] as! [ResultMap]).map { (value: ResultMap) -> Entry in Entry(unsafeResultMap: value) }
+    }
+    set {
+      resultMap.updateValue(newValue.map { (value: Entry) -> ResultMap in value.resultMap }, forKey: "entries")
+    }
+  }
+
+  public var status: TransactionStatus {
+    get {
+      return resultMap["status"]! as! TransactionStatus
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "status")
+    }
+  }
+
+  public var description: String? {
+    get {
+      return resultMap["description"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "description")
+    }
+  }
+
+  public var tags: [Tag] {
+    get {
+      return resultMap["tags"]! as! [Tag]
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "tags")
+    }
+  }
+
+  public var createdAt: String {
+    get {
+      return resultMap["createdAt"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "createdAt")
+    }
+  }
+
+  public var updatedAt: String {
+    get {
+      return resultMap["updatedAt"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "updatedAt")
+    }
+  }
+
+  public struct Entry: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Entry"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+        GraphQLField("account", type: .nonNull(.scalar(GraphQLID.self))),
+        GraphQLField("debit", type: .nonNull(.scalar(String.self))),
+        GraphQLField("credit", type: .nonNull(.scalar(String.self))),
+        GraphQLField("currency", type: .nonNull(.scalar(String.self))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(id: GraphQLID, account: GraphQLID, debit: String, credit: String, currency: String) {
+      self.init(unsafeResultMap: ["__typename": "Entry", "id": id, "account": account, "debit": debit, "credit": credit, "currency": currency])
+    }
+
+    public var __typename: String {
+      get {
+        return resultMap["__typename"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "__typename")
+      }
+    }
+
+    public var id: GraphQLID {
+      get {
+        return resultMap["id"]! as! GraphQLID
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "id")
+      }
+    }
+
+    public var account: GraphQLID {
+      get {
+        return resultMap["account"]! as! GraphQLID
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "account")
+      }
+    }
+
+    public var debit: String {
+      get {
+        return resultMap["debit"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "debit")
+      }
+    }
+
+    public var credit: String {
+      get {
+        return resultMap["credit"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "credit")
+      }
+    }
+
+    public var currency: String {
+      get {
+        return resultMap["currency"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "currency")
       }
     }
   }

@@ -1,0 +1,30 @@
+fragment ListLatestTransactions_TransactionFragment on Transaction {
+  id
+  entries {
+    id
+    account
+    debit
+    credit
+    currency
+  }
+  status
+  description
+  tags
+  createdAt
+  updatedAt
+}
+
+query ListLatestTransactions(
+  $accountId: ID
+  $paginationInput: PaginationInput
+) {
+  transactions: listLatestTransactions(
+    accountId: $accountId
+    paginationInput: $paginationInput
+  ) {
+    data {
+      ...ListLatestTransactions_TransactionFragment
+    }
+    has_more
+  }
+}
