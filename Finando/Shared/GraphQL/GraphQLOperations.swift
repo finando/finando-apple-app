@@ -6,7 +6,7 @@ enum GraphQLOperations {
             ListAccountsQuery(balanceToDate: Date().toISO8601Format())
         }
 
-        static func getAccount(id: String) -> GetAccountQuery {
+        static func getAccount(id: Account.ID) -> GetAccountQuery {
             GetAccountQuery(
                 id: id,
                 balanceToDate: Date().toISO8601Format(),
@@ -16,7 +16,7 @@ enum GraphQLOperations {
             )
         }
 
-        static func listTransactions(accountId: String) -> ListTransactionsQuery {
+        static func listTransactions(accountId: Account.ID) -> ListTransactionsQuery {
             ListTransactionsQuery(accountId: accountId)
         }
 
@@ -40,11 +40,11 @@ enum GraphQLOperations {
             )
         }
 
-        static func deleteBudgetAccount(id: String) -> DeleteBudgetAccountMutation {
+        static func deleteBudgetAccount(id: Account.ID) -> DeleteBudgetAccountMutation {
             DeleteBudgetAccountMutation(id: id)
         }
 
-        static func deleteTrackingAccount(id: String) -> DeleteTrackingAccountMutation {
+        static func deleteTrackingAccount(id: Account.ID) -> DeleteTrackingAccountMutation {
             DeleteTrackingAccountMutation(id: id)
         }
     }
