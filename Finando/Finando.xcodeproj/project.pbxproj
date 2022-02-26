@@ -113,6 +113,8 @@
 		A59350DC2773CE3E00657D20 /* CurrencyUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59350DA2773CE3E00657D20 /* CurrencyUtils.swift */; };
 		A593602527B1BF420047093A /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A593602427B1BF420047093A /* TransactionType.swift */; };
 		A593602627B1BF420047093A /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A593602427B1BF420047093A /* TransactionType.swift */; };
+		A59A8F5C27CA41D3000AA3D4 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59A8F5B27CA41D3000AA3D4 /* Pagination.swift */; };
+		A59A8F5D27CA41D3000AA3D4 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59A8F5B27CA41D3000AA3D4 /* Pagination.swift */; };
 		A59A8F5F27CA57AF000AA3D4 /* ListLatestTransactions.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A59A8F5E27CA57AF000AA3D4 /* ListLatestTransactions.graphql */; };
 		A59A8F6027CA57AF000AA3D4 /* ListLatestTransactions.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A59A8F5E27CA57AF000AA3D4 /* ListLatestTransactions.graphql */; };
 		A5BB3E28277E0E14005F2A1E /* NewTransactionModalView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB3E27277E0E14005F2A1E /* NewTransactionModalView+iOS.swift */; };
@@ -262,6 +264,7 @@
 		A59350D72773BF0D00657D20 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		A59350DA2773CE3E00657D20 /* CurrencyUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyUtils.swift; sourceTree = "<group>"; };
 		A593602427B1BF420047093A /* TransactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
+		A59A8F5B27CA41D3000AA3D4 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		A59A8F5E27CA57AF000AA3D4 /* ListLatestTransactions.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = ListLatestTransactions.graphql; sourceTree = "<group>"; };
 		A5BB3E27277E0E14005F2A1E /* NewTransactionModalView+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewTransactionModalView+iOS.swift"; sourceTree = "<group>"; };
 		A5BB3E2C277E64B8005F2A1E /* Finando--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Finando--iOS--Info.plist"; sourceTree = "<group>"; };
@@ -435,12 +438,13 @@
 				A57DB52E272F5CEF0055827F /* ApplicationRoute.swift */,
 				A57DB515272D7A9C0055827F /* Balance.swift */,
 				A57DB502272C8D0E0055827F /* BudgetAccount.swift */,
+				BAB53E4727C5451A00DC820E /* Entry.swift */,
+				A59A8F5B27CA41D3000AA3D4 /* Pagination.swift */,
 				BAB53E4427C5434100DC820E /* ScheduledTransaction.swift */,
 				A57DB508272C9F1F0055827F /* TrackingAccount.swift */,
 				BAB53E4127C5430800DC820E /* Transaction.swift */,
 				A593602427B1BF420047093A /* TransactionType.swift */,
 				A57DB53A2732196C0055827F /* User.swift */,
-				BAB53E4727C5451A00DC820E /* Entry.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -916,6 +920,7 @@
 				BAB53E5227C5549600DC820E /* TransactionsAction.swift in Sources */,
 				A58026E72778A3C7000373DE /* RootReducer.swift in Sources */,
 				A58026EC2778A5B4000373DE /* AccountState.swift in Sources */,
+				A59A8F5C27CA41D3000AA3D4 /* Pagination.swift in Sources */,
 				A593602527B1BF420047093A /* TransactionType.swift in Sources */,
 				A5802732277CB1B2000373DE /* OverviewView+iOS.swift in Sources */,
 				BAB53E4C27C5539000DC820E /* TransactionsState.swift in Sources */,
@@ -935,6 +940,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A59A8F5D27CA41D3000AA3D4 /* Pagination.swift in Sources */,
 				A57DB50A272C9F1F0055827F /* TrackingAccount.swift in Sources */,
 				A57DB524272DC54F0055827F /* DateUtils.swift in Sources */,
 				BAB53E5927C7E0CA00DC820E /* NavigationLinkTransactionItemView+iOS.swift in Sources */,
