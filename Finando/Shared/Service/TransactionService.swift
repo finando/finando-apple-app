@@ -1,6 +1,6 @@
 import Apollo
 
-final class TransactionService {
+final class TransactionService: TransactionServiceProtocol {
     private let apolloClient: ApolloClient
 
     init(apolloClient: ApolloClient) {

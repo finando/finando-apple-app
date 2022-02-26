@@ -2,5 +2,5 @@ import CombineSchedulers
 
 struct AccountEnvironment {
     var mainQueue: AnySchedulerOf<DispatchQueue>
-    var accountService: AccountService
+    var accountService: AccountServiceProtocol
 }

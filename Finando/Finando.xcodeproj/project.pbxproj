@@ -18,6 +18,8 @@
 		A52C270527258A7200C35AB7 /* AccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52C26DB27258A7100C35AB7 /* AccountsView.swift */; };
 		A52C270627258A7200C35AB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A52C26DC27258A7200C35AB7 /* Assets.xcassets */; };
 		A52C270727258A7200C35AB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A52C26DC27258A7200C35AB7 /* Assets.xcassets */; };
+		A5753B0827CABBB600087C35 /* TransactionServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5753B0727CABBB600087C35 /* TransactionServiceProtocol.swift */; };
+		A5753B0D27CABF0900087C35 /* AccountServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5753B0C27CABF0900087C35 /* AccountServiceProtocol.swift */; };
 		A57DB503272C8D0E0055827F /* BudgetAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB502272C8D0E0055827F /* BudgetAccount.swift */; };
 		A57DB504272C8D0E0055827F /* BudgetAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB502272C8D0E0055827F /* BudgetAccount.swift */; };
 		A57DB509272C9F1F0055827F /* TrackingAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB508272C9F1F0055827F /* TrackingAccount.swift */; };
@@ -211,6 +213,8 @@
 		A52C26FA27258A7200C35AB7 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A52C26FE27258A7200C35AB7 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		A52C270027258A7200C35AB7 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		A5753B0727CABBB600087C35 /* TransactionServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionServiceProtocol.swift; sourceTree = "<group>"; };
+		A5753B0C27CABF0900087C35 /* AccountServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountServiceProtocol.swift; sourceTree = "<group>"; };
 		A57DB502272C8D0E0055827F /* BudgetAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetAccount.swift; sourceTree = "<group>"; };
 		A57DB508272C9F1F0055827F /* TrackingAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingAccount.swift; sourceTree = "<group>"; };
 		A57DB50F272CA3080055827F /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -449,6 +453,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		A5753B0427CABB6400087C35 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A5753B0C27CABF0900087C35 /* AccountServiceProtocol.swift */,
+				A5753B0727CABBB600087C35 /* TransactionServiceProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		A57DB521272DC53D0055827F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -508,6 +521,7 @@
 			children = (
 				A58027052778BE56000373DE /* AccountService.swift */,
 				BAB53E3B27C53EC600DC820E /* TransactionService.swift */,
+				A5753B0427CABB6400087C35 /* Protocols */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -894,6 +908,7 @@
 				A58FD08B27C0F8AD00D67D2F /* Protocols.swift in Sources */,
 				A5802726277C9BD8000373DE /* RootScene+iOS.swift in Sources */,
 				A59350D82773BF0D00657D20 /* API.swift in Sources */,
+				A5753B0827CABBB600087C35 /* TransactionServiceProtocol.swift in Sources */,
 				A58FD09527C23BA900D67D2F /* TextInputFieldView+iOS.swift in Sources */,
 				A58026FC2778AF06000373DE /* AccountsAction.swift in Sources */,
 				A5BB3E28277E0E14005F2A1E /* NewTransactionModalView+iOS.swift in Sources */,
@@ -911,6 +926,7 @@
 				A57DB516272D7A9C0055827F /* Balance.swift in Sources */,
 				A5935089276F9C1F00657D20 /* ArrayUtils.swift in Sources */,
 				A58026E12778A2DF000373DE /* RootAction.swift in Sources */,
+				A5753B0D27CABF0900087C35 /* AccountServiceProtocol.swift in Sources */,
 				A5802729277CA095000373DE /* RootView+iOS.swift in Sources */,
 				A58026F92778AED6000373DE /* AccountsState.swift in Sources */,
 				A58FD09727C2491900D67D2F /* NewIncomeTransactionFormView+iOS.swift in Sources */,
