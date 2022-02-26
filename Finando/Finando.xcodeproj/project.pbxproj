@@ -19,7 +19,9 @@
 		A52C270627258A7200C35AB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A52C26DC27258A7200C35AB7 /* Assets.xcassets */; };
 		A52C270727258A7200C35AB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A52C26DC27258A7200C35AB7 /* Assets.xcassets */; };
 		A5753B0827CABBB600087C35 /* TransactionServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5753B0727CABBB600087C35 /* TransactionServiceProtocol.swift */; };
+		A5753B0A27CABC6200087C35 /* TransactionServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5753B0927CABC6200087C35 /* TransactionServiceMock.swift */; };
 		A5753B0D27CABF0900087C35 /* AccountServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5753B0C27CABF0900087C35 /* AccountServiceProtocol.swift */; };
+		A5753B0F27CABF9200087C35 /* AccountServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5753B0E27CABF9100087C35 /* AccountServiceMock.swift */; };
 		A57DB503272C8D0E0055827F /* BudgetAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB502272C8D0E0055827F /* BudgetAccount.swift */; };
 		A57DB504272C8D0E0055827F /* BudgetAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB502272C8D0E0055827F /* BudgetAccount.swift */; };
 		A57DB509272C9F1F0055827F /* TrackingAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DB508272C9F1F0055827F /* TrackingAccount.swift */; };
@@ -214,7 +216,9 @@
 		A52C26FE27258A7200C35AB7 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		A52C270027258A7200C35AB7 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
 		A5753B0727CABBB600087C35 /* TransactionServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionServiceProtocol.swift; sourceTree = "<group>"; };
+		A5753B0927CABC6200087C35 /* TransactionServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionServiceMock.swift; sourceTree = "<group>"; };
 		A5753B0C27CABF0900087C35 /* AccountServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountServiceProtocol.swift; sourceTree = "<group>"; };
+		A5753B0E27CABF9100087C35 /* AccountServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountServiceMock.swift; sourceTree = "<group>"; };
 		A57DB502272C8D0E0055827F /* BudgetAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetAccount.swift; sourceTree = "<group>"; };
 		A57DB508272C9F1F0055827F /* TrackingAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingAccount.swift; sourceTree = "<group>"; };
 		A57DB50F272CA3080055827F /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -462,6 +466,15 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		A5753B0527CABB7700087C35 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				A5753B0E27CABF9100087C35 /* AccountServiceMock.swift */,
+				A5753B0927CABC6200087C35 /* TransactionServiceMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		A57DB521272DC53D0055827F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -521,6 +534,7 @@
 			children = (
 				A58027052778BE56000373DE /* AccountService.swift */,
 				BAB53E3B27C53EC600DC820E /* TransactionService.swift */,
+				A5753B0527CABB7700087C35 /* Mocks */,
 				A5753B0427CABB6400087C35 /* Protocols */,
 			);
 			path = Service;
@@ -893,6 +907,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAB53E4227C5430800DC820E /* Transaction.swift in Sources */,
+				A5753B0F27CABF9200087C35 /* AccountServiceMock.swift in Sources */,
 				A57DB509272C9F1F0055827F /* TrackingAccount.swift in Sources */,
 				A58FD09927C2493F00D67D2F /* NewTransferTransactionFormView+iOS.swift in Sources */,
 				A57DB523272DC54F0055827F /* DateUtils.swift in Sources */,
@@ -900,6 +915,7 @@
 				A58FD09327C138E100D67D2F /* CurrencyInputFieldView+iOS.swift in Sources */,
 				A5C8FAEF277DE4D900393167 /* NavigationLinkAccountItemView+iOS.swift in Sources */,
 				BAB53E4827C5451A00DC820E /* Entry.swift in Sources */,
+				A5753B0A27CABC6200087C35 /* TransactionServiceMock.swift in Sources */,
 				A57DB503272C8D0E0055827F /* BudgetAccount.swift in Sources */,
 				A58026E42778A346000373DE /* RootEnvironment.swift in Sources */,
 				A52C270227258A7200C35AB7 /* FinandoApp.swift in Sources */,
