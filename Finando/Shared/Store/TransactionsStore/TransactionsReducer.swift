@@ -30,6 +30,31 @@ let transactionsReducer = Reducer<
         state.isLoadingTransactions = false
 
         return .none
+    case .listLatestTransactionsRequested(accountId: let accountId, pagination: let pagination):
+        state.latestTransactions = []
+        state.isLoadingMoreTransactions = true
+
+        return Effect
+            .task { await environment.transactionsService.listLatestTransactions(accountId: accountId, pagination: pagination) }
+            .map { (transactions, hasMore) in
+                if !transactions.isEmpty {
+                    return .listLatestTransactionsSucceeded(transactions: transactions, hasMore: hasMore)
+                }
+
+                return .listLatestTransactionsFailed
+            }
+            .receive(on: environment.mainQueue)
+            .eraseToEffect()
+    case .listLatestTransactionsSucceeded(transactions: let transactions, hasMore: let hasMore):
+        state.latestTransactions = IdentifiedArray.init(uniqueElements: transactions, id: \.id)
+        state.hasMoreTransactions = hasMore
+        state.isLoadingMoreTransactions = false
+
+        return .none
+    case .listLatestTransactionsFailed:
+        state.isLoadingMoreTransactions = false
+
+        return .none
     case .listScheduledTransactionsRequested(accountId: let accountId):
         state.scheduledTransactions = []
         state.isLoadingScheduledTransactions = true

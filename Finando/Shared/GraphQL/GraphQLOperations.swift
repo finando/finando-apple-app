@@ -20,6 +20,13 @@ enum GraphQLOperations {
             ListTransactionsQuery(accountId: accountId)
         }
 
+        static func listLatestTransactions(accountId: Account.ID, paginationInput: PaginationInput) -> ListLatestTransactionsQuery {
+            ListLatestTransactionsQuery(
+                accountId: accountId,
+                paginationInput: paginationInput
+            )
+        }
+
         static func listScheduledTransactions(accountId: String) -> ListScheduledTransactionsQuery {
             ListScheduledTransactionsQuery(accountId: accountId)
         }

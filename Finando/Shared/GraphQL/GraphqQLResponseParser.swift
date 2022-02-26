@@ -114,6 +114,16 @@ enum GraphQLResponseParser {
                 createdAt: parseDate(date: fragment.createdAt),
                 updatedAt: parseDate(date: fragment.updatedAt)
             )
+        case let fragment as ListLatestTransactionsTransactionFragment:
+            return Transaction(
+                id: fragment.id,
+                entries: fragment.entries.map(parseEntry(fragment:)),
+                status: fragment.status,
+                description: fragment.description ?? "",
+                tags: fragment.tags,
+                createdAt: parseDate(date: fragment.createdAt),
+                updatedAt: parseDate(date: fragment.updatedAt)
+            )
         default:
             return nil
         }
