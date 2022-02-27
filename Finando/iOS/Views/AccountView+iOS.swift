@@ -69,16 +69,82 @@ struct AccountView: View {
 }
 
 struct AccountView_Previews: PreviewProvider {
+    static var account: Account = BudgetAccount(
+        id: "account-id-1",
+        name: "Account name",
+        balance: Balance(
+            currency: "NOK"
+        )
+    )
+    static var transactions: [Transaction] {
+        get {
+            let transactionTypes: [TransactionType] = [.income, .expense, .transfer]
+
+            return (0...15).map { id in
+                let transactionType = transactionTypes.randomElement()!
+
+                switch transactionType {
+                case .income:
+                    return Transaction(
+                        id: "transaction-id-\(id)",
+                        entries: [
+                            Entry(
+                                id: "entry-id-1",
+                                account: account.id,
+                                debit: 12345,
+                                credit: 0,
+                                currency: "NOK"
+                            )
+                        ],
+                        status: .uncleared,
+                        description: "Income transaction description",
+                        tags: [.income],
+                        createdAt: Date(),
+                        updatedAt: Date()
+                    )
+                case .expense:
+                    return Transaction(
+                        id: "transaction-id-\(id)",
+                        entries: [
+                            Entry(
+                                id: "entry-id-1",
+                                account: account.id,
+                                debit: 0,
+                                credit: 12345,
+                                currency: "NOK"
+                            )
+                        ],
+                        status: .uncleared,
+                        description: "Expense transaction description",
+                        tags: [.expense],
+                        createdAt: Date(),
+                        updatedAt: Date()
+                    )
+                case .transfer:
+                    return Transaction(
+                        id: "transaction-id-\(id)",
+                        entries: [],
+                        status: .uncleared,
+                        description: "Transfer transaction description",
+                        tags: [.transfer],
+                        createdAt: Date(),
+                        updatedAt: Date()
+                    )
+                }
+            }
+        }
+    }
+
     static var previews: some View {
-        NavigationView {
-            LazyVStack {
+        Group {
+            NavigationView {
                 AccountView(
                     accountsStore: Store(
                         initialState: AccountsState(),
                         reducer: accountsReducer,
                         environment: AccountsEnvironment(
                             mainQueue: .main,
-                            accountService: AccountService(apolloClient: Network.shared.apollo)
+                            accountService: AccountServiceMock()
                         )
                     ),
                     transactionsStore: Store(
@@ -86,19 +152,44 @@ struct AccountView_Previews: PreviewProvider {
                         reducer: transactionsReducer,
                         environment: TransactionsEnvironment(
                             mainQueue: .main,
-                            transactionsService: TransactionService(apolloClient: Network.shared.apollo)
+                            transactionsService: TransactionServiceMock(
+                                transactions: transactions
+                            )
                         )
                     ),
-                    account: BudgetAccount(
-                        id: "account-id",
-                        name: "Account name",
-                        balance: Balance(
-                            currency: "NOK"
-                        )
-                    )
+                    account: account
                 )
+                    .navigationBarHidden(false)
             }
-            .navigationBarHidden(false)
+            .preferredColorScheme(.light)
+            .previewDisplayName("Light mode")
+
+            NavigationView {
+                AccountView(
+                    accountsStore: Store(
+                        initialState: AccountsState(),
+                        reducer: accountsReducer,
+                        environment: AccountsEnvironment(
+                            mainQueue: .main,
+                            accountService: AccountServiceMock()
+                        )
+                    ),
+                    transactionsStore: Store(
+                        initialState: TransactionsState(),
+                        reducer: transactionsReducer,
+                        environment: TransactionsEnvironment(
+                            mainQueue: .main,
+                            transactionsService: TransactionServiceMock(
+                                transactions: transactions
+                            )
+                        )
+                    ),
+                    account: account
+                )
+                    .navigationBarHidden(false)
+            }
+            .preferredColorScheme(.dark)
+            .previewDisplayName("Dark mode")
         }
     }
 }
