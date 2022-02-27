@@ -33,7 +33,7 @@ let transactionsReducer = Reducer<
     case .listLatestTransactionsRequested(accountId: let accountId, pagination: let pagination):
         state.latestTransactions = []
         state.hasMoreTransactions = false
-        state.isLoadingMoreTransactions = true
+        state.isLoadingLatestTransactions = true
 
         return Effect
             .task { await environment.transactionsService.listLatestTransactions(accountId: accountId, pagination: pagination) }
@@ -49,11 +49,43 @@ let transactionsReducer = Reducer<
     case .listLatestTransactionsSucceeded(transactions: let transactions, hasMore: let hasMore):
         state.latestTransactions = IdentifiedArray.init(uniqueElements: transactions, id: \.id)
         state.hasMoreTransactions = hasMore
-        state.isLoadingMoreTransactions = false
+        state.isLoadingLatestTransactions = false
 
         return .none
     case .listLatestTransactionsFailed:
-        state.isLoadingMoreTransactions = false
+        state.isLoadingLatestTransactions = false
+
+        return .none
+    case .loadMoreLatestTransactionsRequested(accountId: let accountId, pagination: let pagination):
+        if state.isLoadingLatestTransactions || state.isLoadingMoreLatestTransactions || !state.hasMoreTransactions {
+            return .none
+        }
+
+        if let cursor = pagination.cursor, state.latestTransactions.map(\.id).dropLast(6).last != cursor {
+            return .none
+        }
+
+        state.isLoadingMoreLatestTransactions = true
+
+        return Effect
+            .task { await environment.transactionsService.listLatestTransactions(accountId: accountId, pagination: pagination) }
+            .map { (transactions, hasMore) in
+                if !transactions.isEmpty {
+                    return .loadMoreLatestTransactionsSucceeded(transactions: transactions, hasMore: hasMore)
+                }
+
+                return .loadMoreLatestTransactionsFailed
+            }
+            .receive(on: environment.mainQueue)
+            .eraseToEffect()
+    case .loadMoreLatestTransactionsSucceeded(transactions: let transactions, hasMore: let hasMore):
+        IdentifiedArray.init(uniqueElements: transactions, id: \.id).forEach { state.latestTransactions.append($0)}
+        state.hasMoreTransactions = hasMore
+        state.isLoadingMoreLatestTransactions = false
+
+        return .none
+    case .loadMoreLatestTransactionsFailed:
+        state.isLoadingMoreLatestTransactions = false
 
         return .none
     case .listScheduledTransactionsRequested(accountId: let accountId):

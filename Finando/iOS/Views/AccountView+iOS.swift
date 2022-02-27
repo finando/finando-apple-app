@@ -17,6 +17,9 @@ struct AccountView: View {
                         ForEach(transactionsViewStore.latestTransactions) { transaction in
                             NavigationLinkTransactionItemView(account: account, transaction: transaction)
                                 .padding(.horizontal, 16)
+                                .onAppear {
+                                    transactionsViewStore.send(.loadMoreLatestTransactionsRequested(accountId: account.id, pagination: Pagination(cursor: transaction.id, take: 18)))
+                                }
                         }
                     }
                     .padding(.vertical, 16)
@@ -59,7 +62,7 @@ struct AccountView: View {
                         NewTransactionModalView(store: accountsStore)
                     }
                     .onAppear {
-                        transactionsViewStore.send(.listLatestTransactionsRequested(accountId: account.id, pagination: Pagination(take: 15)))
+                        transactionsViewStore.send(.listLatestTransactionsRequested(accountId: account.id, pagination: Pagination(take: 18)))
                         transactionsViewStore.send(.listScheduledTransactionsRequested(accountId: account.id))
                     }
                 }
