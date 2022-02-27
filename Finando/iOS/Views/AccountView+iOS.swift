@@ -13,8 +13,8 @@ struct AccountView: View {
         WithViewStore(accountsStore) { accountsViewStore in
             WithViewStore(transactionsStore) { transactionsViewStore in
                 ScrollView {
-                    LazyVStack {
-                        ForEach(transactionsViewStore.transactions) { transaction in
+                    LazyVStack(alignment: .leading, spacing: 8) {
+                        ForEach(transactionsViewStore.latestTransactions) { transaction in
                             NavigationLinkTransactionItemView(account: account, transaction: transaction)
                                 .padding(.horizontal, 16)
                         }
@@ -59,7 +59,7 @@ struct AccountView: View {
                         NewTransactionModalView(store: accountsStore)
                     }
                     .onAppear {
-                        transactionsViewStore.send(.listTransactionsRequested(accountId: account.id))
+                        transactionsViewStore.send(.listLatestTransactionsRequested(accountId: account.id, pagination: Pagination(take: 15)))
                         transactionsViewStore.send(.listScheduledTransactionsRequested(accountId: account.id))
                     }
                 }
