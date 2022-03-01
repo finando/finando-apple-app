@@ -8,6 +8,7 @@ struct AccountView: View {
 
     @State private var showNewTransactionSheet = false
     @State private var showDeleteAccountConfirmationDialog = false
+    @State private var expandedTransaction: Transaction.ID? = nil
 
     var body: some View {
         WithViewStore(accountsStore) { accountsViewStore in
@@ -15,8 +16,13 @@ struct AccountView: View {
                 ScrollView {
                     LazyVStack(alignment: .leading, spacing: 8) {
                         ForEach(transactionsViewStore.latestTransactions) { transaction in
-                            NavigationLinkTransactionItemView(account: account, transaction: transaction)
+                            NavigationLinkTransactionItemView(account: account, transaction: transaction, isExpanded: expandedTransaction == transaction.id)
                                 .padding(.horizontal, 16)
+                                .onTapGesture {
+                                    withAnimation(.default) {
+                                        expandedTransaction = expandedTransaction != transaction.id ? transaction.id : nil
+                                    }
+                                }
                                 .onAppear {
                                     transactionsViewStore.send(.loadMoreLatestTransactionsRequested(accountId: account.id, pagination: Pagination(cursor: transaction.id, take: 18)))
                                 }

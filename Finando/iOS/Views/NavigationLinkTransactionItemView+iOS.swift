@@ -3,6 +3,7 @@ import SwiftUI
 struct NavigationLinkTransactionItemView: View {
     let account: Account
     let transaction: Transaction
+    var isExpanded: Bool = false
 
     @Environment(\.colorScheme) private var colorScheme: ColorScheme
 
@@ -56,6 +57,7 @@ struct NavigationLinkTransactionItemView: View {
                 }
             }
             .padding(EdgeInsets(top: 12, leading: 12, bottom: 12, trailing: 12))
+            .frame(minHeight: isExpanded ? 300 : nil, alignment: .top)
         }
     }
 
@@ -114,162 +116,205 @@ struct NavigationLinkTransactionItemView: View {
 struct NavigationLinkTransactionItemView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            LazyVStack(spacing: 8) {
-                NavigationLinkTransactionItemView(
-                    account: BudgetAccount(
-                        id: "account-id-1",
-                        name: "Account name",
-                        balance: Balance(
-                            currency: "NOK"
-                        )
-                    ),
-                    transaction: Transaction(
-                        id: "transaction-id-1",
-                        entries: [
-                            Entry(
-                                id: "entry-id-1",
-                                account: "account-id-1",
-                                debit: 12345,
-                                credit: 0,
+            ScrollView {
+                LazyVStack(spacing: 8) {
+                    NavigationLinkTransactionItemView(
+                        account: BudgetAccount(
+                            id: "account-id-1",
+                            name: "Account name",
+                            balance: Balance(
                                 currency: "NOK"
                             )
-                        ],
-                        status: .uncleared,
-                        description: "Income transaction",
-                        tags: [.income],
-                        createdAt: Date(),
-                        updatedAt: Date()
-                    )
-                )
-
-                NavigationLinkTransactionItemView(
-                    account: BudgetAccount(
-                        id: "account-id-1",
-                        name: "Account name",
-                        balance: Balance(
-                            currency: "NOK"
+                        ),
+                        transaction: Transaction(
+                            id: "transaction-id-1",
+                            entries: [
+                                Entry(
+                                    id: "entry-id-1",
+                                    account: "account-id-1",
+                                    debit: 12345,
+                                    credit: 0,
+                                    currency: "NOK"
+                                )
+                            ],
+                            status: .uncleared,
+                            description: "Income transaction",
+                            tags: [.income],
+                            createdAt: Date(),
+                            updatedAt: Date()
                         )
-                    ),
-                    transaction: Transaction(
-                        id: "transaction-id-2",
-                        entries: [
-                            Entry(
-                                id: "entry-id-1",
-                                account: "account-id-1",
-                                debit: 0,
-                                credit: 12345,
+                    )
+
+                    NavigationLinkTransactionItemView(
+                        account: BudgetAccount(
+                            id: "account-id-1",
+                            name: "Account name",
+                            balance: Balance(
                                 currency: "NOK"
                             )
-                        ],
-                        status: .uncleared,
-                        description: "Expense transaction",
-                        tags: [.expense],
-                        createdAt: Date(),
-                        updatedAt: Date()
-                    )
-                )
-
-                NavigationLinkTransactionItemView(
-                    account: BudgetAccount(
-                        id: "account-id-1",
-                        name: "Account name",
-                        balance: Balance(
-                            currency: "NOK"
+                        ),
+                        transaction: Transaction(
+                            id: "transaction-id-2",
+                            entries: [
+                                Entry(
+                                    id: "entry-id-1",
+                                    account: "account-id-1",
+                                    debit: 0,
+                                    credit: 12345,
+                                    currency: "NOK"
+                                )
+                            ],
+                            status: .uncleared,
+                            description: "Expense transaction",
+                            tags: [.expense],
+                            createdAt: Date(),
+                            updatedAt: Date()
                         )
-                    ),
-                    transaction: Transaction(
-                        id: "transaction-id-3",
-                        entries: [],
-                        status: .uncleared,
-                        description: "Transfer transaction",
-                        tags: [.transfer],
-                        createdAt: Date(),
-                        updatedAt: Date()
                     )
-                )
+
+                    NavigationLinkTransactionItemView(
+                        account: BudgetAccount(
+                            id: "account-id-1",
+                            name: "Account name",
+                            balance: Balance(
+                                currency: "NOK"
+                            )
+                        ),
+                        transaction: Transaction(
+                            id: "transaction-id-3",
+                            entries: [],
+                            status: .uncleared,
+                            description: "Transfer transaction",
+                            tags: [.transfer],
+                            createdAt: Date(),
+                            updatedAt: Date()
+                        )
+                    )
+
+                    NavigationLinkTransactionItemView(
+                        account: BudgetAccount(
+                            id: "account-id-1",
+                            name: "Account name",
+                            balance: Balance(
+                                currency: "NOK"
+                            )
+                        ),
+                        transaction: Transaction(
+                            id: "transaction-id-4",
+                            entries: [],
+                            status: .uncleared,
+                            description: "Transfer transaction",
+                            tags: [.transfer],
+                            createdAt: Date(),
+                            updatedAt: Date()
+                        ),
+                        isExpanded: true
+                    )
+                }
             }
             .padding()
             .preferredColorScheme(.light)
             .previewDisplayName("Light mode")
 
-            LazyVStack(spacing: 8) {
-                NavigationLinkTransactionItemView(
-                    account: BudgetAccount(
-                        id: "account-id-1",
-                        name: "Account name",
-                        balance: Balance(
-                            currency: "NOK"
-                        )
-                    ),
-                    transaction: Transaction(
-                        id: "transaction-id-1",
-                        entries: [
-                            Entry(
-                                id: "entry-id-1",
-                                account: "account-id-1",
-                                debit: 12345,
-                                credit: 0,
+            ScrollView {
+                LazyVStack(spacing: 8) {
+                    NavigationLinkTransactionItemView(
+                        account: BudgetAccount(
+                            id: "account-id-1",
+                            name: "Account name",
+                            balance: Balance(
                                 currency: "NOK"
                             )
-                        ],
-                        status: .uncleared,
-                        description: "Income transaction",
-                        tags: [.income],
-                        createdAt: Date(),
-                        updatedAt: Date()
-                    )
-                )
-
-                NavigationLinkTransactionItemView(
-                    account: BudgetAccount(
-                        id: "account-id-1",
-                        name: "Account name",
-                        balance: Balance(
-                            currency: "NOK"
+                        ),
+                        transaction: Transaction(
+                            id: "transaction-id-1",
+                            entries: [
+                                Entry(
+                                    id: "entry-id-1",
+                                    account: "account-id-1",
+                                    debit: 12345,
+                                    credit: 0,
+                                    currency: "NOK"
+                                )
+                            ],
+                            status: .uncleared,
+                            description: "Income transaction",
+                            tags: [.income],
+                            createdAt: Date(),
+                            updatedAt: Date()
                         )
-                    ),
-                    transaction: Transaction(
-                        id: "transaction-id-2",
-                        entries: [
-                            Entry(
-                                id: "entry-id-1",
-                                account: "account-id-1",
-                                debit: 0,
-                                credit: 12345,
+                    )
+
+                    NavigationLinkTransactionItemView(
+                        account: BudgetAccount(
+                            id: "account-id-1",
+                            name: "Account name",
+                            balance: Balance(
                                 currency: "NOK"
                             )
-                        ],
-                        status: .uncleared,
-                        description: "Expense transaction",
-                        tags: [.expense],
-                        createdAt: Date(),
-                        updatedAt: Date()
-                    )
-                )
-
-                NavigationLinkTransactionItemView(
-                    account: BudgetAccount(
-                        id: "account-id-1",
-                        name: "Account name",
-                        balance: Balance(
-                            currency: "NOK"
+                        ),
+                        transaction: Transaction(
+                            id: "transaction-id-2",
+                            entries: [
+                                Entry(
+                                    id: "entry-id-1",
+                                    account: "account-id-1",
+                                    debit: 0,
+                                    credit: 12345,
+                                    currency: "NOK"
+                                )
+                            ],
+                            status: .uncleared,
+                            description: "Expense transaction",
+                            tags: [.expense],
+                            createdAt: Date(),
+                            updatedAt: Date()
                         )
-                    ),
-                    transaction: Transaction(
-                        id: "transaction-id-3",
-                        entries: [],
-                        status: .uncleared,
-                        description: "Transfer transaction",
-                        tags: [.transfer],
-                        createdAt: Date(),
-                        updatedAt: Date()
                     )
-                )
+
+                    NavigationLinkTransactionItemView(
+                        account: BudgetAccount(
+                            id: "account-id-1",
+                            name: "Account name",
+                            balance: Balance(
+                                currency: "NOK"
+                            )
+                        ),
+                        transaction: Transaction(
+                            id: "transaction-id-3",
+                            entries: [],
+                            status: .uncleared,
+                            description: "Transfer transaction",
+                            tags: [.transfer],
+                            createdAt: Date(),
+                            updatedAt: Date()
+                        )
+                    )
+
+                    NavigationLinkTransactionItemView(
+                        account: BudgetAccount(
+                            id: "account-id-1",
+                            name: "Account name",
+                            balance: Balance(
+                                currency: "NOK"
+                            )
+                        ),
+                        transaction: Transaction(
+                            id: "transaction-id-4",
+                            entries: [],
+                            status: .uncleared,
+                            description: "Transfer transaction",
+                            tags: [.transfer],
+                            createdAt: Date(),
+                            updatedAt: Date()
+                        ),
+                        isExpanded: true
+                    )
+                }
             }
             .padding()
             .preferredColorScheme(.dark)
             .previewDisplayName("Dark mode")
         }
-        .previewLayout(.sizeThatFits)
     }
 }
