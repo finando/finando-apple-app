@@ -75,24 +75,80 @@ struct AccountsView: View {
 }
 
 struct AccountsView_Previews: PreviewProvider {
+    static var accounts: [Account] {
+        get {
+            let accountTypes: [Account] = [BudgetAccount(id: "budget"), TrackingAccount(id: "tracking")]
+
+            return (0...15).compactMap { id in
+                let accountType = accountTypes.randomElement()!
+
+                switch accountType {
+                case is BudgetAccount:
+                    return BudgetAccount(
+                        id: "account-id-\(id)",
+                        name: "Budget account \(id)",
+                        balance: Balance(
+                            currency: "NOK"
+                        )
+                    )
+                case is TrackingAccount:
+                    return TrackingAccount(
+                        id: "account-id-\(id)",
+                        name: "Tracking account \(id)",
+                        balance: Balance(
+                            currency: "NOK"
+                        )
+                    )
+                default:
+                    return nil
+                }
+            }
+        }
+    }
+
     static var previews: some View {
-        AccountsView(
-            accountsStore: Store(
-                initialState: AccountsState(),
-                reducer: accountsReducer,
-                environment: AccountsEnvironment(
-                    mainQueue: .main,
-                    accountService: AccountService(apolloClient: Network.shared.apollo)
-                )
-            ),
-            transactionsStore: Store(
-                initialState: TransactionsState(),
-                reducer: transactionsReducer,
-                environment: TransactionsEnvironment(
-                    mainQueue: .main,
-                    transactionsService: TransactionService(apolloClient: Network.shared.apollo)
+        Group {
+            AccountsView(
+                accountsStore: Store(
+                    initialState: AccountsState(),
+                    reducer: accountsReducer,
+                    environment: AccountsEnvironment(
+                        mainQueue: .main,
+                        accountService: AccountServiceMock(accounts: accounts)
+                    )
+                ),
+                transactionsStore: Store(
+                    initialState: TransactionsState(),
+                    reducer: transactionsReducer,
+                    environment: TransactionsEnvironment(
+                        mainQueue: .main,
+                        transactionsService: TransactionServiceMock()
+                    )
                 )
             )
-        )
+                .preferredColorScheme(.light)
+                .previewDisplayName("Light mode")
+
+            AccountsView(
+                accountsStore: Store(
+                    initialState: AccountsState(),
+                    reducer: accountsReducer,
+                    environment: AccountsEnvironment(
+                        mainQueue: .main,
+                        accountService: AccountServiceMock(accounts: accounts)
+                    )
+                ),
+                transactionsStore: Store(
+                    initialState: TransactionsState(),
+                    reducer: transactionsReducer,
+                    environment: TransactionsEnvironment(
+                        mainQueue: .main,
+                        transactionsService: TransactionServiceMock()
+                    )
+                )
+            )
+                .preferredColorScheme(.dark)
+                .previewDisplayName("Dark mode")
+        }
     }
 }

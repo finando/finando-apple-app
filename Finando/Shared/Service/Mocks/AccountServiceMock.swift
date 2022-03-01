@@ -6,7 +6,7 @@ final class AccountServiceMock: AccountServiceProtocol {
     }
 
     func listAccounts() async -> [Account] {
-        return []
+        return accounts
     }
 
     func getAccount(id: String) async -> Account? {
