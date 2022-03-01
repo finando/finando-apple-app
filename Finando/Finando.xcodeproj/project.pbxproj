@@ -158,6 +158,8 @@
 		BAB53E5627C554C200DC820E /* TransactionsReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB53E5427C554C200DC820E /* TransactionsReducer.swift */; };
 		BAB53E5827C7E0CA00DC820E /* NavigationLinkTransactionItemView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB53E5727C7E0C900DC820E /* NavigationLinkTransactionItemView+iOS.swift */; };
 		BAB53E5927C7E0CA00DC820E /* NavigationLinkTransactionItemView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB53E5727C7E0C900DC820E /* NavigationLinkTransactionItemView+iOS.swift */; };
+		BAB53E5B27CE90D800DC820E /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB53E5A27CE90D800DC820E /* StringUtils.swift */; };
+		BAB53E5C27CE90D800DC820E /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB53E5A27CE90D800DC820E /* StringUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -296,6 +298,7 @@
 		BAB53E5127C5549600DC820E /* TransactionsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsAction.swift; sourceTree = "<group>"; };
 		BAB53E5427C554C200DC820E /* TransactionsReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsReducer.swift; sourceTree = "<group>"; };
 		BAB53E5727C7E0C900DC820E /* NavigationLinkTransactionItemView+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationLinkTransactionItemView+iOS.swift"; sourceTree = "<group>"; };
+		BAB53E5A27CE90D800DC820E /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -487,9 +490,10 @@
 		A57DB521272DC53D0055827F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				A57DB522272DC54F0055827F /* DateUtils.swift */,
 				A5935088276F9C1F00657D20 /* ArrayUtils.swift */,
 				A59350DA2773CE3E00657D20 /* CurrencyUtils.swift */,
+				A57DB522272DC54F0055827F /* DateUtils.swift */,
+				BAB53E5A27CE90D800DC820E /* StringUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -950,6 +954,7 @@
 				A57DB516272D7A9C0055827F /* Balance.swift in Sources */,
 				A5935089276F9C1F00657D20 /* ArrayUtils.swift in Sources */,
 				A58026E12778A2DF000373DE /* RootAction.swift in Sources */,
+				BAB53E5B27CE90D800DC820E /* StringUtils.swift in Sources */,
 				A5753B0D27CABF0900087C35 /* AccountServiceProtocol.swift in Sources */,
 				A5802729277CA095000373DE /* RootView+iOS.swift in Sources */,
 				A58026F92778AED6000373DE /* AccountsState.swift in Sources */,
@@ -1021,6 +1026,7 @@
 				A580272C277CA0B9000373DE /* RootView+macOS.swift in Sources */,
 				A58FD08F27C0F8D000D67D2F /* Extensions.swift in Sources */,
 				A58FD08C27C0F8AE00D67D2F /* Protocols.swift in Sources */,
+				BAB53E5C27CE90D800DC820E /* StringUtils.swift in Sources */,
 				BAB53E3D27C53EC600DC820E /* TransactionService.swift in Sources */,
 				A58026FA2778AED6000373DE /* AccountsState.swift in Sources */,
 				A57DB514272CB5650055827F /* AccountView.swift in Sources */,

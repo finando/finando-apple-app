@@ -33,6 +33,7 @@ struct NavigationLinkTransactionItemView: View {
 
                 VStack(alignment: .leading, spacing: 0) {
                     Text(transaction.description)
+                        .lineLimit(1)
                         .foregroundColor(colorScheme == .dark ? .theme.neutral.n0 : .theme.neutral.n60)
                         .font(.system(size: 12, weight: .bold))
 
