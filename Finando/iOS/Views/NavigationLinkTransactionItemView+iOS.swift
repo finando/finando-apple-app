@@ -25,36 +25,44 @@ struct NavigationLinkTransactionItemView: View {
                     y: 5
                 )
 
-            HStack(alignment: .center, spacing: 5) {
-                Image(systemName: transactionType.icon)
-                    .resizable()
-                    .aspectRatio(1, contentMode: .fit)
-                    .frame(maxWidth: 15)
-                    .foregroundColor(transactionTypeIconColour)
+            VStack(alignment: .leading, spacing: 0) {
+                HStack(alignment: .center, spacing: 5) {
+                    Image(systemName: transactionType.icon)
+                        .resizable()
+                        .aspectRatio(1, contentMode: .fit)
+                        .frame(maxWidth: 15)
+                        .foregroundColor(transactionTypeIconColour)
 
-                VStack(alignment: .leading, spacing: 0) {
-                    Text(transaction.description)
-                        .lineLimit(1)
-                        .foregroundColor(colorScheme == .dark ? .theme.neutral.n0 : .theme.neutral.n60)
-                        .font(.system(size: 12, weight: .bold))
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text(transaction.description)
+                            .lineLimit(1)
+                            .foregroundColor(colorScheme == .dark ? .theme.neutral.n0 : .theme.neutral.n60)
+                            .font(.system(size: 12, weight: .bold))
 
-                    Text(transactionType.translation)
-                        .foregroundColor(colorScheme == .dark ? .theme.neutral.n30 : .theme.neutral.n40)
-                        .font(.system(size: 11, weight: .regular))
+                        Text(transactionType.translation)
+                            .foregroundColor(colorScheme == .dark ? .theme.neutral.n30 : .theme.neutral.n40)
+                            .font(.system(size: 11, weight: .regular))
+                    }
+                    .padding(.horizontal, 5)
+
+                    Spacer()
+
+                    VStack(alignment: .trailing, spacing: 0) {
+                        Text(formattedAmount)
+                            .foregroundColor(transactionAmountColour)
+                            .font(.system(size: 11, weight: .bold))
+
+                        Text(transaction.createdAt?.formatted(format: "dd-MM-yyyy") ?? "")
+                            .foregroundColor(colorScheme == .dark ? .theme.neutral.n30 : .theme.neutral.n40)
+                            .font(.system(size: 11, weight: .regular))
+                    }
                 }
-                .padding(.horizontal, 5)
 
-                Spacer()
-
-                VStack(alignment: .trailing, spacing: 0) {
-                    Text(formattedAmount)
-                        .foregroundColor(transactionAmountColour)
-                        .font(.system(size: 11, weight: .bold))
-
-                    Text(transaction.createdAt?.formatted(format: "dd-MM-yyyy") ?? "")
-                        .foregroundColor(colorScheme == .dark ? .theme.neutral.n30 : .theme.neutral.n40)
-                        .font(.system(size: 11, weight: .regular))
+                ForEach(transaction.entries) { entry in
+                    Text("Entry: \(entry.id)")
                 }
+                .opacity(isExpanded ? 1 : 0)
+                .frame(maxHeight: isExpanded ? nil: 0)
             }
             .padding(EdgeInsets(top: 12, leading: 12, bottom: 12, trailing: 12))
             .frame(minHeight: isExpanded ? 300 : nil, alignment: .top)
@@ -201,7 +209,22 @@ struct NavigationLinkTransactionItemView_Previews: PreviewProvider {
                         ),
                         transaction: Transaction(
                             id: "transaction-id-4",
-                            entries: [],
+                            entries: [
+                                Entry(
+                                    id: "entry-id-1",
+                                    account: "account-id-1",
+                                    debit: 0,
+                                    credit: 12345,
+                                    currency: "NOK"
+                                ),
+                                Entry(
+                                    id: "entry-id-2",
+                                    account: "account-id-2",
+                                    debit: 12345,
+                                    credit: 0,
+                                    currency: "NOK"
+                                )
+                            ],
                             status: .uncleared,
                             description: "Transfer transaction",
                             tags: [.transfer],
@@ -301,7 +324,22 @@ struct NavigationLinkTransactionItemView_Previews: PreviewProvider {
                         ),
                         transaction: Transaction(
                             id: "transaction-id-4",
-                            entries: [],
+                            entries: [
+                                Entry(
+                                    id: "entry-id-1",
+                                    account: "account-id-1",
+                                    debit: 0,
+                                    credit: 12345,
+                                    currency: "NOK"
+                                ),
+                                Entry(
+                                    id: "entry-id-2",
+                                    account: "account-id-2",
+                                    debit: 12345,
+                                    credit: 0,
+                                    currency: "NOK"
+                                )
+                            ],
                             status: .uncleared,
                             description: "Transfer transaction",
                             tags: [.transfer],
