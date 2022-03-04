@@ -58,14 +58,19 @@ struct NavigationLinkTransactionItemView: View {
                     }
                 }
 
-                ForEach(transaction.entries) { entry in
-                    Text("Entry: \(entry.id)")
+                if isExpanded {
+                    VStack(spacing: 5) {
+                        ForEach(transaction.entries) { entry in
+                            Text(prettyPrintedEntry(entry: entry))
+                                .font(.system(size: 11, weight: .regular))
+                        }
+                    }
+                    .padding(.top, 12)
+//                    .frame(maxHeight: isExpanded ? nil: 0)
+//                    .opacity(isExpanded ? 1 : 0)
                 }
-                .opacity(isExpanded ? 1 : 0)
-                .frame(maxHeight: isExpanded ? nil: 0)
             }
             .padding(EdgeInsets(top: 12, leading: 12, bottom: 12, trailing: 12))
-            .frame(minHeight: isExpanded ? 300 : nil, alignment: .top)
         }
     }
 
@@ -118,6 +123,13 @@ struct NavigationLinkTransactionItemView: View {
         case .transfer:
             return .theme.yellow.y70
         }
+    }
+
+    private func prettyPrintedEntry(entry: Entry) -> String {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+
+        return String(data: try! encoder.encode(entry), encoding: .utf8) ?? ""
     }
 }
 

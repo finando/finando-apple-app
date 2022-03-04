@@ -1,4 +1,4 @@
-struct Entry: Identifiable, Equatable, Hashable {
+struct Entry: Identifiable, Equatable, Hashable, Codable {
     let id: String
     let account: String
     let debit: Int

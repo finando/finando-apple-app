@@ -1,4 +1,4 @@
-enum TransactionType: CaseIterable {
+enum TransactionType: CaseIterable, Codable {
     case income
     case expense
     case transfer

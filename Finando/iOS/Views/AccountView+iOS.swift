@@ -19,7 +19,7 @@ struct AccountView: View {
                             NavigationLinkTransactionItemView(account: account, transaction: transaction, isExpanded: expandedTransaction == transaction.id)
                                 .padding(.horizontal, 16)
                                 .onTapGesture {
-                                    withAnimation(.default) {
+                                    withAnimation(.easeInOut(duration: 10)) {
                                         expandedTransaction = expandedTransaction != transaction.id ? transaction.id : nil
                                     }
                                 }
