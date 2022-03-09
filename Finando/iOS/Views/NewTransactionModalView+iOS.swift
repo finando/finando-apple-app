@@ -60,23 +60,25 @@ struct NewTransactionModalView: View {
 }
 
 struct NewTransactionModalView_Previews: PreviewProvider {
+    static var accounts: IdentifiedArrayOf<Account> = [
+        BudgetAccount(id: "demo-account-id-1", name: "Demo account 1"),
+        BudgetAccount(id: "demo-account-id-2", name: "Demo account 2"),
+        BudgetAccount(id: "demo-account-id-3", name: "Demo account 3"),
+        BudgetAccount(id: "demo-account-id-4", name: "Demo account 4"),
+        BudgetAccount(id: "demo-account-id-5", name: "Demo account 5")
+    ]
+
     static var previews: some View {
         Group {
             NewTransactionModalView(
                 accountsStore: Store(
                     initialState: AccountsState(
-                        accounts: [
-                            BudgetAccount(id: "demo-account-id-1", name: "Demo account 1"),
-                            BudgetAccount(id: "demo-account-id-2", name: "Demo account 2"),
-                            BudgetAccount(id: "demo-account-id-3", name: "Demo account 3"),
-                            BudgetAccount(id: "demo-account-id-4", name: "Demo account 4"),
-                            BudgetAccount(id: "demo-account-id-5", name: "Demo account 5")
-                        ]
+                        accounts: accounts
                     ),
                     reducer: accountsReducer,
                     environment: AccountsEnvironment(
                         mainQueue: .main,
-                        accountService: AccountService(apolloClient: Network.shared.apollo)
+                        accountService: AccountServiceMock()
                     )
                 )
             )
@@ -86,18 +88,12 @@ struct NewTransactionModalView_Previews: PreviewProvider {
             NewTransactionModalView(
                 accountsStore: Store(
                     initialState: AccountsState(
-                        accounts: [
-                            BudgetAccount(id: "demo-account-id-1", name: "Demo account 1"),
-                            BudgetAccount(id: "demo-account-id-2", name: "Demo account 2"),
-                            BudgetAccount(id: "demo-account-id-3", name: "Demo account 3"),
-                            BudgetAccount(id: "demo-account-id-4", name: "Demo account 4"),
-                            BudgetAccount(id: "demo-account-id-5", name: "Demo account 5")
-                        ]
+                        accounts: accounts
                     ),
                     reducer: accountsReducer,
                     environment: AccountsEnvironment(
                         mainQueue: .main,
-                        accountService: AccountService(apolloClient: Network.shared.apollo)
+                        accountService: AccountServiceMock()
                     )
                 )
             )
