@@ -32,6 +32,10 @@ struct RootView: View {
                         accountsStore: store.scope(
                             state: \.accounts,
                             action: RootAction.accounts
+                        ),
+                        transactionsStore: store.scope(
+                            state: \.transactions,
+                            action: RootAction.transactions
                         )
                     )
                 }

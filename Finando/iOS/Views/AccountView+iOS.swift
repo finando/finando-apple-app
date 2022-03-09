@@ -65,7 +65,10 @@ struct AccountView: View {
                         }
                     }
                     .sheet(isPresented: $showNewTransactionSheet) {
-                        NewTransactionModalView(accountsStore: accountsStore)
+                        NewTransactionModalView(
+                            accountsStore: accountsStore,
+                            transactionsStore: transactionsStore
+                        )
                     }
                     .onAppear {
                         transactionsViewStore.send(.listLatestTransactionsRequested(accountId: account.id, pagination: Pagination(take: 18)))

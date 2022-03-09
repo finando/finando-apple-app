@@ -3,6 +3,7 @@ import ComposableArchitecture
 
 struct NewTransactionModalView: View {
     let accountsStore: Store<AccountsState, AccountsAction>
+    let transactionsStore: Store<TransactionsState, TransactionsAction>
 
     @Environment(\.dismiss) private var dismiss: DismissAction
 
@@ -10,50 +11,52 @@ struct NewTransactionModalView: View {
 
     var body: some View {
         WithViewStore(accountsStore) { accountsViewStore in
-            NavigationView {
-                VStack(spacing: 16) {
-                    Picker("Transaction type", selection: $transactionType) {
-                        ForEach(TransactionType.allCases, id: \.self) { transactionType in
-                            Text(transactionType.translation)
-                                .tag(transactionType)
+            WithViewStore(transactionsStore) { transactionsViewStore in
+                NavigationView {
+                    VStack(spacing: 16) {
+                        Picker("Transaction type", selection: $transactionType) {
+                            ForEach(TransactionType.allCases, id: \.self) { transactionType in
+                                Text(transactionType.translation)
+                                    .tag(transactionType)
+                            }
                         }
-                    }
-                    .pickerStyle(.segmented)
-                    .headerProminence(.increased)
-                    .padding(.horizontal, 16)
+                        .pickerStyle(.segmented)
+                        .headerProminence(.increased)
+                        .padding(.horizontal, 16)
 
-                    TabView(selection: $transactionType) {
-                        NewIncomeTransactionFormView()
-                            .tag(TransactionType.income)
+                        TabView(selection: $transactionType) {
+                            NewIncomeTransactionFormView()
+                                .tag(TransactionType.income)
 
-                        NewExpenseTransactionFormView(accounts: accountsViewStore.accounts)
-                            .tag(TransactionType.expense)
+                            NewExpenseTransactionFormView(accounts: accountsViewStore.accounts)
+                                .tag(TransactionType.expense)
 
-                        NewTransferTransactionFormView()
-                            .tag(TransactionType.transfer)
-                    }
-                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                            NewTransferTransactionFormView()
+                                .tag(TransactionType.transfer)
+                        }
+                        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
 
-                    Button {
-                        print("SUBMIT")
-                    } label: {
-                        Label("Create transaction", systemImage: "paperplane.fill")
-                    }
-                    .buttonStyle(.borderedProminent)
-                }
-                .padding(.vertical, 16)
-                .navigationTitle("New transaction")
-                .toolbar {
-                    ToolbarItem(placement: .primaryAction) {
                         Button {
                             dismiss()
                         } label: {
-                            Text("Cancel")
+                            Label("Create transaction", systemImage: "paperplane.fill")
                         }
-
+                        .buttonStyle(.borderedProminent)
                     }
-                }
+                    .padding(.vertical, 16)
+                    .navigationTitle("New transaction")
+                    .toolbar {
+                        ToolbarItem(placement: .primaryAction) {
+                            Button {
+                                dismiss()
+                            } label: {
+                                Text("Cancel")
+                            }
 
+                        }
+                    }
+
+                }
             }
         }
     }
@@ -80,6 +83,14 @@ struct NewTransactionModalView_Previews: PreviewProvider {
                         mainQueue: .main,
                         accountService: AccountServiceMock()
                     )
+                ),
+                transactionsStore: Store(
+                    initialState: TransactionsState(),
+                    reducer: transactionsReducer,
+                    environment: TransactionsEnvironment(
+                        mainQueue: .main,
+                        transactionsService: TransactionServiceMock()
+                    )
                 )
             )
                 .preferredColorScheme(.light)
@@ -94,6 +105,14 @@ struct NewTransactionModalView_Previews: PreviewProvider {
                     environment: AccountsEnvironment(
                         mainQueue: .main,
                         accountService: AccountServiceMock()
+                    )
+                ),
+                transactionsStore: Store(
+                    initialState: TransactionsState(),
+                    reducer: transactionsReducer,
+                    environment: TransactionsEnvironment(
+                        mainQueue: .main,
+                        transactionsService: TransactionServiceMock()
                     )
                 )
             )
