@@ -29,7 +29,10 @@ struct RootView: View {
             Spacer()
                 .sheet(isPresented: $showNewTransactionSheet) {
                     NewTransactionModalView(
-                        store: store.scope(state: \.accounts, action: RootAction.accounts)
+                        accountsStore: store.scope(
+                            state: \.accounts,
+                            action: RootAction.accounts
+                        )
                     )
                 }
                 .tabItem(3) { tabButton }

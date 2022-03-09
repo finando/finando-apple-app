@@ -2,14 +2,14 @@ import SwiftUI
 import ComposableArchitecture
 
 struct NewTransactionModalView: View {
-    let store: Store<AccountsState, AccountsAction>
+    let accountsStore: Store<AccountsState, AccountsAction>
 
     @Environment(\.dismiss) private var dismiss: DismissAction
 
     @State private var transactionType = TransactionType.expense
 
     var body: some View {
-        WithViewStore(store) { viewStore in
+        WithViewStore(accountsStore) { accountsViewStore in
             NavigationView {
                 VStack(spacing: 16) {
                     Picker("Transaction type", selection: $transactionType) {
@@ -26,7 +26,7 @@ struct NewTransactionModalView: View {
                         NewIncomeTransactionFormView()
                             .tag(TransactionType.income)
 
-                        NewExpenseTransactionFormView(accounts: viewStore.accounts)
+                        NewExpenseTransactionFormView(accounts: accountsViewStore.accounts)
                             .tag(TransactionType.expense)
 
                         NewTransferTransactionFormView()
@@ -63,7 +63,7 @@ struct NewTransactionModalView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             NewTransactionModalView(
-                store: Store(
+                accountsStore: Store(
                     initialState: AccountsState(
                         accounts: [
                             BudgetAccount(id: "demo-account-id-1", name: "Demo account 1"),
@@ -84,7 +84,7 @@ struct NewTransactionModalView_Previews: PreviewProvider {
                 .previewDisplayName("Light mode")
 
             NewTransactionModalView(
-                store: Store(
+                accountsStore: Store(
                     initialState: AccountsState(
                         accounts: [
                             BudgetAccount(id: "demo-account-id-1", name: "Demo account 1"),
