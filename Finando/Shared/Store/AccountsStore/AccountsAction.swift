@@ -1,4 +1,4 @@
-import Foundation
+import class Foundation.NSDictionary
 
 enum AccountsAction: Equatable {
     case listAccountsRequested
@@ -19,13 +19,14 @@ enum AccountsAction: Equatable {
 }
 
 extension CreateBudgetAccountInput: Equatable {
-    public static func == (lhs: CreateBudgetAccountInput, rhs: CreateBudgetAccountInput) -> Bool {
+    public static func == (lhs: Self, rhs: Self) -> Bool {
         NSDictionary(dictionary: lhs.graphQLMap as [AnyHashable : Any])
             .isEqual(to: rhs.graphQLMap as [AnyHashable : Any])
     }
 }
+
 extension CreateTrackingAccountInput: Equatable {
-    public static func == (lhs: CreateTrackingAccountInput, rhs: CreateTrackingAccountInput) -> Bool {
+    public static func == (lhs: Self, rhs: Self) -> Bool {
         NSDictionary(dictionary: lhs.graphQLMap as [AnyHashable : Any])
             .isEqual(to: rhs.graphQLMap as [AnyHashable : Any])
     }
