@@ -36,3 +36,20 @@ let rootReducer = Reducer<
         }
     )
 )
+
+extension Reducer {
+    func relaying<Value>(
+        _ path: CasePath<Action, Value>,
+        to embed: @escaping (Value) -> Action
+    ) -> Self {
+        combined(
+            with: Reducer { state, action, environment in
+                if let value = path.extract(from: action) {
+                    return Effect(value: embed(value))
+                } else {
+                    return .none
+                }
+            }
+        )
+    }
+}
