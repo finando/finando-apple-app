@@ -138,6 +138,11 @@ enum GraphQLResponseParser {
                 createdAt: parseDate(date: fragment.createdAt),
                 updatedAt: parseDate(date: fragment.updatedAt)
             )
+        case let fragment as DeleteTransactionTransactionFragment:
+            return Transaction(
+                id: fragment.id,
+                entries: fragment.entries.map(parseEntry(fragment:))
+            )
         default:
             return nil
         }

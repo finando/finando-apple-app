@@ -20,4 +20,8 @@ final class TransactionServiceMock: TransactionServiceProtocol {
     func createTransaction(data: CreateTransactionInput) async -> Transaction? {
         return nil
     }
+
+    func deleteTransaction(id: Transaction.ID) async -> Transaction? {
+        return nil
+    }
 }

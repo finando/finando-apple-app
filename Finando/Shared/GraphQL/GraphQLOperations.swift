@@ -58,5 +58,9 @@ enum GraphQLOperations {
         static func createTransaction(data: CreateTransactionInput) -> CreateTransactionMutation {
             CreateTransactionMutation(data: data)
         }
+
+        static func deleteTransaction(id: Transaction.ID) -> DeleteTransactionMutation {
+            DeleteTransactionMutation(id: id)
+        }
     }
 }

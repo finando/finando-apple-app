@@ -91,4 +91,23 @@ final class TransactionService: TransactionServiceProtocol {
 
         return nil
     }
+
+    func deleteTransaction(id: Transaction.ID) async -> Transaction? {
+        typealias Continuation = CheckedContinuation<GraphQLResult<DeleteTransactionMutation.Data>, Error>
+
+        do {
+            let result = try await withCheckedThrowingContinuation { (continuation: Continuation) in
+                apolloClient.perform(
+                    mutation: GraphQLOperations.Mutation.deleteTransaction(id: id),
+                    resultHandler: continuation.resume(with:)
+                )
+            }
+
+            return GraphQLResponseParser.parse(data: result.data?.transaction?.fragments.deleteTransactionTransactionFragment)
+        } catch {
+            // TODO: handle errors
+        }
+
+        return nil
+    }
 }
