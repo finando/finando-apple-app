@@ -2,9 +2,17 @@ import Foundation
 
 struct Balance: Equatable, Hashable {
     let date: Date
-    let cleared: Int
-    let uncleared: Int
-    let running: Int
+    var cleared: Int {
+        didSet {
+            running = cleared + uncleared
+        }
+    }
+    var uncleared: Int {
+        didSet {
+            running = cleared + uncleared
+        }
+    }
+    private(set) var running: Int
     let currency: String
 
     init(date: Date = Date(), cleared: Int = 0, uncleared: Int = 0, running: Int = 0, currency: String) {
