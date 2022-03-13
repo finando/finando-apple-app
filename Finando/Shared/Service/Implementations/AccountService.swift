@@ -26,7 +26,7 @@ final class AccountService: AccountServiceProtocol {
         return []
     }
 
-    func getAccount(id: String) async -> Account? {
+    func getAccount(id: Account.ID) async -> Account? {
         typealias Continuation = CheckedContinuation<GraphQLResult<GetAccountQuery.Data>, Error>
 
         do {
@@ -83,7 +83,7 @@ final class AccountService: AccountServiceProtocol {
         return nil
     }
 
-    func deleteBudgetAccount(id: String) async -> Account? {
+    func deleteBudgetAccount(id: Account.ID) async -> Account? {
         typealias Continuation = CheckedContinuation<GraphQLResult<DeleteBudgetAccountMutation.Data>, Error>
 
         do {
@@ -102,7 +102,7 @@ final class AccountService: AccountServiceProtocol {
         return nil
     }
 
-    func deleteTrackingAccount(id: String) async -> Account? {
+    func deleteTrackingAccount(id: Account.ID) async -> Account? {
         typealias Continuation = CheckedContinuation<GraphQLResult<DeleteTrackingAccountMutation.Data>, Error>
 
         do {

@@ -5,15 +5,15 @@ final class TransactionServiceMock: TransactionServiceProtocol {
         self.transactions = transactions
     }
 
-    func listTransactions(accountId: String) async -> [Transaction] {
+    func listTransactions(accountId: Account.ID) async -> [Transaction] {
         return transactions
     }
 
-    func listLatestTransactions(accountId: String, pagination: Pagination) async -> ([Transaction], Bool) {
+    func listLatestTransactions(accountId: Account.ID, pagination: Pagination) async -> ([Transaction], Bool) {
         return (transactions, false)
     }
 
-    func listScheduledTransactions(accountId: String) async -> [ScheduledTransaction] {
+    func listScheduledTransactions(accountId: Account.ID) async -> [ScheduledTransaction] {
         return []
     }
 

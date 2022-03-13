@@ -9,7 +9,7 @@ final class AccountServiceMock: AccountServiceProtocol {
         return accounts
     }
 
-    func getAccount(id: String) async -> Account? {
+    func getAccount(id: Account.ID) async -> Account? {
         return nil
     }
 
@@ -21,11 +21,11 @@ final class AccountServiceMock: AccountServiceProtocol {
         return nil
     }
 
-    func deleteBudgetAccount(id: String) async -> Account? {
+    func deleteBudgetAccount(id: Account.ID) async -> Account? {
         return nil
     }
 
-    func deleteTrackingAccount(id: String) async -> Account? {
+    func deleteTrackingAccount(id: Account.ID) async -> Account? {
         return nil
     }
 }
