@@ -1,0 +1,16 @@
+fragment DeleteTransaction_TransactionFragment on Transaction {
+  id
+  entries {
+    id
+    account
+    debit
+    credit
+    currency
+  }
+}
+
+mutation DeleteTransaction($id: ID!) {
+  transaction: deleteTransaction(id: $id) {
+    ...DeleteTransaction_TransactionFragment
+  }
+}

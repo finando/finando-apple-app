@@ -121,6 +121,8 @@
 		A59A8F5D27CA41D3000AA3D4 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59A8F5B27CA41D3000AA3D4 /* Pagination.swift */; };
 		A59A8F5F27CA57AF000AA3D4 /* ListLatestTransactions.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A59A8F5E27CA57AF000AA3D4 /* ListLatestTransactions.graphql */; };
 		A59A8F6027CA57AF000AA3D4 /* ListLatestTransactions.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A59A8F5E27CA57AF000AA3D4 /* ListLatestTransactions.graphql */; };
+		A59EB7FD27DE4AFD00481E2F /* DeleteTransaction.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A59EB7FC27DE4AFD00481E2F /* DeleteTransaction.graphql */; };
+		A59EB7FE27DE4AFD00481E2F /* DeleteTransaction.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A59EB7FC27DE4AFD00481E2F /* DeleteTransaction.graphql */; };
 		A5BB3E28277E0E14005F2A1E /* NewTransactionModalView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB3E27277E0E14005F2A1E /* NewTransactionModalView+iOS.swift */; };
 		A5C8FADC277D114800393167 /* CreateBudgetAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A5C8FADB277D114800393167 /* CreateBudgetAccount.graphql */; };
 		A5C8FADD277D114800393167 /* CreateBudgetAccount.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A5C8FADB277D114800393167 /* CreateBudgetAccount.graphql */; };
@@ -278,6 +280,7 @@
 		A593602427B1BF420047093A /* TransactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
 		A59A8F5B27CA41D3000AA3D4 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		A59A8F5E27CA57AF000AA3D4 /* ListLatestTransactions.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = ListLatestTransactions.graphql; sourceTree = "<group>"; };
+		A59EB7FC27DE4AFD00481E2F /* DeleteTransaction.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = DeleteTransaction.graphql; sourceTree = "<group>"; };
 		A5BB3E27277E0E14005F2A1E /* NewTransactionModalView+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewTransactionModalView+iOS.swift"; sourceTree = "<group>"; };
 		A5BB3E2C277E64B8005F2A1E /* Finando--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Finando--iOS--Info.plist"; sourceTree = "<group>"; };
 		A5C8FADB277D114800393167 /* CreateBudgetAccount.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CreateBudgetAccount.graphql; sourceTree = "<group>"; };
@@ -615,6 +618,7 @@
 				A5D749A227D957EF00F4B579 /* CreateTransaction.graphql */,
 				A5C8FAE2277D2E0A00393167 /* DeleteBudgetAccount.graphql */,
 				A5C8FAE5277D354B00393167 /* DeleteTrackingAccount.graphql */,
+				A59EB7FC27DE4AFD00481E2F /* DeleteTransaction.graphql */,
 				A59350D12773BE6400657D20 /* GetAccount.graphql */,
 				A59350D22773BE6400657D20 /* ListAccounts.graphql */,
 				A59A8F5E27CA57AF000AA3D4 /* ListLatestTransactions.graphql */,
@@ -828,6 +832,7 @@
 			files = (
 				BAB53E3F27C5410100DC820E /* ListScheduledTransactions.graphql in Resources */,
 				A5C8FADC277D114800393167 /* CreateBudgetAccount.graphql in Resources */,
+				A59EB7FD27DE4AFD00481E2F /* DeleteTransaction.graphql in Resources */,
 				A5C8FAE3277D2E0A00393167 /* DeleteBudgetAccount.graphql in Resources */,
 				A52C270627258A7200C35AB7 /* Assets.xcassets in Resources */,
 				A5C8FADF277D119300393167 /* CreateTrackingAccount.graphql in Resources */,
@@ -847,6 +852,7 @@
 			files = (
 				BAB53E4027C5410100DC820E /* ListScheduledTransactions.graphql in Resources */,
 				A5C8FADD277D114800393167 /* CreateBudgetAccount.graphql in Resources */,
+				A59EB7FE27DE4AFD00481E2F /* DeleteTransaction.graphql in Resources */,
 				A5C8FAE4277D2E0A00393167 /* DeleteBudgetAccount.graphql in Resources */,
 				A52C270727258A7200C35AB7 /* Assets.xcassets in Resources */,
 				A5C8FAE0277D119300393167 /* CreateTrackingAccount.graphql in Resources */,
