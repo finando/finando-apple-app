@@ -16,4 +16,8 @@ final class TransactionServiceMock: TransactionServiceProtocol {
     func listScheduledTransactions(accountId: String) async -> [ScheduledTransaction] {
         return []
     }
+
+    func createTransaction(data: CreateTransactionInput) async -> Transaction? {
+        return nil
+    }
 }

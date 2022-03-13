@@ -31,6 +31,10 @@ enum GraphQLResponseParser {
         return parseAccount(fragment: data)
     }
 
+    static func parse<T: TransactionFragment>(data: T?) -> Transaction? {
+        return parseTransaction(fragment: data)
+    }
+
     static func parse<T: TransactionFragment>(data: [T]?) -> [Transaction] {
         return data?.compactMap(parseTransaction(fragment:)) ?? []
     }
@@ -102,7 +106,7 @@ enum GraphQLResponseParser {
         )
     }
 
-    private static func parseTransaction(fragment: TransactionFragment) -> Transaction? {
+    private static func parseTransaction(fragment: TransactionFragment?) -> Transaction? {
         switch fragment {
         case let fragment as ListTransactionsTransactionFragment:
             return Transaction(
@@ -115,6 +119,16 @@ enum GraphQLResponseParser {
                 updatedAt: parseDate(date: fragment.updatedAt)
             )
         case let fragment as ListLatestTransactionsTransactionFragment:
+            return Transaction(
+                id: fragment.id,
+                entries: fragment.entries.map(parseEntry(fragment:)),
+                status: fragment.status,
+                description: fragment.description ?? "",
+                tags: fragment.tags,
+                createdAt: parseDate(date: fragment.createdAt),
+                updatedAt: parseDate(date: fragment.updatedAt)
+            )
+        case let fragment as CreateTransactionTransactionFragment:
             return Transaction(
                 id: fragment.id,
                 entries: fragment.entries.map(parseEntry(fragment:)),

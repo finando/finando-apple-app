@@ -72,4 +72,23 @@ final class TransactionService: TransactionServiceProtocol {
 
         return []
     }
+
+    func createTransaction(data: CreateTransactionInput) async -> Transaction? {
+        typealias Continuation = CheckedContinuation<GraphQLResult<CreateTransactionMutation.Data>, Error>
+
+        do {
+            let result = try await withCheckedThrowingContinuation { (continuation: Continuation) in
+                apolloClient.perform(
+                    mutation: GraphQLOperations.Mutation.createTransaction(data: data),
+                    resultHandler: continuation.resume(with:)
+                )
+            }
+
+            return GraphQLResponseParser.parse(data: result.data?.transaction.fragments.createTransactionTransactionFragment)
+        } catch {
+            // TODO: handle errors
+        }
+
+        return nil
+    }
 }

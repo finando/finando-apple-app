@@ -14,9 +14,11 @@ extension CreateTrackingAccountBalanceFragment: BalanceFragment {}
 
 extension ListTransactionsTransactionFragment: TransactionFragment {}
 extension ListLatestTransactionsTransactionFragment: TransactionFragment {}
+extension CreateTransactionTransactionFragment: TransactionFragment {}
 
 extension ListScheduledTransactionsScheduledTransactionFragment: ScheduledTransactionFragment {}
 
 extension ListTransactionsTransactionFragment.Entry: EntryFragment {}
 extension ListLatestTransactionsTransactionFragment.Entry: EntryFragment {}
 extension ListScheduledTransactionsScheduledTransactionFragment.Entry: EntryFragment {}
+extension CreateTransactionTransactionFragment.Entry: EntryFragment {}
