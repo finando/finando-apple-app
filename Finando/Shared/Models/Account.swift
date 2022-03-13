@@ -3,8 +3,13 @@ import Foundation
 class Account: Identifiable, Equatable, Hashable {
     let id: String
     let name: String?
-    let balance: Balance?
+    var balance: Balance? {
+        didSet {
+            revision = UUID()
+        }
+    }
     let balances: [Balance]?
+    private(set) var revision: UUID = UUID()
 
     init(id: String, name: String? = nil, balance: Balance? = nil, balances: [Balance]? = nil) {
         self.id = id

@@ -21,6 +21,7 @@ struct AccountsView: View {
                                         .padding(.horizontal, 16)
                                 }
                                 .buttonStyle(FlatLinkStyle())
+                                .id(account.revision)
                             }
                             .onDelete { index in
                                 print("DELETE ACCOUNT")
