@@ -13,6 +13,9 @@ enum TransactionsAction: Equatable {
     case listScheduledTransactionsRequested(accountId: Account.ID)
     case listScheduledTransactionsSucceeded(transactions: [ScheduledTransaction])
     case listScheduledTransactionsFailed
+    case createTransactionRequested(data: CreateTransactionInput)
+    case createTransactionSucceeded(transaction: Transaction)
+    case createTransactionFailed
 }
 
 extension CreateTransactionInput: Equatable {

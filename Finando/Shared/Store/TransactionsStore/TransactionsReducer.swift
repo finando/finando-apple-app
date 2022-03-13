@@ -112,5 +112,28 @@ let transactionsReducer = Reducer<
         state.isLoadingScheduledTransactions = false
 
         return .none
+    case .createTransactionRequested(data: let data):
+        state.isCreatingTransaction = true
+
+        return Effect
+            .task { await environment.transactionsService.createTransaction(data: data) }
+            .map { transaction in
+                if let transaction = transaction {
+                    return .createTransactionSucceeded(transaction: transaction)
+                }
+
+                return .createTransactionFailed
+            }
+            .receive(on: environment.mainQueue)
+            .eraseToEffect()
+    case .createTransactionSucceeded(transaction: let transaction):
+        state.latestTransactions.insert(transaction, at: 0)
+        state.isCreatingTransaction = false
+
+        return .none
+    case .createTransactionFailed:
+        state.isCreatingTransaction = false
+
+        return .none
     }
 }

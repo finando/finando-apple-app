@@ -9,4 +9,5 @@ struct TransactionsState: Equatable {
     var isLoadingLatestTransactions = false
     var isLoadingMoreLatestTransactions: Bool = false
     var isLoadingScheduledTransactions: Bool = false
+    var isCreatingTransaction: Bool = false
 }

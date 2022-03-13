@@ -38,6 +38,7 @@ let rootReducer = Reducer<
                 )
             }
         )
+        .relaying(/RootAction.transactions..TransactionsAction.createTransactionSucceeded, to: { .accounts(.updateAccountBalances(transaction: $0)) })
 )
 
 extension Reducer {
