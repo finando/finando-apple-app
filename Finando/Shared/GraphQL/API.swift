@@ -177,127 +177,101 @@ public enum TrackingAccountType: RawRepresentable, Equatable, Hashable, CaseIter
   }
 }
 
-public enum Frequency: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
-  public typealias RawValue = String
-  case annually
-  case daily
-  case monthly
-  case weekly
-  /// Auto generated constant for unknown enum values
-  case __unknown(RawValue)
-
-  public init?(rawValue: RawValue) {
-    switch rawValue {
-      case "ANNUALLY": self = .annually
-      case "DAILY": self = .daily
-      case "MONTHLY": self = .monthly
-      case "WEEKLY": self = .weekly
-      default: self = .__unknown(rawValue)
-    }
-  }
-
-  public var rawValue: RawValue {
-    switch self {
-      case .annually: return "ANNUALLY"
-      case .daily: return "DAILY"
-      case .monthly: return "MONTHLY"
-      case .weekly: return "WEEKLY"
-      case .__unknown(let value): return value
-    }
-  }
-
-  public static func == (lhs: Frequency, rhs: Frequency) -> Bool {
-    switch (lhs, rhs) {
-      case (.annually, .annually): return true
-      case (.daily, .daily): return true
-      case (.monthly, .monthly): return true
-      case (.weekly, .weekly): return true
-      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
-      default: return false
-    }
-  }
-
-  public static var allCases: [Frequency] {
-    return [
-      .annually,
-      .daily,
-      .monthly,
-      .weekly,
-    ]
-  }
-}
-
-public struct PaginationInput: GraphQLMapConvertible {
+public struct CreateTransactionInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
   /// - Parameters:
-  ///   - cursor
-  ///   - take
-  public init(cursor: Swift.Optional<String?> = nil, take: Swift.Optional<Int?> = nil) {
-    graphQLMap = ["cursor": cursor, "take": take]
+  ///   - createdAt
+  ///   - description
+  ///   - entries
+  ///   - tags
+  public init(createdAt: String, description: Swift.Optional<String?> = nil, entries: Swift.Optional<[CreateEntryInput]?> = nil, tags: Swift.Optional<[Tag]?> = nil) {
+    graphQLMap = ["createdAt": createdAt, "description": description, "entries": entries, "tags": tags]
   }
 
-  public var cursor: Swift.Optional<String?> {
+  public var createdAt: String {
     get {
-      return graphQLMap["cursor"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+      return graphQLMap["createdAt"] as! String
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "cursor")
+      graphQLMap.updateValue(newValue, forKey: "createdAt")
     }
   }
 
-  public var take: Swift.Optional<Int?> {
+  public var description: Swift.Optional<String?> {
     get {
-      return graphQLMap["take"] as? Swift.Optional<Int?> ?? Swift.Optional<Int?>.none
+      return graphQLMap["description"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "take")
+      graphQLMap.updateValue(newValue, forKey: "description")
+    }
+  }
+
+  public var entries: Swift.Optional<[CreateEntryInput]?> {
+    get {
+      return graphQLMap["entries"] as? Swift.Optional<[CreateEntryInput]?> ?? Swift.Optional<[CreateEntryInput]?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "entries")
+    }
+  }
+
+  public var tags: Swift.Optional<[Tag]?> {
+    get {
+      return graphQLMap["tags"] as? Swift.Optional<[Tag]?> ?? Swift.Optional<[Tag]?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "tags")
     }
   }
 }
 
-public enum TransactionStatus: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
-  public typealias RawValue = String
-  case cleared
-  case reconciled
-  case uncleared
-  /// Auto generated constant for unknown enum values
-  case __unknown(RawValue)
+public struct CreateEntryInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
 
-  public init?(rawValue: RawValue) {
-    switch rawValue {
-      case "CLEARED": self = .cleared
-      case "RECONCILED": self = .reconciled
-      case "UNCLEARED": self = .uncleared
-      default: self = .__unknown(rawValue)
+  /// - Parameters:
+  ///   - account
+  ///   - credit
+  ///   - currency
+  ///   - debit
+  public init(account: GraphQLID, credit: String, currency: String, debit: String) {
+    graphQLMap = ["account": account, "credit": credit, "currency": currency, "debit": debit]
+  }
+
+  public var account: GraphQLID {
+    get {
+      return graphQLMap["account"] as! GraphQLID
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "account")
     }
   }
 
-  public var rawValue: RawValue {
-    switch self {
-      case .cleared: return "CLEARED"
-      case .reconciled: return "RECONCILED"
-      case .uncleared: return "UNCLEARED"
-      case .__unknown(let value): return value
+  public var credit: String {
+    get {
+      return graphQLMap["credit"] as! String
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "credit")
     }
   }
 
-  public static func == (lhs: TransactionStatus, rhs: TransactionStatus) -> Bool {
-    switch (lhs, rhs) {
-      case (.cleared, .cleared): return true
-      case (.reconciled, .reconciled): return true
-      case (.uncleared, .uncleared): return true
-      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
-      default: return false
+  public var currency: String {
+    get {
+      return graphQLMap["currency"] as! String
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "currency")
     }
   }
 
-  public static var allCases: [TransactionStatus] {
-    return [
-      .cleared,
-      .reconciled,
-      .uncleared,
-    ]
+  public var debit: String {
+    get {
+      return graphQLMap["debit"] as! String
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "debit")
+    }
   }
 }
 
@@ -836,6 +810,130 @@ public enum Tag: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSO
   }
 }
 
+public enum Frequency: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  case annually
+  case daily
+  case monthly
+  case weekly
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "ANNUALLY": self = .annually
+      case "DAILY": self = .daily
+      case "MONTHLY": self = .monthly
+      case "WEEKLY": self = .weekly
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .annually: return "ANNUALLY"
+      case .daily: return "DAILY"
+      case .monthly: return "MONTHLY"
+      case .weekly: return "WEEKLY"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: Frequency, rhs: Frequency) -> Bool {
+    switch (lhs, rhs) {
+      case (.annually, .annually): return true
+      case (.daily, .daily): return true
+      case (.monthly, .monthly): return true
+      case (.weekly, .weekly): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+
+  public static var allCases: [Frequency] {
+    return [
+      .annually,
+      .daily,
+      .monthly,
+      .weekly,
+    ]
+  }
+}
+
+public struct PaginationInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  /// - Parameters:
+  ///   - cursor
+  ///   - take
+  public init(cursor: Swift.Optional<String?> = nil, take: Swift.Optional<Int?> = nil) {
+    graphQLMap = ["cursor": cursor, "take": take]
+  }
+
+  public var cursor: Swift.Optional<String?> {
+    get {
+      return graphQLMap["cursor"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "cursor")
+    }
+  }
+
+  public var take: Swift.Optional<Int?> {
+    get {
+      return graphQLMap["take"] as? Swift.Optional<Int?> ?? Swift.Optional<Int?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "take")
+    }
+  }
+}
+
+public enum TransactionStatus: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  case cleared
+  case reconciled
+  case uncleared
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "CLEARED": self = .cleared
+      case "RECONCILED": self = .reconciled
+      case "UNCLEARED": self = .uncleared
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .cleared: return "CLEARED"
+      case .reconciled: return "RECONCILED"
+      case .uncleared: return "UNCLEARED"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: TransactionStatus, rhs: TransactionStatus) -> Bool {
+    switch (lhs, rhs) {
+      case (.cleared, .cleared): return true
+      case (.reconciled, .reconciled): return true
+      case (.uncleared, .uncleared): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+
+  public static var allCases: [TransactionStatus] {
+    return [
+      .cleared,
+      .reconciled,
+      .uncleared,
+    ]
+  }
+}
+
 public final class CreateBudgetAccountMutation: GraphQLMutation {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
@@ -1056,6 +1154,118 @@ public final class CreateTrackingAccountMutation: GraphQLMutation {
         public var createTrackingAccountTrackingAccountFragment: CreateTrackingAccountTrackingAccountFragment {
           get {
             return CreateTrackingAccountTrackingAccountFragment(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+      }
+    }
+  }
+}
+
+public final class CreateTransactionMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation CreateTransaction($data: CreateTransactionInput!) {
+      transaction: createTransaction(data: $data) {
+        __typename
+        ...CreateTransaction_TransactionFragment
+      }
+    }
+    """
+
+  public let operationName: String = "CreateTransaction"
+
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + CreateTransactionTransactionFragment.fragmentDefinition)
+    return document
+  }
+
+  public var data: CreateTransactionInput
+
+  public init(data: CreateTransactionInput) {
+    self.data = data
+  }
+
+  public var variables: GraphQLMap? {
+    return ["data": data]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("createTransaction", alias: "transaction", arguments: ["data": GraphQLVariable("data")], type: .nonNull(.object(Transaction.selections))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(transaction: Transaction) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "transaction": transaction.resultMap])
+    }
+
+    public var transaction: Transaction {
+      get {
+        return Transaction(unsafeResultMap: resultMap["transaction"]! as! ResultMap)
+      }
+      set {
+        resultMap.updateValue(newValue.resultMap, forKey: "transaction")
+      }
+    }
+
+    public struct Transaction: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Transaction"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLFragmentSpread(CreateTransactionTransactionFragment.self),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var fragments: Fragments {
+        get {
+          return Fragments(unsafeResultMap: resultMap)
+        }
+        set {
+          resultMap += newValue.resultMap
+        }
+      }
+
+      public struct Fragments {
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var createTransactionTransactionFragment: CreateTransactionTransactionFragment {
+          get {
+            return CreateTransactionTransactionFragment(unsafeResultMap: resultMap)
           }
           set {
             resultMap += newValue.resultMap
@@ -2363,6 +2573,206 @@ public struct CreateTrackingAccountTrackingAccountFragment: GraphQLFragment {
         set {
           resultMap += newValue.resultMap
         }
+      }
+    }
+  }
+}
+
+public struct CreateTransactionTransactionFragment: GraphQLFragment {
+  /// The raw GraphQL definition of this fragment.
+  public static let fragmentDefinition: String =
+    """
+    fragment CreateTransaction_TransactionFragment on Transaction {
+      __typename
+      id
+      entries {
+        __typename
+        id
+        account
+        debit
+        credit
+        currency
+      }
+      status
+      description
+      tags
+      createdAt
+      updatedAt
+    }
+    """
+
+  public static let possibleTypes: [String] = ["Transaction"]
+
+  public static var selections: [GraphQLSelection] {
+    return [
+      GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+      GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+      GraphQLField("entries", type: .nonNull(.list(.nonNull(.object(Entry.selections))))),
+      GraphQLField("status", type: .nonNull(.scalar(TransactionStatus.self))),
+      GraphQLField("description", type: .scalar(String.self)),
+      GraphQLField("tags", type: .nonNull(.list(.nonNull(.scalar(Tag.self))))),
+      GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
+      GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
+    ]
+  }
+
+  public private(set) var resultMap: ResultMap
+
+  public init(unsafeResultMap: ResultMap) {
+    self.resultMap = unsafeResultMap
+  }
+
+  public init(id: GraphQLID, entries: [Entry], status: TransactionStatus, description: String? = nil, tags: [Tag], createdAt: String, updatedAt: String) {
+    self.init(unsafeResultMap: ["__typename": "Transaction", "id": id, "entries": entries.map { (value: Entry) -> ResultMap in value.resultMap }, "status": status, "description": description, "tags": tags, "createdAt": createdAt, "updatedAt": updatedAt])
+  }
+
+  public var __typename: String {
+    get {
+      return resultMap["__typename"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "__typename")
+    }
+  }
+
+  public var id: GraphQLID {
+    get {
+      return resultMap["id"]! as! GraphQLID
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "id")
+    }
+  }
+
+  public var entries: [Entry] {
+    get {
+      return (resultMap["entries"] as! [ResultMap]).map { (value: ResultMap) -> Entry in Entry(unsafeResultMap: value) }
+    }
+    set {
+      resultMap.updateValue(newValue.map { (value: Entry) -> ResultMap in value.resultMap }, forKey: "entries")
+    }
+  }
+
+  public var status: TransactionStatus {
+    get {
+      return resultMap["status"]! as! TransactionStatus
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "status")
+    }
+  }
+
+  public var description: String? {
+    get {
+      return resultMap["description"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "description")
+    }
+  }
+
+  public var tags: [Tag] {
+    get {
+      return resultMap["tags"]! as! [Tag]
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "tags")
+    }
+  }
+
+  public var createdAt: String {
+    get {
+      return resultMap["createdAt"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "createdAt")
+    }
+  }
+
+  public var updatedAt: String {
+    get {
+      return resultMap["updatedAt"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "updatedAt")
+    }
+  }
+
+  public struct Entry: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Entry"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+        GraphQLField("account", type: .nonNull(.scalar(GraphQLID.self))),
+        GraphQLField("debit", type: .nonNull(.scalar(String.self))),
+        GraphQLField("credit", type: .nonNull(.scalar(String.self))),
+        GraphQLField("currency", type: .nonNull(.scalar(String.self))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(id: GraphQLID, account: GraphQLID, debit: String, credit: String, currency: String) {
+      self.init(unsafeResultMap: ["__typename": "Entry", "id": id, "account": account, "debit": debit, "credit": credit, "currency": currency])
+    }
+
+    public var __typename: String {
+      get {
+        return resultMap["__typename"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "__typename")
+      }
+    }
+
+    public var id: GraphQLID {
+      get {
+        return resultMap["id"]! as! GraphQLID
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "id")
+      }
+    }
+
+    public var account: GraphQLID {
+      get {
+        return resultMap["account"]! as! GraphQLID
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "account")
+      }
+    }
+
+    public var debit: String {
+      get {
+        return resultMap["debit"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "debit")
+      }
+    }
+
+    public var credit: String {
+      get {
+        return resultMap["credit"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "credit")
+      }
+    }
+
+    public var currency: String {
+      get {
+        return resultMap["currency"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "currency")
       }
     }
   }

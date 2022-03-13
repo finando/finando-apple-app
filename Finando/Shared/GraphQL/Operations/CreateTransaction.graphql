@@ -1,0 +1,21 @@
+fragment CreateTransaction_TransactionFragment on Transaction {
+  id
+  entries {
+    id
+    account
+    debit
+    credit
+    currency
+  }
+  status
+  description
+  tags
+  createdAt
+  updatedAt
+}
+
+mutation CreateTransaction($data: CreateTransactionInput!) {
+  transaction: createTransaction(data: $data) {
+    ...CreateTransaction_TransactionFragment
+  }
+}
