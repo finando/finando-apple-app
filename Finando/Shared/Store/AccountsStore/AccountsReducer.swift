@@ -122,8 +122,9 @@ let accountsReducer = Reducer<
         state.isDeletingAccount = false
 
         return .none
-    case .updateAccountBalances(transaction: let transaction):
-        transaction.entries.forEach { state.accounts[id: $0.account]?.balance?.cleared += ($0.debit - $0.credit) }
+    case .updateAccountBalances(createdTransaction: let createdTransaction, updatedTransaction: let updatedTransaction, deletedTransaction: let deletedTransaction):
+        createdTransaction?.entries.forEach { state.accounts[id: $0.account]?.balance?.cleared += ($0.debit - $0.credit) }
+        deletedTransaction?.entries.forEach { state.accounts[id: $0.account]?.balance?.cleared -= ($0.debit - $0.credit) }
 
         return .none
     }

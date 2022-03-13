@@ -135,5 +135,28 @@ let transactionsReducer = Reducer<
         state.isCreatingTransaction = false
 
         return .none
+    case .deleteTransactionRequested(id: let id):
+        state.isDeletingTransaction = true
+
+        return Effect
+            .task { await environment.transactionsService.deleteTransaction(id: id) }
+            .map { transaction in
+                if let transaction = transaction {
+                    return .deleteTransactionSucceeded(transaction: transaction)
+                }
+
+                return .deleteTransactionFailed
+            }
+            .receive(on: environment.mainQueue)
+            .eraseToEffect()
+    case .deleteTransactionSucceeded(transaction: let transaction):
+        state.isDeletingTransaction = false
+        state.transactions.remove(transaction)
+
+        return .none
+    case .deleteTransactionFailed:
+        state.isDeletingTransaction = false
+
+        return .none
     }
 }

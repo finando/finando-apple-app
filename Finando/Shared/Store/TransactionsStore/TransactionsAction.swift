@@ -16,6 +16,9 @@ enum TransactionsAction: Equatable {
     case createTransactionRequested(data: CreateTransactionInput)
     case createTransactionSucceeded(transaction: Transaction)
     case createTransactionFailed
+    case deleteTransactionRequested(id: Transaction.ID)
+    case deleteTransactionSucceeded(transaction: Transaction)
+    case deleteTransactionFailed
 }
 
 extension CreateTransactionInput: Equatable {

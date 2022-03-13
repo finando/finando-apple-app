@@ -16,7 +16,7 @@ enum AccountsAction: Equatable {
     case deleteTrackingAccountRequested(id: Account.ID)
     case deleteTrackingAccountSucceeded(account: Account)
     case deleteTrackingAccountFailed
-    case updateAccountBalances(transaction: Transaction)
+    case updateAccountBalances(createdTransaction: Transaction? = nil, updatedTransaction: Transaction? = nil, deletedTransaction: Transaction? = nil)
 }
 
 extension CreateBudgetAccountInput: Equatable {
